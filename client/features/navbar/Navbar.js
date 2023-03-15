@@ -7,11 +7,12 @@ import { authenticate } from "../../app/store";
 const Navbar = () => {
   const user = useSelector((state) => state.auth);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
-    navigate('/login');
+    navigate("/login");
   };
 
   
