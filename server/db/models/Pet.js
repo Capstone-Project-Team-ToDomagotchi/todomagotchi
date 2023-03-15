@@ -1,9 +1,5 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-
-const SALT_ROUNDS = 5;
 
 const Pet = db.define("pet", {
   name: {
@@ -23,7 +19,7 @@ const Pet = db.define("pet", {
   species: {
     type: Sequelize.STRING,
   },
-  lifePoints: {
+  experience: {
     type: Sequelize.INTEGER,
   },
 });
