@@ -19,8 +19,8 @@ const User = db.define("user", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  image: {
-    type: Sequelize.STRING,
+  profilePic: {
+    type: Sequelize.TEXT,
     defaultValue:
       "https://www.freepik.com/free-photo/cute-business-woman-idea-thinking-present-pink-background-3d-rendering_25694126.htm#query=avatar&position=2&from_view=search&track=sph",
   },
