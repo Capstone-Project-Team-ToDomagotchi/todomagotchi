@@ -18,6 +18,8 @@ const ToDo = db.define("todo", {
   },
   isCompleted: {
     type: Sequelize.BOOLEAN,
+    defaultValue: false,
   },
 });
+
 module.exports = ToDo;

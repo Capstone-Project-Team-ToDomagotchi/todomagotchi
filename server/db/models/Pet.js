@@ -19,7 +19,7 @@ const Pet = db.define("pet", {
   species: {
     type: Sequelize.STRING,
   },
-  lifePoints: {
+  experience: {
     type: Sequelize.INTEGER,
   },
 });
