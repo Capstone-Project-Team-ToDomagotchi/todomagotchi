@@ -23,6 +23,8 @@ const AuthForm = ({ name, displayName }) => {
       const email = evt.target.email.value;
       const displayName = evt.target.displayName.value;
       const pronouns = evt.target.pronouns.value;
+      const formData = new FormData();
+      formData.append('profilePic', evt.target.profilePic.files[0]);
       dispatch(
         authenticate({
           username,
@@ -31,6 +33,7 @@ const AuthForm = ({ name, displayName }) => {
           displayName,
           pronouns,
           method: formName,
+          profilePic: formData.get('profilePic'),
         })
       );
 
@@ -62,6 +65,10 @@ const AuthForm = ({ name, displayName }) => {
               <small>Password</small>
             </label>
             <input name="password" type="password" />
+            <label htmlFor="profilePic">
+              <small>Profile Picture</small>
+            </label>
+            <input name="profilePic" type="file" accept="image/*" />
             <button className="btn primary-btn" type="submit">{displayName}</button>
           {error && <div> {error} </div>}
         </form>
@@ -71,3 +78,4 @@ const AuthForm = ({ name, displayName }) => {
 };
 
 export default AuthForm;
+
