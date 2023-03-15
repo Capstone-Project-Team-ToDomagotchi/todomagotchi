@@ -8,17 +8,21 @@ const SALT_ROUNDS = 5;
 const User = db.define("user", {
   username: {
     type: Sequelize.STRING,
-    unique: true,
-    allowNull: false,
+    // unique: true,
+    //allowNull: false,
   },
   email: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      isEmail: true,
+    },
   },
   password: {
     type: Sequelize.STRING,
     allowNull: false,
   },
+
   profilePic: {
     type: Sequelize.TEXT,
     defaultValue:

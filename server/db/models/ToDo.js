@@ -23,4 +23,3 @@ const ToDo = db.define("todo", {
 });
 
 module.exports = ToDo;
-
