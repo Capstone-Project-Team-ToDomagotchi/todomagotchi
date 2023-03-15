@@ -24,3 +24,5 @@ const ToDo = db.define("todo", {
     type: Sequelize.BOOLEAN,
   },
 });
+
+module.exports = ToDo

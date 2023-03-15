@@ -27,3 +27,5 @@ const Pet = db.define("pet", {
     type: Sequelize.INTEGER,
   },
 });
+
+module.exports = Pet;
