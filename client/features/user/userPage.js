@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSingleUser, fetchSingleUser } from "UserSlice.js"
 import { selectSingleUser } from './UserSlice';
@@ -7,13 +6,12 @@ import { selectSingleUser } from './UserSlice';
 //This component is unfinished, still need to add details and make sure it works 
 const User = () => {
   const dispatch = useDispatch();
-  const { userId } = useParams();
 
   const singleUser = useSelector(selectSingleUser);
   const { displayName, profilePic, pronouns } = singleUser;
 
   useEffect(() => {
-    dispatchEvent(fetchSingleUser(userId));
+    dispatchEvent(fetchSingleUser(id));
   }, [dispatch]);
 
   return (
