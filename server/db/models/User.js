@@ -8,12 +8,15 @@ const SALT_ROUNDS = 5;
 const User = db.define("user", {
   username: {
     type: Sequelize.STRING,
-    unique: true,
-    allowNull: false,
+    // unique: true,
+    //allowNull: false,
   },
   email: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      isEmail: true,
+    },
   },
   password: {
     type: Sequelize.STRING,
@@ -21,8 +24,7 @@ const User = db.define("user", {
   },
   image: {
     type: Sequelize.STRING,
-    defaultValue:
-      "https://www.freepik.com/free-photo/cute-business-woman-idea-thinking-present-pink-background-3d-rendering_25694126.htm#query=avatar&position=2&from_view=search&track=sph",
+      allowNull: true,
   },
   pronouns: {
     type: Sequelize.STRING,
