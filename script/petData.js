@@ -14,11 +14,11 @@ function createPet() {
     const age = faker.datatype.number({min:1, max:5});
     const type = faker.helpers.arrayElement(['plant','monster'], 1);
     const species = faker.lorem.word(1);
-    const lifePoints = faker.datatype.number({min:0, max:50});
     const image = faker.image.imageUrl(true);
+    const userId = faker.datatype.number({min:1, max:10});
 
     return {
-        name, age, type, species, lifePoints, image
+        name, age, type, species, image, userId
     };
 }
 
