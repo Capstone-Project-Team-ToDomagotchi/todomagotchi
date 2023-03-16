@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import {
-  fetchSinglePetAsync,
-  selectSinglePet,
-} from "./petSlice";
+import { fetchSinglePetAsync, selectSinglePet } from "./petSlice";
 
 const PetProfile = () => {
   const dispatch = useDispatch();
@@ -24,8 +21,8 @@ const PetProfile = () => {
     image,
     age,
     species,
-    // experience,
-    user,
+    experience,
+    // user,
   } = singlePet.pet;
 
   console.log(id);
@@ -39,9 +36,9 @@ const PetProfile = () => {
         <h4>{age}</h4>
         <h3>Species:</h3>
         <h4>{species}</h4>
-        <h3>Owner:</h3>
-        <h4>{user}</h4>
-        {/* <p>EXP: {experience}</p> */}
+        {/* <h3>Owner:</h3>
+        <h4>{user}</h4> */}
+        <p>EXP: {experience}</p>
         {/* ^^Need to implement a bar that shows how close to the next level^^  */}
       </div>
     </section>

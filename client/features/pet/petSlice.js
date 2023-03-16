@@ -2,11 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchSinglePetAsync = createAsyncThunk(
-  "singlePet",
+  "pets/singlePet",
   async (id) => {
     try {
       const { data } = await axios.get(`/api/pets/${id}`);
-      console.log("data:", data)
+      console.log("data:", data);
       return data;
     } catch (err) {
       console.log(err);
@@ -36,15 +36,15 @@ export const singlePetSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSinglePetAsync.fulfilled, (state, action) => {
-      state.pet = action.payload;
+      return action.payload;
     });
     builder.addCase(addExpToPet.fulfilled, (state, action) => {
       state.pet = action.payload;
-    })
-    // builder.addCase(editArtworkAsync.fulfilled, (state, action) => {
+    });
+    // builder.addCase(editPetAsync.fulfilled, (state, action) => {
     //   state = action.payload;
     // });
-  },
+  }
 });
 
 export const selectSinglePet = (state) => {
