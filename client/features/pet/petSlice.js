@@ -14,6 +14,15 @@ export const fetchSinglePetAsync = createAsyncThunk(
   }
 );
 
+export const addExpToPet = createAsyncThunk(
+  'expUp', async ({id, experience}) => {
+    const {data} = await axios.put(`api/pets/${id}`, {
+      id: id,
+      experience: experience,
+    })
+    return data;
+  }
+)
 //increment the experience by updating the todo?
 
 
@@ -27,15 +36,18 @@ export const singlePetSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSinglePetAsync.fulfilled, (state, action) => {
-      state.artwork = action.payload;
+      state.pet = action.payload;
     });
+    builder.addCase(addExpToPet.fulfilled, (state, action) => {
+      state.pet = action.payload;
+    })
     // builder.addCase(editArtworkAsync.fulfilled, (state, action) => {
     //   state = action.payload;
     // });
   },
 });
 
-export const selectSingleAPet = (state) => {
+export const selectSinglePet = (state) => {
   return state.pet;
 };
 
