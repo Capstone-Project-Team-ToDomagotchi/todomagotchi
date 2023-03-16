@@ -20,9 +20,9 @@ const Navbar = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const formName = "login";
-    const userName = evt.target.userName.value;
+    const username = evt.target.username.value;
     const password = evt.target.password.value;
-    dispatch(authenticate({ userName, password, method: formName }));
+    dispatch(authenticate({ username, password, method: formName }));
   };
   
   useEffect(() => {
@@ -53,10 +53,10 @@ const Navbar = () => {
                     </div>
                     <div>
                       <form className="gap-1" id="login-form" onSubmit={handleSubmit}>
-                          <label htmlFor="userName">
-                            <small>Username</small>
+                          <label htmlFor="username">
+                            <small>username</small>
                           </label>
-                          <input name="userName" type="text" />
+                          <input name="username" type="text" />
                           <label htmlFor="password">
                             <small>Password</small>
                           </label>
