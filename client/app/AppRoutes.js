@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
+import SingleTodo from '../features/todo/todoDetail';
+import Todos from '../features/todo/todoList';
 import { me } from './store';
 
 /**
@@ -22,7 +24,9 @@ const AppRoutes = () => {
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
-          <Route to="/home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/todos" element={<Todos />} />
+          <Route path="/todos/:id" element={<SingleTodo />} />
         </Routes>
       ) : (
         <Routes>

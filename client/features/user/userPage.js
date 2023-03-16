@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { selectSingleUser, fetchSingleUser } from "UserSlice.js"
-import { selectSingleUser } from './UserSlice';
+import { selectSingleUser, fetchSingleUser } from "./userSlice"
 
 //This component is unfinished, still need to add details and make sure it works 
 const User = () => {
