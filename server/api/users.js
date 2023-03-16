@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User, Pet, ToDo } = require('../db')
+const {User, Pet, ToDo} = require('../db')
 module.exports = router
 
 //Get route for all users 

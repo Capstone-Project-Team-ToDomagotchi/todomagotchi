@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, ToDo, Pet } = require("../db");
+const {User, ToDo, Pet} = require("../db");
 
 router.get("/:id", async (req, res, next) => {
   try {
