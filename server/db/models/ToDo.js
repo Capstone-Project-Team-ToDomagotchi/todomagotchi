@@ -1,9 +1,5 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-
-const SALT_ROUNDS = 5;
 
 const ToDo = db.define("todo", {
   dueDate: {
@@ -22,5 +18,8 @@ const ToDo = db.define("todo", {
   },
   isCompleted: {
     type: Sequelize.BOOLEAN,
+    defaultValue: false,
   },
 });
+
+module.exports = ToDo;
