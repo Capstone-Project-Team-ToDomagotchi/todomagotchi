@@ -23,8 +23,8 @@ const AuthForm = ({ name, displayName }) => {
       const email = evt.target.email.value;
       const displayName = evt.target.displayName.value;
       const pronouns = evt.target.pronouns.value;
-      const formData = new FormData();
-      formData.append('profilePic', evt.target.profilePic.files[0]);
+      const profilePic = evt.target.profilePic.files[0];
+      const profilePicUrl = URL.createObjectURL(profilePic); // create URL for the image file
       dispatch(
         authenticate({
           username,
@@ -33,13 +33,14 @@ const AuthForm = ({ name, displayName }) => {
           displayName,
           pronouns,
           method: formName,
-          profilePic: formData.get('profilePic'),
+          profilePic: profilePicUrl, // pass the URL to the authenticate action
         })
       );
-
+  
       navigate("/landing");
     }
   };
+
 
   if (displayName === "Sign Up") {
     return (
