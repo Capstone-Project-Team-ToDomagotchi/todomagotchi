@@ -18,7 +18,7 @@ const AuthForm = ({ name, displayName }) => {
     evt.preventDefault();
     if (displayName === "Sign Up") {
       const formName = evt.target.name;
-      const userName = evt.target.username.value;
+      const userName = evt.target.userName.value;
       const password = evt.target.password.value;
       const email = evt.target.email.value;
       const displayName = evt.target.displayName.value;
