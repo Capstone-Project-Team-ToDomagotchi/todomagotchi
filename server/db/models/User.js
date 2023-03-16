@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 5;
 
 const User = db.define("user", {
-  username: {
+  userName: {
     type: Sequelize.STRING,
     // unique: true,
     //allowNull: false,
@@ -26,7 +26,7 @@ const User = db.define("user", {
   profilePic: {
     type: Sequelize.TEXT,
     defaultValue:
-      "https://www.freepik.com/free-photo/cute-business-woman-idea-thinking-present-pink-background-3d-rendering_25694126.htm#query=avatar&position=2&from_view=search&track=sph",
+      "/pfp.png",
   },
   pronouns: {
     type: Sequelize.STRING,
@@ -53,8 +53,8 @@ User.prototype.generateToken = function () {
 /**
  * classMethods
  */
-User.authenticate = async function ({ username, password }) {
-  const user = await this.findOne({ where: { username } });
+User.authenticate = async function ({ userName, password }) {
+  const user = await this.findOne({ where: { userName } });
   if (!user || !(await user.correctPassword(password))) {
     const error = Error("Incorrect username/password");
     error.status = 401;
