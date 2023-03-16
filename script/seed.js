@@ -6,8 +6,8 @@ const todoSeed = require('./todosData');
 
 async function seed() {
   await db.sync({force: true})
-  await petSeed();
   await userSeed();
+  await petSeed();
   await todoSeed();
   console.log('seeding successful!');
 }
