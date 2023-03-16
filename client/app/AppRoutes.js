@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
 import { me } from './store';
-import PetProfile from '../features/pet/petProfile';
+import PetProfile from "../features/pet/petSlice";
 
 /**
  * COMPONENT

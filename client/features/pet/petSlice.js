@@ -16,7 +16,7 @@ export const fetchSinglePetAsync = createAsyncThunk(
 
 export const addExpToPet = createAsyncThunk(
   'expUp', async ({id, experience}) => {
-    const {data} = await axios.put(`api/pets/${id}`, {
+    const {data} = await axios.put(`/api/pets/${id}`, {
       id: id,
       experience: experience,
     })

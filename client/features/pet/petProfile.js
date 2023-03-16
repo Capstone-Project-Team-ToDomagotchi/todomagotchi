@@ -24,8 +24,8 @@ const PetProfile = () => {
     image,
     age,
     species,
-    experience,
-    owner,
+    // experience,
+    user,
   } = singlePet.pet;
 
   console.log(id);
@@ -40,8 +40,8 @@ const PetProfile = () => {
         <h3>Species:</h3>
         <h4>{species}</h4>
         <h3>Owner:</h3>
-        <h4>{owner.displayName}</h4>
-        <p>EXP: {experience}</p>
+        <h4>{user}</h4>
+        {/* <p>EXP: {experience}</p> */}
         {/* ^^Need to implement a bar that shows how close to the next level^^  */}
       </div>
     </section>
