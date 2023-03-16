@@ -6,6 +6,7 @@ import Home from '../features/home/Home';
 import SingleTodo from '../features/todo/todoDetail';
 import Todos from '../features/todo/todoList';
 import { me } from './store';
+import PetProfile from '../features/pet/PetProfile';
 
 /**
  * COMPONENT
@@ -27,6 +28,8 @@ const AppRoutes = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/todos" element={<Todos />} />
           <Route path="/todos/:id" element={<SingleTodo />} />
+          <Route path="/pets/:id" element={<PetProfile/>} />
+
         </Routes>
       ) : (
         <Routes>
