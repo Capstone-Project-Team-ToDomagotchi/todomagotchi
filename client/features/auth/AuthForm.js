@@ -48,16 +48,16 @@ const AuthForm = ({ name, displayName }) => {
       <main id="signup" className="container">
         <form className="form" onSubmit={handleSubmit} name={name}>
           <div className="form-group">
-            <label htmlFor="firstName" className="form-label">
-              First Name
+            <label htmlFor="displayName" className="form-label">
+              Display Name
             </label>
-            <input name="firstName" type="text" className="form-control" />
+            <input name="displayName" type="text" className="form-control" />
           </div>
           <div className="form-group">
-            <label htmlFor="lastName" className="form-label">
-              Last Name
+            <label htmlFor="pronouns" className="form-label">
+              pronouns
             </label>
-            <input name="lastName" type="text" className="form-control" />
+            <input name="pronouns" type="text" className="form-control" />
           </div>
           <div className="form-group">
             <label htmlFor="email" className="form-label">
@@ -66,10 +66,10 @@ const AuthForm = ({ name, displayName }) => {
             <input name="email" type="text" className="form-control" />
           </div>
           <div className="form-group">
-            <label htmlFor="userName" className="form-label">
+            <label htmlFor="username" className="form-label">
               Username
             </label>
-            <input name="userName" type="text" className="form-control" />
+            <input name="username" type="text" className="form-control" />
           </div>
           <div className="form-group">
             <label htmlFor="password" className="form-label">
