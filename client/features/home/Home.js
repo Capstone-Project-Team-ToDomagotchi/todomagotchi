@@ -11,7 +11,7 @@ const Home = (props) => {
 
   return (
     <div>
-      <h3>Welcome, {userName}</h3>
+      <h3>Welcome, {username}</h3>
       <img src={profilePic} alt="Profile Picture" />
  
     </div>
