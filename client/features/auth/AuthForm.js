@@ -18,7 +18,7 @@ const AuthForm = ({ name, displayName }) => {
     evt.preventDefault();
     if (displayName === "Sign Up") {
       const formName = evt.target.name;
-      const userName = evt.target.userName.value;
+      const username = evt.target.username.value;
       const password = evt.target.password.value;
       const email = evt.target.email.value;
       const displayName = evt.target.displayName.value;
@@ -27,7 +27,7 @@ const AuthForm = ({ name, displayName }) => {
       formData.append('profilePic', evt.target.profilePic.files[0]);
       dispatch(
         authenticate({
-          userName,
+          username,
           password,
           email,
           displayName,
@@ -57,10 +57,10 @@ const AuthForm = ({ name, displayName }) => {
               <small>Email</small>
             </label>
             <input name="email" type="text" />
-            <label htmlFor="userName">
-              <small>Username</small>
+            <label htmlFor="username">
+              <small>username</small>
             </label>
-            <input name="userName" type="text" />
+            <input name="username" type="text" />
             <label htmlFor="password">
               <small>Password</small>
             </label>
