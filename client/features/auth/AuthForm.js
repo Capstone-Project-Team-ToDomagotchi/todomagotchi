@@ -15,31 +15,32 @@ const AuthForm = ({ name, displayName }) => {
   const navigate = useNavigate();
 
   const handleSubmit = (evt) => {
-    evt.preventDefault();
-    if (displayName === "Sign Up") {
-      const formName = evt.target.name;
-      const userName = evt.target.userName.value;
-      const password = evt.target.password.value;
-      const email = evt.target.email.value;
-      const displayName = evt.target.displayName.value;
-      const pronouns = evt.target.pronouns.value;
-      const formData = new FormData();
-      formData.append('profilePic', evt.target.profilePic.files[0]);
-      dispatch(
-        authenticate({
-          userName,
-          password,
-          email,
-          displayName,
-          pronouns,
-          method: formName,
-          profilePic: formData.get('profilePic'),
-        })
-      );
+  evt.preventDefault();
+  if (displayName === "Sign Up") {
+    const formName = evt.target.name;
+    const userName = evt.target.userName.value;
+    const password = evt.target.password.value;
+    const email = evt.target.email.value;
+    const displayName = evt.target.displayName.value;
+    const pronouns = evt.target.pronouns.value;
+    const profilePic = evt.target.profilePic.files[0];
+    const profilePicUrl = URL.createObjectURL(profilePic); // create URL for the image file
+    dispatch(
+      authenticate({
+        userName,
+        password,
+        email,
+        displayName,
+        pronouns,
+        method: formName,
+        profilePic: profilePicUrl, // pass the URL to the authenticate action
+      })
+    );
 
-      navigate("/landing");
-    }
-  };
+    navigate("/landing");
+  }
+};
+
 
   if (displayName === "Sign Up") {
     return (
