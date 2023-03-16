@@ -21,6 +21,7 @@ const Pet = db.define("pet", {
   },
   experience: {
     type: Sequelize.INTEGER,
+    defaultValue: 0,
   },
 });
 

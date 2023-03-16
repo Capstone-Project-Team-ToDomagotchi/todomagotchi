@@ -7,9 +7,9 @@ router.get("/:id", async (req, res, next) => {
       where: { id: req.params.id },
       include: {
         model: User,
-        as: "owner",
+        // as: "owner",
       },
-      attributes: [`name`, `image`, `age`, `type`, `species`, `experience`],
+      attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
     });
     res.json(petById);
   } catch (err) {
