@@ -31,7 +31,7 @@ const AppRoutes = () => {
           <Route path="/todos" element={<Todos />} />
           <Route path="/todos/:id" element={<SingleTodo />} />
           <Route path="/pets/:id" element={<PetProfile/>} />
-          <Route path="/users:id" element={<User />} />
+          <Route path="/users/:id" element={<User />} />
         </Routes>
       ) : (
         <Routes>
