@@ -1,28 +1,28 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { fetchPetByUserId, selectSinglePet, petSlice } from "../pet/petSlice";
+import { fetchPetByUserId, selectSinglePet, singlePetSlice } from "../pet/petSlice";
 // import { fetchAllPetsAsync, selectAllPets } from "../pet/allPetsSlice";
 import { selectTodo, fetchTodosAsync } from "../todo/todoSlice";
 
 const MainPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const currentUser = useSelector((state) => state.auth.me);
-  // const pets = useSelector((state) => (state.singlePetSlice.userId.pets));
+  const pets = useSelector((state) => (state.singlePetSlice.userId.pets));
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const todos = useSelector(selectTodo);
 
-  // console.log(pets);
-  console.log(todos)
-
-  // useEffect(() => {
-  //   dispatch(fetchPetByUserId(pets));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchPetByUserId(pets));
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchTodosAsync());
   }, [dispatch]);
+
+  console.log(pets);
+  console.log(todos)
 
   // const { id, name, image, experience, user } = pets;
 
@@ -34,7 +34,7 @@ const MainPage = () => {
           <div>
             <h1>Welcome, {currentUser?.username}!</h1>
             {/* The mainpage will show these elements only after you've signed in */}
-            {/* {pets.map((pet) => {
+            {pets.map((pet) => {
               return (
                 <div key={pet.id}>
                   <img className="profilePet" src={pet.image} />
@@ -42,7 +42,7 @@ const MainPage = () => {
                   <Link to="/pets/:id">Pet Details</Link>
                 </div>
               );
-            })} */}
+            })}
             <div className="todo-container">
               <h2>Current To-Dos:</h2>
               {todos.map((todo) => {

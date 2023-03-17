@@ -49,7 +49,7 @@ export const singlePetSlice = createSlice({
       return action.payload;
     });
     builder.addCase(fetchPetByUserId.fulfilled, (state, action) => {
-      return action.payload;
+      state.userId = action.payload;
     });
     builder.addCase(addExpToPet.fulfilled, (state, action) => {
       state.pet = action.payload;
