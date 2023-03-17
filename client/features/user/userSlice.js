@@ -1,11 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = {};
-
 //Create thunk for single user
 
-export const fetchSingleUser = createAsyncThunk("singleUser", async (id) => {
+export const fetchSingleUser = createAsyncThunk("users/singleUser", async (id) => {
     try {
       const { data } = await axios.get(`/api/users/${id}`);
       return data;
@@ -13,8 +11,12 @@ export const fetchSingleUser = createAsyncThunk("singleUser", async (id) => {
       console.log(err);
     }
   });
-  
+
   //Create slice and reducer for single user
+
+ const initialState = {
+    singleUser: [],
+  };
 
   const singleUserSlice = createSlice({
     name: "singleUser",
