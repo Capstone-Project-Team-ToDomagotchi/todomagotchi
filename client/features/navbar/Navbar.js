@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { logout } from '../../app/store';
-// import { authenticate } from "../../app/store";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../app/store";
+import logo from "../../../public/tdmlogo1.jpg";
+// import { authenticate } from "../../app/sto
 
 const Navbar = () => {
   // const user = useSelector((state) => state.auth);
@@ -15,26 +16,31 @@ const Navbar = () => {
     navigate("/");
   };
 
-
   return (
     <div>
-      <h1>ToDomagotchi</h1>
+      <div>
+        <img src={logo} alt="logo" />
+      </div>
       <nav>
-      {isLoggedIn ? (
-                <div className="login-logout">
-                  <Link to="/home">Home</Link>
-                  <Link to="/account">Profile</Link>
-                  <button className="btn secondary-btn" type="button" onClick={logoutAndRedirectHome}>
-                    Logout
-                  </button>
-                </div>
-              ) : (
-                  <div className="login-logout">
-                    <Link to="/home">Home</Link>
-                    <Link to="/login">Log In</Link>
-                    <Link to="/signup">Sign Up</Link>
-                  </div>
-                )}
+        {isLoggedIn ? (
+          <div className="login-logout">
+            <Link to="/home">Home</Link>
+            <Link to="/account">Profile</Link>
+            <button
+              className="btn secondary-btn"
+              type="button"
+              onClick={logoutAndRedirectHome}
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="login-logout">
+            <Link to="/home">Home</Link>
+            <Link to="/login">Log In</Link>
+            <Link to="/signup">Sign Up</Link>
+          </div>
+        )}
       </nav>
       <hr />
     </div>
