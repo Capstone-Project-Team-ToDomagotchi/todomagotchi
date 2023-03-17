@@ -32,6 +32,22 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+router.get("/:petId/:userId", async (req, res, next) => {
+  try {
+    const petById = await User.findAll({
+      where: { id: req.params.userId },
+      include: {
+        model: Pet,
+        // as: "owner",
+      },
+      // attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
+    });
+    res.json(petById);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.put('/expUp/:id', async (req, res, next) => {
     try {
         const petById = await Pet.findOne({
