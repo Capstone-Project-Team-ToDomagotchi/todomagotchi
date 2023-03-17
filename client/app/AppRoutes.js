@@ -7,6 +7,7 @@ import SingleTodo from '../features/todo/todoDetail';
 import Todos from '../features/todo/todoList';
 import { me } from './store';
 import PetProfile from '../features/pet/PetProfile';
+import MainPage from '../features/home/Main';
 
 /**
  * COMPONENT
@@ -25,7 +26,7 @@ const AppRoutes = () => {
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home/>} />
-          <Route path="/home" element={<Home/>} />
+          <Route path="/home" element={<MainPage/>} />
           <Route path="/todos" element={<Todos/>} />
           <Route path="/todos/:id" element={<SingleTodo/>} />
           <Route path="/pets/:id" element={<PetProfile/>} />
