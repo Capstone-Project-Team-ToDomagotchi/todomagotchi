@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Route, Routes } from "react-router-dom";
-import AuthForm from "../features/auth/AuthForm";
-import Home from "../features/home/Home";
-import SingleTodo from "../features/todo/todoDetail";
-import Todos from "../features/todo/todoList";
-import { me } from "./store";
-import PetProfile from "../features/pet/PetProfile";
-import User from "../features/user/UserPage";
-import NotLoggedInHome from "../features/home/Home2";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import AuthForm from '../features/auth/AuthForm';
+import Home from '../features/home/Home';
+import SingleTodo from '../features/todo/todoDetail';
+import Todos from '../features/todo/todoList';
+import { me } from './store';
+import PetProfile from '../features/pet/PetProfile';
+import AllPets from '../features/home/AllPets';
+
 
 /**
  * COMPONENT
@@ -33,11 +33,13 @@ const AppRoutes = () => {
           <Route path="/todos/:id" element={<SingleTodo />} />
           <Route path="/pets/:id" element={<PetProfile />} />
           <Route path="/users/:userId" element={<User />} />
+          <Route path="/pets" element={<AllPets/>} />
+
         </Routes>
       ) : (
         <Routes>
           {/* Routes placed here are available to all visitors */}
-          <Route path="/home" element={<NotLoggedInHome />} />
+          {/* // <Route path="/home" element={<NotLoggedInHome />} /> */}
           <Route
             path="/login"
             element={<AuthForm name="login" displayName="Login" />}
