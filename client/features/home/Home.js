@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { useSelector } from "react-redux";
 
 /**
  * COMPONENT
@@ -11,9 +11,11 @@ const Home = (props) => {
 
   return (
     <div>
-      <h3>Welcome, {username}</h3>
-      <img src={profilePic} alt="Profile Picture" />
- 
+      {/* <h3>Welcome, {username}</h3>
+      <img src={profilePic} alt="Profile Picture" /> */}
+      <div>
+        <h1>Welcome to ToDomagotchi!</h1>
+      </div>
     </div>
   );
 };
