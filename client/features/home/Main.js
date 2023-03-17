@@ -13,6 +13,7 @@ const MainPage = () => {
   const todos = useSelector(selectTodo);
 
   console.log(pets);
+  console.log(todos)
 
   useEffect(() => {
     dispatch(fetchAllPetsAsync());
