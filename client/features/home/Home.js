@@ -12,7 +12,7 @@ const Home = (props) => {
   return (
     <div>
       <h3>Welcome, {username}</h3>
-      <img src={profilePic} alt="Profile Picture" />
+      {/* <img src={profilePic} alt="Profile Picture" /> */}
  
     </div>
   );

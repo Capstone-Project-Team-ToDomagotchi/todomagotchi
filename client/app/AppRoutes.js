@@ -24,12 +24,12 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
-          <Route path="/*" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/todos" element={<Todos />} />
-          <Route path="/todos/:id" element={<SingleTodo />} />
+          <Route path="/*" element={<Home/>} />
+          <Route path="/home" element={<Home/>} />
+          <Route path="/todos" element={<Todos/>} />
+          <Route path="/todos/:id" element={<SingleTodo/>} />
           <Route path="/pets/:id" element={<PetProfile/>} />
-          <Route path="/account" element={<Profile />} />
+          {/* <Route path="/account" element={<User/>} /> */}
         </Routes>
       ) : (
         <Routes>

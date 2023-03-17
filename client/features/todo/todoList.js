@@ -21,7 +21,6 @@ const Todos = ({}) => {
                     <h4>Due Date: {todo.dueDate}</h4>
                     <h5>{todo.isCompleted}</h5>
                     </div>
-
                 )
             })}
                        

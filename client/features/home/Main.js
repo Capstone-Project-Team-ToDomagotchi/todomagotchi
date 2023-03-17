@@ -1,11 +1,19 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { selectSinglePet } from '../pet/petSlice';
 
 const MainPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const singlePet = useSelector(selectSinglePet);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  console.log(state.auth.me.id)
+
+  // useEffect(() => {
+  //   dispatch(fetchSinglePetAsync(petId));
+  // }, [dispatch]);
 
   return (
     <div>
