@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTodo, fetchTodosAsync } from "./todoSlice";
-import { Link } from "react-router-dom";
+import TodoCard from "./todoCard";
 
-const Todos = ({}) => {
+const Todos = () => {
     const dispatch = useDispatch();
     const todos = useSelector(selectTodo);
 
@@ -13,19 +13,11 @@ const Todos = ({}) => {
 
     return (
         <div className="todo-container">
-            {todos.map((todo) => {
-                return (
-                    <div key={todo.id}>
-                    <h3>
-                    <Link to={`/todos/${id}`}>To Do: {todo.toDoName}</Link></h3>
-                    <h4>Due Date: {todo.dueDate}</h4>
-                    <h5>{todo.isCompleted}</h5>
-                    </div>
-
-                )
-            })}
-                       
-       
+            {todos ? (
+            todos.map((todo) => {
+                return <TodoCard key={todo.id} todo={todo} />;
+        })) : (
+        <p>Loading</p>)}
         </div>
     )
 };
