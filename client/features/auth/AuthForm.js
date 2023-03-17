@@ -13,6 +13,9 @@ const AuthForm = ({ name, displayName }) => {
   const { error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const redirect = () => {
+    navigate('/home')
+  }
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -40,8 +43,38 @@ const AuthForm = ({ name, displayName }) => {
       );
 
       navigate("/landing");
+    } if (displayName === "Login") {
+      const formName = evt.target.name;
+      const username = evt.target.username.value;
+      const password = evt.target.password.value;
+      dispatch(authenticate({ username, password, method: formName }))
     }
   };
+
+  if (displayName === "Login") {
+    return (
+      <div className="login">
+        <form onSubmit={handleSubmit} name={name}>
+        <div>
+          <label htmlFor="username">
+            <small>Username</small>
+          </label>
+          <input name="username" type="text" />
+        </div>
+        <div>
+          <label htmlFor="password">
+            <small>Password</small>
+          </label>
+          <input name="password" type="password" />
+        </div>
+        <div>
+          <button type="submit" onSubmit={redirect}>{displayName}</button>
+          </div>
+        {error && <div> {error} </div>}
+      </form>
+    </div>
+    )
+  }
 
   if (displayName === "Sign Up") {
     return (

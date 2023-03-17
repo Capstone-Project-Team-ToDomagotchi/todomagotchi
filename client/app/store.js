@@ -12,7 +12,7 @@ const store = configureStore({
   pet: petSlice,
   singleUser: singleUserSlice,
   singleTodo: singleTodoSlice,
-  todo: todoSlice,
+  todos: todoSlice,
 },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
