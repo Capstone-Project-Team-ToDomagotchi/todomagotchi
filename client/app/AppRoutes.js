@@ -37,7 +37,7 @@ const AppRoutes = () => {
       ) : (
         <Routes>
           {/* Routes placed here are available to all visitors */}
-          <Route to="/home" element={<Home />} />
+          <Route path="/home" element={<NotLoggedInHome />} />
           <Route
             path="/login"
             element={<AuthForm name="login" displayName="Login" />}
