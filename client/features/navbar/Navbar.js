@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
-import logo from "../../../public/tdmlogo1.jpg";
+// import logo from "../../../public/tdmlogo1.jpg";
 // import { authenticate } from "../../app/sto
 
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div>
       <div>
-        <img src={logo} alt="logo" />
+        {/* <img src={logo} alt="logo" /> */}
       </div>
       <nav>
         {isLoggedIn ? (

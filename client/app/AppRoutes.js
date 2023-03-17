@@ -7,6 +7,8 @@ import SingleTodo from '../features/todo/todoDetail';
 import Todos from '../features/todo/todoList';
 import { me } from './store';
 import PetProfile from '../features/pet/PetProfile';
+import AllPets from '../features/home/AllPets';
+
 
 /**
  * COMPONENT
@@ -31,12 +33,13 @@ const AppRoutes = () => {
           <Route path="/todos" element={<Todos />} />
           <Route path="/todos/:id" element={<SingleTodo />} />
           <Route path="/pets/:id" element={<PetProfile/>} />
+          <Route path="/pets" element={<AllPets/>} />
 
         </Routes>
       ) : (
         <Routes>
           {/* Routes placed here are available to all visitors */}
-          <Route path="/home" element={<NotLoggedInHome />} />
+          {/* // <Route path="/home" element={<NotLoggedInHome />} /> */}
           <Route
             path="/login"
             element={<AuthForm name="login" displayName="Login" />}
