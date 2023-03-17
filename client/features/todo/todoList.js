@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTodo, fetchTodosAsync } from "./todoSlice";
-import { Link } from "react-router-dom";
+import TodoCard from "./todoCard";
 
-const Todos = ({}) => {
+const Todos = () => {
     const dispatch = useDispatch();
     const todos = useSelector(selectTodo);
 

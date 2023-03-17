@@ -22,7 +22,7 @@ function createUser() {
 }
 
 function createTestUser() {
-    const username = "Sallyyyy";
+    const username = "Sally";
     const password = "test456";
     const email = "sally123@todomagotchi.com";
     const pronouns = "she/her";

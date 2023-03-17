@@ -1,7 +1,8 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { selectSinglePet, fetchSinglePetAsync } from '../pet/petSlice';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { selectSinglePet, fetchPetByUserId } from "../pet/petSlice";
+import { selectTodo, fetchTodosAsync } from "../todo/todoSlice";
 
 const MainPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -9,12 +10,19 @@ const MainPage = () => {
   const singlePet = useSelector(selectSinglePet);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const todos = useSelector(selectTodo);
 
-  console.log(currentUser)
+  console.log(singlePet);
 
   useEffect(() => {
-    dispatch(fetchSinglePetAsync(singlePet.userId === currentUser));
+    dispatch(fetchPetByUserId(currentUser));
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchTodosAsync());
+  }, [dispatch]);
+
+  const { id, name, image, experience, user } = singlePet;
 
   return (
     <div>
@@ -22,9 +30,27 @@ const MainPage = () => {
       <nav>
         {isLoggedIn ? (
           <div>
+            <h1>Welcome, {user?.username}!</h1>
             {/* The mainpage will show these elements only after you've signed in */}
-            <Link to="/pet">Home</Link>
-            
+            <div>
+              <img className="profilePet" src={image} />
+              <h2 className="petName">{name}</h2>
+              <Link to="/pets/:id">Pet Detail</Link>
+            </div>
+            <div className="todo-container">
+              <h2>Current To-Dos:</h2>
+              {todos.map((todo) => {
+                return (
+                  <div key={todo.id}>
+                    <h3>
+                      <Link to={`/todos/${id}`}>To Do: {todo.toDoName}</Link>
+                    </h3>
+                    <h4>Due Date: {todo.dueDate}</h4>
+                    <h5>{todo.isCompleted}</h5>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         ) : (
           <div>

@@ -8,6 +8,8 @@ import Todos from '../features/todo/todoList';
 import { me } from './store';
 import PetProfile from '../features/pet/PetProfile';
 import MainPage from '../features/home/Main';
+import User from '../features/user/userPage';
+
 
 /**
  * COMPONENT
@@ -30,7 +32,7 @@ const AppRoutes = () => {
           <Route path="/todos" element={<Todos/>} />
           <Route path="/todos/:id" element={<SingleTodo/>} />
           <Route path="/pets/:id" element={<PetProfile/>} />
-          {/* <Route path="/account" element={<User/>} /> */}
+          <Route path="/users/:id" element={<User />} />
         </Routes>
       ) : (
         <Routes>
