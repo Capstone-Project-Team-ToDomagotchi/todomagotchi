@@ -10,9 +10,9 @@ const store = configureStore({
   reducer: { 
   auth: authReducer,
   pet: petSlice,
-  user: singleUserSlice,
+  singleUser: singleUserSlice,
   singleTodo: singleTodoSlice,
-  todo: todoSlice,
+  todos: todoSlice,
 },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
