@@ -17,7 +17,6 @@ import NotLoggedInHome from "../features/home/Home2";
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
-  console.log("isLoggedIn", isLoggedIn);
 
   useEffect(() => {
     dispatch(me());
