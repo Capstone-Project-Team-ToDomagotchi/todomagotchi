@@ -7,6 +7,7 @@ import SingleTodo from '../features/todo/todoDetail';
 import Todos from '../features/todo/todoList';
 import { me } from './store';
 import PetProfile from '../features/pet/PetProfile';
+import User from '../features/user/UserPage';
 
 /**
  * COMPONENT
