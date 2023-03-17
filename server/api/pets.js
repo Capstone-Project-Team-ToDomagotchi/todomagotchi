@@ -1,6 +1,21 @@
 const router = require("express").Router();
 const {User, ToDo, Pet} = require("../db");
 
+router.get("/", async (req, res, next) => {
+  try {
+    const pets = await Pet.findAll({
+      include: {
+        model: User,
+        // as: "owner",
+      },
+      // attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
+    });
+    res.json(pets);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get("/:id", async (req, res, next) => {
   try {
     const petById = await Pet.findOne({
