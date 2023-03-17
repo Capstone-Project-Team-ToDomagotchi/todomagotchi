@@ -17,7 +17,6 @@ import AllPets from '../features/home/AllPets';
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
-  console.log("isLoggedIn", isLoggedIn);
 
   useEffect(() => {
     dispatch(me());
@@ -32,7 +31,8 @@ const AppRoutes = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/todos" element={<Todos />} />
           <Route path="/todos/:id" element={<SingleTodo />} />
-          <Route path="/pets/:id" element={<PetProfile/>} />
+          <Route path="/pets/:id" element={<PetProfile />} />
+          <Route path="/users/:userId" element={<User />} />
           <Route path="/pets" element={<AllPets/>} />
 
         </Routes>

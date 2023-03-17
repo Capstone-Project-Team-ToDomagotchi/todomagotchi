@@ -3,9 +3,9 @@ import axios from "axios";
 
 //Create thunk for single user
 
-export const fetchSingleUser = createAsyncThunk("users/singleUser", async (id) => {
+export const fetchSingleUser = createAsyncThunk("users/singleUser", async (userId) => {
     try {
-      const { data } = await axios.get(`/api/users/${id}`);
+      const { data } = await axios.get(`/api/users/${userId}`);
       return data;
     } catch (err) {
       console.log(err);
