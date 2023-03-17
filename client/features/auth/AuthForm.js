@@ -40,7 +40,7 @@ const AuthForm = ({ name, displayName }) => {
         })
       );
 
-      navigate("/landing");
+      navigate("/pets");
     }
   };
 
