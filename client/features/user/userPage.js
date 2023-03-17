@@ -6,19 +6,19 @@ import { selectSingleUser, fetchSingleUser } from "./userSlice";
 //This component is unfinished, still need to add details and make sure it works
 const User = () => {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { userId } = useParams();
 
   const singleUser = useSelector(selectSingleUser);
 
-  const { displayName, username, profilePic, pronouns, petId, singlePet } = singleUser;
+  const { displayName, username, profilePic, pronouns, petId, singlePet, todos } = singleUser;
 
   useEffect(() => {
-    dispatch(fetchSingleUser(id));
+    dispatch(fetchSingleUser(userId));
   }, [dispatch]);
 
   return (
     <div>
-      <div id="user-profile">
+      <div className="user-profile">
         <div>
           <header id="user-header">
             <img id="user-img" src={profilePic}></img>
@@ -34,6 +34,14 @@ const User = () => {
               </form>
             </div>
           </header>
+          <div className="pet-details" key={petId}>
+            <p>Pet: {singlePet}</p>
+            {/* <img id="pet-img">{singlePet.image}</img>
+            <p>Points: {singlePet.experience}</p> */}
+          </div>
+          {/* <div id="todos-remaining">
+            {todos.id}
+            </div> */}
         </div>
       </div>
     </div>
