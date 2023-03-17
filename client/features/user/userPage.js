@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./userSlice";
 
 //This component is unfinished, still need to add details and make sure it works
@@ -10,7 +10,15 @@ const User = () => {
 
   const singleUser = useSelector(selectSingleUser);
 
-  const { displayName, username, profilePic, pronouns, petId, singlePet, todos } = singleUser;
+  const {
+    displayName,
+    username,
+    profilePic,
+    pronouns,
+    petId,
+    pets,
+    todos,
+  } = singleUser;
 
   useEffect(() => {
     dispatch(fetchSingleUser(userId));
@@ -34,14 +42,17 @@ const User = () => {
               </form>
             </div>
           </header>
-          <div className="pet-details" key={petId}>
-            <p>Pet: {singlePet}</p>
-            {/* <img id="pet-img">{singlePet.image}</img>
-            <p>Points: {singlePet.experience}</p> */}
+          <div className="pet-details">
+            <p>List of Pets:</p>
+            {pets && pets.length
+              ? pets.map((pet) => (
+                  <div className="petList" key={petId}>
+                    <Link to={`/pets/${pet.id}`}>{pet.name} {pet.image} {pet.experience}</Link>
+                  </div>
+                ))
+                : <p><i>No pets exist for this user</i></p>}
           </div>
-          {/* <div id="todos-remaining">
-            {todos.id}
-            </div> */}
+          <div id="todos-remaining">{/* {todos.id} */}</div>
         </div>
       </div>
     </div>
