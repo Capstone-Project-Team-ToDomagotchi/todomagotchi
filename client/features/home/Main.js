@@ -32,15 +32,15 @@ const MainPage = () => {
           <div>
             <h1>Welcome, {currentUser?.username}!</h1>
             {/* The mainpage will show these elements only after you've signed in */}
-            {pets?.map((pet) => {
+            {/* {pets.map((pet) => {
               return (
-                <div key={pet?.id}>
-                  <img className="profilePet" src={pet?.image} />
-                  <h2 className="petName">{pet?.name}</h2>
-                  {/* <Link to="/pets/:id">Pet Details</Link> */}
+                <div key={pet.id}>
+                  <img className="profilePet" src={pet.image} />
+                  <h2 className="petName">{pet.name}</h2>
+                  <Link to="/pets/:id">Pet Details</Link>
                 </div>
               );
-            })}
+            })} */}
             <div className="todo-container">
               <h2>Current To-Dos:</h2>
               {todos.map((todo) => {

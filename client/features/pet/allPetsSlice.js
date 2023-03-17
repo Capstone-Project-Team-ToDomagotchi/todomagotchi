@@ -12,7 +12,7 @@ export const fetchAllPetsAsync = createAsyncThunk('pets', async () => {
   })
 
   const initialState = {
-    pets: [],
+    pets: {},
   };
 
   export const allPetsSlice = createSlice({
