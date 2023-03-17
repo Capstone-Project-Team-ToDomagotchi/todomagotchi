@@ -26,8 +26,10 @@ const AuthForm = ({ name, displayName }) => {
       const email = evt.target.email.value;
       const displayName = evt.target.displayName.value;
       const pronouns = evt.target.pronouns.value;
-      const formData = new FormData();
-      formData.append('profilePic', evt.target.profilePic.files[0]);
+      const profilePic = evt.target.profilePic.files[0];
+      const profilePicUrl = profilePic
+        ? URL.createObjectURL(profilePic)
+        : "pfp.png"; // create URL for the image file
       dispatch(
         authenticate({
           username,
@@ -36,7 +38,7 @@ const AuthForm = ({ name, displayName }) => {
           displayName,
           pronouns,
           method: formName,
-          profilePic: formData.get('profilePic'),
+          profilePic: profilePicUrl, // pass the URL to the authenticate action
         })
       );
 
@@ -76,34 +78,49 @@ const AuthForm = ({ name, displayName }) => {
 
   if (displayName === "Sign Up") {
     return (
-      <main id="signup" className="container flex-column">
-        <form className="flex-column gap-1" onSubmit={handleSubmit} name={name}>
-            <label htmlFor="displayName">
-              <small>Display Name</small>
+      <main id="signup" className="container">
+        <form className="form" onSubmit={handleSubmit} name={name}>
+          <div className="form-group">
+            <label htmlFor="displayName" className="form-label">
+              Display Name
             </label>
-            <input name="displayName" type="text" />
-            <label htmlFor="pronouns">
-              <small>Pronouns</small>
+            <input name="displayName" type="text" className="form-control" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="pronouns" className="form-label">
+              pronouns
             </label>
-            <input name="pronouns" type="text" />
-            <label htmlFor="email">
-              <small>Email</small>
+            <input name="pronouns" type="text" className="form-control" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
+              Email
             </label>
-            <input name="email" type="text" />
-            <label htmlFor="username">
-              <small>Username</small>
+            <input name="email" type="text" className="form-control" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="username" className="form-label">
+              Username
             </label>
-            <input name="username" type="text" />
-            <label htmlFor="password">
-              <small>Password</small>
+            <input name="username" type="text" className="form-control" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
+              Password
             </label>
-            <input name="password" type="password" />
-            <label htmlFor="profilePic">
-              <small>Profile Picture</small>
-            </label>
-            <input name="profilePic" type="file" accept="image/*" />
-            <button className="btn primary-btn" type="submit">{displayName}</button>
-          {error && <div> {error} </div>}
+            <input name="password" type="password" className="form-control" />
+          </div>
+          <div>
+          <label htmlFor="profilePic" className="form-label">
+            <small>Profile Picture</small>
+          </label>
+          <input name="profilePic" type="file" accept="image/*" />
+          </div>
+          <button className="btn primary-btn" type="submit">
+            {displayName}
+          </button>
+
+          {error && <div className="error"> {error} </div>}
         </form>
       </main>
     );
@@ -111,4 +128,3 @@ const AuthForm = ({ name, displayName }) => {
 };
 
 export default AuthForm;
-
