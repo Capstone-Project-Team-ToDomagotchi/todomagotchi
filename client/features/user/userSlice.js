@@ -1,32 +1,26 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = {
-  singleUser: []
-};
-
 //Create thunk for single user
-
-export const fetchSingleUser = createAsyncThunk("users", async (id) => {
-  try {
-    const { data } = await axios.get(`/api/users/${id}`);
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-  //Create thunk to edit single user
-  export const editSingleUser = createAsyncThunk('editUser', async ({id, userName, displayName, pronouns, profilePic}) => {
-    try{
-    const { data } = await axios.put(`/api/users/${id}`, {userName, displayName, pronouns, profilePic});
+export const fetchSingleUser = createAsyncThunk("users", async (userId) => {
+    try {
+      const { data } = await axios.get(`/api/users/${userId}`);
       return data;
     } catch (err) {
       console.error(err)
     }
   });
   
+  //Create thunk to edit single user
+  export const editSingleUser = createAsyncThunk('editUser', async ({id, userName, displayName, pronouns, profilePic}) => {
+    try{
+    const { data } = await axios.put(`/api/users/${id}`, {userName, displayName, pronouns, profilePic});
+
   //Create slice and reducer for single user
+
+ const initialState = {
+    singleUser: [],
+  };
 
   const singleUserSlice = createSlice({
     name: "singleUser",
