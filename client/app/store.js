@@ -10,7 +10,7 @@ const store = configureStore({
   reducer: { 
   auth: authReducer,
   pet: petSlice,
-  user: singleUserSlice,
+  singleUser: singleUserSlice,
   singleTodo: singleTodoSlice,
   todos: todoSlice,
 },

@@ -8,6 +8,7 @@ import Todos from '../features/todo/todoList';
 import { me } from './store';
 import PetProfile from '../features/pet/PetProfile';
 import User from '../features/user/userPage';
+import EditUser from '../features/user/editUser';
 
 
 /**
@@ -32,6 +33,7 @@ const AppRoutes = () => {
           <Route path="/todos/:id" element={<SingleTodo />} />
           <Route path="/pets/:id" element={<PetProfile/>} />
           <Route path="/users/:id" element={<User />} />
+          <Route path="/users/:id/edit" element={<EditUser />} />
         </Routes>
       ) : (
         <Routes>

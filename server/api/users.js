@@ -27,3 +27,13 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+//route to edit user information
+router.put("/:id", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    res.json(user);
+  } catch (err) {
+    next (err);
+  }
+});

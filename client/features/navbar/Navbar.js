@@ -1,13 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../app/store';
-// import { authenticate } from "../../app/store";
+import { authenticate } from "../../app/store";
 
 const Navbar = () => {
-  // const user = useSelector((state) => state.auth);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-
+  const userId = useSelector((state) => state.auth.me.id)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
@@ -20,14 +19,11 @@ const Navbar = () => {
     <div>
       <h1>ToDomagotchi</h1>
       <nav>
+      <Link to="/home">Home</Link>
+      {isLoggedIn && <Link to={`/users/${userId}`}>Account</Link>}
       {isLoggedIn ? (
-                <div className="login-logout">
-                  <Link to="/home">Home</Link>
-                  <Link to="/account">Profile</Link>
-                  <button className="btn secondary-btn" type="button" onClick={logoutAndRedirectHome}>
-                    Logout
-                  </button>
-                </div>
+          <button className="btn secondary-btn" type="button" 
+          onClick={logoutAndRedirectHome}>Logout</button>
               ) : (
                   <div className="login-logout">
                     <Link to="/home">Home</Link>

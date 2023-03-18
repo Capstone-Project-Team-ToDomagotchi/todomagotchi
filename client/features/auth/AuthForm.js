@@ -41,8 +41,9 @@ const AuthForm = ({ name, displayName }) => {
           profilePic: profilePicUrl, // pass the URL to the authenticate action
         })
       );
+      navigate("/pets");
 
-      navigate("/landing");
+    
     } if (displayName === "Login") {
       const formName = evt.target.name;
       const username = evt.target.username.value;
