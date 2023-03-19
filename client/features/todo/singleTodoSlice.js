@@ -31,6 +31,16 @@ export const addSingleTodo = createAsyncThunk('addSingleTodo', async({id, dueDat
     }
 })
 
+//delete a single to
+export const deleteSingleTodo = createAsyncThunk('deleteSingleTodo', async(id) => {
+    try {
+        const { data } = await axios.delete(`/api/todos/${id}`);
+        return data;
+    } catch (err) {
+        console.error(err)
+    }
+})
+
 //set state
 const initialState = {};
 
@@ -48,6 +58,10 @@ export const singleTodoSlice = createSlice({
         })
         builder.addCase(addSingleTodo.fulfilled, (state, action) => {
             state.push(action.payload)
+        })
+        builder.addCase(deleteSingleTodo.fulfilled, (state, action) => {
+            const newState = state.filter((todos) => todos.id !==action.payload.id)
+            return newState;
         })
     }
 });
