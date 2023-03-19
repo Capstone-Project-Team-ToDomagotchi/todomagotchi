@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+//get the user's list of todos
 export const fetchTodosAsync = createAsyncThunk('todos', async() => {
     try {
         const { data } = await axios.get(`/api/todos`)
