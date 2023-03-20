@@ -2,13 +2,22 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 //Create thunk for single user
-
-export const fetchSingleUser = createAsyncThunk("users/singleUser", async (userId) => {
+export const fetchSingleUser = createAsyncThunk("users", async (userId) => {
     try {
       const { data } = await axios.get(`/api/users/${userId}`);
       return data;
     } catch (err) {
-      console.log(err);
+      console.error(err)
+    }
+  });
+  
+  //Create thunk to edit single user
+  export const editSingleUser = createAsyncThunk('editUser', async ({id, userName, displayName, pronouns, profilePic}) => {
+    try {
+      const { data } = await axios.put(`/api/users/${id}`, {userName, displayName, pronouns, profilePic});
+      return data;
+    } catch (err) {
+      console.error(err)
     }
   });
 
@@ -26,6 +35,9 @@ export const fetchSingleUser = createAsyncThunk("users/singleUser", async (userI
       builder.addCase(fetchSingleUser.fulfilled, (state, action) => {
         return action.payload;
       });
+      builder.addCase(editSingleUser.fulfilled, (state, action) => {
+        return action.payload;
+      })
     },
   });
   

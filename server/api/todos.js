@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { ToDo } = require("../db");
 
+//get all todos
 router.get("/", async (req, res, next) => {
   try {
     const todos = await ToDo.findAll();
@@ -11,6 +12,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+//get a single todo
 router.get("/:id", async (req, res, next) => {
   try {
     const todo = await ToDo.findByPk(req.params.id);
@@ -20,14 +22,17 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+//add a new todo
+router.post("/todos", async (req, res, next) => {
   try {
     res.status(201).send(await ToDo.create(req.body));
+    console.log("dispatched from adding a todo")
   } catch (err) {
     next(err);
   }
 });
 
+//update or edit a todo
 router.put("/:id", async (req, res, next) => {
   try {
     const todo = await ToDo.findByPk(req.params.id);
@@ -37,6 +42,7 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
+//delete a todo
 router.delete("/:id", async (req, res, next) => {
   try {
     const todo = await ToDo.findByPk(req.params.id);
