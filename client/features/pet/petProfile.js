@@ -9,8 +9,6 @@ const PetProfile = () => {
 
   const singlePet = useSelector(selectSinglePet);
 
-  console.log(singlePet);
-
   useEffect(() => {
     dispatch(fetchSinglePetAsync(petId.id));
   }, [dispatch]);
@@ -25,8 +23,6 @@ const PetProfile = () => {
     user,
   } = singlePet;
 
-  console.log(id);
-
   return (
     <section id="petProfile">
       <div key={id}>
@@ -37,7 +33,7 @@ const PetProfile = () => {
         <h3>Species:</h3>
         <h4>{species}</h4>
         <h3>Owner:</h3>
-        <h4>{user?.username}</h4>
+        <h4>{user}</h4>
         <p>EXP: {experience}</p>
         {/* ^^Need to implement a bar that shows how close to the next level^^  */}
       </div>

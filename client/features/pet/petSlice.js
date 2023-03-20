@@ -37,7 +37,7 @@ export const addExpToPet = createAsyncThunk(
 
 
 const initialState = {
-  pet: {},
+  pet: [],
 };
 
 export const singlePetSlice = createSlice({
