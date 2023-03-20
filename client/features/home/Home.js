@@ -11,10 +11,8 @@ const Home = (props) => {
   return (
     <div>
       <h3>Welcome, {username}</h3>
-      <img src={profilePic} alt="Profile Picture" />
-      <div>
-        <h1>Welcome to ToDomagotchi!</h1>
-      </div>
+      {/* <img src={profilePic} alt="Profile Picture" /> */}
+ 
     </div>
   );
 };

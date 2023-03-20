@@ -11,7 +11,8 @@ import User from '../features/user/userPage';
 import EditUser from '../features/user/editUser';
 import CreateNewTodo from '../features/todo/newTodo';
 import AllPets from '../features/home/AllPets';
-
+import NotLoggedInHome from "../features/home/Home2";
+import MainPage from '../features/home/Main';
 
 /**
  * COMPONENT
@@ -20,6 +21,7 @@ import AllPets from '../features/home/AllPets';
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
+  console.log("isLoggedIn", isLoggedIn);
 
   useEffect(() => {
     dispatch(me());
@@ -29,21 +31,21 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
-          {/* Routes placed here are available to users that are logged in */}
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/main" element={<MainPage/>}/>
           <Route path="/todos" element={<Todos />} />
+          <Route path="/users/:id/edit" element={<EditUser />} />
           <Route path="/todos/:id" element={<SingleTodo />} />
           <Route path="/addNewTodo" element={<CreateNewTodo />} />
           <Route path="/pets/:id" element={<PetProfile/>} />
           <Route path="/users/:id" element={<User />} />
-          <Route path="/users/:id/edit" element={<EditUser />} />
           <Route path="/pets" element={<AllPets/>} />
         </Routes>
       ) : (
         <Routes>
           {/* Routes placed here are available to all visitors */}
-          {/* // <Route path="/home" element={<NotLoggedInHome />} /> */}
+          <Route path="/home" element={<NotLoggedInHome />} />
           <Route
             path="/login"
             element={<AuthForm name="login" displayName="Login" />}

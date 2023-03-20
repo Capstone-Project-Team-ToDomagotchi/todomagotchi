@@ -33,7 +33,7 @@ const PetProfile = () => {
         <h3>Species:</h3>
         <h4>{species}</h4>
         <h3>Owner:</h3>
-        <h4>{user}</h4>
+        <h4>{user.username}</h4>
         <p>EXP: {experience}</p>
         {/* ^^Need to implement a bar that shows how close to the next level^^  */}
       </div>
