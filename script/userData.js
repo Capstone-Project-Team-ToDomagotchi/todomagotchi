@@ -28,8 +28,9 @@ function createTestUser() {
     const pronouns = "she/her";
     const displayName = "sallyyyy123";
 
+
     return {
-        username, password, email, pronouns, displayName
+        username, password, email, pronouns, displayName,
     };
 }
 

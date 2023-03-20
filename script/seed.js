@@ -3,12 +3,15 @@ const {db} = require('../server/db')
 const petSeed = require('./petData');
 const userSeed = require('./userData');
 const todoSeed = require('./todosData');
+const selectPetSeed = require('./selectPetData')
 
 async function seed() {
   await db.sync({force: true})
-  await userSeed();
   await petSeed();
+  await userSeed();
+  
   await todoSeed();
+  await selectPetSeed();
   console.log('seeding successful!');
 }
 
