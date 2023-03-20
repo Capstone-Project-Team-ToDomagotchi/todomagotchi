@@ -22,11 +22,6 @@ const MainPage = () => {
     dispatch(fetchTodosAsync());
   }, [dispatch]);
 
-  // console.log(pets);
-  // console.log(todos)
-
-  // const { id, name, image, experience, user } = pets;
-
   return (
     <div>
       <h1>Welcome!</h1>

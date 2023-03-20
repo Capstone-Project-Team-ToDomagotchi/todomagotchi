@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { fetchSinglePetAsync, selectSinglePet } from "./petSlice";
+import { addExpToPet, fetchSinglePetAsync, selectSinglePet } from "./petSlice";
 
 const PetProfile = () => {
   const dispatch = useDispatch();
   const petId = useParams();
+  const [exp, setExp] = useState("")
 
   const singlePet = useSelector(selectSinglePet);
 
   useEffect(() => {
     dispatch(fetchSinglePetAsync(petId.id));
   }, [dispatch]);
+  
+  function addExp(petId, experience) {
+    dispatch(addExpToPet({id: petId.id, experience}, 
+      [dispatch]))
+  }
 
   const {
     id,
@@ -35,6 +41,7 @@ const PetProfile = () => {
         <h3>Owner:</h3>
         <h4>{user?.username}</h4>
         <p>EXP: {experience}</p>
+        <button onClick={() => addExp(id, experience)}>Add EXP</button>
         {/* ^^Need to implement a bar that shows how close to the next level^^  */}
       </div>
     </section>
