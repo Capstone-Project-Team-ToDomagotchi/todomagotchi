@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import {addNewTodo} from "./todoSlice";
+import {editSingleTodo} from "./todoSlice";
 
 
-const CreateNewTodo = () => {
+const EditTodo = () => {
     const [dueDate, setDueDate] = useState("");
     const [toDoName, setToDoName] = useState("");
     const [pointType, setPointType] = useState("average");
@@ -16,20 +16,20 @@ const CreateNewTodo = () => {
     const handleSubmit = (event) => {
         // console.log({dueDate, toDoName, pointType, description})
         event.preventDefault();
-        dispatch(addNewTodo({dueDate, toDoName, pointType, description}));
+        dispatch(editSingleTodo({dueDate, toDoName, pointType, description}));
         setDueDate("");
         setToDoName("");
         setPointType("");
         setDescription("");
-        navigate(`/todos`)
+        navigate(`/todos/${id}`)
     }
 
 
     return (
-        <div className="add-todo">
-            <form id="new-task-form" onSubmit={handleSubmit}>
-                <h3>Add A New Task</h3>
-                <label htmlFor="toDoName">New Task:</label>
+        <div className="edit-todo">
+            <form id="edit-task-form" onSubmit={handleSubmit}>
+                <h3>Edit Your Task</h3>
+                <label htmlFor="toDoName">Task:</label>
                 <input name="toDoName" id="toDoName" value={toDoName}
                 onChange={(e) => setToDoName(e.target.value)}/>
 
@@ -57,4 +57,4 @@ const CreateNewTodo = () => {
     )
 
 };
-export default CreateNewTodo;
+export default EditTodo;
