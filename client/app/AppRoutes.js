@@ -13,6 +13,7 @@ import CreateNewTodo from '../features/todo/newTodo';
 import AllPets from '../features/home/AllPets';
 import NotLoggedInHome from "../features/home/Home2";
 import MainPage from '../features/home/Main';
+import EditTodo from '../features/todo/editTodo';
 
 /**
  * COMPONENT
@@ -41,6 +42,7 @@ const AppRoutes = () => {
           <Route path="/pets/:id" element={<PetProfile/>} />
           <Route path="/users/:id" element={<User />} />
           <Route path="/pets" element={<AllPets/>} />
+          <Route path="/todos/:id/edit" element={<EditTodo />} />
         </Routes>
       ) : (
         <Routes>
