@@ -1,7 +1,7 @@
-import React, {useState} from "react";
-import { useDispatch } from "react-redux";
+import React, {useEffect, useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import {editSingleTodo} from "./todoSlice";
+import { fetchSingleTodo, selectSingleTodo, editSingleTodo } from "./singleTodoSlice";
 
 
 const EditTodo = () => {
@@ -12,15 +12,23 @@ const EditTodo = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { id } = useParams();
+
+    useEffect(() => {
+        dispatch(fetchSingleTodo(id));
+    }, [dispatch, id])
+
+    let singleTodo = useSelector(selectSingleTodo)
+    useEffect(() => {
+        setDueDate(singleTodo.dueDate);
+        setToDoName(singleTodo.toDoName);
+        setPointType(singleTodo.pointType);
+        setDescription(singleTodo.description);
+    }, [singleTodo])
 
     const handleSubmit = (event) => {
-        // console.log({dueDate, toDoName, pointType, description})
         event.preventDefault();
         dispatch(editSingleTodo({dueDate, toDoName, pointType, description}));
-        setDueDate("");
-        setToDoName("");
-        setPointType("");
-        setDescription("");
         navigate(`/todos/${id}`)
     }
 
