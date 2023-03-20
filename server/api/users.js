@@ -17,9 +17,9 @@ router.get("/", async (req, res, next) => {
 
 //Get route for single user
 //Eager load Pet and ToDo models
-router.get("/:userId", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.userId, {
+    const user = await User.findByPk(req.params.id, {
       include: [{ model: Pet }, { model: ToDo }],
     })
     res.json(user);
