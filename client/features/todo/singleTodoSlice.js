@@ -11,21 +11,21 @@ export const fetchSingleTodo = createAsyncThunk("singleTodo", async (id) => {
     }
 });
 
-//edit a single todo
-export const editSingleTodo = createAsyncThunk('editSingleTodo', async({id, dueDate, toDoName, pointType, description, isCompleted}) => {
+//add a single todo
+export const addSingleTodo = createAsyncThunk('addSingleTodo', async({dueDate, toDoName, pointType, description, isCompleted}) => {
     try {
-        const { data } = await axios.put(`/api/todos/${id}`, {dueDate, toDoName, description, pointType,isCompleted,});
+        const { data } = await axios.post(`/api/todos`, {dueDate, toDoName, description, pointType,isCompleted,});
+        console.log("dispatched from adding a todo")
         return data;
     } catch (err) {
         console.error(err)
     }
 })
 
-//add a single todo
-export const addSingleTodo = createAsyncThunk('addSingleTodo', async({dueDate, toDoName, pointType, description, isCompleted}) => {
+//edit a single todo
+export const editSingleTodo = createAsyncThunk('editSingleTodo', async({id, dueDate, toDoName, pointType, description, isCompleted}) => {
     try {
-        const { data } = await axios.post(`/api/todos`, {dueDate, toDoName, description, pointType,isCompleted,});
-        console.log("dispatched from adding a todo")
+        const { data } = await axios.put(`/api/todos/${id}`, {dueDate, toDoName, description, pointType,isCompleted,});
         return data;
     } catch (err) {
         console.error(err)
@@ -58,7 +58,7 @@ export const singleTodoSlice = createSlice({
             return action.payload;
         })
         builder.addCase(addSingleTodo.fulfilled, (state, action) => {
-            return [...state, action.payload];
+            state.push(action.payload);
         })
         builder.addCase(deleteSingleTodo.fulfilled, (state, action) => {
             const newState = state.filter((todos) => todos.id !==action.payload.id)
