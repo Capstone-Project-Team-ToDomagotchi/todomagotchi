@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import {editSingleTodo} from "./todoSlice";
+import { editSingleTodo } from "./singleTodoSlice";
 
 
 const EditTodo = () => {
