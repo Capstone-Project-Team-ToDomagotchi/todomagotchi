@@ -12,10 +12,7 @@ import EditUser from '../features/user/editUser';
 import CreateNewTodo from '../features/todo/newTodo';
 import AllPets from '../features/home/AllPets';
 import NotLoggedInHome from "../features/home/Home2";
-
-/**
- * COMPONENT
- */
+import MainPage from '../features/home/Main';
 
 /**
  * COMPONENT

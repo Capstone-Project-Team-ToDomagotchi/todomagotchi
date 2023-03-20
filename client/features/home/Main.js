@@ -8,21 +8,22 @@ import { selectTodo, fetchTodosAsync } from "../todo/todoSlice";
 const MainPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const currentUser = useSelector((state) => state.auth.me);
-  const pets = useSelector((state) => (state.singlePetSlice.userId.pets));
+  const pets = useSelector((state) => (state.pet.pet));
+  const user = useSelector ((state) => (state.auth.me.id))
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const todos = useSelector(selectTodo);
 
   useEffect(() => {
-    dispatch(fetchPetByUserId(pets));
+    dispatch(fetchPetByUserId(user));
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchTodosAsync());
   }, [dispatch]);
 
-  console.log(pets);
-  console.log(todos)
+  // console.log(pets);
+  // console.log(todos)
 
   // const { id, name, image, experience, user } = pets;
 

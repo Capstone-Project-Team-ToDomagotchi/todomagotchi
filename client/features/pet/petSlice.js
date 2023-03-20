@@ -14,11 +14,11 @@ export const fetchSinglePetAsync = createAsyncThunk(
   }
 );
 
-export const fetchPetByUserId = createAsyncThunk('pets/fetchById', async (id, userId) => {
+export const fetchPetByUserId = createAsyncThunk('pets/fetchById', async (userId) => {
   try {
-    const { data } = await axios.get(`/api/pets/${id}/${userId}`)
+    const { data } = await axios.get(`/api/pets/${userId}/viewpets`)
     console.log('data', data)
-    return data
+    return data[0].pets
   } catch (err) {
     console.log(err)
   }
@@ -49,7 +49,7 @@ export const singlePetSlice = createSlice({
       return action.payload;
     });
     builder.addCase(fetchPetByUserId.fulfilled, (state, action) => {
-      state.userId = action.payload;
+      state.pet = action.payload;
     });
     builder.addCase(addExpToPet.fulfilled, (state, action) => {
       state.pet = action.payload;

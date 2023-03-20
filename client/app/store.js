@@ -14,8 +14,8 @@ const store = configureStore({
   pets: allPetsSlice,
   singleUser: singleUserSlice,
   singleTodo: singleTodoSlice,
-  todo: todoSlice,
-  allPets: allPetsSlice,
+  todos: todoSlice, //was written with an s originally, had it removed
+  // allPets: allPetsSlice,
 },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
