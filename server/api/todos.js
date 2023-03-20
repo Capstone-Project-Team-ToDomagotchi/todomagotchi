@@ -12,6 +12,16 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+//add a new todo
+router.post("/todos", async (req, res, next) => {
+  try {
+    res.status(201).send(await ToDo.create(req.body));
+    console.log("dispatched from adding a todo")
+  } catch (err) {
+    next(err);
+  }
+});
+
 //get a single todo
 router.get("/:id", async (req, res, next) => {
   try {
@@ -22,15 +32,6 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-//add a new todo
-router.post("/todos", async (req, res, next) => {
-  try {
-    res.status(201).send(await ToDo.create(req.body));
-    console.log("dispatched from adding a todo")
-  } catch (err) {
-    next(err);
-  }
-});
 
 //update or edit a todo
 router.put("/:id", async (req, res, next) => {
