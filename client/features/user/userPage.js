@@ -6,7 +6,7 @@ import { selectSingleUser, fetchSingleUser } from "./userSlice";
 //This component is unfinished, still need to add details and make sure it works
 const User = () => {
   const dispatch = useDispatch();
-  const { userId } = useParams();
+  const { id } = useParams();
 
   const singleUser = useSelector(selectSingleUser);
 
@@ -21,7 +21,7 @@ const User = () => {
   } = singleUser;
 
   useEffect(() => {
-    dispatch(fetchSingleUser(userId));
+    dispatch(fetchSingleUser(id));
   }, [dispatch]);
 
   return (
@@ -41,7 +41,7 @@ const User = () => {
           <input name="aboutMe" type="text" />
         </form>
         <br />
-        <Link to={`/users/${userId}/edit`}>Edit Profile</Link>
+        <Link to={`/users/${id}/edit`}>Edit Profile</Link>
         </div> 
         </header>
       </div>
@@ -51,7 +51,11 @@ const User = () => {
       {pets && pets.length
         ? pets.map((pet) => (
             <div className="petList" key={petId}>
-              <Link to={`/pets/${pet.id}`}>{pet.name} {pet.image} {pet.experience}</Link>
+              <Link to={`/pets/${pet.id}`}>Name: {pet.name}</Link>
+              <br/>
+              {pet.image}
+              <br/>
+              <p>Experience Points: {pet.experience}</p>
             </div>
           ))
           : <p><i>No pets exist for this user</i></p>}
