@@ -14,10 +14,11 @@ const Navbar = () => {
     navigate("/");
   };
 
-
   return (
     <div>
-      <h1>ToDomagotchi</h1>
+      <div>
+        {/* <img src={logo} alt="logo" /> */}
+      </div>
       <nav>
       <Link to="/home">Home</Link>
       {isLoggedIn && <Link to={`/users/${userId}`}>Account</Link>}

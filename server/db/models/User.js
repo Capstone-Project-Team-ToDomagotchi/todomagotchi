@@ -25,6 +25,7 @@ const User = db.define("user", {
 
   profilePic: {
     type: Sequelize.TEXT,
+    allowNull: true,
     defaultValue:
       "/pfp.png",
   },

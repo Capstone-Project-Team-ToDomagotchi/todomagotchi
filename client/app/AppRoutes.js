@@ -10,6 +10,7 @@ import PetProfile from '../features/pet/PetProfile';
 import User from '../features/user/userPage';
 import EditUser from '../features/user/editUser';
 import CreateNewTodo from '../features/todo/newTodo';
+import AllPets from '../features/home/AllPets';
 
 
 /**
@@ -28,6 +29,7 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
+          {/* Routes placed here are available to users that are logged in */}
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/todos" element={<Todos />} />
@@ -36,14 +38,20 @@ const AppRoutes = () => {
           <Route path="/pets/:id" element={<PetProfile/>} />
           <Route path="/users/:id" element={<User />} />
           <Route path="/users/:id/edit" element={<EditUser />} />
+          <Route path="/pets" element={<AllPets/>} />
         </Routes>
       ) : (
         <Routes>
-          <Route to="/home" element={<Home />} />
-          <Route path="/login"
-            element={<AuthForm name="login" displayName="Login" />}/>
-          <Route path="/signup"
-            element={<AuthForm name="signup" displayName="Sign Up" />}/>
+          {/* Routes placed here are available to all visitors */}
+          {/* // <Route path="/home" element={<NotLoggedInHome />} /> */}
+          <Route
+            path="/login"
+            element={<AuthForm name="login" displayName="Login" />}
+          />
+          <Route
+            path="/signup"
+            element={<AuthForm name="signup" displayName="Sign Up" />}
+          />
         </Routes>
       )}
     </div>
