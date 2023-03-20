@@ -28,10 +28,10 @@ function createTestUser() {
     const email = "sally123@todomagotchi.com";
     const pronouns = "she/her";
     const displayName = "sallyyyy123";
-    const petId = pet.petId
+    
 
     return {
-        username, password, email, pronouns, displayName, petId
+        username, password, email, pronouns, displayName,
     };
 }
 
