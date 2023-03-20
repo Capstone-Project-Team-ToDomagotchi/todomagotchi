@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { selectSingleTodo, fetchSingleTodo } from "./singleTodoSlice";
 
 const SingleTodo = () => {
@@ -20,6 +20,8 @@ const SingleTodo = () => {
             <p>{description}</p>
             {/* update to button, add onClick */}
             <p>{isCompleted}</p>
+            <hr></hr>
+            <Link to={`/todos/${id}/edit`}>Edit</Link>
         </div>
     )
 };
