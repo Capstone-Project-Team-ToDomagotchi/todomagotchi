@@ -16,6 +16,10 @@ module.exports = {
           presets: ["@babel/preset-env", "@babel/preset-react"],
         },
       },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        type: "asset/resource",
+      },
     ],
   },
 };
