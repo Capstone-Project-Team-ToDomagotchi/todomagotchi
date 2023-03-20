@@ -13,8 +13,13 @@ export const fetchSingleUser = createAsyncThunk("users", async (userId) => {
   
   //Create thunk to edit single user
   export const editSingleUser = createAsyncThunk('editUser', async ({id, userName, displayName, pronouns, profilePic}) => {
-    try{
-    const { data } = await axios.put(`/api/users/${id}`, {userName, displayName, pronouns, profilePic});
+    try {
+      const { data } = await axios.put(`/api/users/${id}`, {userName, displayName, pronouns, profilePic});
+      return data;
+    } catch (err) {
+      console.error(err)
+    }
+  });
 
   //Create slice and reducer for single user
 
