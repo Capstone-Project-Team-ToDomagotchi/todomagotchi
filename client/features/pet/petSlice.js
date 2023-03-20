@@ -14,6 +14,16 @@ export const fetchSinglePetAsync = createAsyncThunk(
   }
 );
 
+export const fetchPetByUserId = createAsyncThunk('pets/fetchById', async (userId) => {
+  try {
+    const { data } = await axios.get(`/api/pets/${userId}/viewpets`)
+    console.log('data', data)
+    return data[0].pets
+  } catch (err) {
+    console.log(err)
+  }
+})
+
 export const addExpToPet = createAsyncThunk(
   'expUp', async ({id, experience}) => {
     const {data} = await axios.put(`/api/pets/${id}`, {
@@ -37,6 +47,9 @@ export const singlePetSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchSinglePetAsync.fulfilled, (state, action) => {
       return action.payload;
+    });
+    builder.addCase(fetchPetByUserId.fulfilled, (state, action) => {
+      state.pet = action.payload;
     });
     builder.addCase(addExpToPet.fulfilled, (state, action) => {
       state.pet = action.payload;

@@ -3,6 +3,21 @@ const { User, ToDo, Pet } = require("../db");
 
 router.get("/", async (req, res, next) => {
   try {
+    const pets = await Pet.findAll({
+      include: {
+        model: User,
+        // as: "owner",
+      },
+      attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
+    });
+    res.json(pets);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/", async (req, res, next) => {
+  try {
     const pets = await Pet.findAll();
     res.json(pets);
   } catch (err) {
@@ -17,15 +32,23 @@ router.get("/:id", async (req, res, next) => {
         model: User,
         // as: "owner",
       },
-      attributes: [
-        `id`,
-        `name`,
-        `image`,
-        `age`,
-        `type`,
-        `species`,
-        `experience`,
-      ],
+      attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
+    });
+    res.json(petById);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/:userId/viewpets", async (req, res, next) => {
+  try {
+    const petById = await User.findAll({
+      where: { id: req.params.userId },
+      include: {
+        model: Pet,
+        // as: "owner",
+      },
+      // attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
     });
     res.json(petById);
   } catch (err) {

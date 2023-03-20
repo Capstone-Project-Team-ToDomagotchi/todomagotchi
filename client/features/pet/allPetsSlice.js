@@ -3,27 +3,34 @@ import axios from "axios";
 
 export const fetchAllPetsAsync = createAsyncThunk("pets", async () => {
   try {
-    const { data } = await axios.get("/api/pets");
+    const { data } = await axios.get(`/api/pets`);
+    console.log("data", data);
     return data;
   } catch (err) {
-    console.err(err);
+    console.log(err);
   }
 });
 
-const initialState = {};
+const initialState = {
+  pets: {},
+};
 
 export const allPetsSlice = createSlice({
-  name: "allsPets",
+  name: "pets",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAllPetsAsync.fulfilled, (state, action) => {
       return action.payload;
     });
+    // builder.addCase(editPetAsync.fulfilled, (state, action) => {
+    //   state = action.payload;
+    // });
   },
 });
 
 export const selectAllPets = (state) => {
-    return state.allPets;
-}
-export default allPetsSlice.reducer
+  return state.pets;
+};
+
+export default allPetsSlice.reducer;

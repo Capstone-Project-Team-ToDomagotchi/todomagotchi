@@ -39,4 +39,4 @@ const AllPets = () => {
     );
     
 }
-export default AllPets
+export default AllPets;
