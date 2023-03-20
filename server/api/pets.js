@@ -4,6 +4,16 @@ const { User, ToDo, Pet } = require("../db");
 
 router.get("/", async (req, res, next) => {
   try {
+    const pets = await Pet.findAll();
+    res.json(pets);
+  } catch (err) {
+    next(err);
+  }
+});
+
+
+router.get("/", async (req, res, next) => {
+  try {
     const pets = await Pet.findAll({
       include: {
         model: User,
