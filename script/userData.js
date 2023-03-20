@@ -16,8 +16,9 @@ function createUser() {
     const pronouns = faker.helpers.arrayElement(['she/her', 'he/his', 'they/them'], 1);
     const displayName = faker.name.firstName();
     const image = faker.image.imageUrl();
+    const petId = faker.datatype.number({min:1, max: 4}, 1)
     return {
-        username, password, email, pronouns, displayName, image
+        username, password, email, pronouns, displayName, image, petId
     };
 }
 
@@ -27,9 +28,10 @@ function createTestUser() {
     const email = "sally123@todomagotchi.com";
     const pronouns = "she/her";
     const displayName = "sallyyyy123";
+    const petId = pet.petId
 
     return {
-        username, password, email, pronouns, displayName
+        username, password, email, pronouns, displayName, petId
     };
 }
 

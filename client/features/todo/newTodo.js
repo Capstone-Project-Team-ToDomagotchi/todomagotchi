@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import { addSingleTodo } from "./singleTodoSlice";
 
 const CreateNewTodo = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const navigate = useNavigate;
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -14,10 +14,13 @@ const CreateNewTodo = () => {
         const toDoName = event.target.toDoName.value;
         const pointType = event.target.pointType.value;
         const description = event.target.description.value;
-        const isCompleted = event.target.isCompleted.value
 
-        dispatch(dueDate, toDoName, pointType, description, isCompleted);
-        navigate(`/todos/${id}`)
+        dispatch({
+            type:"todos/addTodo",
+            payload:{dueDate, toDoName, pointType, description}});
+        navigate(`/todos`)
+        // dispatch(addSingleTodo({dueDate,toDoName,pointType,description}));
+        // navigate(`/todos`)
     }
 
 
@@ -27,7 +30,7 @@ const CreateNewTodo = () => {
                 <h3>Add A New Task</h3>
                 <label htmlFor="toDoName">New Task:</label>
                 <input type="text" name="toDoName" />
-                <label htmlFor="dueDate">New Username:</label>
+                <label htmlFor="dueDate">Due Date:</label>
                 <input type="date" id="dueDate" name="dueDate" />
                 <label htmlFor="pointType">Priority</label>
                 <select id="pointType" name="pointType">
@@ -35,10 +38,10 @@ const CreateNewTodo = () => {
                     <option value="regular">Regular</option>
                     </select>
                 <label htmlFor="description">Description: </label>
-                <input type="checkbox" name="description" />
+                <input type="text" name="description" />
                 <br></br>
-                <button type='submit'>Submit Changes</button>
-                <Link to='/users/:id'>Cancel</Link>
+                <button type='submit'>Submit</button>
+                <Link to='/todos'>Cancel</Link>
             </form>
         </div>
     )

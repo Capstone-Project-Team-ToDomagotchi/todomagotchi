@@ -23,9 +23,10 @@ router.get("/:id", async (req, res, next) => {
 });
 
 //add a new todo
-router.post("/", async (req, res, next) => {
+router.post("/todos", async (req, res, next) => {
   try {
     res.status(201).send(await ToDo.create(req.body));
+    console.log("dispatched from adding a todo")
   } catch (err) {
     next(err);
   }
