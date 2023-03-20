@@ -8,6 +8,9 @@ const PetProfile = () => {
   const petId = useParams();
 
   const singlePet = useSelector(selectSinglePet);
+  const petArray = useSelector(singlePet.pet)
+
+  console.log(petArray)
 
   useEffect(() => {
     dispatch(fetchSinglePetAsync(petId.id));
@@ -20,7 +23,7 @@ const PetProfile = () => {
     age,
     species,
     experience,
-    user,
+    // user,
   } = singlePet;
 
   return (
@@ -33,7 +36,7 @@ const PetProfile = () => {
         <h3>Species:</h3>
         <h4>{species}</h4>
         <h3>Owner:</h3>
-        <h4>{user.username}</h4>
+        {/* <h4>{user.displayName}</h4> */}
         <p>EXP: {experience}</p>
         {/* ^^Need to implement a bar that shows how close to the next level^^  */}
       </div>

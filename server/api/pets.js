@@ -16,23 +16,15 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/", async (req, res, next) => {
-  try {
-    const pets = await Pet.findAll();
-    res.json(pets);
-  } catch (err) {
-    next(err);
-  }
-});
 router.get("/:id", async (req, res, next) => {
   try {
     const petById = await Pet.findOne({
       where: { id: req.params.id },
-      include: {
-        model: User,
-        // as: "owner",
-      },
-      attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
+      // include: {
+      //   model: User,
+      //   // as: "owner",
+      // },
+      // attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
     });
     res.json(petById);
   } catch (err) {
