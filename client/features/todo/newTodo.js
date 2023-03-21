@@ -14,7 +14,6 @@ const CreateNewTodo = () => {
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
-        // console.log({dueDate, toDoName, pointType, description})
         event.preventDefault();
         dispatch(addNewTodo({dueDate, toDoName, pointType, description}));
         setDueDate("");
@@ -40,7 +39,6 @@ const CreateNewTodo = () => {
                 <label htmlFor="pointType">Priority</label> 
                 <select id="pointType" name="pointType" 
                 onChange={(e) => {
-                        console.log(e.target.value)
                         setPointType(e.target.value)}}>
                     <option value="average">average</option>
                     <option value="important">important</option>

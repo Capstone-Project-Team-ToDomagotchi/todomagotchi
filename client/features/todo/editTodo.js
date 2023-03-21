@@ -15,6 +15,7 @@ const EditTodo = () => {
     const { id } = useParams();
 
     useEffect(() => {
+        console.log(`todoId from useEffect in EditTodo: ${id}`)
         dispatch(fetchSingleTodo(id));
     }, [dispatch, id])
 
@@ -28,8 +29,12 @@ const EditTodo = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(editSingleTodo({dueDate, toDoName, pointType, description}));
-        navigate(`/todos/${id}`)
+        dispatch(editSingleTodo({id, dueDate, toDoName, pointType, description}));
+        if (id) {
+            navigate(`/todos/${id}`);
+        } else {
+            navigate('/todos');
+        }
     }
 
 
@@ -48,7 +53,6 @@ const EditTodo = () => {
                 <label htmlFor="pointType">Priority</label> 
                 <select id="pointType" name="pointType" 
                 onChange={(e) => {
-                        console.log(e.target.value)
                         setPointType(e.target.value)}}>
                     <option value="average">average</option>
                     <option value="important">important</option>

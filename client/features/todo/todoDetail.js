@@ -21,7 +21,9 @@ const SingleTodo = () => {
             {/* update to button, add onClick */}
             <p>{isCompleted}</p>
             <hr></hr>
-            <Link to={`/todos/${id}/edit`}>Edit</Link>
+            <Link to={`/todos/${id}/edit`}>Edit Task</Link>
+            <br />
+            <Link to={`/todos`}>Back to Todo List</Link>
         </div>
     )
 };
