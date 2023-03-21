@@ -4,9 +4,8 @@ const User = require("./models/User");
 const Pet = require("./models/Pet");
 const ToDo = require("./models/ToDo");
 const SelectPet = require('./models/SelectPet')
-//associations could go here!
 
-
+//Associations
 User.hasMany(ToDo);
 ToDo.belongsTo(User);
 

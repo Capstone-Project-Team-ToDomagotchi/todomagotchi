@@ -16,7 +16,6 @@ export const addNewTodo = createAsyncThunk(
   "addNewTodo",
   async ({ dueDate, toDoName, pointType, description, isCompleted }) => {
     try {
-      // console.log("dispatched from adding a todo")
       const { data } = await axios.post("/api/todos", {
         dueDate,
         toDoName,
@@ -24,7 +23,6 @@ export const addNewTodo = createAsyncThunk(
         pointType,
         isCompleted,
       });
-
       return data;
     } catch (err) {
       console.error(err);

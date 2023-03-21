@@ -17,7 +17,6 @@ router.get("/", async (req, res, next) => {
 router.post("/", verifyToken, async (req, res, next) => {
   try {
     const userId = req.payload.id;
-    console.log(req.body, "req.body");
     const { dueDate, toDoName, description, pointType, isCompleted } = req.body;
     const newTodo = await ToDo.create({
       dueDate,
@@ -27,7 +26,6 @@ router.post("/", verifyToken, async (req, res, next) => {
       isCompleted,
     });
     res.send(newTodo);
-    console.log("dispatched");
   } catch (err) {
     next(err);
   }

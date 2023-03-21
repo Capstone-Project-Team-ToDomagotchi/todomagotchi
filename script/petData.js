@@ -15,8 +15,7 @@ function createPet() {
     const type = faker.helpers.arrayElement(['plant','monster'], 1);
     const species = faker.lorem.word(1);
     const image = faker.image.imageUrl(true);
-    // const userId = faker.datatype.number({min:1, max:10});
-
+    
     return {
         name, age, type, species, image, 
     };
