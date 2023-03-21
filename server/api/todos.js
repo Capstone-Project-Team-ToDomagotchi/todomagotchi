@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { ToDo } = require("../db");
+const verifyToken = require("../middleware/verifyToken");
 
 //get all todos
 router.get("/", async (req, res, next) => {
@@ -13,10 +14,17 @@ router.get("/", async (req, res, next) => {
 });
 
 //add a new todo
-router.post("/", async (req, res, next) => {
+router.post("/", verifyToken, async (req, res, next) => {
   try {
-    const {dueDate, toDoName, description, pointType, isCompleted} = req.body;
-    const newTodo = await ToDo.create({dueDate, toDoName, description, pointType, isCompleted})
+    const userId = req.payload.id;
+    const { dueDate, toDoName, description, pointType, isCompleted } = req.body;
+    const newTodo = await ToDo.create({
+      dueDate,
+      toDoName,
+      description,
+      pointType,
+      isCompleted,
+    });
     res.send(newTodo);
   } catch (err) {
     next(err);
@@ -32,7 +40,6 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
-
 
 //update or edit a todo
 router.put("/:id", async (req, res, next) => {
@@ -55,4 +62,4 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
-module.exports = router; 
+module.exports = router;

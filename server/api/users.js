@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User, Pet, ToDo } = require("../db");
-module.exports = router;
+const verifyToken = require("../middleware/verifyToken");
 
 //Get route for all users
 router.get("/", async (req, res, next) => {
@@ -20,8 +20,25 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id, {
-      include: [{ model: Pet }, { model: ToDo }],
-    })
+      include: [
+        // { model: Pet },
+        { model: ToDo },
+      ],
+    });
+    res.json(user);
+  } catch (err) {
+    console.log("err--->", err);
+    next(err);
+  }
+});
+
+//Get route to get a logged in user's profile w/ their todos
+router.get("/profile/me", verifyToken, async (req, res, next) => {
+  try {
+    const userId = req.payload.id;
+    const user = await User.findByPk(userId, {
+      include: [{ model: ToDo }],
+    });
     res.json(user);
   } catch (err) {
     next(err);
@@ -34,6 +51,8 @@ router.put("/:id", async (req, res, next) => {
     const user = await User.findByPk(req.params.id);
     res.json(user);
   } catch (err) {
-    next (err);
+    next(err);
   }
 });
+
+module.exports = router;

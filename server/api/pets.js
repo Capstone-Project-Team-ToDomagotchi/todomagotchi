@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { User, ToDo, Pet } = require("../db");
 
-
 router.get("/", async (req, res, next) => {
   try {
     const pets = await Pet.findAll();
@@ -10,7 +9,6 @@ router.get("/", async (req, res, next) => {
     next(err);
   }
 });
-
 
 router.get("/", async (req, res, next) => {
   try {
@@ -42,7 +40,15 @@ router.get("/", async (req, res, next) => {
         model: User,
         // as: "owner",
       },
-      attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
+      attributes: [
+        `id`,
+        `name`,
+        `image`,
+        `age`,
+        `type`,
+        `species`,
+        `experience`,
+      ],
     });
     res.json(pets);
   } catch (err) {
@@ -116,7 +122,7 @@ router.put("/expUp/:id", async (req, res, next) => {
     const petById = await Pet.findOne({
       where: { id: req.params.id },
     });
-    console.log("This Is Working", petById)
+    console.log("This Is Working", petById);
     const selectPet = petById.id;
     //Goal is that checking off a ToDo will increase the number of EXP
     //Amount of EXP gained will depend on the type of ToDo completed
