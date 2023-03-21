@@ -18,6 +18,9 @@ ToDo.belongsTo(User)
 // User.hasMany(ToDo);
 // ToDo.belongsTo(User);
 
+// Pet.belongsTo(User);
+// Pet.hasMany(ToDo);
+
 // User.hasMany(SelectPet);
 // SelectPet.belongsTo(User);
 

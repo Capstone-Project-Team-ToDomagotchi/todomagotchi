@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Pet, ToDo } = require("../db");
+const { User, Pet, ToDo, SelectPet } = require("../db");
 module.exports = router;
 
 //Get route for all users
@@ -14,6 +14,15 @@ router.get("/", async (req, res, next) => {
     next(err);
   }
 });
+
+// router.post("/", async (req, res, next) => {
+//   try {
+//     const newUserPet = await SelectPet.create({
+//       userId: req.body.userId,
+//       petId: req.body.petId,
+//     })
+//   }
+// })
 
 //Get route for single user
 //Eager load Pet and ToDo models
