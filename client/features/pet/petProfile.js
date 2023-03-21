@@ -6,7 +6,7 @@ import { addExpToPet, fetchSinglePetAsync, selectSinglePet } from "./petSlice";
 const PetProfile = () => {
   const dispatch = useDispatch();
   const petId = useParams();
-  const [exp, setExp] = useState("")
+  // const [exp, setExp] = useState("")
 
   const singlePet = useSelector(selectSinglePet);
 
@@ -14,10 +14,8 @@ const PetProfile = () => {
     dispatch(fetchSinglePetAsync(petId.id));
   }, [dispatch]);
   
-  function addExp(petId, experience) {
-    dispatch(addExpToPet({id: petId.id, experience}, 
-      [dispatch]))
-  }
+  const addExp = async(id) => {
+   await dispatch(addExpToPet(id))}
 
   const {
     id,
@@ -26,7 +24,7 @@ const PetProfile = () => {
     age,
     species,
     experience,
-    user,
+    // user,
   } = singlePet;
 
   return (
@@ -39,9 +37,9 @@ const PetProfile = () => {
         <h3>Species:</h3>
         <h4>{species}</h4>
         <h3>Owner:</h3>
-        <h4>{user?.username}</h4>
+        {/* <h4>{user?.username}</h4> */}
         <p>EXP: {experience}</p>
-        <button onClick={() => addExp(id, experience)}>Add EXP</button>
+        <button onClick={(id) => addExp(id)}>Add EXP</button>
         {/* ^^Need to implement a bar that shows how close to the next level^^  */}
       </div>
     </section>

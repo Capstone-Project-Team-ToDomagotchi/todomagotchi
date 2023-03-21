@@ -6,18 +6,26 @@ const ToDo = require("./models/ToDo");
 const SelectPet = require('./models/SelectPet')
 //associations could go here!
 
+Pet.belongsTo(User);
+Pet.hasMany(ToDo);
 
+User.hasMany(Pet);
 User.hasMany(ToDo);
-ToDo.belongsTo(User);
 
-User.hasMany(SelectPet);
-SelectPet.belongsTo(User);
+ToDo.belongsTo(Pet);
+ToDo.belongsTo(User)
 
-SelectPet.belongsTo(Pet);
-Pet.hasMany(SelectPet);
+// User.hasMany(ToDo);
+// ToDo.belongsTo(User);
 
-ToDo.hasMany(SelectPet);
-SelectPet.belongsTo(ToDo)
+// User.hasMany(SelectPet);
+// SelectPet.belongsTo(User);
+
+// SelectPet.belongsTo(Pet);
+// Pet.hasMany(SelectPet);
+
+// ToDo.hasMany(SelectPet);
+// SelectPet.belongsTo(ToDo)
 
 
 module.exports = {

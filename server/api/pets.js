@@ -54,10 +54,10 @@ router.get("/:id", async (req, res, next) => {
   try {
     const petById = await Pet.findOne({
       where: { id: req.params.id },
-      include: {
-        model: User,
-        // as: "owner",
-      },
+      // include: {
+      //   model: User,
+      //   // as: "owner",
+      // },
       // attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
     });
     res.json(petById);
@@ -117,16 +117,15 @@ router.put("/expUp/:id", async (req, res, next) => {
       where: { id: req.params.id },
     });
     console.log("This Is Working", petById)
-    const selectPet = petById.id;
+    // const selectPet = petById.id;
     //Goal is that checking off a ToDo will increase the number of EXP
     //Amount of EXP gained will depend on the type of ToDo completed
-    const updatedPet = await petById.update({
-      id: selectPet,
-      experience: selectPet.experience + 20,
+    const updatedPet = await petById?.update({
+      experience: experience + 20,
     });
     res.send(updatedPet);
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 });
 
