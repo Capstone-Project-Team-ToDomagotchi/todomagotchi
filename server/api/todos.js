@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { ToDo } = require("../db");
+const { ToDo, User, SelectPet } = require("../db");
 
 //get all todos
 router.get("/", async (req, res, next) => {
@@ -28,7 +28,9 @@ router.post("/", async (req, res, next) => {
 //get a single todo
 router.get("/:id", async (req, res, next) => {
   try {
-    const todo = await ToDo.findByPk(req.params.id);
+    const todo = await ToDo.findByPk(req.params.id, {
+      include: [{ model: SelectPet }, { model: User }],
+    });
     res.json(todo);
   } catch (err) {
     next(err);

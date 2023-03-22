@@ -16,7 +16,7 @@ const User = () => {
     profilePic,
     pronouns,
     petId,
-    pets,
+    selectPet,
     todos,
   } = singleUser;
 
@@ -25,43 +25,48 @@ const User = () => {
   }, [dispatch]);
 
   return (
-  <div>
-    <div className="user-profile">
-      <div>
-      <header id="user-header">
-      <img id="user-img" src={profilePic}></img>
+    <div>
+      <div className="user-profile">
         <div>
-        <h2>Name: {displayName}</h2>
-        <h3>Username: {username} </h3>
-        <p>Pronouns: {pronouns}</p>
-        <form id="aboutMe-Form">
-          <label htmlFor="displayName">
-            <small>About Me</small>
-          </label>
-          <input name="aboutMe" type="text" />
-        </form>
-        <br />
-        <Link to={`/users/${id}/edit`}>Edit Profile</Link>
-        </div> 
-        </header>
+          <header id="user-header">
+            <img id="user-img" src={profilePic}></img>
+            <div>
+              <h2>Name: {displayName}</h2>
+              <h3>Username: {username} </h3>
+              <p>Pronouns: {pronouns}</p>
+              <form id="aboutMe-Form">
+                <label htmlFor="displayName">
+                  <small>About Me</small>
+                </label>
+                <input name="aboutMe" type="text" />
+              </form>
+              <br />
+              <Link to={`/users/${id}/edit`}>Edit Profile</Link>
+            </div>
+          </header>
+        </div>
       </div>
-    </div>
-    <div className="pet-details">
-      <p>List of Pets:</p>
-      {pets && pets.length
-        ? pets.map((pet) => (
-            <div className="petList" key={petId}>
-              <Link to={`/pets/${pet.id}`}>Name: {pet.name}</Link>
-              <br/>
-              {pet.image}
-              <br/>
-              <p>Experience Points: {pet.experience}</p>
+      <div className="pet-details">
+        <p>List of Pets:</p>
+        <div>{selectPet}</div>
+        {selectPet && selectPet.length ? (
+          selectPet.map((select) => (
+            <div className="petList" key={select.petId}>
+             Name: {select.Pet.name}
+              <br />
+              {select.Pet.image}
+              <br />
+              <p>Experience Points: {select.Pet.experience}</p>
             </div>
           ))
-          : <p><i>No pets exist for this user</i></p>}
+        ) : (
+          <p>
+            <i>No selectPet exist for this user</i>
+          </p>
+        )}
+      </div>
+      <div id="todos-remaining">{/* {todos.id} */}</div>
     </div>
-    <div id="todos-remaining">{/* {todos.id} */}</div>
-  </div>
   );
 };
 

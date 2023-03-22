@@ -54,10 +54,10 @@ router.get("/:id", async (req, res, next) => {
   try {
     const petById = await Pet.findOne({
       where: { id: req.params.id },
-      include: {
-        model: User,
-        // as: "owner",
-      },
+      // include: {
+      //   model: User,
+      //   // as: "owner",
+      // },
       // attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
     });
     res.json(petById);
