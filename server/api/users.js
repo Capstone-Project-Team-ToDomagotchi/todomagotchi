@@ -17,6 +17,19 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// router.put("/", async (req, res, next) => {
+//   try {
+//     const user = await User.findByPk(req.params.id);
+//     const newUserPet = await SelectPet.create({
+//       userId: user.id,
+//       petId: req.body.petId,
+//     })
+//   }
+//   catch (err) {
+//     next(err)
+//   }
+// });
+
 //Get route for single user
 //Eager load Pet and ToDo models
 router.get("/:id", async (req, res, next) => {
