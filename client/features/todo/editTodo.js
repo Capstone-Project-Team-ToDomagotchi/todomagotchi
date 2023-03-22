@@ -1,7 +1,7 @@
-import React, {useState} from "react";
-import { useDispatch } from "react-redux";
+import React, {useEffect, useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { editSingleTodo } from "./singleTodoSlice";
+import { fetchSingleTodo, selectSingleTodo, editSingleTodo } from "./singleTodoSlice";
 
 
 const EditTodo = () => {
@@ -12,16 +12,29 @@ const EditTodo = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { id } = useParams();
+
+    useEffect(() => {
+        console.log(`todoId from useEffect in EditTodo: ${id}`)
+        dispatch(fetchSingleTodo(id));
+    }, [dispatch, id])
+
+    let singleTodo = useSelector(selectSingleTodo)
+    useEffect(() => {
+        setDueDate(singleTodo.dueDate);
+        setToDoName(singleTodo.toDoName);
+        setPointType(singleTodo.pointType);
+        setDescription(singleTodo.description);
+    }, [singleTodo])
 
     const handleSubmit = (event) => {
-        // console.log({dueDate, toDoName, pointType, description})
         event.preventDefault();
-        dispatch(editSingleTodo({dueDate, toDoName, pointType, description}));
-        setDueDate("");
-        setToDoName("");
-        setPointType("");
-        setDescription("");
-        navigate(`/todos/${id}`)
+        dispatch(editSingleTodo({id, dueDate, toDoName, pointType, description}));
+        if (id) {
+            navigate(`/todos/${id}`);
+        } else {
+            navigate('/todos');
+        }
     }
 
 
@@ -40,7 +53,6 @@ const EditTodo = () => {
                 <label htmlFor="pointType">Priority</label> 
                 <select id="pointType" name="pointType" 
                 onChange={(e) => {
-                        console.log(e.target.value)
                         setPointType(e.target.value)}}>
                     <option value="average">average</option>
                     <option value="important">important</option>

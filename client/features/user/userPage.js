@@ -10,15 +10,8 @@ const User = () => {
 
   const singleUser = useSelector(selectSingleUser);
 
-  const {
-    displayName,
-    username,
-    profilePic,
-    pronouns,
-    petId,
-    selectPet,
-    todos,
-  } = singleUser;
+  const { displayName, username, profilePic, pronouns, petId, selectPet, todos } =
+    singleUser;
 
   useEffect(() => {
     dispatch(fetchSingleUser(id));
@@ -46,22 +39,38 @@ const User = () => {
           </header>
         </div>
       </div>
-      <div className="pet-details">
-        <p>List of Pets:</p>
-        <div>{selectPet}</div>
-        {selectPet && selectPet.length ? (
-          selectPet.map((select) => (
-            <div className="petList" key={select.petId}>
-             Name: {select.Pet.name}
+      <div className="todo-details">
+        <p>List of Todos:</p>
+        {todos && todos.length ? (
+          todos.map((todo) => (
+            <div className="todoList" key={todo.id}>
+              <Link to={`/todos/${todo.id}`}>Name: {todo.toDoName}</Link>
               <br />
-              {select.Pet.image}
+              {todos.description}
               <br />
-              <p>Experience Points: {select.Pet.experience}</p>
             </div>
           ))
         ) : (
           <p>
-            <i>No selectPet exist for this user</i>
+            <i>No todos exist for this user</i>
+          </p>
+        )}
+      </div>
+      <div className="pet-details">
+        <p>List of Pets:</p>
+        {pets && pets.length ? (
+          pets.map((pet) => (
+            <div className="petList" key={petId}>
+              <Link to={`/pets/${pet.id}`}>Name: {pet.name}</Link>
+              <br />
+              {pet.image}
+              <br />
+              <p>Experience Points: {pet.experience}</p>
+            </div>
+          ))
+        ) : (
+          <p>
+            <i>No pets exist for this user</i>
           </p>
         )}
       </div>
