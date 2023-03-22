@@ -10,8 +10,16 @@ const User = () => {
 
   const singleUser = useSelector(selectSingleUser);
 
-  const { displayName, username, profilePic, pronouns, petId, selectPet, todos } =
-    singleUser;
+  const {
+    displayName,
+    username,
+    profilePic,
+    pronouns,
+    petId,
+    selectPets,
+    todos,
+    aboutMe,
+  } = singleUser;
 
   useEffect(() => {
     dispatch(fetchSingleUser(id));
@@ -27,12 +35,7 @@ const User = () => {
               <h2>Name: {displayName}</h2>
               <h3>Username: {username} </h3>
               <p>Pronouns: {pronouns}</p>
-              <form id="aboutMe-Form">
-                <label htmlFor="displayName">
-                  <small>About Me</small>
-                </label>
-                <input name="aboutMe" type="text" />
-              </form>
+              {aboutMe && <p>About Me: {aboutMe} </p>}
               <br />
               <Link to={`/users/${id}/edit`}>Edit Profile</Link>
             </div>
@@ -58,14 +61,16 @@ const User = () => {
       </div>
       <div className="pet-details">
         <p>List of Pets:</p>
-        {pets && pets.length ? (
-          pets.map((pet) => (
-            <div className="petList" key={petId}>
-              <Link to={`/pets/${pet.id}`}>Name: {pet.name}</Link>
+        {selectPets && selectPets.length ? (
+          selectPets.map((selectPet) => (
+            <div className="petList" key={selectPets.petId}>
+              <Link to={`/pets/${selectPets.petId}`}>
+                Name: {selectPet.name}
+              </Link>
               <br />
-              {pet.image}
+              {selectPet.image}
               <br />
-              <p>Experience Points: {pet.experience}</p>
+              <p>Experience Points: {selectPet.experience}</p>
             </div>
           ))
         ) : (
@@ -74,7 +79,6 @@ const User = () => {
           </p>
         )}
       </div>
-      <div id="todos-remaining">{/* {todos.id} */}</div>
     </div>
   );
 };
