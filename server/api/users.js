@@ -75,5 +75,15 @@ router.post("/:id/selectpet", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+router.get("/:id/selectedpet", async (req, res) => {
+
+    try {
+      const selectPet = await SelectPet.findAll({ where: { id: req.params.id },
+        });
+      res.json(selectPet);
+    } catch (err) {
+      console.log(err);
+    }
+});
 
 module.exports = router;

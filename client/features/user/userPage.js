@@ -10,7 +10,7 @@ const User = () => {
 
   const singleUser = useSelector(selectSingleUser);
 
-  const { displayName, username, profilePic, pronouns, petId, selectPet, todos } =
+  const { displayName, username, profilePic, pronouns, pets, selectPet, todos } =
     singleUser;
 
   useEffect(() => {
@@ -58,6 +58,7 @@ const User = () => {
       </div>
       <div className="pet-details">
         <p>List of Pets:</p>
+       
         {pets && pets.length ? (
           pets.map((pet) => (
             <div className="petList" key={petId}>

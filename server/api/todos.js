@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { ToDo, User, SelectPet } = require("../db");
-// const verifyToken = require("../middleware/verifyToken");
+const verifyToken = require("../middleware/verifyToken");
 
 //get all todos
 router.get("/", async (req, res, next) => {
