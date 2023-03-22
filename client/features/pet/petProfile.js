@@ -15,18 +15,20 @@ const PetProfile = () => {
     dispatch(fetchSinglePetAsync(petId.id));
   }, [dispatch]);
   
+  console.log("data", singlePet)
+
   const addExp = async(id) => {
    await dispatch(addExpToPet(id))}
 
-  const {
-    id,
-    name,
-    image,
-    age,
-    species,
-    experience,
-    user,
-  } = singlePet;
+  // const {
+  //   id,
+  //   name,
+  //   image,
+  //   age,
+  //   species,
+  //   experience,
+  //   user,
+  // } = singlePet;
 
   // const {
   //   species,
@@ -35,7 +37,7 @@ const PetProfile = () => {
 
   return (
     <section id="petProfile">
-      <div key={id}>
+      {/* <div key={id}>
         <img className="profilePet" src={image} />
         <h2 className="petName">{name}</h2>
         <h3>Age:</h3> 
@@ -46,8 +48,8 @@ const PetProfile = () => {
         <h4>{user?.username}</h4>
         <p>EXP: {experience}</p>
         <button onClick={(id) => addExp(id)}>Add EXP</button>
-        {/* ^^Need to implement a bar that shows how close to the next level^^*/}  
-      </div>
+        {/* ^^Need to implement a bar that shows how close to the next level^^
+      </div> */}
     </section>
   );
 };
