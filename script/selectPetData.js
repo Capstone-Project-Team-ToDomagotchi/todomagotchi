@@ -10,13 +10,13 @@ function createSelectPetArray() {
 }
 
 function createSelectPet() {
-  const qty = faker.datatype.number({ min: 1, max: 1 });
+  const exp = faker.datatype.number({ min: 1, max: 100 });
   const userId = faker.datatype.number({ min: 1, max: 10 });
   const todoId = faker.datatype.number({ min: 1, max: 10 });
   const petId = faker.datatype.number({ min: 1, max: 9 });
 
   return {
-    qty,
+    exp,
     userId,
     todoId,
     petId,

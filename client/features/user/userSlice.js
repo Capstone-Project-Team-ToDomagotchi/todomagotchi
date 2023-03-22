@@ -27,32 +27,49 @@ export const editSingleUser = createAsyncThunk(
     } catch (err) {
       console.error(err);
     }
-  }
-);
+  });
+  
+  export const fetchSelectPetAsync = createAsyncThunk('selectPet', async ({userId, petId}) => {
+    try {
+        const { data } = await axios.post(`/api/users/${userId}/selectpet`, 
+        {petId, userId} );
+        console.log(data);
+        return data;
+      } catch (err) {
+        console.log(err);
+      }});
 
-//Create slice and reducer for single user
+  //Create slice and reducer for single user
 
-const initialState = {
-  singleUser: [],
-};
+ const initialState = {
+    singleUser: [],
+    selectPet: [],
+  };
 
-const singleUserSlice = createSlice({
-  name: "singleUser",
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(fetchSingleUser.fulfilled, (state, action) => {
-      return action.payload;
+  const singleUserSlice = createSlice({
+    name: "singleUser",
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+      builder.addCase(fetchSingleUser.fulfilled, (state, action) => {
+        return action.payload;
+      });
+      builder.addCase(editSingleUser.fulfilled, (state, action) => {
+        return action.payload;
+      });
+      builder.addCase(fetchSelectPetAsync.fulfilled, (state, action) => {
+        // update state with the fetched data
+        return action.payload;
     });
-    builder.addCase(editSingleUser.fulfilled, (state, action) => {
-      return action.payload;
-    });
-  },
-});
+    },
+  });
+  
+  //Create selector for single user
 
-//Create selector for single user
-
-export const selectSingleUser = (state) => {
-  return state.singleUser;
-};
-export default singleUserSlice.reducer;
+  export const selectSingleUser= (state) => {
+    return state.singleUser;
+  };
+  export const selectSelectedPet = (state) => {
+    return state.selectPet;
+  };
+  export default singleUserSlice.reducer;

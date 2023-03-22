@@ -2,9 +2,9 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 const SelectPet = db.define('selectPet', {
-    qty: {
+    exp: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        defaultValue: 0,
       },
 });
 

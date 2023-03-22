@@ -10,7 +10,7 @@ const User = () => {
 
   const singleUser = useSelector(selectSingleUser);
 
-  const { displayName, username, profilePic, pronouns, petId, pets, todos } =
+  const { displayName, username, profilePic, pronouns, petId, selectPet, todos } =
     singleUser;
 
   useEffect(() => {
