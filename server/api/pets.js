@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, ToDo, Pet } = require("../db");
+const { User, ToDo, Pet, SelectPet } = require("../db");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -37,7 +37,7 @@ router.get("/", async (req, res, next) => {
   try {
     const pets = await Pet.findAll({
       include: {
-        model: User,
+        model: User, SelectPet
         // as: "owner",
       },
       attributes: [
@@ -89,18 +89,25 @@ router.get("/:userId/viewpets", async (req, res, next) => {
 });
 
 //vvv will be the finalized api vvv
-// router.put("/expUp/:id", async (req, res, next) => {
+// router.put("/expUp/:petId", async (req, res, next) => {
 //   try {
 //     const petById = await Pet.findOne({
 //       where: { id: req.params.id },
-//       include: ToDo,
+//       include: SelectPet,
 //     });
+//     const expData = await SelectPet.findOne({
+//       where: { id: req.params.petId },
+//     });
+//     const toDos = await ToDo.findAll({
+//       where: {id: req.params.petId}
+//     });
+//     const petId = petById.id;
 //     //Goal is that checking off a ToDo will increase the number of EXP
 //     //Amount of EXP gained will depend on the type of ToDo completed
 //     if (petById.ToDo.pointType === "important" && petById.ToDo.isCompleted) {
-//       const updatedPet = await Pet.update({
+//       const updatedPet = await SelectPet.update({
 //         id: req.body.id,
-//         experience: experience + 20,
+//         exp: exp + 20,
 //       });
 //       res.send(updatedPet);
 //     }
