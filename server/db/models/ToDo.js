@@ -1,13 +1,13 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-const ToDo = db.define("todo", {
+const Todo = db.define("todo", {
   dueDate: {
     type: Sequelize.DATEONLY,
     defaultValue: Sequelize.NOW,
     allowNull: false,
   },
-  toDoName: {
+  todoName: {
     type: Sequelize.STRING,
   },
   pointType: {
@@ -22,4 +22,4 @@ const ToDo = db.define("todo", {
   },
 });
 
-module.exports = ToDo;
+module.exports = Todo;
