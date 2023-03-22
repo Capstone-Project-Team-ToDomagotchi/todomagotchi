@@ -15,13 +15,13 @@ export const fetchSingleUser = createAsyncThunk("users", async (id) => {
 //Create thunk to edit single user
 export const editSingleUser = createAsyncThunk(
   "editUser",
-  async ({ id, userName, displayName, pronouns, profilePic }) => {
+  async ({ id, userName, displayName, pronouns, aboutMe }) => {
     try {
       const { data } = await axios.put(`/api/users/${id}`, {
         userName,
         displayName,
         pronouns,
-        profilePic,
+        aboutMe,
       });
       return data;
     } catch (err) {
