@@ -50,9 +50,50 @@ router.get("/profile/me", verifyToken, async (req, res, next) => {
   try {
     const userId = req.payload.id;
     const user = await User.findByPk(userId, {
-      include: [{ model: Todo }],
+      attributes: ["id", "username", "displayName", "pronouns", "profilePic"],
     });
-    res.json(user);
+    const userPets = await SelectPet.findAll({
+      where: { userId },
+      include: [{ model: Pet, attributes: ["id", "image", "type", "species"] }],
+      attributes: {
+        exclude: [
+          "id",
+          "exp",
+          "name",
+          "age",
+          "petId",
+          "userId",
+          "todoId",
+          "createdAt",
+          "updatedAt",
+        ],
+      },
+    });
+    const userTodos = await SelectPet.findAll({
+      where: { userId },
+      include: [
+        {
+          model: Todo,
+          attributes: {
+            exclude: ["createdAt", "updatedAt", "petId", "userId"],
+          },
+        },
+      ],
+      attributes: {
+        exclude: [
+          "id",
+          "exp",
+          "name",
+          "age",
+          "petId",
+          "userId",
+          "todoId",
+          "createdAt",
+          "updatedAt",
+        ],
+      },
+    });
+    res.json({ user, userPets, userTodos });
   } catch (err) {
     next(err);
   }
