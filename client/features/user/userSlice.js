@@ -27,49 +27,77 @@ export const editSingleUser = createAsyncThunk(
     } catch (err) {
       console.error(err);
     }
-  });
-  
-  export const fetchSelectPetAsync = createAsyncThunk('selectPet', async ({userId, petId}) => {
-    try {
-        const { data } = await axios.post(`/api/users/${userId}/selectpet`, 
-        {petId, userId} );
-        console.log(data);
-        return data;
-      } catch (err) {
-        console.log(err);
-      }});
+  }
+);
 
-  //Create slice and reducer for single user
+// export const fetchSelectPetAsync = createAsyncThunk(
+//   "selectPet",
+//   async ({ userId, petId }) => {
+//     try {
+//       const { data } = await axios.post(`/api/users/${userId}/selectpet`, {
+//         petId,
+//         userId,
+//       });
+//       console.log(data);
+//       return data;
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   }
+// );
 
- const initialState = {
-    singleUser: [],
-    selectPet: [],
-  };
+// export const selectedPetAsync = createAsyncThunk(
+//   "selectedPet",
+//   async ({ userId, petId, todoId }) => {
+//     try {
+//       const { data } = await axios.get(`/api/users/${userId}/selectedpet`, {
+//         petId,
+//         userId,
+//         todoId,
+//       });
+//       console.log(data);
+//       return data;
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   }
+// );
 
-  const singleUserSlice = createSlice({
-    name: "singleUser",
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-      builder.addCase(fetchSingleUser.fulfilled, (state, action) => {
-        return action.payload;
-      });
-      builder.addCase(editSingleUser.fulfilled, (state, action) => {
-        return action.payload;
-      });
-      builder.addCase(fetchSelectPetAsync.fulfilled, (state, action) => {
-        // update state with the fetched data
-        return action.payload;
+//Create slice and reducer for single user
+
+const initialState = {
+  singleUser: [],
+  // selectPet: [],
+};
+
+const singleUserSlice = createSlice({
+  name: "singleUser",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchSingleUser.fulfilled, (state, action) => {
+      return action.payload;
     });
-    },
-  });
-  
-  //Create selector for single user
+    builder.addCase(editSingleUser.fulfilled, (state, action) => {
+      return action.payload;
+    });
+    // builder.addCase(fetchSelectPetAsync.fulfilled, (state, action) => {
+    //   // update state with the fetched data
+    //   return action.payload;
+    // });
+    // builder.addCase(selectedPetAsync.fulfilled, (state, action) => {
+    //   // update state with the fetched data
+    //   return action.payload;
+    // });
+  },
+});
 
-  export const selectSingleUser= (state) => {
-    return state.singleUser;
-  };
-  export const selectSelectedPet = (state) => {
-    return state.selectPet;
-  };
-  export default singleUserSlice.reducer;
+//Create selector for single user
+
+export const selectSingleUser = (state) => {
+  return state.singleUser;
+};
+// export const selectSelectedPet = (state) => {
+//   return state.selectPet;
+// };
+export default singleUserSlice.reducer;

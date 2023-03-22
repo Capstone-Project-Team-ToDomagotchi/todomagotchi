@@ -48,7 +48,7 @@ const User = () => {
         {todos && todos.length ? (
           todos.map((todo) => (
             <div className="todoList" key={todo.id}>
-              <Link to={`/todos/${todo.id}`}>Name: {todo.toDoName}</Link>
+              <Link to={`/todos/${todo.id}`}>Name: {todo.todoName}</Link>
               <br />
               {todos.description}
               <br />
@@ -62,6 +62,7 @@ const User = () => {
       </div>
       <div className="pet-details">
         <p>List of Pets:</p>
+
         {pets && pets.length ? (
           pets.map((pet) => (
             <div className="petList" key={pet.petId}>
