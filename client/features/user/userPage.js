@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./userSlice";
 
-//This component is unfinished, still need to add details and make sure it works
+//Component to view User's profile
 const User = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -37,6 +37,7 @@ const User = () => {
               <p>Pronouns: {pronouns}</p>
               {aboutMe && <p>About Me: {aboutMe} </p>}
               <br />
+              {/* Need to add way to conditionally render this edit profile link so a user can only edit their own profile */}
               <Link to={`/users/${id}/edit`}>Edit Profile</Link>
             </div>
           </header>
