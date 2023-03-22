@@ -15,7 +15,7 @@ const User = () => {
     username,
     profilePic,
     pronouns,
-    petId,
+    pets,
     selectPets,
     todos,
     aboutMe,
@@ -62,16 +62,16 @@ const User = () => {
       </div>
       <div className="pet-details">
         <p>List of Pets:</p>
-        {selectPets && selectPets.length ? (
-          selectPets.map((selectPet) => (
-            <div className="petList" key={selectPets.petId}>
-              <Link to={`/pets/${selectPets.petId}`}>
-                Name: {selectPet.name}
+        {pets && pets.length ? (
+          pets.map((pet) => (
+            <div className="petList" key={pet.petId}>
+              <Link to={`/pets/${pet.petId}`}>
+                Name: {pet.name}
               </Link>
               <br />
-              {selectPet.image}
+              {pet.image}
               <br />
-              <p>Experience Points: {selectPet.experience}</p>
+              <p>Experience Points: {pet.experience}</p>
             </div>
           ))
         ) : (
