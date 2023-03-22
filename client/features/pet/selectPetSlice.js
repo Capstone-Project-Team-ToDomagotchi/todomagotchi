@@ -20,13 +20,9 @@ export const fetchSelectPetAsync = createAsyncThunk(
   
   export const selectedPetAsync = createAsyncThunk(
     "selectedPet",
-    async ({ userId, petId, todoId }) => {
+    async ( userId) => {
       try {
-        const { data } = await axios.get(`/api/users/${userId}/selectedpet`, {
-          petId,
-          userId,
-          todoId,
-        });
+        const { data } = await axios.get(`/api/users/${userId}/selectedpet`);
         console.log(data);
         return data;
       } catch (err) {
@@ -37,7 +33,7 @@ export const fetchSelectPetAsync = createAsyncThunk(
 
   const initialState = {
  
-    selectPet: [],
+    selectPet: null,
   };
   
   const selectPetSlice = createSlice({
@@ -52,7 +48,7 @@ export const fetchSelectPetAsync = createAsyncThunk(
       });
       builder.addCase(selectedPetAsync.fulfilled, (state, action) => {
         // update state with the fetched data
-        return action.payload;
+        state.selectPet = action.payload;
       });
     },
   });
