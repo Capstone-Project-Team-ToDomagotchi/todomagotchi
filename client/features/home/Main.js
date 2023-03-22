@@ -5,6 +5,8 @@ import { fetchPetByUserId, selectSinglePet, singlePetSlice } from "../pet/petSli
 // import { fetchAllPetsAsync, selectAllPets } from "../pet/allPetsSlice";
 import { selectTodo, fetchTodosAsync } from "../todo/todoSlice";
 
+import styles from "../styles/Main.module.css"
+
 const MainPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const currentUser = useSelector((state) => state.auth.me);

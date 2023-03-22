@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./userSlice";
 
+import styles from  "../styles/Users.module.css"
+
 //This component is unfinished, still need to add details and make sure it works
 const User = () => {
   const dispatch = useDispatch();
@@ -19,7 +21,7 @@ const User = () => {
 
   return (
     <div>
-      <div className="user-profile">
+      <div className={styles.user-profile}>
         <div>
           <header id="user-header">
             <img id="user-img" src={profilePic}></img>

@@ -5,6 +5,8 @@ import { selectAllPets, fetchAllPetsAsync } from "../pet/allPetsSlice";
 import { useNavigate, useParams} from "react-router-dom";
 import { fetchSelectPetAsync } from "../user/userSlice";
 
+import styles from "../styles/AllPets.module.css"
+
 const AllPets = () => {
     const dispatch = useDispatch();
     // const navigate = useNavigate();
@@ -31,6 +33,7 @@ const AllPets = () => {
     };
 
     return (
+      <div className={styles.allPets}>
         <div id="petlist">
         {allPets && allPets.length
           ? allPets.map((pet) => (
@@ -52,6 +55,7 @@ const AllPets = () => {
             ))
           : null}
          
+      </div>
       </div>
     );
     

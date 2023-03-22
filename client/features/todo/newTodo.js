@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import {addNewTodo} from "./todoSlice";
 
+import styles from  "../styles/NewTodo.module.css"
+
 
 const CreateNewTodo = () => {
     const [dueDate, setDueDate] = useState("");
@@ -25,7 +27,7 @@ const CreateNewTodo = () => {
 
 
     return (
-        <div className="add-todo">
+        <div className={styles.add-todo}>
             <form id="new-task-form" onSubmit={handleSubmit}>
                 <h3>Add A New Task</h3>
                 <label htmlFor="toDoName">New Task:</label>

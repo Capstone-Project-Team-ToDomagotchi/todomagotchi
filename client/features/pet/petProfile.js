@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { addExpToPet, fetchSinglePetAsync, selectSinglePet } from "./petSlice";
 
+import styles from "../styles/PetProfile.module.css"
+
 const PetProfile = () => {
   const dispatch = useDispatch();
   const petId = useParams();
@@ -30,6 +32,7 @@ const PetProfile = () => {
   } = singlePet;
 
   return (
+    <div className={styles.PetProfile}>
     <section id="petProfile">
       <div key={id}>
         <img className="profilePet" src={image} />
@@ -45,6 +48,7 @@ const PetProfile = () => {
         {/* ^^Need to implement a bar that shows how close to the next level^^  */}
       </div>
     </section>
+    </div>
   );
 };
 

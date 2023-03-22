@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectTodo, fetchTodosAsync } from "./todoSlice";
 
+import styles  from "../Todos.module.css"
+
 
 const Todos = () => {
     const dispatch = useDispatch();
@@ -13,7 +15,7 @@ const Todos = () => {
     }, [dispatch])
 
     return (
-        <div className="todo-container">
+        <div className={styles.todo-container}>
             <Link to="/addNewTodo">Add a new task</Link>
             {todos.map((todo) => (
                 <div key={todo.id}>

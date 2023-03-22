@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { editSingleUser } from "./userSlice";
 
+import styles from  "../styles/EditUser.module.css"
+
 const EditUser = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -25,7 +27,7 @@ const EditUser = () => {
 
 
     return (
-        <div className="edit-user">
+        <div className={styles.edit-user}>
             <form onSubmit={handleSubmit}>
                 <h3>Edit Information</h3>
                 <label htmlFor="displayName">New Name:</label>

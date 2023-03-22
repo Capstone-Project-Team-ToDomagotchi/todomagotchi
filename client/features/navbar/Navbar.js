@@ -5,6 +5,8 @@ import { logout } from "../../app/store";
 // import logo from "../../../public/tdmlogo1.jpg";
 // import { authenticate } from "../../app/store";
 
+import styles  from "../styles/Navbar.module.css";
+
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const userId = useSelector((state) => state.auth.me.id)
@@ -16,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <div>
+    <div className={styles.Navbar}>
       <div>
         {/* <img src={logo} alt="logo" /> */}
       </div>

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { fetchSingleTodo, selectSingleTodo, editSingleTodo } from "./singleTodoSlice";
 
+import styles from  "../styles/EditTodo.module.css"
+
 
 const EditTodo = () => {
     const [dueDate, setDueDate] = useState("");
@@ -39,7 +41,7 @@ const EditTodo = () => {
 
 
     return (
-        <div className="edit-todo">
+        <div className={styles.edit-todo}>
             <form id="edit-task-form" onSubmit={handleSubmit}>
                 <h3>Edit Your Task</h3>
                 <label htmlFor="toDoName">Task:</label>
