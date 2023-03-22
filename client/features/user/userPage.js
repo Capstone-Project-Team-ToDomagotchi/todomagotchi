@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./userSlice";
 
-//This component is unfinished, still need to add details and make sure it works
+//Component to view User's profile
 const User = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -11,13 +11,21 @@ const User = () => {
   const singleUser = useSelector(selectSingleUser);
 
   const {
+   
     displayName,
+   
     username,
+   
     profilePic,
+   
     pronouns,
+   
     pets,
-    selectPet,
+   
+    selectPets,
+   
     todos,
+  aboutMe,
   } = singleUser;
 
   useEffect(() => {
@@ -34,13 +42,9 @@ const User = () => {
               <h2>Name: {displayName}</h2>
               <h3>Username: {username} </h3>
               <p>Pronouns: {pronouns}</p>
-              <form id="aboutMe-Form">
-                <label htmlFor="displayName">
-                  <small>About Me</small>
-                </label>
-                <input name="aboutMe" type="text" />
-              </form>
+              {aboutMe && <p>About Me: {aboutMe} </p>}
               <br />
+              {/* Need to add way to conditionally render this edit profile link so a user can only edit their own profile */}
               <Link to={`/users/${id}/edit`}>Edit Profile</Link>
             </div>
           </header>
@@ -51,7 +55,7 @@ const User = () => {
         {todos && todos.length ? (
           todos.map((todo) => (
             <div className="todoList" key={todo.id}>
-              <Link to={`/todos/${todo.id}`}>Name: {todo.toDoName}</Link>
+              <Link to={`/todos/${todo.id}`}>Name: {todo.todoName}</Link>
               <br />
               {todos.description}
               <br />
@@ -93,7 +97,6 @@ const User = () => {
           </p>
         )}
       </div>
-      <div id="todos-remaining">{/* {todos.id} */}</div>
     </div>
   );
 };

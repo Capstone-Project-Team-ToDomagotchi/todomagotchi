@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Pet, ToDo, SelectPet } = require("../db");
+const { User, Pet, Todo, SelectPet } = require("../db");
 const verifyToken = require("../middleware/verifyToken");
 
 //Get route for all users
@@ -15,14 +15,27 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// router.put("/", async (req, res, next) => {
+//   try {
+//     const user = await User.findByPk(req.params.id);
+//     const newUserPet = await SelectPet.create({
+//       userId: user.id,
+//       petId: req.body.petId,
+//     })
+//   }
+//   catch (err) {
+//     next(err)
+//   }
+// });
+
 //Get route for single user
-//Eager load Pet and ToDo models
+//Eager load Pet and Todo models
 router.get("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id, {
       include: [
         { model: SelectPet },
-        { model: ToDo },
+        { model: Todo },
       ],
     });
     res.json(user);
@@ -37,7 +50,7 @@ router.get("/profile/me", verifyToken, async (req, res, next) => {
   try {
     const userId = req.payload.id;
     const user = await User.findByPk(userId, {
-      include: [{ model: ToDo }],
+      include: [{ model: Todo }],
     });
     res.json(user);
   } catch (err) {
@@ -45,20 +58,20 @@ router.get("/profile/me", verifyToken, async (req, res, next) => {
   }
 });
 
-//route to edit user information
+//Put route to edit user information
 router.put("/:id", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.id);
-    res.json(user);
-  } catch (err) {
+    const {username, displayName, pronouns, aboutMe } = req.body;
+    const editUser = await User.findByPk(req.params.id);
+    res.send(await editUser.update({username, displayName, pronouns, aboutMe}));
+    } catch (err) {
     next(err);
-  }
+    }
 });
 
+//Post route for user to select a new pet 
 router.post("/:id/selectpet", async (req, res) => {
   try {
-    // let selectPet = await SelectPet.create(req.body);
-
     let selectPet = await SelectPet.create({
       userId: req.body.userId,
       petId: req.body.petId,
@@ -80,5 +93,7 @@ router.get("/:userId/selectedpet", async (req, res) => {
     console.log(err);
   }
 });
+
+
 
 module.exports = router;
