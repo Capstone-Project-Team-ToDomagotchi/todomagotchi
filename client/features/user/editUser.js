@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { editSingleUser } from "./userSlice";
 
+//Component to edit User's profile
 const EditUser = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
