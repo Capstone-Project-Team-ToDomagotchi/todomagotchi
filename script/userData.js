@@ -22,15 +22,15 @@ function createUser() {
 }
 
 function createTestUser() {
-    const username = "Sally";
-    const password = "test456";
+    const username = "Jin";
+    const password = "456";
     const email = "sally123@todomagotchi.com";
     const pronouns = "she/her";
     const displayName = "sallyyyy123";
-
+    
 
     return {
-        username, password, email, pronouns, displayName,
+        username, password, email, pronouns, displayName, 
     };
 }
 

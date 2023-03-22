@@ -26,8 +26,7 @@ const User = db.define("user", {
   profilePic: {
     type: Sequelize.TEXT,
     allowNull: true,
-    defaultValue:
-      "/pfp.png",
+    defaultValue: "/pfp.png",
   },
   pronouns: {
     type: Sequelize.STRING,
@@ -61,6 +60,7 @@ User.authenticate = async function ({ username, password }) {
     error.status = 401;
     throw error;
   }
+  console.log("user--->", user.generateToken());
   return user.generateToken();
 };
 

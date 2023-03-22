@@ -4,33 +4,34 @@ const User = require("./models/User");
 const Pet = require("./models/Pet");
 const ToDo = require("./models/ToDo");
 const SelectPet = require('./models/SelectPet')
-//associations could go here!
 
 Pet.belongsTo(User);
 Pet.hasMany(ToDo);
 
-User.hasMany(Pet);
 User.hasMany(ToDo);
+User.hasMany(Pet);
 
 ToDo.belongsTo(Pet);
 ToDo.belongsTo(User)
 
-// User.hasMany(ToDo);
-// ToDo.belongsTo(User);
+SelectPet.belongsTo(Pet, {
+  foreignKey: 'petId'  // Add a foreign key to link to the todoId column in the SelectPets table
+});
+Pet.hasMany(SelectPet, {
+  foreignKey: 'petId'  // Add a foreign key to link to the todoId column in the SelectPets table
+});
 
-// Pet.belongsTo(User);
-// Pet.hasMany(ToDo);
+ToDo.hasMany(SelectPet, {
+  foreignKey: 'todoId'  // Add a foreign key to link to the todoId column in the SelectPets table
+});
+SelectPet.belongsTo(ToDo, {
+  foreignKey: 'todoId'  // Add a foreign key to link to the todoId column in the SelectPets table
+})
 
-// User.hasMany(SelectPet);
-// SelectPet.belongsTo(User);
+ToDo.hasMany(SelectPet);
+SelectPet.belongsTo(ToDo)
 
-// SelectPet.belongsTo(Pet);
-// Pet.hasMany(SelectPet);
-
-// ToDo.hasMany(SelectPet);
-// SelectPet.belongsTo(ToDo)
-
-
+ 
 module.exports = {
   db,
   User,

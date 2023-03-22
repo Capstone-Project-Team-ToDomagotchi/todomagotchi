@@ -1,6 +1,8 @@
 const router = require("express").Router();
-const { User, Pet, ToDo, SelectPet } = require("../db");
-module.exports = router;
+const { User, Pet, ToDo , SelectPet } = require("../db");
+const verifyToken = require("../middleware/verifyToken");
+
+
 
 //Get route for all users
 router.get("/", async (req, res, next) => {
@@ -33,8 +35,25 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id, {
-      include: [{ model: Pet }, { model: ToDo }],
-    })
+      include: [
+        // { model: Pet },
+        { model: ToDo },
+      ],
+    });
+    res.json(user);
+  } catch (err) {
+    console.log("err--->", err);
+    next(err);
+  }
+});
+
+//Get route to get a logged in user's profile w/ their todos
+router.get("/profile/me", verifyToken, async (req, res, next) => {
+  try {
+    const userId = req.payload.id;
+    const user = await User.findByPk(userId, {
+      include: [{ model: ToDo }],
+    });
     res.json(user);
   } catch (err) {
     next(err);
@@ -50,3 +69,24 @@ router.put("/:id", async (req, res, next) => {
     next (err);
   }
 });
+
+
+router.post("/:id/selectpet", async (req, res) => {
+  try {
+    // let selectPet = await SelectPet.create(req.body);
+
+    let selectPet = await SelectPet.create({
+      userId: req.body.userId,
+      petId: req.body.petId,
+      include: { model: User, Pet },
+     
+    });
+    console.log(selectPet);
+    res.json(selectPet);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Server Error");
+  }
+});
+
+module.exports = router;
