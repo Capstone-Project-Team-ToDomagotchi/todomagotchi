@@ -6,6 +6,7 @@ import singleUserSlice from '../features/user/userSlice';
 import singleTodoSlice from '../features/todo/singleTodoSlice';
 import todoSlice from '../features/todo/todoSlice';
 import allPetsSlice from '../features/pet/allPetsSlice';
+import selectPetSlice from '../features/pet/selectPetSlice'
 
 const store = configureStore({
   reducer: { 
@@ -16,6 +17,7 @@ const store = configureStore({
   singleTodo: singleTodoSlice,
   todos: todoSlice,
   allPets: allPetsSlice,
+  selectPet: selectPetSlice,
 },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

@@ -6,6 +6,13 @@ const SelectPet = db.define('selectPet', {
         type: Sequelize.INTEGER,
         defaultValue: 0,
       },
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    age: {
+      type: Sequelize.INTEGER,
+    }
 });
 
 module.exports = SelectPet;
