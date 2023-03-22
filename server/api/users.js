@@ -23,7 +23,7 @@ router.get("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id, {
       include: [
-        // { model: Pet },
+        { model: SelectPet },
         { model: ToDo },
       ],
     });
@@ -47,21 +47,20 @@ router.get("/profile/me", verifyToken, async (req, res, next) => {
   }
 });
 
-//route to edit user information
+//Put route to edit user information
 router.put("/:id", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.id);
-    res.json(user);
-  } catch (err) {
-    next (err);
-  }
+    const {userName, displayName, pronouns, aboutMe } = req.body;
+    const editUser = await User.findByPk(req.params.id);
+    res.send(await editUser.update({userName, displayName, pronouns, aboutMe}));
+    } catch (err) {
+    next(err);
+    }
 });
 
-
+//Post route for user to select a new pet 
 router.post("/:id/selectpet", async (req, res) => {
   try {
-    // let selectPet = await SelectPet.create(req.body);
-
     let selectPet = await SelectPet.create({
       userId: req.body.userId,
       petId: req.body.petId,
@@ -75,5 +74,7 @@ router.post("/:id/selectpet", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+
 
 module.exports = router;
