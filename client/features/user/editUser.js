@@ -9,15 +9,15 @@ const EditUser = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [displayName, setDisplayName] = useState("");const [userName, setUserName] = useState("");
+    const [displayName, setDisplayName] = useState("");const [username, setUsername] = useState("");
     // const [profilePic, setProfilePic] = useState("");
     const [pronouns, setPronouns] = useState("");
     const [aboutMe, setAboutMe] = useState("");
   
     const handleSubmit = async (event) => {
       event.preventDefault();
-      await dispatch(editSingleUser({ id, userName, displayName, pronouns, aboutMe }));
-      setUserName("");
+      await dispatch(editSingleUser({ id, username, displayName, pronouns, aboutMe }));
+      setUsername("");
       setDisplayName("");
     //   setProfilePic("");
       setPronouns("");
@@ -35,11 +35,11 @@ const EditUser = () => {
                 name="displayName"
                 onChange={(event) => setDisplayName(event.target.value)} />
 
-                <label htmlFor="userName">New Username:</label>
+                <label htmlFor="username">New Username:</label>
                 <input 
                 type="text" 
-                name="userName"
-                onChange={(event) => setUserName(event.target.value)} />
+                name="username"
+                onChange={(event) => setUsername(event.target.value)} />
 
                 <label htmlFor="pronouns">Update Pronouns:</label>
                 <input 
