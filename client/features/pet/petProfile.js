@@ -9,6 +9,7 @@ const PetProfile = () => {
   // const [exp, setExp] = useState("")
 
   const singlePet = useSelector(selectSinglePet);
+  console.log(singlePet)
 
   useEffect(() => {
     dispatch(fetchSinglePetAsync(petId.id));
@@ -27,6 +28,11 @@ const PetProfile = () => {
     user,
   } = singlePet;
 
+  // const {
+  //   species,
+  //   image,
+  // } = singlePet.petId;
+
   return (
     <section id="petProfile">
       <div key={id}>
@@ -40,7 +46,7 @@ const PetProfile = () => {
         <h4>{user?.username}</h4>
         <p>EXP: {experience}</p>
         <button onClick={(id) => addExp(id)}>Add EXP</button>
-        {/* ^^Need to implement a bar that shows how close to the next level^^  */}
+        {/* ^^Need to implement a bar that shows how close to the next level^^*/}  
       </div>
     </section>
   );
