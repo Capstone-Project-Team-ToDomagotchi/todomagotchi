@@ -14,11 +14,11 @@ export const fetchTodosAsync = createAsyncThunk("todos", async () => {
 //add a single todo
 export const addNewTodo = createAsyncThunk(
   "addNewTodo",
-  async ({ dueDate, toDoName, pointType, description, isCompleted }) => {
+  async ({ dueDate, todoName, pointType, description, isCompleted }) => {
     try {
       const { data } = await axios.post("/api/todos", {
         dueDate,
-        toDoName,
+        todoName,
         description,
         pointType,
         isCompleted,

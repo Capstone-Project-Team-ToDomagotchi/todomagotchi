@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { ToDo, User, SelectPet } = require("../db");
+const { Todo, User, SelectPet } = require("../db");
 const verifyToken = require("../middleware/verifyToken");
 
 //get all todos
 router.get("/", async (req, res, next) => {
   try {
-    const todos = await ToDo.findAll();
+    const todos = await Todo.findAll();
     res.json(todos);
   } catch (err) {
     next(err);
@@ -17,10 +17,10 @@ router.get("/", async (req, res, next) => {
 router.post("/", verifyToken, async (req, res, next) => {
   try {
     const userId = req.payload.id;
-    const { dueDate, toDoName, description, pointType, isCompleted } = req.body;
-    const newTodo = await ToDo.create({
+    const { dueDate, todoName, description, pointType, isCompleted } = req.body;
+    const newTodo = await Todo.create({
       dueDate,
-      toDoName,
+      todoName,
       description,
       pointType,
       isCompleted,
@@ -34,7 +34,7 @@ router.post("/", verifyToken, async (req, res, next) => {
 //get a single todo
 router.get("/:id", async (req, res, next) => {
   try {
-    const todo = await ToDo.findByPk(req.params.id, {
+    const todo = await Todo.findByPk(req.params.id, {
       include: [{ model: SelectPet }, { model: User }],
     });
     res.json(todo);
@@ -46,7 +46,7 @@ router.get("/:id", async (req, res, next) => {
 //update or edit a todo
 router.put("/:id", async (req, res, next) => {
   try {
-    const todo = await ToDo.findByPk(req.params.id);
+    const todo = await Todo.findByPk(req.params.id);
     res.send(await todo.update(req.body));
   } catch (err) {
     next(err);
@@ -56,7 +56,7 @@ router.put("/:id", async (req, res, next) => {
 //delete a todo
 router.delete("/:id", async (req, res, next) => {
   try {
-    const todo = await ToDo.findByPk(req.params.id);
+    const todo = await Todo.findByPk(req.params.id);
     await todo.destroy();
     res.send(todo);
   } catch (err) {
