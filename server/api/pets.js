@@ -15,7 +15,6 @@ router.get("/", async (req, res, next) => {
     const pets = await Pet.findAll({
       include: {
         model: User,
-        // as: "owner",
       },
       attributes: [
         `id`,
@@ -37,9 +36,7 @@ router.get("/", async (req, res, next) => {
   try {
     const pets = await Pet.findAll({
       include: {
-        model: User,
-        SelectPet,
-        // as: "owner",
+        model: User, SelectPet
       },
       attributes: [
         `id`,
@@ -59,13 +56,11 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    const petById = await Pet.findOne({
+    const petById = await SelectPet.findOne({
       where: { id: req.params.id },
-      // include: {
-      //   model: User,
-      //   // as: "owner",
-      // },
-      // attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
+      include: {
+        all: true
+      },
     });
     res.json(petById);
   } catch (err) {
@@ -79,9 +74,7 @@ router.get("/:userId/viewpets", async (req, res, next) => {
       where: { id: req.params.userId },
       include: {
         model: Pet,
-        // as: "owner",
       },
-      // attributes: [`id`,`name`, `image`, `age`, `type`, `species`, `experience`],
     });
     res.json(petById);
   } catch (err) {

@@ -1,26 +1,6 @@
 const { faker } = require('@faker-js/faker');
 const { Pet } = require('../server/db');
 
-// function createPetArray() {
-//     let petArray = [];
-//     for (let i = 1; i < 10; i++) {
-//         petArray.push(createPet())
-//     }
-//     return petArray;
-// }
-
-// function createPet() {
-//     // const name = faker.lorem.word({length: {min:1, max: 3}});
-//     // const age = faker.datatype.number({min:1, max:5});
-//     const type = faker.helpers.arrayElement(['plant','monster'], 1);
-//     const species = faker.lorem.word(1);
-//     const images = faker.image.imageUrl(true);
-    
-//     return {
-//         // name, age, 
-//         type, species, images, 
-//     };
-// }
 async function petSeed() {
 const pets = await Promise.all([
     Pet.create({
