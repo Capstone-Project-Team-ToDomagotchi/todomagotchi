@@ -10,6 +10,7 @@ const EditUser = () => {
     const navigate = useNavigate();
 
     const [displayName, setDisplayName] = useState("");const [username, setUsername] = useState("");
+    //Will need to figure out how to make editing profilePic work, may not need line below
     // const [profilePic, setProfilePic] = useState("");
     const [pronouns, setPronouns] = useState("");
     const [aboutMe, setAboutMe] = useState("");
