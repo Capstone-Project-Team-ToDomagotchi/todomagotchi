@@ -39,7 +39,7 @@ const EditUser = () => {
   };
 
   return (
-    <div className={styles.edit-user}>
+    <div className={styles.editUser}>
       <form onSubmit={handleSubmit}>
         <h3>Edit Information</h3>
 

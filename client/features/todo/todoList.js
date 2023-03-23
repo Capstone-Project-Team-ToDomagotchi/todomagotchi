@@ -14,7 +14,7 @@ const Todos = () => {
   }, [dispatch]);
 
     return (
-        <div className={styles.todo-container}>
+        <div className={styles.todoContainer}>
             <Link to="/addNewTodo">Add a new task</Link>
             {todos.map((todo) => (
                 <div key={todo.id}>

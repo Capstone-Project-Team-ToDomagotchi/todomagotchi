@@ -5,6 +5,8 @@ import { selectSingleUser, fetchSingleUser } from "./userSlice";
 import TodosSnapshot from "./todosSnapshot";
 import PetSnapshot from "./petSnapshot";
 
+import styles from  "../styles/Users.module.css"
+
 //Component to view User's profile
 const User = () => {
   const dispatch = useDispatch();
@@ -20,7 +22,7 @@ const User = () => {
 
   return (
     <div>
-      <div className="user-profile">
+      <div className={styles.userProfile}>
         <div>
 
           <header id="user-header">
