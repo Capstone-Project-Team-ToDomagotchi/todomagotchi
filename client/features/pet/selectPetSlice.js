@@ -4,11 +4,12 @@ import axios from "axios";
 
 export const fetchSelectPetAsync = createAsyncThunk(
     "selectPet",
-    async ({ userId, petId }) => {
+    async ({ userId, petId, name }) => {
       try {
         const { data } = await axios.post(`/api/users/${userId}/selectpet`, {
           petId,
           userId,
+          name
         });
         console.log(data);
         return data;

@@ -114,6 +114,7 @@ router.put("/:id", async (req, res, next) => {
 router.post("/:id/selectpet", async (req, res) => {
   try {
     let selectPet = await SelectPet.create({
+      name: req.body.name,
       userId: req.body.userId,
       petId: req.body.petId,
       include: { model: User, Pet },

@@ -20,14 +20,26 @@ const AllPets = () => {
   console.log(allPets);
 
   const select = (event) => {
-    const selectPet = {
-      userId: user.me.id,
-      petId: event.target.value,
-    };
-    console.log(selectPet.petId);
-    console.log(selectPet.userId);
-    dispatch(fetchSelectPetAsync(selectPet));
+    const petId = event.target.value;
+    const name = window.prompt("Enter a name for your pet:");
+    if (name) {
+      const selectPet = {
+        userId: user.me.id,
+        petId,
+        name,
+      };
+      dispatch(fetchSelectPetAsync(selectPet));
+    }
   };
+  // const select = (event) => {
+  //   const selectPet = {
+  //     userId: user.me.id,
+  //     petId: event.target.value,
+  //   };
+  //   console.log(selectPet.petId);
+  //   console.log(selectPet.userId);
+  //   dispatch(fetchSelectPetAsync(selectPet));
+  // };
 
   return (
     <div id="petlist">
