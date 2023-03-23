@@ -15,7 +15,6 @@ const AllPets = () => {
   const allPets = useSelector((state) => state.pets);
   const selectPet = useSelector((state) => state.selectPet);
 
-  // const allPets = useSelector(selectAllPets);
   useEffect(() => {
     dispatch(fetchAllPetsAsync());
   }, [dispatch]);
@@ -32,42 +31,27 @@ const AllPets = () => {
       };
       dispatch(fetchSelectPetAsync(selectPet));
     }
-    navigate('/users')
+    navigate("/users");
   };
-  // const select = (event) => {
-  //   const selectPet = {
-  //     userId: user.me.id,
-  //     petId: event.target.value,
-  //   };
-  //   console.log(selectPet.petId);
-  //   console.log(selectPet.userId);
-  //   dispatch(fetchSelectPetAsync(selectPet));
-  // };
 
   return (
-    <div className={styles.allPets}>
-    <div id="petlist">
-      {allPets && allPets.length
-        ? allPets.map((pet) => (
-              <div>
-                <Link to={`/pets/${pet.id}`} key={`All Pets: ${pet.id}`}>
-                  <p>{pet.name}</p>
-                </Link>
-                <div className="pet-row">
-                  <img src={`${pet.image}`} />
-                  <div className="select-button">
-                    <button onClick={select} value={pet.id}>
-                      Select
-                    </button>
-                  </div>
-                
-                </div>
-              </div>
-            ))
-          : null}
-       </div>  
-      </div>
-    );
-    
-}
+    <ul id="petlist">
+      {allPets &&
+        allPets.length &&
+        allPets.map((pet) => (
+          <li key={pet.id}>
+            <div className="pet-row" key={`All Pets: ${pet.id}`}>
+              <Link to={`/pets/${pet.id}`}>
+                <p>{pet.name}</p>
+              </Link>
+              <img src={`${pet.image}`} />
+              <button className="select-button" onClick={select} value={pet.id}>
+                Select
+              </button>
+            </div>
+          </li>
+        ))}
+    </ul>
+  );
+};
 export default AllPets;

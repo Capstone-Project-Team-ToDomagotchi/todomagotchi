@@ -35,14 +35,16 @@ const AppRoutes = () => {
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/main" element={<MainPage/>}/>
-          <Route path="/todos" element={<Todos />} />
+          <Route path="/users/:id" element={<User />} />
           <Route path="/users/:id/edit" element={<EditUser />} />
+          <Route path="/todos" element={<Todos />} />
           <Route path="/todos/:id" element={<SingleTodo />} />
+          <Route path="/todos/:id/edit" element={<EditTodo />} />
           <Route path="/addNewTodo" element={<CreateNewTodo />} />
           <Route path="/pets/:id" element={<PetProfile/>} />
-          <Route path="/users/:id" element={<User />} />
           <Route path="/pets" element={<AllPets/>} />
-          <Route path="/todos/:id/edit" element={<EditTodo />} />
+          
+         
         </Routes>
       ) : (
         <Routes>
@@ -50,11 +52,11 @@ const AppRoutes = () => {
           <Route path="/home" element={<NotLoggedInHome />} />
           <Route
             path="/login"
-            element={<AuthForm name="login" displayName="Login" />}
+            element={<AuthForm name="login" authMethod="Login" />}
           />
           <Route
             path="/signup"
-            element={<AuthForm name="signup" displayName="Sign Up" />}
+            element={<AuthForm name="signup" authMethod="Sign Up" />}
           />
         </Routes>
       )}

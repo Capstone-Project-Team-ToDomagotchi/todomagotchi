@@ -21,7 +21,7 @@ export const fetchSelectPetAsync = createAsyncThunk(
   
   export const selectedPetAsync = createAsyncThunk(
     "selectedPet",
-    async ( userId) => {
+    async ( userId ) => {
       try {
         const { data } = await axios.get(`/api/users/${userId}/selectedpet`);
         console.log(data);
