@@ -12,7 +12,7 @@ export const fetchAllPetsAsync = createAsyncThunk("pets", async () => {
 });
 
 const initialState = {
-  pets: {},
+  pets: [],
 };
 
 export const allPetsSlice = createSlice({
@@ -23,9 +23,7 @@ export const allPetsSlice = createSlice({
     builder.addCase(fetchAllPetsAsync.fulfilled, (state, action) => {
       return action.payload;
     });
-    // builder.addCase(editPetAsync.fulfilled, (state, action) => {
-    //   state = action.payload;
-    // });
+
   },
 });
 
