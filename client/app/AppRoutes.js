@@ -11,8 +11,8 @@ import User from '../features/user/userPage';
 import EditUser from '../features/user/editUser';
 import NewTodo from '../features/todo/NewTodo';
 import AllPets from '../features/home/AllPets';
-import NotLoggedInHome from "../features/home/Home2";
-import MainPage from '../features/home/Main';
+// import NotLoggedInHome from "../features/home/Home2";
+// import MainPage from '../features/home/Main';
 import EditTodo from '../features/todo/editTodo';
 
 /**
@@ -34,7 +34,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/main" element={<MainPage/>}/>
+          {/* <Route path="/main" element={<MainPage/>}/> */}
           <Route path="/users/:id" element={<User />} />
           <Route path="/users/:id/edit" element={<EditUser />} />
           <Route path="/todos" element={<Todos />} />
@@ -47,7 +47,7 @@ const AppRoutes = () => {
       ) : (
         <Routes>
           {/* Routes placed here are available to all visitors */}
-          <Route path="/home" element={<NotLoggedInHome />} />
+          {/* <Route path="/home" element={<NotLoggedInHome />} /> */}
           <Route
             path="/login"
             element={<AuthForm name="login" authMethod="Login" />}
