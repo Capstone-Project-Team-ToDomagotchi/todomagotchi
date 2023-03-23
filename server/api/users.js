@@ -114,6 +114,7 @@ router.put("/:id", async (req, res, next) => {
 router.post("/:id/selectpet", async (req, res) => {
   try {
     let selectPet = await SelectPet.create({
+      name: req.body.name,
       userId: req.body.userId,
       petId: req.body.petId,
       include: { model: User, Pet },
@@ -125,10 +126,11 @@ router.post("/:id/selectpet", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
-router.get("/:id/selectedpet", async (req, res) => {
+router.get("/:userId/selectedpet", async (req, res) => {
   try {
-    const selectPet = await SelectPet.findAll({ where: { id: req.params.id } });
-    res.json(selectPet);
+    const user = await User.findByPk(req.params.userId);
+
+    res.json(user.selectPet);
   } catch (err) {
     console.log(err);
   }

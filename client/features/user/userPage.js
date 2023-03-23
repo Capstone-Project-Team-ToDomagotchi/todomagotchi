@@ -12,11 +12,17 @@ const User = () => {
 
   const {
     displayName,
+
     username,
+
     profilePic,
+
     pronouns,
+
     pets,
+
     selectPets,
+
     todos,
     aboutMe,
   } = singleUser;
@@ -62,17 +68,15 @@ const User = () => {
       </div>
       <div className="pet-details">
         <p>List of Pets:</p>
-
-        {pets && pets.length ? (
-          pets.map((pet) => (
-            <div className="petList" key={pet.petId}>
-              <Link to={`/pets/${pet.petId}`}>
-                Name: {pet.name}
+        {selectPets && selectPets.length ? (
+          selectPets.map((pet) => (
+            <div className="petList" key={pet.id}>
+              <Link to={`/pets/${pet.id}`}>
+                <h3>Name: {pet.name}</h3>
               </Link>
-              <br />
-              {pet.image}
-              <br />
-              <p>Experience Points: {pet.experience}</p>
+
+              <p>Age: {pet.age}</p>
+              <p>Description: {pet.description}</p>
             </div>
           ))
         ) : (

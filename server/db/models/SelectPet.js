@@ -9,6 +9,7 @@ const SelectPet = db.define('selectPet', {
     name: {
       type: Sequelize.STRING,
       allowNull: false,
+      defaultValue: 'Pet'
     },
     age: {
       type: Sequelize.INTEGER,
