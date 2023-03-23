@@ -2,44 +2,48 @@
 const db = require("./db");
 const User = require("./models/User");
 const Pet = require("./models/Pet");
-const ToDo = require("./models/ToDo");
-const SelectPet = require('./models/SelectPet')
+const Todo = require("./models/Todo");
+const SelectPet = require("./models/SelectPet");
 
 Pet.belongsTo(User);
-Pet.hasMany(ToDo);
+Pet.hasMany(Todo);
 
-User.hasMany(ToDo);
+User.hasMany(Todo);
 User.hasMany(Pet);
 
-ToDo.belongsTo(Pet);
-ToDo.belongsTo(User)
+Todo.belongsTo(Pet);
+Todo.belongsTo(User);
 
 SelectPet.belongsTo(Pet, {
-  foreignKey: 'petId'  // Add a foreign key to link to the todoId column in the SelectPets table
+  foreignKey: "petId", // Add a foreign key to link to the todoId column in the SelectPets table
 });
 Pet.hasMany(SelectPet, {
-  foreignKey: 'petId'  // Add a foreign key to link to the todoId column in the SelectPets table
+  foreignKey: "petId", // Add a foreign key to link to the todoId column in the SelectPets table
 });
 
 User.hasMany(SelectPet, {
   foreignKey: 'userId'
 })
+SelectPet.belongsTo(User)
 
-ToDo.hasMany(SelectPet, {
+Todo.hasMany(SelectPet, {
   foreignKey: 'todoId'  // Add a foreign key to link to the todoId column in the SelectPets table
 });
-SelectPet.belongsTo(ToDo, {
-  foreignKey: 'todoId'  // Add a foreign key to link to the todoId column in the SelectPets table
-})
 
-ToDo.hasMany(SelectPet);
-SelectPet.belongsTo(ToDo)
+Todo.hasMany(SelectPet, {
+  foreignKey: "todoId", // Add a foreign key to link to the todoId column in the SelectPets table
+});
+SelectPet.belongsTo(Todo, {
+  foreignKey: "todoId", // Add a foreign key to link to the todoId column in the SelectPets table
+});
 
- 
+Todo.hasMany(SelectPet);
+SelectPet.belongsTo(Todo);
+
 module.exports = {
   db,
   User,
   Pet,
-  ToDo,
+  Todo,
   SelectPet,
 };

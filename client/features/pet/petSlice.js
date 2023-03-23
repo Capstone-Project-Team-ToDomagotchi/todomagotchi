@@ -14,27 +14,30 @@ export const fetchSinglePetAsync = createAsyncThunk(
   }
 );
 
-export const fetchPetByUserId = createAsyncThunk('pets/fetchById', async (userId) => {
-  try {
-    const { data } = await axios.get(`/api/pets/${userId}/viewpets`)
-    console.log('data', data)
-    return data[0].pets
-  } catch (err) {
-    console.log(err)
+export const fetchPetByUserId = createAsyncThunk(
+  "pets/fetchById",
+  async (userId) => {
+    try {
+      const { data } = await axios.get(`/api/pets/${userId}/viewpets`);
+      console.log("data", data);
+      return data[0].pets;
+    } catch (err) {
+      console.log(err);
+    }
   }
-})
+);
 
 export const addExpToPet = createAsyncThunk(
-  'pets/expUp', async ({id, experience}) => {
-    const {data} = await axios.put(`/api/pets/expUp/${id}`, {
+  "pets/expUp",
+  async ({ id, experience }) => {
+    const { data } = await axios.put(`/api/pets/expUp/${id}`, {
       // id: id,
-      experience: experience,
-    })
+      exp: exp,
+    });
     return data;
   }
-)
+);
 //increment the experience by updating the todo?
-
 
 const initialState = {
   pet: [],
@@ -57,7 +60,7 @@ export const singlePetSlice = createSlice({
     // builder.addCase(editPetAsync.fulfilled, (state, action) => {
     //   state = action.payload;
     // });
-  }
+  },
 });
 
 export const selectSinglePet = (state) => {

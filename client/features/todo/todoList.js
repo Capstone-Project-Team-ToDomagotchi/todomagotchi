@@ -7,12 +7,12 @@ import styles  from "../Todos.module.css"
 
 
 const Todos = () => {
-    const dispatch = useDispatch();
-    const todos = useSelector(selectTodo);
+  const dispatch = useDispatch();
+  const todos = useSelector(selectTodo);
 
-    useEffect(() => {
-        dispatch(fetchTodosAsync());
-    }, [dispatch])
+  useEffect(() => {
+    dispatch(fetchTodosAsync());
+  }, [dispatch]);
 
     return (
         <div className={styles.todo-container}>
@@ -20,7 +20,7 @@ const Todos = () => {
             {todos.map((todo) => (
                 <div key={todo.id}>
                     <Link to={`/todos/${todo.id}`}>
-                    <h3>To Do: {todo.toDoName}</h3>
+                    <h3>To Do: {todo.todoName}</h3>
                     <h4>Due Date: {todo.dueDate}</h4>
                     <h5>{todo.isCompleted}</h5>
                     </Link>
