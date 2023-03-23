@@ -11,21 +11,20 @@ const User = () => {
   const singleUser = useSelector(selectSingleUser);
 
   const {
-   
     displayName,
-   
+
     username,
-   
+
     profilePic,
-   
+
     pronouns,
-   
+
     pets,
-   
+
     selectPets,
-   
+
     todos,
-  aboutMe,
+    aboutMe,
   } = singleUser;
 
   useEffect(() => {
@@ -69,28 +68,17 @@ const User = () => {
       </div>
       <div className="pet-details">
         <p>List of Pets:</p>
-        {pets && pets.length ? (
-          pets.map((pet) => {
-            const selectPet = singleUser.selectPet.find(
-              (sp) => sp.petId === pet.id
-            );
-            return (
-              <div className="petList" key={pet.id}>
-                <Link to={`/pets/${pet.id}`}>Name: {pet.name}</Link>
-                <br />
-                {selectPet && (
-                  <>
-                    <img
-                      src={selectPet.getPet().image}
-                      alt={selectPet.getPet().name}
-                    />
-                    <br />
-                    <p>Experience Points: {selectPet.exp}</p>
-                  </>
-                )}
-              </div>
-            );
-          })
+        {selectPets && selectPets.length ? (
+          selectPets.map((pet) => (
+            <div className="petList" key={pet.id}>
+              <Link to={`/pets/${pet.id}`}>
+                <h3>Name: {pet.name}</h3>
+              </Link>
+
+              <p>Age: {pet.age}</p>
+              <p>Description: {pet.description}</p>
+            </div>
+          ))
         ) : (
           <p>
             <i>No pets exist for this user</i>

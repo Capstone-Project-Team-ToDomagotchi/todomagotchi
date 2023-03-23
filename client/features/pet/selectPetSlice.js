@@ -33,7 +33,7 @@ export const fetchSelectPetAsync = createAsyncThunk(
 
   const initialState = {
  
-    selectPet: null,
+    selectPet: [],
   };
   
   const selectPetSlice = createSlice({

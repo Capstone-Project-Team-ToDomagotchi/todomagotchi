@@ -26,7 +26,7 @@ User.hasMany(SelectPet, {
 })
 SelectPet.belongsTo(User)
 
-ToDo.hasMany(SelectPet, {
+Todo.hasMany(SelectPet, {
   foreignKey: 'todoId'  // Add a foreign key to link to the todoId column in the SelectPets table
 });
 
