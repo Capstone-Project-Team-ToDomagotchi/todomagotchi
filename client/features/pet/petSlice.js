@@ -38,12 +38,12 @@ export const addExpToPet = createAsyncThunk(
   }
 );
 
-//Set initial state for single user
+//Set initial state for single pet
 const initialState = {
   pet: [],
 };
 
-//Create slice for single user
+//Create slice for single pet
 export const singlePetSlice = createSlice({
   name: "pet",
   initialState,
