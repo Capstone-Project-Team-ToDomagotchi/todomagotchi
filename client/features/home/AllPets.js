@@ -7,7 +7,7 @@ import { fetchSelectPetAsync } from "../pet/selectPetSlice";
 
 const AllPets = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const { id } = useParams();
   const user = useSelector((state) => state.auth);
   const allPets = useSelector((state) => state.pets);
@@ -30,6 +30,7 @@ const AllPets = () => {
       };
       dispatch(fetchSelectPetAsync(selectPet));
     }
+    navigate('./users')
   };
   // const select = (event) => {
   //   const selectPet = {
