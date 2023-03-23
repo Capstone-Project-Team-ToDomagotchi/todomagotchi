@@ -9,7 +9,7 @@ import { authenticate } from "../../app/store";
   Props for Sign up: name="signup", displayName="Sign Up"
 **/
 
-const AuthForm = ({ name, displayName }) => {
+const AuthForm = ({ name, authMethod }) => {
   const { error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const AuthForm = ({ name, displayName }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (displayName === "Sign Up") {
+    if (authMethod === "Sign Up") {
       const formName = evt.target.name;
       const username = evt.target.username.value;
       const password = evt.target.password.value;
@@ -41,7 +41,7 @@ const AuthForm = ({ name, displayName }) => {
       );
       navigate("/pets");
   
-    } if (displayName === "Login") {
+    } if (authMethod === "Login") {
       const formName = evt.target.name;
       const username = evt.target.username.value;
       const password = evt.target.password.value;
@@ -49,7 +49,7 @@ const AuthForm = ({ name, displayName }) => {
     }
   };
 
-  if (displayName === "Login") {
+  if (authMethod === "Login") {
     return (
       <div className="login">
         <form onSubmit={handleSubmit} name={name}>
@@ -66,7 +66,7 @@ const AuthForm = ({ name, displayName }) => {
           <input name="password" type="password" />
         </div>
         <div>
-          <button type="submit" onSubmit={redirect}>{displayName}</button>
+          <button type="submit" onSubmit={redirect}>{authMethod}</button>
           </div>
         {error && <div> {error} </div>}
       </form>
@@ -74,7 +74,7 @@ const AuthForm = ({ name, displayName }) => {
     )
   }
 
-  if (displayName === "Sign Up") {
+  if (authMethod === "Sign Up") {
     return (
       <main id="signup" className="container">
         <form className="form" onSubmit={handleSubmit} name={name}>
@@ -115,7 +115,7 @@ const AuthForm = ({ name, displayName }) => {
           <input name="profilePic" type="file" accept="image/*" />
           </div>
           <button className="btn primary-btn" type="submit">
-            {displayName}
+            {authMethod}
           </button>
 
           {error && <div className="error"> {error} </div>}
