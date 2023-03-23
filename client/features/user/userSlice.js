@@ -1,11 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-//Create thunk for single user
+//Create thunk to fetch single user
 export const fetchSingleUser = createAsyncThunk("users", async (id) => {
   try {
     const { data } = await axios.get(`/api/users/${id}`);
-    console.log("data--->", data);
     return data;
   } catch (err) {
     console.error(err);
@@ -15,11 +14,11 @@ export const fetchSingleUser = createAsyncThunk("users", async (id) => {
 //Create thunk to edit single user
 export const editSingleUser = createAsyncThunk(
   "editUser",
-  async ({ id, username, displayName, pronouns, aboutMe }) => {
+  async ({ id, displayName, username, pronouns, aboutMe }) => {
     try {
       const { data } = await axios.put(`/api/users/${id}`, {
-        username,
         displayName,
+        username,
         pronouns,
         aboutMe,
       });
@@ -30,12 +29,12 @@ export const editSingleUser = createAsyncThunk(
   }
 );
 
-
-
+//Set initial state for single user
 const initialState = {
   singleUser: [],
 };
 
+//Create slice for single user
 const singleUserSlice = createSlice({
   name: "singleUser",
   initialState,
@@ -52,12 +51,8 @@ const singleUserSlice = createSlice({
 });
 
 //Create selector for single user
-
 export const selectSingleUser = (state) => {
   return state.singleUser;
 };
-// export const selectSelectedPet = (state) => {
-//   return state.selectPet;
-// };
 export default singleUserSlice.reducer;
 

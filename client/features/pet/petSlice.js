@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+//Create thunk to fetch single pet
 export const fetchSinglePetAsync = createAsyncThunk(
   "pets/singlePet",
   async (id) => {
     try {
       const { data } = await axios.get(`/api/pets/${id}`);
-      console.log("data:", data);
       return data;
     } catch (err) {
       console.log(err);
@@ -14,12 +14,12 @@ export const fetchSinglePetAsync = createAsyncThunk(
   }
 );
 
+//Create thunk to fetch single pet by userId
 export const fetchPetByUserId = createAsyncThunk(
   "pets/fetchById",
   async (userId) => {
     try {
       const { data } = await axios.get(`/api/pets/${userId}/viewpets`);
-      console.log("data", data);
       return data[0].pets;
     } catch (err) {
       console.log(err);
@@ -27,6 +27,7 @@ export const fetchPetByUserId = createAsyncThunk(
   }
 );
 
+//Create thunk to add experience points to a pet
 export const addExpToPet = createAsyncThunk(
   "pets/expUp",
   async ({ id, exp }) => {
@@ -36,12 +37,13 @@ export const addExpToPet = createAsyncThunk(
     return data;
   }
 );
-//increment the experience by updating the todo?
 
+//Set initial state for single user
 const initialState = {
   pet: [],
 };
 
+//Create slice for single user
 export const singlePetSlice = createSlice({
   name: "pet",
   initialState,
@@ -59,6 +61,7 @@ export const singlePetSlice = createSlice({
   },
 });
 
+//Create selector for single pet
 export const selectSinglePet = (state) => {
   return state.pet;
 };
