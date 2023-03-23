@@ -29,9 +29,9 @@ const EditTodo = () => {
         setDescription(singleTodo.description);
     }, [singleTodo])
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        dispatch(editSingleTodo({id, dueDate, toDoName, pointType, description}));
+        await dispatch(editSingleTodo({id, dueDate, toDoName, pointType, description}));
         if (id) {
             navigate(`/todos/${id}`);
         } else {
