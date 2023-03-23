@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { editSingleUser } from "./userSlice";
 
+import styles from  "../styles/EditUser.module.css"
+
 //Component to edit User's profile
 const EditUser = () => {
   const { id } = useParams();
@@ -37,7 +39,7 @@ const EditUser = () => {
   };
 
   return (
-    <div className="edit-user">
+    <div className={styles.edit-user}>
       <form onSubmit={handleSubmit}>
         <h3>Edit Information</h3>
 

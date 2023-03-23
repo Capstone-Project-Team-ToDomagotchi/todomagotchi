@@ -5,6 +5,8 @@ import { selectAllPets, fetchAllPetsAsync } from "../pet/allPetsSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchSelectPetAsync } from "../pet/selectPetSlice";
 
+import styles from "../styles/AllPets.module.css"
+
 const AllPets = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -43,13 +45,13 @@ const AllPets = () => {
   // };
 
   return (
+    <div className={styles.allPets}>
     <div id="petlist">
       {allPets && allPets.length
         ? allPets.map((pet) => (
-            <div key={pet.id}>
               <div>
                 <Link to={`/pets/${pet.id}`} key={`All Pets: ${pet.id}`}>
-                  <p>{pet.name}</p>{" "}
+                  <p>{pet.name}</p>
                 </Link>
                 <div className="pet-row">
                   <img src={`${pet.image}`} />
@@ -58,12 +60,14 @@ const AllPets = () => {
                       Select
                     </button>
                   </div>
+                
                 </div>
               </div>
-            </div>
-          ))
-        : null}
-    </div>
-  );
-};
+            ))
+          : null}
+       </div>  
+      </div>
+    );
+    
+}
 export default AllPets;
