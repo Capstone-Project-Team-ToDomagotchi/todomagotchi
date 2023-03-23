@@ -73,9 +73,10 @@ router.get("/:userId/viewpets", async (req, res, next) => {
     const petById = await User.findAll({
       where: { id: req.params.userId },
       include: {
-        model: Pet,
+        all: true,
       },
     });
+    console.log(petById)
     res.json(petById);
   } catch (err) {
     next(err);

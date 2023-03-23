@@ -33,8 +33,7 @@ const AppRoutes = () => {
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/main" element={<MainPage/>}/>
+          <Route path="/home" element={<MainPage />} />
           <Route path="/todos" element={<Todos />} />
           <Route path="/users/:id/edit" element={<EditUser />} />
           <Route path="/todos/:id" element={<SingleTodo />} />
@@ -47,7 +46,7 @@ const AppRoutes = () => {
       ) : (
         <Routes>
           {/* Routes placed here are available to all visitors */}
-          <Route path="/home" element={<NotLoggedInHome />} />
+          <Route path="/home" element={<MainPage/>} />
           <Route
             path="/login"
             element={<AuthForm name="login" displayName="Login" />}
