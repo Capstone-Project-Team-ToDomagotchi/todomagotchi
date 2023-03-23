@@ -30,7 +30,7 @@ const AllPets = () => {
       };
       dispatch(fetchSelectPetAsync(selectPet));
     }
-    navigate('./users')
+    navigate('/users')
   };
   // const select = (event) => {
   //   const selectPet = {
