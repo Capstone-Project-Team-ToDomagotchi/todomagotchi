@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { selectSingleTodo, fetchSingleTodo } from "./singleTodoSlice";
 
+import styles from "../styles/TodoDetail.module.css"
+
 const SingleTodo = () => {
   const { id } = useParams();
   const singleTodo = useSelector(selectSingleTodo);
@@ -14,7 +16,7 @@ const SingleTodo = () => {
   }, [dispatch, id]);
 
   return (
-    <div className="singleTodo-container">
+    <div className={styles.singleTodo-container}>
       <h2>{todoName}</h2>
       <p>{dueDate}</p>
       <p>{description}</p>

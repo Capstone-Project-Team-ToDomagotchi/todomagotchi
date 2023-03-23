@@ -5,6 +5,8 @@ import { selectAllPets, fetchAllPetsAsync } from "../pet/allPetsSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchSelectPetAsync } from "../pet/selectPetSlice";
 
+import styles from "../styles/AllPets.module.css"
+
 const AllPets = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
