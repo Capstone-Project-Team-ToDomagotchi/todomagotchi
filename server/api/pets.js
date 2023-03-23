@@ -130,7 +130,7 @@ router.put("/expUp/:id", async (req, res, next) => {
     //Amount of EXP gained will depend on the type of Todo completed
     const updatedPet = await petById.update({
       id: selectPet,
-      experience: selectPet.experience + 20,
+      exp: selectPet.exp + 20,
     });
     res.send(updatedPet);
   } catch (err) {

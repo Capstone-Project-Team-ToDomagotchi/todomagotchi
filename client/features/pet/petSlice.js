@@ -31,7 +31,6 @@ export const addExpToPet = createAsyncThunk(
   "pets/expUp",
   async ({ id, exp }) => {
     const { data } = await axios.put(`/api/pets/expUp/${id}`, {
-      // id: id,
       exp: exp,
     });
     return data;
@@ -57,9 +56,6 @@ export const singlePetSlice = createSlice({
     builder.addCase(addExpToPet.fulfilled, (state, action) => {
       return action.payload;
     });
-    // builder.addCase(editPetAsync.fulfilled, (state, action) => {
-    //   state = action.payload;
-    // });
   },
 });
 

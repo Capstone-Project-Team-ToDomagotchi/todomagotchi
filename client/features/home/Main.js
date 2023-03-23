@@ -1,23 +1,17 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import {
-  fetchPetByUserId,
-  selectSinglePet,
-  singlePetSlice,
-} from "../pet/petSlice";
-// import { fetchAllPetsAsync, selectAllPets } from "../pet/allPetsSlice";
+import { Link } from "react-router-dom";
 import { selectTodo, fetchTodosAsync } from "../todo/todoSlice";
 import { selectSingleUser, fetchSingleUser } from "../user/userSlice";
 
-import styles from "../styles/Main.module.css";
+import styles from "../styles/Main.module.css"; //this will eventually have styling
 
 const MainPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const currentUser = useSelector((state) => state.auth.me);
+  const user = useSelector((state) => state.auth.me.id);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const todos = useSelector(selectTodo);
-  const { id } = useParams();
   const singleUser = useSelector(selectSingleUser);
   const { selectPets } = singleUser;
 
@@ -28,8 +22,6 @@ const MainPage = () => {
   useEffect(() => {
     dispatch(fetchTodosAsync());
   }, [dispatch]);
-
-  // console.log("data", pets)
 
   return (
     <div>
@@ -70,6 +62,7 @@ const MainPage = () => {
           </div>
         </div>
       ) : (
+        // These are exclusively shown when no user is logged in.
         <div>
           <h1>Welcome to ToDomagotchi!</h1>
           <div>

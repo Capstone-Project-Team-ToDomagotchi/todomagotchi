@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { addExpToPet, fetchSinglePetAsync, selectSinglePet } from "./petSlice";
 
 import styles from "../styles/PetProfile.module.css"
@@ -8,23 +8,19 @@ import styles from "../styles/PetProfile.module.css"
 const PetProfile = () => {
   const dispatch = useDispatch();
   const petId = useParams();
-  const [img, setImg] = useState("")
 
   const singlePet = useSelector(selectSinglePet);
-  console.log(singlePet);
 
   useEffect(() => {
     dispatch(fetchSinglePetAsync(petId.id));
   }, [dispatch]);
 
-  console.log("data", singlePet);
 
   const addExp = async (id) => {
     await dispatch(addExpToPet(id));
   };
 
   const { id, name, age, exp, user } = singlePet;
-
   const { species, image } = singlePet.pet;
 
   let i = 0; 
