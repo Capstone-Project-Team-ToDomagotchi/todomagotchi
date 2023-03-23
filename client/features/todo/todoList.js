@@ -5,7 +5,6 @@ import { selectTodo, fetchTodosAsync } from "./todoSlice";
 
 import styles from "../styles/Todos.module.css"
 
-
 const Todos = () => {
   const dispatch = useDispatch();
   const todos = useSelector(selectTodo);

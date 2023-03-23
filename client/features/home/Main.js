@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   fetchPetByUserId,
   selectSinglePet,
@@ -8,8 +8,9 @@ import {
 } from "../pet/petSlice";
 // import { fetchAllPetsAsync, selectAllPets } from "../pet/allPetsSlice";
 import { selectTodo, fetchTodosAsync } from "../todo/todoSlice";
+import { selectSingleUser, fetchSingleUser } from "../user/userSlice";
 
-import styles from "../styles/Main.module.css"
+import styles from "../styles/Main.module.css";
 
 const MainPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -19,9 +20,12 @@ const MainPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const todos = useSelector(selectTodo);
+  const { id } = useParams();
+  const singleUser = useSelector(selectSingleUser);
+  const { selectPets } = singleUser;
 
   useEffect(() => {
-    dispatch(fetchPetByUserId(user));
+    dispatch(fetchSingleUser(user));
   }, [dispatch]);
 
   useEffect(() => {
@@ -36,15 +40,22 @@ const MainPage = () => {
           <div>
             <h1>Welcome, {currentUser?.username}!</h1>
             {/* The mainpage will show these elements only after you've signed in */}
-            {pets.map((pet) => {
-              return (
-                <div key={pet.id}>
-                  <img className="profilePet" src={pet.image} />
-                  <h2 className="petName">{pet.name}</h2>
-                  <Link to="/pets/:id">Pet Details</Link>
+            {selectPets && selectPets.length ? (
+              selectPets.map((pet) => (
+                <div className="petList" key={pet.id}>
+                  <Link to={`/pets/${pet.id}`}>
+                    <h3>Name: {pet.name}</h3>
+                  </Link>
+                  <img src={`${pet?.image}`} />
+                  <p>Age: {pet.age}</p>
+                  <p>Description: {pet.description}</p>
                 </div>
-              );
-            })}
+              ))
+            ) : (
+              <p>
+                <i>No pets exist for this user</i>
+              </p>
+            )}
             <div className="todo-container">
               <h2>Current To-Dos:</h2>
               {todos.map((todo) => {
