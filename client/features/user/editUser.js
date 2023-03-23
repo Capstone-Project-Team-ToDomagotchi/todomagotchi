@@ -49,6 +49,7 @@ const EditUser = () => {
             onChange={(event) => setDisplayName(event.target.value)}
           />
         </label>
+        <br/>
 
         <label>
           New Username:
@@ -58,6 +59,7 @@ const EditUser = () => {
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
+        <br/>
 
         <label>
           Update Pronouns:
@@ -67,6 +69,7 @@ const EditUser = () => {
             onChange={(event) => setPronouns(event.target.value)}
           />
         </label>
+        <br/>
 
         <label>
           Update About Me:
@@ -76,6 +79,7 @@ const EditUser = () => {
             onChange={(event) => setAboutMe(event.target.value)}
           />
         </label>
+        <br/>
 
         <label>
           Change Profile Picture
