@@ -7,8 +7,6 @@ import {
   editSingleTodo,
 } from "./singleTodoSlice";
 
-import styles from  "../styles/EditTodo.module.css"
-
 const EditTodo = () => {
   const [dueDate, setDueDate] = useState("");
   const [todoName, setTodoName] = useState("");
@@ -32,24 +30,27 @@ const EditTodo = () => {
     setDescription(singleTodo.description);
   }, [singleTodo]);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        await dispatch(editSingleTodo({id, dueDate, toDoName, pointType, description}));
-        if (id) {
-            navigate(`/todos/${id}`);
-        } else {
-            navigate('/todos');
-        }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(editSingleTodo({ id, dueDate, todoName, pointType, description }));
+    if (id) {
+      navigate(`/todos/${id}`);
+    } else {
+      navigate("/todos");
     }
   };
 
-    return (
-        <div className={styles.edit-todo}>
-            <form id="edit-task-form" onSubmit={handleSubmit}>
-                <h3>Edit Your Task</h3>
-                <label htmlFor="toDoName">Task:</label>
-                <input name="toDoName" id="toDoName" value={toDoName}
-                onChange={(e) => setToDoName(e.target.value)}/>
+  return (
+    <div className="edit-todo">
+      <form id="edit-task-form" onSubmit={handleSubmit}>
+        <h3>Edit Your Task</h3>
+        <label htmlFor="todoName">Task:</label>
+        <input
+          name="todoName"
+          id="todoName"
+          value={todoName}
+          onChange={(e) => setTodoName(e.target.value)}
+        />
 
         <label htmlFor="dueDate">Due Date:</label>
         <input
