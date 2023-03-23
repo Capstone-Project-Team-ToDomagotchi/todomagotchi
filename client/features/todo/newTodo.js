@@ -6,7 +6,7 @@ import {addNewTodo} from "./todoSlice";
 import styles from  "../styles/NewTodo.module.css"
 
 
-const CreateNewTodo = () => {
+const NewTodo = () => {
   const [dueDate, setDueDate] = useState("");
   const [todoName, setTodoName] = useState("");
   const [pointType, setPointType] = useState("average");
@@ -26,7 +26,7 @@ const CreateNewTodo = () => {
   };
 
   return (
-    <div className={styles.add-todo}>
+    <div className={styles.addTodo}>
       <form id="new-task-form" onSubmit={handleSubmit}>
         <h3>Add A New Task</h3>
         <label htmlFor="todoName">New Task:</label>
@@ -75,4 +75,4 @@ const CreateNewTodo = () => {
     </div>
   );
 };
-export default CreateNewTodo;
+export default NewTodo;

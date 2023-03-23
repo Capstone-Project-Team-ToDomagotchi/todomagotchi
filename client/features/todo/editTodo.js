@@ -7,6 +7,8 @@ import {
   editSingleTodo,
 } from "./singleTodoSlice";
 
+import styles from  "../styles/EditTodo.module.css"
+
 const EditTodo = () => {
   const [dueDate, setDueDate] = useState("");
   const [todoName, setTodoName] = useState("");
@@ -41,7 +43,7 @@ const EditTodo = () => {
   };
 
   return (
-    <div className="edit-todo">
+    <div className={styles.editTodo}>
       <form id="edit-task-form" onSubmit={handleSubmit}>
         <h3>Edit Your Task</h3>
         <label htmlFor="todoName">Task:</label>
