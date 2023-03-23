@@ -8,7 +8,9 @@ import {
 } from "../pet/petSlice";
 // import { fetchAllPetsAsync, selectAllPets } from "../pet/allPetsSlice";
 import { selectTodo, fetchTodosAsync } from "../todo/todoSlice";
-import { fetchSingleUser, selectSingleUser } from "../user/userSlice";
+import { selectSingleUser, fetchSingleUser } from "../user/userSlice";
+
+import styles from "../styles/Main.module.css";
 
 const MainPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -17,12 +19,7 @@ const MainPage = () => {
   const todos = useSelector(selectTodo);
   const { id } = useParams();
   const singleUser = useSelector(selectSingleUser);
-  const currentUser = useSelector((state) => state.auth.me);
-  const user = useSelector((state) => state.auth.me.id);
-
   const { selectPets } = singleUser;
-
-  console.log("data:", selectPets);
 
   useEffect(() => {
     dispatch(fetchSingleUser(user));
