@@ -16,7 +16,7 @@ const SingleTodo = () => {
   }, [dispatch, id]);
 
   return (
-    <div className={styles.singleTodo-container}>
+    <div className={styles.singleTodoContainer}>
       <h2>{todoName}</h2>
       <p>{dueDate}</p>
       <p>{description}</p>

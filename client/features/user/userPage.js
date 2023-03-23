@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./userSlice";
+import styles from  "../styles/Users.module.css"
 
 //Component to view User's profile
 const User = () => {
@@ -33,7 +34,7 @@ const User = () => {
 
   return (
     <div>
-      <div className="user-profile">
+      <div className={styles.userProfile}>
         <div>
           <header id="user-header">
             <img id="user-img" src={profilePic}></img>
