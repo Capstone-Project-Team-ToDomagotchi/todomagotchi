@@ -73,9 +73,10 @@ router.get("/:userId/viewpets", async (req, res, next) => {
     const petById = await User.findAll({
       where: { id: req.params.userId },
       include: {
-        model: Pet,
+        all: true,
       },
     });
+    console.log(petById)
     res.json(petById);
   } catch (err) {
     next(err);
@@ -129,7 +130,7 @@ router.put("/expUp/:id", async (req, res, next) => {
     //Amount of EXP gained will depend on the type of Todo completed
     const updatedPet = await petById.update({
       id: selectPet,
-      experience: selectPet.experience + 20,
+      exp: selectPet.exp + 20,
     });
     res.send(updatedPet);
   } catch (err) {
