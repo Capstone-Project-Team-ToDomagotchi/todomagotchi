@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectTodo, fetchTodosAsync } from "./todoSlice";
 
-import styles  from "../styles/Todos.module.css"
-
+import styles from "../styles/Todos.module.css"
 
 const Todos = () => {
   const dispatch = useDispatch();
