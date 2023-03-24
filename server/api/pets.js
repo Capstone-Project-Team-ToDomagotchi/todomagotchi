@@ -28,7 +28,7 @@ router.get("/:id", async (req, res, next) => {
     const petById = await SelectPet.findOne({
       where: { id: req.params.id },
       include: {
-        all: true,,
+        all: true,
       },
     });
     res.json(petById);

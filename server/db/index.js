@@ -16,23 +16,13 @@ Todo.belongsTo(User);
 
 SelectPet.belongsTo(Pet);
 
-Pet.hasMany(SelectPet, {
-  foreignKey: "petId", // Add a foreign key to link to the todoId column in the SelectPets table
-});
-SelectPet.belongsTo(Pet);
 Pet.hasMany(SelectPet);
 
-User.hasMany(SelectPet, {
-  foreignKey: "userId",
-});
+User.hasMany(SelectPet);
 SelectPet.belongsTo(User);
 
-Todo.hasMany(SelectPet, {
-  foreignKey: "todoId", // Add a foreign key to link to the todoId column in the SelectPets table
-});
-SelectPet.belongsTo(Todo, {
-  foreignKey: "todoId", // Add a foreign key to link to the todoId column in the SelectPets table
-});
+Todo.hasMany(SelectPet);
+SelectPet.belongsTo(Todo);
 
 Todo.hasMany(SelectPet);
 SelectPet.belongsTo(Todo);

@@ -18,6 +18,7 @@ const AllPets = () => {
   useEffect(() => {
     dispatch(fetchAllPetsAsync());
   }, [dispatch]);
+  console.log(allPets);
 
   const select = (event) => {
     const petId = event.target.value;
