@@ -4,7 +4,6 @@ import axios from "axios";
 export const fetchAllPetsAsync = createAsyncThunk("pets", async () => {
   try {
     const { data } = await axios.get(`/api/pets`);
-    console.log("data", data);
     return data;
   } catch (err) {
     console.log(err);
@@ -23,7 +22,6 @@ export const allPetsSlice = createSlice({
     builder.addCase(fetchAllPetsAsync.fulfilled, (state, action) => {
       return action.payload;
     });
-
   },
 });
 
