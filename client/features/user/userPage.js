@@ -23,7 +23,6 @@ const User = () => {
   const currentUser = useSelector((state) => state.auth.me);
 
   return (
-    <div>
       <div className={styles.userProfile}>
           <header id="user-header">
             <img id="user-img" src={profilePic}></img>
@@ -38,13 +37,6 @@ const User = () => {
             </div>
           </header>
       </div>
-      <div>
-        <TodosSnapshot />
-      </div>
-      <div>
-        <PetSnapshot />
-      </div>
-    </div>
   );
 };
 
