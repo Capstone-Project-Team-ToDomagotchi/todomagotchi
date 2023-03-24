@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import {
   fetchSingleTodo,
-  // selectSingleTodo,
+  selectSingleTodo,
   editSingleTodo,
 } from "./singleTodoSlice";
 
@@ -13,27 +13,24 @@ const EditTodo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  // const [dueDate, setDueDate] = useState("");
-  // const [todoName, setTodoName] = useState("");
-  // const [pointType, setPointType] = useState("average");
-  // const [description, setDescription] = useState("");
-  const [formValues, setFormValues] = useState({
-    dueDate: "",
-    todoName: "",
-    pointType: "average",
-    description: "",
-  });
+  const [dueDate, setDueDate] = useState("");
+  const [todoName, setTodoName] = useState("");
+  const [pointType, setPointType] = useState("average");
+  const [description, setDescription] = useState("");
+  // const [formValues, setFormValues] = useState({
+  //   dueDate: "",
+  //   todoName: "",
+  //   pointType: "average",
+  //   description: "",
+  // });
 
-  const singleTodo = useSelector((state) => state.singleTodo.todo);
   console.log("singleTodo--->", singleTodo);
 
-  const status = useSelector((state) => state.singleTodo.status);
-
-  useEffect(() => {
-    if (status === "idle") {
-      dispatch(fetchSingleTodo(id));
-    }
-  }, [dispatch, id]);
+  // useEffect(() => {
+  //   if (status === "idle") {
+  //     dispatch(fetchSingleTodo(id));
+  //   }
+  // }, [dispatch, id]);
 
   let singleTodo = useSelector(selectSingleTodo);
   useEffect(() => {
