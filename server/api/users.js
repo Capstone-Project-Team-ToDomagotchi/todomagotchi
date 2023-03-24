@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { User, Pet, Todo, SelectPet } = require("../db");
 const verifyToken = require("../middleware/verifyToken");
-
 //Get route for all users
 router.get("/", async (req, res, next) => {
   try {

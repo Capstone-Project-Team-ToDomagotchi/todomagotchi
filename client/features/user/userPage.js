@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./userSlice";
-import TodosSnapshot from "./todosSnapshot";
-import PetSnapshot from "./petSnapshot";
+import TodosSnapshot from "./TodosSnapshot";
+import PetSnapshot from "./PetSnapshot";
 
 import styles from  "../styles/Users.module.css"
 
@@ -23,8 +23,6 @@ const User = () => {
   return (
     <div>
       <div className={styles.userProfile}>
-        <div>
-
           <header id="user-header">
             <img id="user-img" src={profilePic}></img>
             <div>
@@ -37,10 +35,7 @@ const User = () => {
               <Link to={`/users/${id}/edit`}>Edit Profile</Link>
             </div>
           </header>
-          
-        </div>
       </div>
-
       <div>
         <TodosSnapshot />
       </div>
