@@ -19,16 +19,10 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id, {
-      include: [
-        { model: SelectPet,
-        include: Pet },
-        { model: Todo },
-        
-      ],
+      include: [{ model: SelectPet, include: Pet }, { model: Todo }],
     });
     res.json(user);
   } catch (err) {
-    console.log("err--->", err);
     next(err);
   }
 });
@@ -90,15 +84,17 @@ router.get("/profile/me", verifyToken, async (req, res, next) => {
 //Put route to edit user information
 router.put("/:id", async (req, res, next) => {
   try {
-    const {username, displayName, pronouns, aboutMe } = req.body;
+    const { username, displayName, pronouns, aboutMe } = req.body;
     const editUser = await User.findByPk(req.params.id);
-    res.send(await editUser.update({username, displayName, pronouns, aboutMe}));
-    } catch (err) {
+    res.send(
+      await editUser.update({ username, displayName, pronouns, aboutMe })
+    );
+  } catch (err) {
     next(err);
-    }
+  }
 });
 
-//Post route for user to select a new pet 
+//Post route for user to select a new pet
 router.post("/:id/selectpet", async (req, res) => {
   try {
     let selectPet = await SelectPet.create({
@@ -123,7 +119,5 @@ router.get("/:userId/selectedpet", async (req, res) => {
     console.log(err);
   }
 });
-
-
 
 module.exports = router;
