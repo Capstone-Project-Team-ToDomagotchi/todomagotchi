@@ -21,8 +21,10 @@ router.get("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id, {
       include: [
-        { model: SelectPet },
+        { model: SelectPet,
+        include: Pet },
         { model: Todo },
+        
       ],
     });
     res.json(user);
