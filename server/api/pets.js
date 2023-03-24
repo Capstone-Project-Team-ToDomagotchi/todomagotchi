@@ -61,6 +61,7 @@ router.put("/expUp/:selectPetId", async (req, res, next) => {
     // });
     const petById = await SelectPet.findOne({
       where: { id: req.params.selectPetId },
+      include: {all: true,}
     });
     console.log("initial pet:", petById);
     // const todos = await Todo.findAll({
@@ -98,26 +99,6 @@ router.put("/expUp/:selectPetId", async (req, res, next) => {
       selectImg: newImg,
     });
     console.log("updated pet", updatedPet)
-    res.send(updatedPet);
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-//vvv test function to edit experience vvv
-router.put("/expUp/:id", async (req, res, next) => {
-  try {
-    const petById = await Pet.findOne({
-      where: { id: req.params.id },
-    });
-    console.log("This Is Working", petById);
-    const selectPet = petById.id;
-    //Goal is that checking off a Todo will increase the number of EXP
-    //Amount of EXP gained will depend on the type of Todo completed
-    const updatedPet = await petById.update({
-      id: selectPet,
-      exp: selectPet.exp + 20,
-    });
     res.send(updatedPet);
   } catch (err) {
     console.log(err);
