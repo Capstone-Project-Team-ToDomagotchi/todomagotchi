@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectTodo, fetchTodosAsync } from "../todo/todoSlice";
 import { selectSingleUser, fetchSingleUser } from "../user/userSlice";
-
+import ApiGet from "../ApiGet";
 import styles from "../styles/Main.module.css"; //this will eventually have styling
 
 const MainPage = () => {
@@ -14,6 +14,7 @@ const MainPage = () => {
   const todos = useSelector(selectTodo);
   const singleUser = useSelector(selectSingleUser);
   const { selectPets } = singleUser;
+
 
   useEffect(() => {
     dispatch(fetchSingleUser(user));
@@ -29,6 +30,9 @@ const MainPage = () => {
       {isLoggedIn ? (
         <div>
           <h1>Welcome, {currentUser?.username}!</h1>
+          <section>
+            <ApiGet />
+          </section>
           {/* The mainpage will show these elements only after you've signed in */}
           {selectPets && selectPets.length ? (
             selectPets.map((pet) => (
