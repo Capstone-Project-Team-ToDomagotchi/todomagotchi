@@ -17,7 +17,7 @@ export const fetchSingleTodo = createAsyncThunk("singleTodo", async (id) => {
  */
 export const editSingleTodo = createAsyncThunk(
   "editSingleTodo",
-  async ({ id, dueDate, toDoName, pointType, description, isCompleted }) => {
+  async ({ id, dueDate, todoName, pointType, description, isCompleted }) => {
     try {
       const { data } = await axios.put(`/api/todos/${id}`, {
         dueDate,
