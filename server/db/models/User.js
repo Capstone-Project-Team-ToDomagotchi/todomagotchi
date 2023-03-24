@@ -2,6 +2,8 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const SALT_ROUNDS = 5;
 
@@ -36,7 +38,7 @@ const User = db.define("user", {
   },
   aboutMe: {
     type: Sequelize.TEXT,
-  }
+  },
 });
 
 module.exports = User;
@@ -63,7 +65,6 @@ User.authenticate = async function ({ username, password }) {
     error.status = 401;
     throw error;
   }
-  console.log("user--->", user.generateToken());
   return user.generateToken();
 };
 
