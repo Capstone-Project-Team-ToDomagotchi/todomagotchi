@@ -16,7 +16,7 @@ function createTodo() {
   const description = faker.lorem.text();
   const isCompleted = faker.datatype.boolean();
   const petId = faker.datatype.number({ min: 1, max: 5 });
-  const userId = faker.datatype.number({ min: 1, max: 9 });
+  const userId = faker.datatype.number({ min: 1, max: 5 });
 
   return {
     dueDate,
