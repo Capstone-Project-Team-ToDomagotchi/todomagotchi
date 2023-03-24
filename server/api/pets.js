@@ -53,14 +53,14 @@ router.get("/:userId/viewpets", async (req, res, next) => {
 });
 
 //vvv will be the finalized api vvv
-router.put("/expUp/:petId", async (req, res, next) => {
+router.put("/expUp/:selectPetId", async (req, res, next) => {
   try {
     // const petById = await Pet.findOne({
     //   where: { id: req.params.id },
     //   include: SelectPet,
     // });
     const petById = await SelectPet.findOne({
-      where: { id: req.params.petId },
+      where: { id: req.params.selectPetId },
     });
     console.log("initial pet:", petById);
     // const todos = await Todo.findAll({
@@ -94,7 +94,7 @@ router.put("/expUp/:petId", async (req, res, next) => {
     // // }
     const newImg = checkImg(exp);
     const updatedPet = await petById.update({
-      exp: petById.exp + 20,
+      exp: exp,
       selectImg: newImg,
     });
     console.log("updated pet", updatedPet)

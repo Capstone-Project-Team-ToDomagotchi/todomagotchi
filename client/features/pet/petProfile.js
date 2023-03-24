@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addExpToPet, fetchSinglePetAsync, selectSinglePet } from "./petSlice";
+import { fetchSinglePetAsync, selectSinglePet } from "./petSlice";
+import { addExpToPet } from "./selectPetSlice";
 
 import styles from "../styles/PetProfile.module.css";
 
