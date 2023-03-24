@@ -4,6 +4,7 @@ import { fetchTodosAsync } from "../todo/todoSlice";
 import { fetchSingleUser } from "../user/userSlice";
 import TodosSnapshot from "../user/TodosSnapshot";
 import PetSnapshot from "../user/PetSnapshot";
+import ApiGet from "../ApiGet";
 
 import styles from "../styles/Main.module.css";
 
@@ -28,11 +29,13 @@ const LoggedIn = () => {
       <nav>
           <div>
             <h1>Welcome, {username}!</h1>
+            <section>
+            <ApiGet />
+          </section>
             <div className="pets-container">
               <PetSnapshot pets={pets}/>
                 </div>
             <div className="todo-container">
-              <h2>Current To-Dos:</h2>
               <TodosSnapshot todos={todos}/>
                   </div>
             </div>

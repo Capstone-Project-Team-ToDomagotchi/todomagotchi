@@ -17,7 +17,8 @@ const TodosSnapshot = () => {
 
   return (
     <div className="todo-details">
-    <p>List of Todos:</p>
+    <h2>Current Todos</h2>
+    <hr />
     {todos && todos.length ? (
       todos.map((todo) => (
         <div className="todoList" key={todo.id}>

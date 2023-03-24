@@ -2,6 +2,19 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchSelectPetAsync = createAsyncThunk(
+  "selectPet",
+  async ({id}) => {
+    try {
+      const { data } = await axios.get(`/api/pets/${id}`);
+      console.log(data);
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+
+export const fetchPetGalleryAsync = createAsyncThunk(
     "selectPet",
     async ({ userId, petId, name }) => {
       try {
@@ -31,6 +44,17 @@ export const fetchSelectPetAsync = createAsyncThunk(
     }
   );
 
+  //Create thunk to add experience points to a pet
+export const addExpToPet = createAsyncThunk(
+  "pets/expUp",
+  async ({ id, exp }) => {
+    const { data } = await axios.put(`/api/pets/expUp/${id}`, {
+      exp: exp,
+    });
+    return data;
+  }
+);
+
   const initialState = {
  
     selectPet: [],
@@ -50,10 +74,11 @@ export const fetchSelectPetAsync = createAsyncThunk(
         // update state with the fetched data
         state.selectPet = action.payload;
       });
+      builder.addCase(addExpToPet.fulfilled, (state, action) => {
+        return action.payload;
+      });
     },
   });
-  
-  //Create selector for single user
   
  
   export const selectSelectedPet = (state) => {

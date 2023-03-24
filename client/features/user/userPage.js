@@ -18,7 +18,9 @@ const User = () => {
 
   useEffect(() => {
     dispatch(fetchSingleUser(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
+
+  const currentUser = useSelector((state) => state.auth.me);
 
   return (
     <div>
@@ -31,8 +33,8 @@ const User = () => {
               <p>Pronouns: {pronouns}</p>
               {aboutMe && <p>About Me: {aboutMe} </p>}
               <br />
-              {/* Need to add way to conditionally render this edit profile link so a user can only edit their own profile */}
-              <Link to={`/users/${id}/edit`}>Edit Profile</Link>
+              {(currentUser.id === singleUser.id) &&
+              <Link to={`/users/${id}/edit`}>Edit Profile</Link>}
             </div>
           </header>
       </div>
