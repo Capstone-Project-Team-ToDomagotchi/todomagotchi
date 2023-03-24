@@ -35,11 +35,7 @@ const EditTodo = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(editSingleTodo({ id, dueDate, todoName, pointType, description }));
-    if (id) {
-      navigate(`/todos/${id}`);
-    } else {
-      navigate("/todos");
-    }
+      navigate(-1);
   };
 
   return (

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { selectSingleTodo, fetchSingleTodo } from "./singleTodoSlice";
 
 import styles from "../styles/TodoDetail.module.css"
@@ -11,6 +11,7 @@ const SingleTodo = () => {
   const { todoName, dueDate, description, isCompleted } = singleTodo;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(fetchSingleTodo(id));
   }, [dispatch, id]);
@@ -23,7 +24,7 @@ const SingleTodo = () => {
       <hr></hr>
       <Link to={`/todos/${id}/edit`}>Edit Task</Link>
       <br />
-      <Link to={`/todos`}>Back to Todo List</Link>
+      <button onClick={() => navigate(-1)}>Go back</button>
     </div>
   );
 };
