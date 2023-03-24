@@ -20,7 +20,6 @@ import AllPets from "../features/home/AllPets";
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
-  console.log("isLoggedIn", isLoggedIn);
 
   useEffect(() => {
     dispatch(me());
@@ -49,10 +48,12 @@ const AppRoutes = () => {
           <Route path="/*" element={<Home />} />
           <Route
             path="/login"
-            element={<AuthForm name="login" authMethod="Login" />}/>
+            element={<AuthForm name="login" authMethod="Login" />}
+          />
           <Route
             path="/signup"
-            element={<AuthForm name="signup" authMethod="Sign Up" />}/>
+            element={<AuthForm name="signup" authMethod="Sign Up" />}
+          />
         </Routes>
       )}
     </div>
