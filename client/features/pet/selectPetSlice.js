@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-
 export const fetchSelectPetAsync = createAsyncThunk(
     "selectPet",
     async ({ userId, petId, name }) => {

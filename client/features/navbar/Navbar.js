@@ -10,6 +10,8 @@ import styles  from "../styles/Navbar.module.css";
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const userId = useSelector((state) => state.auth.me.id)
+  const userPets = useSelector((state) => state.auth.me.id)
+  const userInfo = useSelector((state) => state.auth.me)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
@@ -26,9 +28,12 @@ const Navbar = () => {
       <Link to="/home">Home</Link>
       {isLoggedIn && <Link to={`/users/${userId}`}>Account</Link>}
       {isLoggedIn ? (
+          <div>
+          <Link to="/main">Main</Link>
           <button className="btn secondary-btn" type="button" 
           onClick={logoutAndRedirectHome}>Logout</button>
-              ) : (
+          </div>    
+          ) : (
                   <div className="login-logout">
                     <Link to="/home">Home</Link>
                     <Link to="/login">Log In</Link>

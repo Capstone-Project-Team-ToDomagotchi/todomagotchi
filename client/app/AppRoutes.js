@@ -1,19 +1,18 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
-import AuthForm from '../features/auth/AuthForm';
-import Home from '../features/home/Home';
-import SingleTodo from '../features/todo/todoDetail';
-import Todos from '../features/todo/todoList';
-import { me } from './store';
-import PetProfile from '../features/pet/PetProfile';
-import User from '../features/user/userPage';
-import EditUser from '../features/user/editUser';
-import NewTodo from '../features/todo/NewTodo';
-import AllPets from '../features/home/AllPets';
-// import NotLoggedInHome from "../features/home/Home2";
-// import MainPage from '../features/home/Main';
-import EditTodo from '../features/todo/editTodo';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import { me } from "./store";
+import AuthForm from "../features/auth/AuthForm";
+import Home from "../features/home/Home";
+import MainPage from "../features/home/Main";
+import User from "../features/user/userPage";
+import EditUser from "../features/user/editUser";
+import Todos from "../features/todo/todoList";
+import SingleTodo from "../features/todo/todoDetail";
+import NewTodo from "../features/todo/NewTodo";
+import EditTodo from "../features/todo/editTodo";
+import PetProfile from "../features/pet/PetProfile";
+import AllPets from "../features/home/AllPets";
 
 /**
  * COMPONENT
@@ -32,22 +31,23 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
+          {/* Routes placed here are available to only logged in users. */}
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          {/* <Route path="/main" element={<MainPage/>}/> */}
+          <Route path="/main" element={<MainPage />} />
           <Route path="/users/:id" element={<User />} />
           <Route path="/users/:id/edit" element={<EditUser />} />
           <Route path="/todos" element={<Todos />} />
           <Route path="/todos/:id" element={<SingleTodo />} />
           <Route path="/addNewTodo" element={<NewTodo />} />
           <Route path="/todos/:id/edit" element={<EditTodo />} />
-          <Route path="/pets/:id" element={<PetProfile/>} />
-          <Route path="/pets" element={<AllPets/>} />
+          <Route path="/pets/:id" element={<PetProfile />} />
+          <Route path="/pets" element={<AllPets />} />
         </Routes>
       ) : (
         <Routes>
           {/* Routes placed here are available to all visitors */}
-          {/* <Route path="/home" element={<NotLoggedInHome />} /> */}
+          <Route path="/home" element={<MainPage />} />
           <Route
             path="/login"
             element={<AuthForm name="login" authMethod="Login" />}
