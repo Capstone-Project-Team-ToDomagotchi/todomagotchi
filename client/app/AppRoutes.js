@@ -11,7 +11,8 @@ import SingleTodo from "../features/todo/todoDetail";
 import NewTodo from "../features/todo/NewTodo";
 import EditTodo from "../features/todo/editTodo";
 import PetProfile from "../features/pet/PetProfile";
-import AllPets from "../features/home/AllPets";
+import AllPets from "../features/pet/AllPets";
+
 /**
  * COMPONENT
  */

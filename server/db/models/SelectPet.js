@@ -17,6 +17,9 @@ const SelectPet = db.define("selectPet", {
   selectImg: {
     type: Sequelize.INTEGER,
     defaultValue: 0,
+    // validate: {
+    //   is: 0-2
+    // }
   },
 });
 
