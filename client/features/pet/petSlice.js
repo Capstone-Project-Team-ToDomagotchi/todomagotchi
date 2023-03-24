@@ -31,6 +31,7 @@ export const fetchPetByUserId = createAsyncThunk(
 export const addExpToPet = createAsyncThunk(
   "pets/expUp",
   async ({ id, exp }) => {
+    console.log(id)
     const { data } = await axios.put(`/api/pets/expUp/${id}`, {
       exp: exp,
     });
@@ -56,7 +57,7 @@ export const singlePetSlice = createSlice({
       state.pet = action.payload;
     });
     builder.addCase(addExpToPet.fulfilled, (state, action) => {
-      return action.payload;
+    state.pet = action.payload;
     });
   },
 });

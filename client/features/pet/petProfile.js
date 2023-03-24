@@ -15,14 +15,12 @@ const PetProfile = () => {
     dispatch(fetchSinglePetAsync(petId.id));
   }, [dispatch]);
 
-  const addExp = async (id) => {
-    await dispatch(addExpToPet(id));
+  const addExp = async (id, exp) => {
+    await dispatch(addExpToPet({id, exp}));
   };
 
   const { id, name, age, exp, user, selectImg } = singlePet;
   const { species, image } = singlePet.pet;
-
-  console.log("a picture", image);
 
   console.log(petId.id);
 
@@ -43,7 +41,7 @@ const PetProfile = () => {
           <h3>Owner:</h3>
           <h4>{user?.username}</h4>
           <p>EXP: {exp}</p>
-          <button onClick={(id) => addExp(id)}>Add EXP</button>
+          <button onClick={() => addExp(id, exp)}>Add EXP</button>
           {/* ^^Need to implement a bar that shows how close to the next level^^*/}
         </div>
       </section>

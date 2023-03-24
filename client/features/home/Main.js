@@ -5,13 +5,13 @@ import { selectTodo, fetchTodosAsync } from "../todo/todoSlice";
 import { selectSingleUser, fetchSingleUser } from "../user/userSlice";
 
 import styles from "../styles/Main.module.css"; //this will eventually have styling
+import TodosSnapshot from "../user/todosSnapshot";
 
 const MainPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const currentUser = useSelector((state) => state.auth.me);
   const user = useSelector((state) => state.auth.me.id);
   const dispatch = useDispatch();
-  const todos = useSelector(selectTodo);
   const singleUser = useSelector(selectSingleUser);
   const { selectPets } = singleUser;
 
@@ -36,7 +36,7 @@ const MainPage = () => {
                 <Link to={`/pets/${pet.id}`}>
                   <h3>Name: {pet.name}</h3>
                 </Link>
-                <img src={`${pet.pet.image}`} />
+                <img src={`${pet.pet.image?.[pet.selectImg]}`} />
                 <p>Age: {pet.age}</p>
                 <p>Description: {pet.description}</p>
               </div>
@@ -46,21 +46,7 @@ const MainPage = () => {
               <i>No pets exist for this user</i>
             </p>
           )}
-          <div className="todo-container">
-            <h2>Current To-Dos:</h2>
-            {todos.map((todo) => {
-              return (
-                <div key={todo.id}>
-                  <h3>
-                    <Link to={`/todos/${todo.id}`}>To Do: {todo.todoName}</Link>
-                  </h3>
-                  <h4>Due Date: {todo.dueDate}</h4>
-                  <h5>{todo.isCompleted}</h5>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <TodosSnapshot/></div>
       ) : (
         // These are exclusively shown when no user is logged in.
         <div>
