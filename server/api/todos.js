@@ -6,7 +6,9 @@ const verifyToken = require("../middleware/verifyToken");
 //get all todos
 router.get("/", async (req, res, next) => {
   try {
-    const todos = await Todo.findAll();
+    const todos = await Todo.findAll({
+      order: [["updatedAt", "DESC"]],
+    });
     res.json(todos);
   } catch (err) {
     next(err);

@@ -30,6 +30,21 @@ export const addNewTodo = createAsyncThunk(
   }
 );
 
+//edit a single todo
+// export const editTodo = createAsyncThunk("todo/edit", async (todoData) => {
+//   try {
+//     const { data } = await axios.put(
+//       `/api/todos/${todoData.id}`,
+//       todoData.formValues
+//     );
+//     console.log("data---->", data);
+//     return data;
+//   } catch (error) {
+//     console.error(error);
+//     throw error;
+//   }
+// });
+
 const initialState = [];
 
 export const todoSlice = createSlice({
@@ -43,6 +58,17 @@ export const todoSlice = createSlice({
     builder.addCase(addNewTodo.fulfilled, (state, action) => {
       state.push(action.payload);
     });
+    // builder.addCase(editTodo.pending, (state) => {
+    //   state.status = "loading";
+    // });
+    // builder.addCase(editTodo.fulfilled, (state, action) => {
+    //   state.status = "succeeded";
+    //   state.todo = { ...state.todo, ...action.payload };
+    // });
+    // builder.addCase(editTodo.rejected, (state, action) => {
+    //   state.status = "failed";
+    //   state.error = action.error.message;
+    // });
   },
 });
 
