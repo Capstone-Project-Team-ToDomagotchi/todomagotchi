@@ -27,7 +27,7 @@ const EditTodo = () => {
   let singleTodo = useSelector(selectSingleTodo);
   useEffect(() => {
     setDueDate(singleTodo.dueDate);
-    setToDoName(singleTodo.todoName);
+    setTodoName(singleTodo.todoName);
     setPointType(singleTodo.pointType);
     setDescription(singleTodo.description);
   }, [singleTodo]);
