@@ -36,7 +36,7 @@ const MainPage = () => {
                 <Link to={`/pets/${pet.id}`}>
                   <h3>Name: {pet.name}</h3>
                 </Link>
-                <img src={`${pet?.image}`} />
+                <img src={`${pet.pet.image}`} />
                 <p>Age: {pet.age}</p>
                 <p>Description: {pet.description}</p>
               </div>
