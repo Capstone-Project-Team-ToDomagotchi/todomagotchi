@@ -1,4 +1,3 @@
-const { faker } = require("@faker-js/faker");
 const { User } = require("../server/db");
 
 async function userSeed() {

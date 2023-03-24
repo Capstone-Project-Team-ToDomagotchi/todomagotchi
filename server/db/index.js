@@ -9,7 +9,7 @@ const SelectPet = require("./models/SelectPet");
 Pet.hasMany(Todo);
 
 User.hasMany(Todo);
-User.hasMany(Pet);
+// User.hasMany(Pet);
 
 Todo.belongsTo(Pet);
 Todo.belongsTo(User);

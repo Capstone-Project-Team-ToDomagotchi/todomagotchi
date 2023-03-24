@@ -11,19 +11,23 @@ const NewTodo = () => {
   const [todoName, setTodoName] = useState("");
   const [pointType, setPointType] = useState("average");
   const [description, setDescription] = useState("");
+  const [isCompleted, setIsCompleted] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addNewTodo({ dueDate, todoName, pointType, description }));
+    dispatch(addNewTodo({ dueDate, todoName, pointType, description, isCompleted }));
     setDueDate("");
     setTodoName("");
     setPointType("");
     setDescription("");
+    setIsCompleted(false);
     navigate(`/todos`);
   };
+
+ 
 
   return (
     <div className={styles.addTodo}>
@@ -65,7 +69,7 @@ const NewTodo = () => {
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-        />
+        />    
         <br></br>
         <button type="submit" name="submit" id="submit">
           Submit

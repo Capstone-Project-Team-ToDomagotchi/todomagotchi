@@ -1,4 +1,3 @@
-const { faker } = require("@faker-js/faker");
 const { SelectPet } = require("../server/db");
 
 async function selectPetSeed() {

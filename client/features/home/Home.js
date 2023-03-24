@@ -1,20 +1,27 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import LoggedIn from "./LoggedIn";
+import LoggedOut from "./LoggedOut";
 
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Main.module.css";
 
-/**
- * COMPONENT
- */
-const Home = (props) => {
-  const username = useSelector((state) => state.auth.me.username);
-  const profilePic = useSelector((state) => state.auth.me.profilePic);
+const Home = () => {
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
 
   return (
-    <div className={styles.welcome}>
-      <h3>Welcome, {username}</h3>
-      {/* <img src={profilePic} alt="Profile Picture" /> */}
- 
+    <div className={styles.Home}>
+      <nav>
+        {isLoggedIn ? (
+          <div>
+            <LoggedIn />
+            </div>
+        ) : (
+          <div>
+            <LoggedOut />
+            </div>
+          )}
+      </nav>
+      <hr />
     </div>
   );
 };
