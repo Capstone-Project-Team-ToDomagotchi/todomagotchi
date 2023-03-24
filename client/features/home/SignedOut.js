@@ -1,8 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import Navbar from "../navbar/Navbar";
 
-const NotLoggedInHome = () => {
+const SignedOut = () => {
   return (
     <div>
       <h1>Welcome to ToDomagotchi!</h1>
@@ -57,4 +55,4 @@ const NotLoggedInHome = () => {
   );
 };
 
-export default NotLoggedInHome;
+export default SignedOut;
