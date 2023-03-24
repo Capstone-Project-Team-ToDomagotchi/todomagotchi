@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { editSingleUser } from "./userSlice";
@@ -8,6 +8,7 @@ import styles from  "../styles/EditUser.module.css"
 
 //Component to edit User's profile
 const EditUser = () => {
+  const { me } = useSelector((state) => state.auth);
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const EditUser = () => {
     event.preventDefault();
     await dispatch(
       editSingleUser(
-        { id, 
+        { id: me.id, 
           displayName, 
           username, 
           pronouns, 
