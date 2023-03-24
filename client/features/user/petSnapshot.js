@@ -27,7 +27,6 @@ const PetSnapshot = () => {
                 <h3>Name: {pet.name}</h3>
               </Link>
               <p>Age: {pet.age}</p>
-              <p>Description: {pet.description}</p>
             </div>
           ))
         ) : (
