@@ -8,7 +8,6 @@ import styles from "../styles/PetProfile.module.css";
 const PetProfile = () => {
   const dispatch = useDispatch();
   const petId = useParams();
-  const [img, setImg] = useState("");
 
   const singlePet = useSelector(selectSinglePet);
 
@@ -20,28 +19,14 @@ const PetProfile = () => {
     await dispatch(addExpToPet(id));
   };
 
-  const { id, name, age, exp, user } = singlePet;
+  const { id, name, age, exp, user, selectImg } = singlePet;
   const { species, image } = singlePet.pet;
 
   console.log("a picture", image);
 
   console.log(petId.id);
 
-  let i = 0;
-
-  // function checkExp(exp) {
-  //   if (exp < 40) {
-  //     i = 0;
-  //   }
-  //   if (exp < 60) {
-  //     i = 1;
-  //   }
-  //   if (exp > 90) {
-  //     i = 2;
-  //   }
-  // }
-
-  console.log("current img:", img);
+  console.log("current img:", image);
 
   return (
     <div className={styles.PetProfile}>
@@ -49,10 +34,7 @@ const PetProfile = () => {
         <div key={id}>
           <img
             className="profilePet"
-            src={image
-              // ?.[checkExp(exp)]
-            }
-          />
+            src={image?.[selectImg]} />
           <h2 className="petName">{name}</h2>
           <h3>Age:</h3>
           <h4>{age}</h4>
