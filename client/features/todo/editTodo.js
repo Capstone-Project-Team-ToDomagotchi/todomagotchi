@@ -3,25 +3,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import {
   fetchSingleTodo,
-  selectSingleTodo,
+  // selectSingleTodo,
   editSingleTodo,
 } from "./singleTodoSlice";
 
-import styles from  "../styles/EditTodo.module.css"
+import styles from "../styles/EditTodo.module.css";
 
 const EditTodo = () => {
-  const [dueDate, setDueDate] = useState("");
-  const [todoName, setTodoName] = useState("");
-  const [pointType, setPointType] = useState("average");
-  const [description, setDescription] = useState("");
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
+  // const [dueDate, setDueDate] = useState("");
+  // const [todoName, setTodoName] = useState("");
+  // const [pointType, setPointType] = useState("average");
+  // const [description, setDescription] = useState("");
+  const [formValues, setFormValues] = useState({
+    dueDate: "",
+    todoName: "",
+    pointType: "average",
+    description: "",
+  });
+
+  const singleTodo = useSelector((state) => state.singleTodo.todo);
+  console.log("singleTodo--->", singleTodo);
+
+  const status = useSelector((state) => state.singleTodo.status);
 
   useEffect(() => {
-    console.log(`todoId from useEffect in EditTodo: ${id}`);
-    dispatch(fetchSingleTodo(id));
+    if (status === "idle") {
+      dispatch(fetchSingleTodo(id));
+    }
   }, [dispatch, id]);
 
   let singleTodo = useSelector(selectSingleTodo);
@@ -35,7 +46,7 @@ const EditTodo = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(editSingleTodo({ id, dueDate, todoName, pointType, description }));
-      navigate(-1);
+    navigate(-1);
   };
 
   return (
@@ -46,8 +57,10 @@ const EditTodo = () => {
         <input
           name="todoName"
           id="todoName"
-          value={todoName}
-          onChange={(e) => setTodoName(e.target.value)}
+          defaultValue={singleTodo?.todoName}
+          onChange={(e) =>
+            setFormValues({ ...formValues, todoName: e.target.value })
+          }
         />
 
         <label htmlFor="dueDate">Due Date:</label>
@@ -55,8 +68,10 @@ const EditTodo = () => {
           type="date"
           name="dueDate"
           id="dueDate"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
+          defaultValue={singleTodo?.dueDate}
+          onChange={(e) =>
+            setFormValues({ ...formValues, dueDate: e.target.value })
+          }
         />
 
         <label htmlFor="pointType">Priority</label>
@@ -76,8 +91,10 @@ const EditTodo = () => {
           type="text"
           name="description"
           id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          defaultValue={singleTodo?.description}
+          onChange={(e) =>
+            setFormValues({ ...formValues, description: e.target.value })
+          }
         />
         <br></br>
         <button type="submit" name="submit" id="submit">

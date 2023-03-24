@@ -7,7 +7,7 @@ const LoggedOut = () => {
       <div>
         {/* Choose a pet section */}
         <div>
-          <h2>Choose a pet!</h2>
+          <h3>Choose a pet!</h3>
           <div>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo
