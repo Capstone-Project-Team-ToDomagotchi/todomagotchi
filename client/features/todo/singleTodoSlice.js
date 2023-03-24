@@ -78,35 +78,35 @@ export const singleTodoSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    // builder.addCase(fetchSingleTodo.fulfilled, (state, action) => {
-    //   return action.payload;
-    // });
-    // builder.addCase(editSingleTodo.fulfilled, (state, action) => {
-    //   return action.payload;
-    // });
-    builder.addCase(fetchSingleTodo.pending, (state) => {
-      state.status = "loading";
-    });
     builder.addCase(fetchSingleTodo.fulfilled, (state, action) => {
-      state.status = "succeeded";
-      state.todo = { ...state.todo, ...action.payload };
-    });
-    builder.addCase(fetchSingleTodo.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
-    });
-
-    builder.addCase(editSingleTodo.pending, (state) => {
-      state.status = "loading";
+      return action.payload;
     });
     builder.addCase(editSingleTodo.fulfilled, (state, action) => {
-      state.status = "succeeded";
-      state.todo = { ...state.todo, ...action.payload };
+      return action.payload;
     });
-    builder.addCase(editSingleTodo.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
-    });
+    // builder.addCase(fetchSingleTodo.pending, (state) => {
+    //   state.status = "loading";
+    // });
+    // builder.addCase(fetchSingleTodo.fulfilled, (state, action) => {
+    //   state.status = "succeeded";
+    //   state.todo = { ...state.todo, ...action.payload };
+    // });
+    // builder.addCase(fetchSingleTodo.rejected, (state, action) => {
+    //   state.status = "failed";
+    //   state.error = action.error.message;
+    // });
+
+    // builder.addCase(editSingleTodo.pending, (state) => {
+    //   state.status = "loading";
+    // });
+    // builder.addCase(editSingleTodo.fulfilled, (state, action) => {
+    //   state.status = "succeeded";
+    //   state.todo = { ...state.todo, ...action.payload };
+    // });
+    // builder.addCase(editSingleTodo.rejected, (state, action) => {
+    //   state.status = "failed";
+    //   state.error = action.error.message;
+    // });
 
     builder.addCase(deleteSingleTodo.fulfilled, (state, action) => {
       const newState = state.filter((todos) => todos.id !== action.payload.id);
