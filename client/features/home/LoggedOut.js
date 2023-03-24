@@ -1,6 +1,6 @@
 import React from "react";
 
-const SignedOut = () => {
+const LoggedOut = () => {
   return (
     <div>
       <h1>Welcome to ToDomagotchi!</h1>
@@ -55,4 +55,4 @@ const SignedOut = () => {
   );
 };
 
-export default SignedOut;
+export default LoggedOut;

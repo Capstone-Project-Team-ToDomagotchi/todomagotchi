@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { selectTodo, fetchTodosAsync } from "../todo/todoSlice";
-import { selectSingleUser, fetchSingleUser } from "../user/userSlice";
+import { fetchTodosAsync } from "../todo/todoSlice";
+import { fetchSingleUser } from "../user/userSlice";
 import TodosSnapshot from "../user/TodosSnapshot";
 import PetSnapshot from "../user/PetSnapshot";
 
@@ -13,9 +12,8 @@ const LoggedIn = () => {
   const username = useSelector((state) => state.auth.me.username);
   const dispatch = useDispatch();
 
-  const todos = useSelector(selectTodo);
-  const singleUser = useSelector(selectSingleUser);
-  const { selectPets } = singleUser;
+  const todos = useSelector((state) => state.todos);
+  const pets = useSelector((state) => state.pet.pet)
 
   useEffect(() => {
     dispatch(fetchSingleUser(user));
@@ -31,11 +29,11 @@ const LoggedIn = () => {
           <div>
             <h1>Welcome, {username}!</h1>
             <div className="pets-container">
-              <PetSnapshot />
+              <PetSnapshot pets={pets}/>
                 </div>
             <div className="todo-container">
               <h2>Current To-Dos:</h2>
-              <TodosSnapshot />
+              <TodosSnapshot todos={todos}/>
                   </div>
             </div>
       </nav>

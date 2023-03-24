@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import LoggedIn from "./LoggedIn";
-import SignedOut from "./SignedOut";
+import LoggedOut from "./LoggedOut";
 
 import styles from "../styles/Main.module.css";
 
@@ -17,7 +17,7 @@ const Home = () => {
             </div>
         ) : (
           <div>
-            <SignedOut />
+            <LoggedOut />
             </div>
           )}
       </nav>
