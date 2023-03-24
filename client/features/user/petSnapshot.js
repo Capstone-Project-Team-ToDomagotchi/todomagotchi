@@ -18,14 +18,14 @@ const PetSnapshot = () => {
   return (
     <div className="pet-details">
       <div>
-        <p>List of Pets:</p>
+        <h2>Pets</h2>
+        <hr />
         {selectPets && selectPets.length ? (
           selectPets.map((pet) => (
             <div className="petList" key={pet.id}>
               <Link to={`/pets/${pet.id}`}>
                 <h3>Name: {pet.name}</h3>
               </Link>
-
               <p>Age: {pet.age}</p>
               <p>Description: {pet.description}</p>
             </div>

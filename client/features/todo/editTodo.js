@@ -27,7 +27,7 @@ const EditTodo = () => {
   let singleTodo = useSelector(selectSingleTodo);
   useEffect(() => {
     setDueDate(singleTodo.dueDate);
-    setToDoName(singleTodo.todoName);
+    setTodoName(singleTodo.todoName);
     setPointType(singleTodo.pointType);
     setDescription(singleTodo.description);
   }, [singleTodo]);
@@ -35,11 +35,7 @@ const EditTodo = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(editSingleTodo({ id, dueDate, todoName, pointType, description }));
-    if (id) {
-      navigate(`/todos/${id}`);
-    } else {
-      navigate("/todos");
-    }
+      navigate(-1);
   };
 
   return (

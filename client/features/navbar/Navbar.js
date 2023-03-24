@@ -18,6 +18,7 @@ const Navbar = () => {
   return (
     <div className={styles.Navbar}>
       <nav>
+        <h1>ToDomagotchi</h1>
       <Link to="/home">Home</Link>
       {isLoggedIn && <Link to={`/users/${userId}`}>Account</Link>}
       {isLoggedIn ? (

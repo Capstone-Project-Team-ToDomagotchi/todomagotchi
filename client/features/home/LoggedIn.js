@@ -36,7 +36,6 @@ const LoggedIn = () => {
               <PetSnapshot pets={pets}/>
                 </div>
             <div className="todo-container">
-              <h2>Current To-Dos:</h2>
               <TodosSnapshot todos={todos}/>
                   </div>
             </div>

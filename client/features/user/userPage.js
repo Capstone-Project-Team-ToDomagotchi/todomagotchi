@@ -18,13 +18,9 @@ const User = () => {
 
   useEffect(() => {
     dispatch(fetchSingleUser(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const currentUser = useSelector((state) => state.auth.me);
-
-  useEffect(() => {
-    dispatch(fetchSingleUser(currentUser));
-  }, [dispatch]);
 
   return (
     <div>
