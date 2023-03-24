@@ -35,27 +35,18 @@ const EditTodo = () => {
     }
   }, [dispatch, id]);
 
-  // let singleTodo = useSelector(selectSingleTodo);
-  // useEffect(() => {
-  //   setDueDate(singleTodo.dueDate);
-  //   setTodoName(singleTodo.todoName);
-  //   setPointType(singleTodo.pointType);
-  //   setDescription(singleTodo.description);
-  // }, [singleTodo]);
+  let singleTodo = useSelector(selectSingleTodo);
+  useEffect(() => {
+    setDueDate(singleTodo.dueDate);
+    setTodoName(singleTodo.todoName);
+    setPointType(singleTodo.pointType);
+    setDescription(singleTodo.description);
+  }, [singleTodo]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = {
-      formValues,
-      id,
-    };
-    dispatch(editSingleTodo(data));
-    // dispatch(editSingleTodo({ id, dueDate, todoName, pointType, description }));
-    if (id) {
-      navigate(`/todos/${id}`);
-    } else {
-      navigate("/todos");
-    }
+    dispatch(editSingleTodo({ id, dueDate, todoName, pointType, description }));
+    navigate(-1);
   };
 
   return (

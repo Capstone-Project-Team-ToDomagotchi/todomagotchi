@@ -5,11 +5,11 @@ const Pet = require("./models/Pet");
 const Todo = require("./models/Todo");
 const SelectPet = require("./models/SelectPet");
 
-Pet.belongsTo(User);
+// Pet.belongsTo(User);
 Pet.hasMany(Todo);
 
 User.hasMany(Todo);
-User.hasMany(Pet);
+// User.hasMany(Pet);
 
 Todo.belongsTo(Pet);
 Todo.belongsTo(User);
@@ -19,6 +19,8 @@ SelectPet.belongsTo(Pet);
 Pet.hasMany(SelectPet, {
   foreignKey: "petId", // Add a foreign key to link to the todoId column in the SelectPets table
 });
+SelectPet.belongsTo(Pet);
+Pet.hasMany(SelectPet);
 
 User.hasMany(SelectPet, {
   foreignKey: "userId",

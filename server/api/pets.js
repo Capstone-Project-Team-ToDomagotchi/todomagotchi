@@ -5,8 +5,7 @@ router.get("/", async (req, res, next) => {
   try {
     const pets = await Pet.findAll({
       include: {
-        model: User,
-        SelectPet,
+        all: true,
       },
       attributes: [
         `id`,
@@ -29,7 +28,7 @@ router.get("/:id", async (req, res, next) => {
     const petById = await SelectPet.findOne({
       where: { id: req.params.id },
       include: {
-        all: true,
+        all: true,,
       },
     });
     res.json(petById);
@@ -54,54 +53,52 @@ router.get("/:userId/viewpets", async (req, res, next) => {
 });
 
 //vvv will be the finalized api vvv
-// router.put("/expUp/:petId", async (req, res, next) => {
-//   try {
-//     const petById = await Pet.findOne({
-//       where: { id: req.params.id },
-//       include: SelectPet,
-//     });
-//     const expData = await SelectPet.findOne({
-//       where: { id: req.params.petId },
-//     });
-//     const todos = await Todo.findAll({
-//       where: {id: req.params.petId}
-//     });
-//     const petId = petById.id;
-//     //Goal is that checking off a Todo will increase the number of EXP
-//     //Amount of EXP gained will depend on the type of Todo completed
-//     if (petById.Todo.pointType === "important" && petById.Todo.isCompleted) {
-//       const updatedPet = await SelectPet.update({
-//         id: req.body.id,
-//         exp: exp + 20,
-//       });
-//       res.send(updatedPet);
-//     }
-//     if (petById.ToD\do.pointType === "average" && petById.Todo.isCompleted) {
-//       const updatedPet = await Pet.update({
-//         id: req.body.id,
-//         experience: experience + 10,
-//       });
-//       res.send(updatedPet);
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
-
-//vvv test function to edit experience vvv
-router.put("/expUp/:id", async (req, res, next) => {
+router.put("/expUp/:selectPetId", async (req, res, next) => {
   try {
-    const petById = await Pet.findOne({
-      where: { id: req.params.id },
+    // const petById = await Pet.findOne({
+    //   where: { id: req.params.id },
+    //   include: SelectPet,
+    // });
+    const petById = await SelectPet.findOne({
+      where: { id: req.params.selectPetId },
+      include: {all: true,}
     });
-    console.log("This Is Working", petById);
-    const selectPet = petById.id;
-    //Goal is that checking off a Todo will increase the number of EXP
-    //Amount of EXP gained will depend on the type of Todo completed
+    console.log("initial pet:", petById);
+    // const todos = await Todo.findAll({
+    //   where: {id: req.params.selectPetId}
+    // });
+    const petId = petById.id;
+    const exp = req.body.exp + 20;
+    const checkImg = (exp) => {
+      if (exp >= 90) {
+        return 2;
+      } else if (exp >= 60) {
+        return 1;
+      } else {return 0}
+    };
+    // //Goal is that checking off a Todo will increase the number of EXP
+    // //Amount of EXP gained will depend on the type of Todo completed
+    // // if (petById.Todo.pointType === "important" && petById.Todo.isCompleted) {
+    // //   const updatedPet = await SelectPet.update({
+    // //     id: req.body.id,
+    // //     exp: exp + 20,
+    // //     selectImg: checkImg(exp)
+    // //   });
+    // //   res.send(updatedPet);
+    // // }
+    // // if (petById.ToDo.pointType === "average" && petById.Todo.isCompleted) {
+    // //   const updatedPet = await Pet.update({
+    // //     id: req.body.id,
+    // //     experience: experience + 10,
+    // //   });
+    // //   res.send(updatedPet);
+    // // }
+    const newImg = checkImg(exp);
     const updatedPet = await petById.update({
-      id: selectPet,
-      exp: selectPet.exp + 20,
+      exp: exp,
+      selectImg: newImg,
     });
+    console.log("updated pet", updatedPet)
     res.send(updatedPet);
   } catch (err) {
     console.log(err);
