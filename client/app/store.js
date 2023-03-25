@@ -4,7 +4,7 @@ import authReducer from '../features/auth/authSlice';
 import selectPetSlice from '../features/pet/selectPetSlice'
 import allPetsSlice from '../features/pet/allPetsSlice';
 import singlePetSlice from '../features/pet/petSlice';
-import singleUserSlice from '../features/user/userSlice';
+import userSlice from '../features/user/userSlice';
 import singleTodoSlice from '../features/todo/singleTodoSlice';
 import todoSlice from '../features/todo/todoSlice';
 
@@ -17,7 +17,7 @@ const store = configureStore({
   allPets: allPetsSlice,
   selectPet: selectPetSlice,
   pet: singlePetSlice,
-  singleUser: singleUserSlice,
+  user: userSlice,
   singleTodo: singleTodoSlice,
   todos: todoSlice,
   

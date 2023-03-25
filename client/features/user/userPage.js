@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { selectSingleUser, fetchSingleUser } from "./userSlice";
-import TodosSnapshot from "./TodosSnapshot";
-import PetSnapshot from "./PetSnapshot";
+import { selectUser, fetchSingleUser, fetchUsersAsync } from "./userSlice";
 
 import styles from  "../styles/Users.module.css"
 
@@ -12,7 +10,7 @@ const User = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const singleUser = useSelector(selectSingleUser);
+  const singleUser = useSelector(selectUser);
 
   const { displayName, username, profilePic, pronouns, aboutMe } = singleUser;
 

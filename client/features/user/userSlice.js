@@ -1,8 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+//Create a thunk to fetch all users
+export const fetchUsersAsync = createAsyncThunk("users", async () => {
+  try {
+    const { data } = await axios.get('/api/users');
+    return data;
+  } catch (err) {
+    console.error(err)
+  }
+});
+
 //Create thunk to fetch single user
-export const fetchSingleUser = createAsyncThunk("users", async (id) => {
+export const fetchSingleUser = createAsyncThunk("singleUser", async (id) => {
   try {
     const { data } = await axios.get(`/api/users/${id}`);
     return data;
@@ -35,11 +45,14 @@ const initialState = {
 };
 
 //Create slice for single user
-const singleUserSlice = createSlice({
-  name: "singleUser",
+const userSlice = createSlice({
+  name: "users",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchUsersAsync.fulfilled, (state, action) => {
+      return action.payload;
+    })
     builder.addCase(fetchSingleUser.fulfilled, (state, action) => {
       return action.payload;
     });
@@ -51,8 +64,8 @@ const singleUserSlice = createSlice({
 });
 
 //Create selector for single user
-export const selectSingleUser = (state) => {
-  return state.singleUser;
+export const selectUser = (state) => {
+  return state.user;
 };
-export default singleUserSlice.reducer;
+export default userSlice.reducer;
 
