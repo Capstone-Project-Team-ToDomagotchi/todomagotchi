@@ -18,7 +18,7 @@ const LoggedIn = () => {
 
   useEffect(() => {
     dispatch(fetchSingleUser(user));
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   useEffect(() => {
     dispatch(fetchTodosAsync());

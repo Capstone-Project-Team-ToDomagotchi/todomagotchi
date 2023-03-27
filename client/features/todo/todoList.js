@@ -6,18 +6,19 @@ import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css"
 
 const Todos = () => {
+  const userId = useSelector((state) => state.auth.me.id);
   const dispatch = useDispatch();
   const todos = useSelector(selectTodo);
   console.log(todos)
-  const userId = useSelector((state) => state.auth.me.id);
+  
 
   useEffect(() => {
     dispatch(fetchTodosAsync(userId));
     console.log(userId)
   }, [dispatch, userId]);
 
-  const handleToggle = (event) => {
-    dispatch(toggleCompleted({ id: todos.id, isCompleted: !todos.isCompleted }));
+  const handleToggle = (id) => {
+    dispatch(toggleCompleted({ id, isCompleted: !todos.isCompleted }));
   };
 
   const filteredTodos = todos.filter((todo) => todo.userId === userId);

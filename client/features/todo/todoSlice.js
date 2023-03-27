@@ -36,7 +36,7 @@ export const toggleCompleted = createAsyncThunk(
   async ({ id, isCompleted }) => {
     try {
       const { data } = await axios.put(`/api/todos/${id}/toggle`, {
-        isCompleted});
+        isCompleted: isCompleted});
         console.log(data)
        return data;
     } catch (err) {
@@ -61,7 +61,7 @@ export const todoSlice = createSlice({
       state.push(action.payload);
     });
     builder.addCase(toggleCompleted.fulfilled, (state, action) => {
-      
+      state.payload = action.payload;
     })
     
   },
