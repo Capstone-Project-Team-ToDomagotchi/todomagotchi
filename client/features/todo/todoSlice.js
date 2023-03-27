@@ -1,16 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
 //get the user's list of todos
-export const fetchTodosAsync = createAsyncThunk("todos", async () => {
+export const fetchTodosAsync = createAsyncThunk("todos", async (userId, thunkAPI) => {
   try {
-    const { data } = await axios.get(`/api/todos`);
+    const { data } = await axios.get(`/api/todos?userId=${userId}`);
+    console.log(data)
     return data;
   } catch (err) {
     console.err(err);
   }
 });
-
 //add a single todo
 export const addNewTodo = createAsyncThunk(
   "addNewTodo",
@@ -29,24 +28,20 @@ export const addNewTodo = createAsyncThunk(
     }
   }
 );
-
-//edit a single todo
-// export const editTodo = createAsyncThunk("todo/edit", async (todoData) => {
-//   try {
-//     const { data } = await axios.put(
-//       `/api/todos/${todoData.id}`,
-//       todoData.formValues
-//     );
-//     console.log("data---->", data);
-//     return data;
-//   } catch (error) {
-//     console.error(error);
-//     throw error;
-//   }
-// });
-
+export const toggleCompleted = createAsyncThunk(
+  "todos/toggleCompleted",
+  async ({ id, isCompleted }) => {
+    try {
+      const { data } = await axios.put(`/api/todos/${id}/toggle`, {
+        isCompleted: isCompleted});
+        console.log(data)
+       return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
 const initialState = [];
-
 export const todoSlice = createSlice({
   name: "todos",
   initialState,
@@ -58,19 +53,11 @@ export const todoSlice = createSlice({
     builder.addCase(addNewTodo.fulfilled, (state, action) => {
       state.push(action.payload);
     });
-    // builder.addCase(editTodo.pending, (state) => {
-    //   state.status = "loading";
-    // });
-    // builder.addCase(editTodo.fulfilled, (state, action) => {
-    //   state.status = "succeeded";
-    //   state.todo = { ...state.todo, ...action.payload };
-    // });
-    // builder.addCase(editTodo.rejected, (state, action) => {
-    //   state.status = "failed";
-    //   state.error = action.error.message;
-    // });
+    builder.addCase(toggleCompleted.fulfilled, (state, action) => {
+      return action.payload;
+    })
+
   },
 });
-
 export const selectTodo = (state) => state.todos;
 export default todoSlice.reducer;
