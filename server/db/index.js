@@ -15,6 +15,7 @@ Todo.belongsTo(Pet);
 Todo.belongsTo(User);
 
 SelectPet.belongsTo(Pet);
+
 Pet.hasMany(SelectPet);
 
 User.hasMany(SelectPet);
