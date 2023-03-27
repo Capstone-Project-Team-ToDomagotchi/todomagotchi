@@ -14,10 +14,13 @@ const User = () => {
   const singleUser = useSelector(selectSingleUser);
   console.log(singleUser)
 
-  const { displayName, username, profilePic, pronouns, aboutMe } = singleUser;
+  const { displayName, username, profilePic, pronouns, aboutMe } = singleUser || {};
 
   useEffect(() => {
-    dispatch(fetchSingleUser(id));
+    const fetchData = async () => {
+      await dispatch(fetchSingleUser(id));
+    };
+    fetchData();
   }, [dispatch, id]);
 
   const currentUser = useSelector((state) => state.auth.me);
@@ -27,9 +30,9 @@ const User = () => {
           <header id="user-header">
             <img id="user-img" src={profilePic}></img>
             <div>
-              <h2>Name: {displayName}</h2>
-              <h3>Username: {username} </h3>
-              <p>Pronouns: {pronouns}</p>
+              {displayName && <h2>Name: {displayName}</h2>}
+              {username && <h3>Username: {username} </h3>}
+              {pronouns && <p>Pronouns: {pronouns}</p>}
               {aboutMe && <p>About Me: {aboutMe} </p>}
               <br />
               {(currentUser.id === singleUser.id) &&

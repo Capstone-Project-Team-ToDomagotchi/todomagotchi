@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 
-import styles from "../styles/Main.module.css";
+import styles from "../styles/Home.module.css";
 
 const Home = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -12,11 +12,11 @@ const Home = () => {
     <div className={styles.Home}>
       <nav>
         {isLoggedIn ? (
-          <div>
+          <div className={styles.LoggedIn}>
             <LoggedIn />
             </div>
         ) : (
-          <div>
+          <div className={styles.LoggedOut}>
             <LoggedOut />
             </div>
           )}

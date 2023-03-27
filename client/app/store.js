@@ -18,7 +18,7 @@ const store = configureStore({
   allPets: allPetsSlice,
   selectPet: selectPetSlice,
   pet: singlePetSlice,
-  user: userSlice,
+  users: userSlice,
   singleUser: singleUserSlice,
   singleTodo: singleTodoSlice,
   todos: todoSlice,

@@ -27,8 +27,6 @@ SelectPet.belongsTo(Todo);
 Todo.hasMany(SelectPet);
 SelectPet.belongsTo(Todo);
 
-User.belongsToMany(User, {as: "friends", through: "user_friends"});
-
 module.exports = {
   db,
   User,

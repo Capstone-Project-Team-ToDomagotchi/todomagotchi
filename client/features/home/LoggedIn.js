@@ -6,7 +6,7 @@ import TodosSnapshot from "../user/TodosSnapshot";
 import PetSnapshot from "../user/PetSnapshot";
 import ApiGet from "../ApiGet";
 
-import styles from "../styles/Main.module.css";
+import styles from "../styles/LoggedIn.module.css";
 
 const LoggedIn = () => {
   const user = useSelector((state) => state.auth.me.id);
