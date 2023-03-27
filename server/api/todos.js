@@ -66,4 +66,19 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
+router.put("/:id/toggle", async (req, res, next) => {
+  try {
+    const todo = await Todo.findByPk(req.params.id);
+    console.log(todo)
+    if (!todo) {
+
+      return res.status(404).send("Todo not found");
+    }
+    const updatedTodo = await todo.update({ isCompleted: req.body.isCompleted });
+    res.json(updatedTodo);
+  } catch (err) {
+    next(err);
+  }
+}); 
+
 module.exports = router;
