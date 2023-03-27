@@ -35,7 +35,7 @@ const AllPets = () => {
   };
 
   return (
-    <ul id="petlist">
+    <ul className={styles.petList}>
       {allPets &&
         allPets.length &&
         allPets.map((pet) => (
