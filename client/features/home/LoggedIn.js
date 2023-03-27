@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTodosAsync } from "../todo/todoSlice";
-import { fetchSingleUser } from "../user/userSlice";
+import { fetchSingleUser } from "../user/singleUserSlice";
 import TodosSnapshot from "../user/TodosSnapshot";
 import PetSnapshot from "../user/PetSnapshot";
 import ApiGet from "../ApiGet";

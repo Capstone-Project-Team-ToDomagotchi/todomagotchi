@@ -1,7 +1,8 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { selectUser, fetchSingleUser, fetchUsersAsync } from "./userSlice";
+import { selectSingleUser, fetchSingleUser } from "./singleUserSlice";
+import FriendsSnapshot from "./FriendsSnapshot";
 
 import styles from  "../styles/Users.module.css"
 
@@ -10,7 +11,8 @@ const User = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const singleUser = useSelector(selectUser);
+  const singleUser = useSelector(selectSingleUser);
+  console.log(singleUser)
 
   const { displayName, username, profilePic, pronouns, aboutMe } = singleUser;
 
@@ -34,6 +36,8 @@ const User = () => {
               <Link to={`/users/${id}/edit`}>Edit Profile</Link>}
             </div>
           </header>
+          <hr />
+          <FriendsSnapshot />
       </div>
   );
 };

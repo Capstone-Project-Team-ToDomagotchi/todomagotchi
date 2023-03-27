@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { editSingleUser } from "./userSlice";
+import { editSingleUser } from "./singleUserSlice";
 
 import styles from  "../styles/EditUser.module.css"
 

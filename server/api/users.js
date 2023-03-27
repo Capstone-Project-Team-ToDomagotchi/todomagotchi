@@ -6,7 +6,7 @@ router.get("/", async (req, res, next) => {
   try {
     const users = await User.findAll({
       /* Explicitly select only the id and username fields - even though users' passwords are encrypted, will only send attributes */
-      attributes: ["id", "username", "profilePic"],
+      attributes: ["id", "username"],
     });
     res.json(users);
   } catch (err) {

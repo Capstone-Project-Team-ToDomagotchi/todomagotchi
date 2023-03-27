@@ -4,47 +4,20 @@ import axios from "axios";
 //Create a thunk to fetch all users
 export const fetchUsersAsync = createAsyncThunk("users", async () => {
   try {
+    console.log('fetching users')
     const { data } = await axios.get('/api/users');
+    console.log('users fetched')
     return data;
   } catch (err) {
     console.error(err)
   }
 });
 
-//Create thunk to fetch single user
-export const fetchSingleUser = createAsyncThunk("singleUser", async (id) => {
-  try {
-    const { data } = await axios.get(`/api/users/${id}`);
-    return data;
-  } catch (err) {
-    console.error(err);
-  }
-});
 
-//Create thunk to edit single user
-export const editSingleUser = createAsyncThunk(
-  "editUser",
-  async ({ id, displayName, username, pronouns, aboutMe }) => {
-    try {
-      const { data } = await axios.put(`/api/users/${id}`, {
-        displayName,
-        username,
-        pronouns,
-        aboutMe,
-      });
-      return data;
-    } catch (err) {
-      console.error(err);
-    }
-  }
-);
+//Set initial state for users
+const initialState = [];
 
-//Set initial state for single user
-const initialState = {
-  singleUser: [],
-};
-
-//Create slice for single user
+//Create slice for users
 const userSlice = createSlice({
   name: "users",
   initialState,
@@ -53,19 +26,12 @@ const userSlice = createSlice({
     builder.addCase(fetchUsersAsync.fulfilled, (state, action) => {
       return action.payload;
     })
-    builder.addCase(fetchSingleUser.fulfilled, (state, action) => {
-      return action.payload;
-    });
-    builder.addCase(editSingleUser.fulfilled, (state, action) => {
-      return action.payload;
-    });
-  
   },
 });
 
 //Create selector for single user
-export const selectUser = (state) => {
-  return state.user;
+export const selectUsers = (state) => {
+  return state.users;
 };
 export default userSlice.reducer;
 

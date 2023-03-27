@@ -5,6 +5,7 @@ import selectPetSlice from '../features/pet/selectPetSlice'
 import allPetsSlice from '../features/pet/allPetsSlice';
 import singlePetSlice from '../features/pet/petSlice';
 import userSlice from '../features/user/userSlice';
+import singleUserSlice from '../features/user/singleUserSlice';
 import singleTodoSlice from '../features/todo/singleTodoSlice';
 import todoSlice from '../features/todo/todoSlice';
 
@@ -18,6 +19,7 @@ const store = configureStore({
   selectPet: selectPetSlice,
   pet: singlePetSlice,
   user: userSlice,
+  singleUser: singleUserSlice,
   singleTodo: singleTodoSlice,
   todos: todoSlice,
   
