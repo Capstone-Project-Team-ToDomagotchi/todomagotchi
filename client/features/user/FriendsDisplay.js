@@ -1,8 +1,5 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
-import {FriendsSnapshot} from "./FriendsSnapshot";
-import { fetchUsersAsync, selectUsers } from "./userSlice";
 
 const FriendsDisplay = ({ users }) => {
         if (!users) {
@@ -18,14 +15,16 @@ const FriendsDisplay = ({ users }) => {
 
         return (
             <div className="friendsDisplay">
-                {selectedUsers.map((user) => (
+                {selectedUsers.map((user) => {
+                    console.log(user);
+                    return (
                     <div key={user.id}>
                         <Link to={`/user/${user.id}`}>
                             <img src={user.profilePic} />
-                            <h3>{user.displayName}</h3>
-                        </Link>
+                            <p>{user.username}</p>
+                            </Link>
                         </div>
-                ))}
+                )})}
             </div>
         )
     }

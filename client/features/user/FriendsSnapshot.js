@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { fetchUsersAsync, selectUsers } from "./userSlice";
+import { fetchUsersAsync } from "./userSlice";
 import FriendsDisplay from "./FriendsDisplay"
 
 const FriendsSnapshot = () => {
