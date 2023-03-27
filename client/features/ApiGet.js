@@ -17,7 +17,7 @@ const ApiGet = () => {
   return (
     <div>
       <p>{data.text}</p>
-      <p>{data.author}</p>
+      <small>{data.author}</small>
     </div>
   );
 };

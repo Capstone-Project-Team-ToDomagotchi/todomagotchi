@@ -27,17 +27,6 @@ export const fetchPetByUserId = createAsyncThunk(
   }
 );
 
-//Create thunk to add experience points to a pet
-export const addExpToPet = createAsyncThunk(
-  "pets/expUp",
-  async ({ id, exp }) => {
-    const { data } = await axios.put(`/api/pets/expUp/${id}`, {
-      exp: exp,
-    });
-    return data;
-  }
-);
-
 //Set initial state for single pet
 const initialState = {
   pet: [],
@@ -54,9 +43,6 @@ export const singlePetSlice = createSlice({
     });
     builder.addCase(fetchPetByUserId.fulfilled, (state, action) => {
       state.pet = action.payload;
-    });
-    builder.addCase(addExpToPet.fulfilled, (state, action) => {
-      return action.payload;
     });
   },
 });

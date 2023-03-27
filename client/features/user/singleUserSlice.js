@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-//Create thunk for single user
-export const fetchSingleUser = createAsyncThunk("users", async (id) => {
+//Create thunk to fetch single user
+export const fetchSingleUser = createAsyncThunk("singleUser", async (id) => {
   try {
+    console.log('get single user')
     const { data } = await axios.get(`/api/users/${id}`);
-    console.log("data--->", data);
+    console.log('got single user')
     return data;
   } catch (err) {
     console.error(err);
@@ -15,13 +16,13 @@ export const fetchSingleUser = createAsyncThunk("users", async (id) => {
 //Create thunk to edit single user
 export const editSingleUser = createAsyncThunk(
   "editUser",
-  async ({ id, username, displayName, pronouns, aboutMe }) => {
+  async ({ id, displayName, username, pronouns, aboutMe }) => {
     try {
       const { data } = await axios.put(`/api/users/${id}`, {
-        username,
         displayName,
+        username,
         pronouns,
-        aboutMe,
+        aboutMe
       });
       return data;
     } catch (err) {
@@ -30,35 +31,28 @@ export const editSingleUser = createAsyncThunk(
   }
 );
 
+//Set initial state for single user
+const initialState = {};
 
-
-const initialState = {
-  singleUser: [],
-  // selectPet: [],
-};
-
+//Create slice for single user
 const singleUserSlice = createSlice({
   name: "singleUser",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSingleUser.fulfilled, (state, action) => {
-      return action.payload.data;
+      return action.payload;
     });
     builder.addCase(editSingleUser.fulfilled, (state, action) => {
-      return action.payload.data;
+      return action.payload;
     });
   
   },
 });
 
 //Create selector for single user
-
 export const selectSingleUser = (state) => {
   return state.singleUser;
 };
-// export const selectSelectedPet = (state) => {
-//   return state.selectPet;
-// };
 export default singleUserSlice.reducer;
 

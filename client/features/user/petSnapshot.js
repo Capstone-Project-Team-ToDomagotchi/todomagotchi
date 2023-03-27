@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { selectSingleUser, fetchSingleUser } from "./userSlice";
+import { selectSingleUser, fetchSingleUser } from "./singleUserSlice";
 
 const PetSnapshot = () => {
   const dispatch = useDispatch();
@@ -18,14 +18,14 @@ const PetSnapshot = () => {
   return (
     <div className="pet-details">
       <div>
-        <p>List of Pets:</p>
+        <h2>Pets</h2>
+        <hr />
         {selectPets && selectPets.length ? (
           selectPets.map((pet) => (
             <div className="petList" key={pet.id}>
               <Link to={`/pets/${pet.id}`}>
                 <h3>Name: {pet.name}</h3>
               </Link>
-
               <p>Age: {pet.age}</p>
               <p>Description: {pet.description}</p>
             </div>

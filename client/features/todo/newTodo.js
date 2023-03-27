@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {addNewTodo} from "./todoSlice";
 
 import styles from  "../styles/NewTodo.module.css"

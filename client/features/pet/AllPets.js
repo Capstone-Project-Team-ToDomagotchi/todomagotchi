@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectAllPets, fetchAllPetsAsync } from "../pet/allPetsSlice";
+import { selectAllPets, fetchAllPetsAsync } from "./allPetsSlice";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchSelectPetAsync } from "../pet/selectPetSlice";
+import { fetchPetGalleryAsync } from "./selectPetSlice";
 
-import styles from "../styles/AllPets.module.css"
+import styles from "../styles/AllPets.module.css";
 
 const AllPets = () => {
   const dispatch = useDispatch();
@@ -29,13 +29,13 @@ const AllPets = () => {
         petId,
         name,
       };
-      dispatch(fetchSelectPetAsync(selectPet));
+      dispatch(fetchPetGalleryAsync(selectPet));
     }
     navigate("/users");
   };
 
   return (
-    <ul id="petlist">
+    <ul className={styles.petList}>
       {allPets &&
         allPets.length &&
         allPets.map((pet) => (

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { selectSingleUser, fetchSingleUser } from "./userSlice";
+import { selectSingleUser, fetchSingleUser } from "./singleUserSlice";
 
 const TodosSnapshot = () => {
   const dispatch = useDispatch();
@@ -13,11 +13,12 @@ const TodosSnapshot = () => {
 
   useEffect(() => {
     dispatch(fetchSingleUser(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <div className="todo-details">
-    <p>List of Todos:</p>
+    <h2>Current Todos</h2>
+    <hr />
     {todos && todos.length ? (
       todos.map((todo) => (
         <div className="todoList" key={todo.id}>
