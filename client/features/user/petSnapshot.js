@@ -13,7 +13,7 @@ const PetSnapshot = () => {
 
   useEffect(() => {
     dispatch(fetchSingleUser(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <div className="pet-details">

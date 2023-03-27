@@ -2,9 +2,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 //get the user's list of todos
-export const fetchTodosAsync = createAsyncThunk("todos", async () => {
+export const fetchTodosAsync = createAsyncThunk("todos", async (userId, thunkAPI) => {
   try {
-    const { data } = await axios.get(`/api/todos`);
+    const { data } = await axios.get(`/api/todos?userId=${userId}`);
+    console.log(data)
     return data;
   } catch (err) {
     console.err(err);
@@ -30,6 +31,22 @@ export const addNewTodo = createAsyncThunk(
   }
 );
 
+export const toggleCompleted = createAsyncThunk(
+  "todos/toggleCompleted",
+  async ({ id, isCompleted }) => {
+    try {
+      const { data } = await axios.put(`/api/todos/${id}/toggle`, {
+        isCompleted});
+        console.log(data)
+       return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
+
+
 const initialState = [];
 
 export const todoSlice = createSlice({
@@ -43,6 +60,10 @@ export const todoSlice = createSlice({
     builder.addCase(addNewTodo.fulfilled, (state, action) => {
       state.push(action.payload);
     });
+    builder.addCase(toggleCompleted.fulfilled, (state, action) => {
+      
+    })
+    
   },
 });
 
