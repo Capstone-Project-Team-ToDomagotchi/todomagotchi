@@ -13,15 +13,17 @@ export const fetchTodosAsync = createAsyncThunk("todos", async (userId, thunkAPI
 //add a single todo
 export const addNewTodo = createAsyncThunk(
   "addNewTodo",
-  async ({ dueDate, todoName, pointType, description, isCompleted }) => {
+  async ({ userId, dueDate, todoName, pointType, description, isCompleted }) => {
     try {
-      const { data } = await axios.post("/api/todos", {
+      const { data } = await axios.post(`/api/todos/addNewTodo`, {
+        userId,
         dueDate,
         todoName,
         description,
         pointType,
         isCompleted,
       });
+      console.log(data)
       return data;
     } catch (err) {
       console.error(err);
