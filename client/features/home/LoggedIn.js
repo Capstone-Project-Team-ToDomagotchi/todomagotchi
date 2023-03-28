@@ -18,30 +18,29 @@ const LoggedIn = () => {
 
   useEffect(() => {
     dispatch(fetchSingleUser(user));
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   useEffect(() => {
     dispatch(fetchTodosAsync());
   }, [dispatch]);
 
   return (
-    <div className={styles.loggedIn}>
-      <nav>
+    <main className={styles.loggedIn}>
           <div>
             <h1>Welcome, {username}!</h1>
-            <section>
+            <hr />
+            <section className={styles.quotes}>
             <ApiGet />
           </section>
-            <div className="pets-container">
+            <section className="pets-container">
               <PetSnapshot pets={pets}/>
-                </div>
-            <div className="todo-container">
+                </section>
+            <section className="todo-container">
               <TodosSnapshot todos={todos}/>
-                  </div>
+                  </section>
             </div>
-      </nav>
       <hr />
-    </div>
+    </main>
   );
 };
 
