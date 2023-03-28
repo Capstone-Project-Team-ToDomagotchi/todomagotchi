@@ -2,18 +2,15 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
-import styles from "../styles/Todos.module.css"
+import styles from "../styles/Todos.module.css";
 
 const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
   const dispatch = useDispatch();
   const todos = useSelector(selectTodo);
-  console.log(todos)
-
 
   useEffect(() => {
     dispatch(fetchTodosAsync(userId));
-    console.log(userId)
   }, [dispatch, userId]);
 
   const handleToggle = (id) => {
@@ -24,7 +21,7 @@ const Todos = () => {
   return (
     <div className={styles.todoContainer}>
       <Link to="/addNewTodo">Add a new task</Link>
-      {filteredTodos.map((todo) => (
+      {/* {filteredTodos.map((todo) => (
         <div key={todo.id}>
           <Link to={`/todos/${todo.id}`}>
             <h3>To Do: {todo.todoName}</h3>
@@ -37,8 +34,34 @@ const Todos = () => {
           />
           <label>Completed</label>
         </div>
-      ))}
+      ))} */}
+      <table>
+        <thead>
+          <tr>
+            <th>Done?</th>
+            <th>Due</th>
+            <th>Task + Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredTodos.map((todo) => (
+            <tr key={todo.id}>
+              <td>
+                <input
+                  type="checkbox"
+                  checked={todo.isCompleted}
+                  onChange={() => handleToggle(todo.id)}
+                />
+              </td>
+              <td>{todo.dueDate}</td>
+              <td>
+                {todo.todoName} - {todo.description}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
-}
+};
 export default Todos;
