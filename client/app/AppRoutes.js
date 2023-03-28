@@ -4,12 +4,12 @@ import { Route, Routes } from "react-router-dom";
 import { me } from "./store";
 import AuthForm from "../features/auth/AuthForm";
 import Home from "../features/home/Home";
-import User from "../features/user/userPage";
-import EditUser from "../features/user/editUser";
-import Todos from "../features/todo/todoList";
-import SingleTodo from "../features/todo/todoDetail";
+import User from "../features/user/UserPage";
+import EditUser from "../features/user/EditUser";
+import Todos from "../features/todo/TodoList";
+import SingleTodo from "../features/todo/TodoDetail";
 import NewTodo from "../features/todo/NewTodo";
-import EditTodo from "../features/todo/editTodo";
+import EditTodo from "../features/todo/EditTodo";
 import PetProfile from "../features/pet/PetProfile";
 import AllPets from "../features/pet/AllPets";
 

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectAllPets, fetchAllPetsAsync } from "./allPetsSlice";
+import { selectAllPets, fetchAllPetsAsync } from "../pet/allPetsSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchPetGalleryAsync } from "./selectPetSlice";
 
-import styles from "../styles/AllPets.module.css";
 
 const AllPets = () => {
   const dispatch = useDispatch();
@@ -15,6 +14,7 @@ const AllPets = () => {
   const allPets = useSelector((state) => state.pets);
   const selectPet = useSelector((state) => state.selectPet);
 
+  // const allPets = useSelector(selectAllPets);
   useEffect(() => {
     dispatch(fetchAllPetsAsync());
   }, [dispatch]);
@@ -31,27 +31,35 @@ const AllPets = () => {
       };
       dispatch(fetchPetGalleryAsync(selectPet));
     }
-    navigate("/users");
+    navigate('/users')
   };
 
   return (
-    <ul className={styles.petList}>
-      {allPets &&
-        allPets.length &&
-        allPets.map((pet) => (
-          <li key={pet.id}>
-            <div className="pet-row" key={`All Pets: ${pet.id}`}>
-              <Link to={`/pets/${pet.id}`}>
-                <p>{pet.name}</p>
-              </Link>
-              <img src={`${pet.image}`} />
-              <button className="select-button" onClick={select} value={pet.id}>
-                Select
-              </button>
+    <div id="petlist">
+      {allPets && allPets.length
+        ? allPets.map((pet) => (
+            <div key={pet.id}>
+              <div>
+                <Link to={`/pets/${pet.id}`} key={`All Pets: ${pet.id}`}>
+                  <p>{pet.name}</p>{" "}
+                </Link>
+                <div className="pet-row">
+                  <img src={`${pet.image}`} />
+                  <div className="select-button">
+                    <button onClick={select} value={pet.id}>
+                      Select
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </li>
-        ))}
-    </ul>
+          ))
+        : null}
+    </div>
   );
 };
 export default AllPets;
+
+
+
+
