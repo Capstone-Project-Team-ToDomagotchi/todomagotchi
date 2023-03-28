@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchTodosAsync } from "../todo/todoSlice";
 import { fetchSingleUser } from "../user/singleUserSlice";
 import TodosSnapshot from "../user/TodosSnapshot";
@@ -38,6 +39,7 @@ const LoggedIn = () => {
             <div className="todo-container">
               <TodosSnapshot todos={todos}/>
                   </div>
+                  <Link to="/addNewTodo">Add a new task</Link>
             </div>
       </nav>
       <hr />
