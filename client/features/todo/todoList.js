@@ -8,12 +8,9 @@ const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
   const dispatch = useDispatch();
   const todos = useSelector(selectTodo);
-  console.log(todos)
-
 
   useEffect(() => {
     dispatch(fetchTodosAsync(userId));
-    console.log(userId)
   }, [dispatch, userId]);
 
   const handleToggle = (id) => {
@@ -21,6 +18,7 @@ const Todos = () => {
   };
 
   const filteredTodos = todos.filter((todo) => todo.userId === userId);
+
   return (
     <div className={styles.todoContainer}>
       <Link to="/addNewTodo">Add a new task</Link>
