@@ -1,0 +1,21 @@
+.petChoice span {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.petChoice {
+    text-align: center;
+}
+
+.productivity span {
+    display: inline-block;
+}
+
+.productivity {
+    text-align: center;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
