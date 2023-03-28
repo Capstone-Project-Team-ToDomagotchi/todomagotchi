@@ -41,6 +41,7 @@ const LoggedIn = () => {
             <section className="todo-container">
               <TodosSnapshot todos={todos}/>
                   </section>
+                <Link to={`/todos`}>See All Todos</Link>     
             </div>
       <hr />
     </main>
