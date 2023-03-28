@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "../features/styles/ApiGet.module.css";
 
 const ApiGet = () => {
   const [data, setData] = useState({ text: "", author: "" });
@@ -15,10 +16,12 @@ const ApiGet = () => {
   }, []);
 
   return (
-    <div>
+    <section className={styles.quotes}>
+      <h2>Quote of the Day</h2>
       <p>{data.text}</p>
-      <small>{data.author}</small>
-    </div>
+      <small>- {data.author}</small>
+      <hr />
+    </section>
   );
 };
 export default ApiGet;

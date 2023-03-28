@@ -15,35 +15,35 @@ const LoggedIn = () => {
   const dispatch = useDispatch();
 
   const todos = useSelector((state) => state.todos);
-  const pets = useSelector((state) => state.pet.pet)
+  const pets = useSelector((state) => state.pet)
 
   useEffect(() => {
     dispatch(fetchSingleUser(user));
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   useEffect(() => {
     dispatch(fetchTodosAsync());
   }, [dispatch]);
 
+
+  console.log("data", pets)
   return (
-    <div className={styles.loggedIn}>
-      <nav>
+    <main className={styles.loggedIn}>
           <div>
             <h1>Welcome, {username}!</h1>
-            <section>
+            <hr />
+            <section className={styles.quotes}>
             <ApiGet />
           </section>
-            <div className="pets-container">
+            <section className="pets-container">
               <PetSnapshot pets={pets}/>
-                </div>
-            <div className="todo-container">
+                </section>
+            <section className="todo-container">
               <TodosSnapshot todos={todos}/>
-                  </div>
-                  <Link to="/addNewTodo">Add a new task</Link>
+                  </section>
             </div>
-      </nav>
       <hr />
-    </div>
+    </main>
   );
 };
 

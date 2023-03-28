@@ -9,32 +9,25 @@ const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const userId = useSelector((state) => state.auth.me.id)
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
-    navigate("/");
   };
 
   return (
-    <div className={styles.Navbar}>
-      <nav>
-        <h1>ToDomagotchi</h1>
-      <Link to="/home">Home</Link>
-      {isLoggedIn && <Link to={`/users/${userId}`}>Account</Link>}
-      {isLoggedIn ? (
-          <div>
-          <button className="btn secondary-btn" type="button" 
-          onClick={logoutAndRedirectHome}>Logout</button>
-          </div>    
+      <nav className={styles.navbar}>
+        {isLoggedIn && <Link to={`/users/${userId}`}>Account</Link>}
+        {isLoggedIn ? (
+          <Link to="/" onClick={logoutAndRedirectHome}>Logout</Link>   
           ) : (
                   <div className="login-logout">
-                    <Link to="/login">Log In</Link>
-                    <Link to="/signup">Sign Up</Link>
+                    <Link to="/login" className={styles.Link}>Log In</Link>
+                    <Link to="/signup" className={styles.Link}>Sign Up</Link>
                   </div>
                 )}
-      </nav>
+        <Link to="/home" className={styles.link}>Home</Link>
+        <h1>TodoMagotchi</h1>
       <hr />
-    </div>
+      </nav>
   );
 };
 
