@@ -1,30 +1,36 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import {addNewTodo} from "./todoSlice";
+import { fetchSelectPetAsync } from "../pet/selectPetSlice";
 
 import styles from  "../styles/NewTodo.module.css"
 
 
 const NewTodo = () => {
+  const userId = useSelector((state) => state.auth.me.id);
+  const petId = useSelector((state) => state.selectPet.selectedPet.id);
   const [dueDate, setDueDate] = useState("");
   const [todoName, setTodoName] = useState("");
   const [pointType, setPointType] = useState("average");
   const [description, setDescription] = useState("");
   const [isCompleted, setIsCompleted] = useState(false);
 
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(addNewTodo({ dueDate, todoName, pointType, description, isCompleted }));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+     console.log(petId)
+    dispatch(addNewTodo({ userId, petId, dueDate, todoName, pointType, description, isCompleted }));
+   
     setDueDate("");
     setTodoName("");
     setPointType("");
     setDescription("");
     setIsCompleted(false);
-    navigate(`/todos`);
+    navigate(`/home`);
   };
 
  

@@ -74,6 +74,9 @@ export const addExpToPet = createAsyncThunk(
         // update state with the fetched data
         state.selectPet = action.payload;
       });
+      // builder.addCase(fetchPetGalleryAsync.fulfilled, (state, action) => {
+      //   return action.payload;
+      // });
       builder.addCase(addExpToPet.fulfilled, (state, action) => {
         return action.payload;
       });

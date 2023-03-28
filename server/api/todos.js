@@ -16,20 +16,26 @@ router.get("/", async (req, res, next) => {
 });
 
 //add a new todo
-router.post("/", verifyToken, async (req, res, next) => {
+router.post("/addNewTodo", async (req, res) => {
+  const { userId, petId, dueDate, todoName, description, pointType } = req.body;
+
   try {
-    const userId = req.payload.id;
-    const { dueDate, todoName, description, pointType, isCompleted } = req.body;
-    const newTodo = await Todo.create({
+    const newTodo = new Todo({
+      petId,
+      userId,
       dueDate,
       todoName,
       description,
       pointType,
-      isCompleted,
+      isCompleted: false,
+      include: [{ model: SelectPet }, { model: User }]
     });
-    res.send(newTodo);
-  } catch (err) {
-    next(err);
+
+    await newTodo.save();
+
+    res.json(newTodo);
+  } catch (error) {
+    console.error(error);
   }
 });
 
@@ -61,6 +67,22 @@ router.delete("/:id", async (req, res, next) => {
     const todo = await Todo.findByPk(req.params.id);
     await todo.destroy();
     res.send(todo);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.put("/:id/toggle", async (req, res, next) => {
+  try {
+    const todo = await Todo.findByPk(req.params.id);
+    console.log(todo);
+    if (!todo) {
+      return res.status(404).send("Todo not found");
+    }
+    const updatedTodo = await todo.update({
+      isCompleted: req.body.isCompleted,
+    });
+    res.json(updatedTodo);
   } catch (err) {
     next(err);
   }

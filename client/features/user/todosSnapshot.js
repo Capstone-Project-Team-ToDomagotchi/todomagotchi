@@ -12,7 +12,9 @@ const TodosSnapshot = () => {
   const { todos } = singleUser;
 
   useEffect(() => {
-    dispatch(fetchSingleUser(id));
+    if (id) {
+      dispatch(fetchSingleUser(id));
+    }
   }, [dispatch, id]);
 
   return (
