@@ -20,6 +20,10 @@ const PetProfile = () => {
     dispatch(fetchSelectPetAsync(petId));
   }, [dispatch]);
 
+  const addExp = async (id, exp) => {
+    await dispatch(addExpToPet({ id, exp }));
+  };
+
   const { id, name, age, exp, user, selectImg } = singlePet;
 
   return (
