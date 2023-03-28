@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css"
+import { addExpToPet } from "../pet/selectPetSlice";
 
 const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
@@ -18,6 +19,10 @@ const Todos = () => {
 
   const handleToggle = (id) => {
     dispatch(toggleCompleted({ id, isCompleted: !todos.isCompleted }));
+  };
+
+  const addExp = async (id, exp) => {
+    await dispatch(addExpToPet({ id, exp }));
   };
 
   const filteredTodos = todos.filter((todo) => todo.userId === userId);
