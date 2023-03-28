@@ -8,11 +8,9 @@ const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
   const dispatch = useDispatch();
   const todos = useSelector(selectTodo);
-  console.log(todos);
 
   useEffect(() => {
     dispatch(fetchTodosAsync(userId));
-    console.log(userId);
   }, [dispatch, userId]);
 
   const handleToggle = (id) => {
