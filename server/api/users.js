@@ -110,6 +110,7 @@ router.post("/:id/selectpet", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
 router.get("/:userId/selectedpet", async (req, res) => {
   try {
     const user = await User.findByPk(req.params.userId);
