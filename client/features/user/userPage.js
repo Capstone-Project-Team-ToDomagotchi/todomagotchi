@@ -12,7 +12,6 @@ const User = () => {
   const { id } = useParams();
 
   const singleUser = useSelector(selectSingleUser);
-  console.log(singleUser)
 
   const { displayName, username, profilePic, pronouns, aboutMe } = singleUser || {};
 

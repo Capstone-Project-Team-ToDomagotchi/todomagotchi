@@ -16,7 +16,6 @@ const FriendsDisplay = ({ users }) => {
         return (
             <div className="friendsDisplay">
                 {selectedUsers.map((user) => {
-                    console.log(user);
                     return (
                     <div key={user.id}>
                         <Link to={`/user/${user.id}`}>
