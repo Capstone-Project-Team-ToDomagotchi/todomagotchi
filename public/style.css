@@ -11,19 +11,13 @@ a:visited {
   color: darkolivegreen;
 }
 
-/* .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-} */
-
-
 img {
   width: 100px;
   height: 100px;
 }
 
 hr {
-  color: #1b4965;
+  background-color: #1b4965;
+  height: 2px;
+  
 }
