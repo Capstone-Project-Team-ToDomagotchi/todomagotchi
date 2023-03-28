@@ -18,14 +18,11 @@ const TodosSnapshot = () => {
   return (
     <div className="todo-details">
     <h2>Current Todos</h2>
-    <hr />
     {todos && todos.length ? (
       todos.map((todo) => (
         <div className="todoList" key={todo.id}>
           <Link to={`/todos/${todo.id}`}>Name: {todo.todoName}</Link>
-          <br />
           {todos.description}
-          <br />
         </div>
       ))
     ) : (

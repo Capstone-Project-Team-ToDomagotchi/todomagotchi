@@ -27,8 +27,6 @@ const LoggedIn = () => {
   return (
     <main className={styles.loggedIn}>
           <div>
-            <h1>Welcome, {username}!</h1>
-            <hr />
             <section className={styles.quotes}>
             <ApiGet />
           </section>
@@ -39,7 +37,6 @@ const LoggedIn = () => {
               <TodosSnapshot todos={todos}/>
                   </section>
             </div>
-      <hr />
     </main>
   );
 };

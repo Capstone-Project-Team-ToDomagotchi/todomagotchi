@@ -17,7 +17,7 @@ const PetSnapshot = () => {
 
   return (
     <main className="pet-details">
-      <section>
+      <section className={styles.petContainer}>
         <h2>Pets</h2>
         {selectPets && selectPets.length ? (
           selectPets.map((pet) => (
@@ -34,7 +34,6 @@ const PetSnapshot = () => {
             <i>No pets exist for this user</i>
           </p>
         )}
-        <hr />
       </section>
     </main>
   );
