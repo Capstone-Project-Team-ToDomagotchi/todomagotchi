@@ -20,7 +20,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id, {
-      include: {all: true},
+      include: {all: true, nested: true},
     });
     res.json(user);
   } catch (err) {

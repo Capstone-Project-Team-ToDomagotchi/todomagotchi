@@ -14,7 +14,7 @@ const LoggedIn = () => {
   const dispatch = useDispatch();
 
   const todos = useSelector((state) => state.todos);
-  const pets = useSelector((state) => state.pet.pet)
+  const pets = useSelector((state) => state.pet)
 
   useEffect(() => {
     dispatch(fetchSingleUser(user));
@@ -24,6 +24,8 @@ const LoggedIn = () => {
     dispatch(fetchTodosAsync());
   }, [dispatch]);
 
+
+  console.log("data", pets)
   return (
     <div className={styles.loggedIn}>
       <nav>
