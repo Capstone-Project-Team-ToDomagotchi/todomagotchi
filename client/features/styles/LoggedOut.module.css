@@ -15,19 +15,23 @@
 
 .productivity span {
     display: inline-block;
+    padding-top: 1rem;
 }
 
 .productivity {
     text-align: center;
     padding-top: .4rem;
 }
-.image img {
-    display: inline-block; 
+
+.signUp {
+    text-align: center;
+    padding-top: .4rem;
 }
 
-.image {
-    padding-top: 1rem;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
+.signUp span {
+        display: inline-block;
+        padding-top: 5rem;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
