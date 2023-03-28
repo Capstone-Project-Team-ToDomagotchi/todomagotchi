@@ -7,13 +7,13 @@ const LoggedOut = () => {
     <main className={styles.loggedOut}>
         {/* Choose a pet section */}
         <section className={styles.petChoice}>
+        <div>
           <h3>Choose a pet!</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo
               corrupti ipsam modi at neque itaque, blanditiis fuga eligendi!
               Porro, totam!
             </p>
-            <div>
               <span>
                 <p>Animal</p>
                 <img src="https://img.freepik.com/free-vector/cute-cat-gaming-cartoon_138676-2969.jpg?w=740&t=st=1679076429~exp=1679077029~hmac=2b890899ac39e6ac38809cccbdd1160d155b9493d8afa43be6ac32afc2358861" />
@@ -38,14 +38,14 @@ const LoggedOut = () => {
             <img src="https://img.freepik.com/free-vector/cute-cat-gaming-cartoon_138676-2969.jpg?w=740&t=st=1679076429~exp=1679077029~hmac=2b890899ac39e6ac38809cccbdd1160d155b9493d8afa43be6ac32afc2358861" />
             </span>
             </div>
-            <p>
+        </section>
+        {/* Home pic on home page section */}
+        <section className={styles.image}>
+        <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo
               corrupti ipsam modi at neque itaque, blanditiis fuga eligendi!
               Porro, totam!
             </p>
-        </section>
-        {/* Home pic on home page section */}
-        <section className={styles.image}>
           <img src="https://img.freepik.com/free-vector/cute-cat-gaming-cartoon_138676-2969.jpg?w=740&t=st=1679076429~exp=1679077029~hmac=2b890899ac39e6ac38809cccbdd1160d155b9493d8afa43be6ac32afc2358861" />
         </section>
     </main>

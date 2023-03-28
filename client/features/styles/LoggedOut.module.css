@@ -1,3 +1,7 @@
+.loggedOut {
+    column-count: 3;
+}
+
 .petChoice span {
     display: inline-block;
     font-weight: bold;
@@ -5,6 +9,8 @@
 
 .petChoice {
     text-align: center;
+    display: inline-flex;
+    padding-top: 1rem;
 }
 
 .productivity span {
@@ -13,9 +19,15 @@
 
 .productivity {
     text-align: center;
+    padding-top: .4rem;
+}
+.image img {
+    display: inline-block; 
 }
 
 .image {
+    padding-top: 1rem;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
