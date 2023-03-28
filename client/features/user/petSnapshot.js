@@ -12,22 +12,22 @@ const PetSnapshot = () => {
   const { selectPets } = singleUser;
 
   useEffect(() => {
+    if (id){
     dispatch(fetchSingleUser(id));
-  }, [dispatch, id]);
+  }}, [dispatch, id]);
 
   return (
-    <div className="pet-details">
-      <div>
+    <main className="pet-details">
+      <section>
         <h2>Pets</h2>
-        <hr />
         {selectPets && selectPets.length ? (
           selectPets.map((pet) => (
             <div className="petList" key={pet.id}>
+              <img src={pet.pet.image}/>
               <Link to={`/pets/${pet.id}`}>
                 <h3>Name: {pet.name}</h3>
               </Link>
               <p>Age: {pet.age}</p>
-              <p>Description: {pet.description}</p>
             </div>
           ))
         ) : (
@@ -35,8 +35,9 @@ const PetSnapshot = () => {
             <i>No pets exist for this user</i>
           </p>
         )}
-      </div>
-    </div>
+        <hr />
+      </section>
+    </main>
   );
 };
 
