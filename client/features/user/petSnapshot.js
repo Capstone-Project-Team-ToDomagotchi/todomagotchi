@@ -16,10 +16,9 @@ const PetSnapshot = () => {
   }, [dispatch, id]);
 
   return (
-    <div className="pet-details">
-      <div>
+    <main className="pet-details">
+      <section>
         <h2>Pets</h2>
-        <hr />
         {selectPets && selectPets.length ? (
           selectPets.map((pet) => (
             <div className="petList" key={pet.id}>
@@ -35,8 +34,9 @@ const PetSnapshot = () => {
             <i>No pets exist for this user</i>
           </p>
         )}
-      </div>
-    </div>
+        <hr />
+      </section>
+    </main>
   );
 };
 
