@@ -9,7 +9,7 @@ const LoggedOut = () => {
         Feel unmotivated or unproductive? Is your usual task app bland to look
         at? Then perhaps To-Domagotchi is for you! With custom illustrations and
         accessible mechanics, To-Domagotchi provides you with a fun, tangible
-        way to keep up with your daily tasks while watching your pet grow.{" "}
+        way to keep up with your daily tasks while watching your pet grow.
       </p>
       <br/>
       <div>
