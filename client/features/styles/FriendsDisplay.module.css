@@ -1,0 +1,15 @@
+.friendsDisplay {
+    text-align: center;
+}
+.friendsDisplay ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+}
+
+.friendsDisplay li {
+    display: inline-block;
+    margin: 2rem;
+    text-align: center;
+    
+}

@@ -7,7 +7,7 @@ import PetSnapshot from "../user/PetSnapshot";
 import ApiGet from "../ApiGet";
 
 import styles from "../styles/LoggedIn.module.css";
-
+/** */
 const LoggedIn = () => {
   const user = useSelector((state) => state.auth.me.id);
   const username = useSelector((state) => state.auth.me.username);
@@ -32,10 +32,10 @@ const LoggedIn = () => {
             <section className={styles.quotes}>
             <ApiGet />
           </section>
-            <section className="pets-container">
+            <section className={styles.petContainer}>
               <PetSnapshot pets={pets}/>
                 </section>
-            <section className="todo-container">
+            <section className={styles.todosContainer}>
               <TodosSnapshot todos={todos}/>
                   </section>
             </div>

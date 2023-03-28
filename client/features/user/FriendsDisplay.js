@@ -1,6 +1,8 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 
+import styles from "../styles/FriendsDisplay.module.css";
+
 const FriendsDisplay = ({ users }) => {
         if (!users) {
             return <div>No friends yet</div>
@@ -14,17 +16,17 @@ const FriendsDisplay = ({ users }) => {
         }, [users]);
 
         return (
-            <div className="friendsDisplay">
+            <ul className={styles.friendsDisplay}>
                 {selectedUsers.map((user) => {
                     return (
-                    <div key={user.id}>
+                    <li key={user.id}>
                         <Link to={`/user/${user.id}`}>
                             <img src={user.profilePic} />
                             <p>{user.username}</p>
                             </Link>
-                        </div>
+                        </li>
                 )})}
-            </div>
+            </ul>
         )
     }
 export default FriendsDisplay;
