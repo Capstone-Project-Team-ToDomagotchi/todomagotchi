@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import {addNewTodo} from "./todoSlice";
 
@@ -7,6 +7,7 @@ import styles from  "../styles/NewTodo.module.css"
 
 
 const NewTodo = () => {
+  const userId = useSelector((state) => state.auth.me.id);
   const [dueDate, setDueDate] = useState("");
   const [todoName, setTodoName] = useState("");
   const [pointType, setPointType] = useState("average");
@@ -16,9 +17,11 @@ const NewTodo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(addNewTodo({ dueDate, todoName, pointType, description, isCompleted }));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+     console.log(userId)
+    dispatch(addNewTodo({ userId, dueDate, todoName, pointType, description, isCompleted }));
+   
     setDueDate("");
     setTodoName("");
     setPointType("");
