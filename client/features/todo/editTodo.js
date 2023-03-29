@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import {
-  fetchSingleTodo,
   selectSingleTodo,
   editSingleTodo,
 } from "./singleTodoSlice";
@@ -13,7 +12,7 @@ const EditTodo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  
+
   const [dueDate, setDueDate] = useState("");
   const [todoName, setTodoName] = useState("");
   const [pointType, setPointType] = useState("average");
