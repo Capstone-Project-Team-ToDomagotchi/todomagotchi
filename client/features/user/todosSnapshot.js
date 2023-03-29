@@ -34,7 +34,9 @@ const TodosSnapshot = () => {
         <p>
           <i>No todos exist for this user</i>
         </p>
-      )}
+      )
+     }
+     <Link to={`/todos`}>Go to Todos Page</Link>
     </div>
   );
 };

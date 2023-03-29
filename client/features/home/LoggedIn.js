@@ -25,8 +25,6 @@ const LoggedIn = () => {
     dispatch(fetchTodosAsync());
   }, [dispatch]);
 
-
-  console.log("data", pets)
   return (
     <main className={styles.loggedIn}>
           <div>
@@ -40,8 +38,7 @@ const LoggedIn = () => {
                 </section>
             <section className={styles.todosContainer}>
               <TodosSnapshot todos={todos}/>
-                  </section>
-                <Link to={`/todos`}>See All Todos</Link>     
+                  </section>         
             </div>
       <hr />
     </main>
