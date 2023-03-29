@@ -1,3 +1,15 @@
 .loggedIn {
-    display: inline-block;
+    columns: 3;
+    text-align: center;
+}
+
+.quotesContainer {
+    break-inside: avoid;
+}
+.petContainer {
+    break-inside: avoid;
+}
+
+.todosContainer {
+    break-inside: avoid;
 }

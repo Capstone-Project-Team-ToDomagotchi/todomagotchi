@@ -4,7 +4,6 @@ import axios from "axios";
 export const fetchTodosAsync = createAsyncThunk("todos", async (userId, thunkAPI) => {
   try {
     const { data } = await axios.get(`/api/todos?userId=${userId}`);
-    console.log(data)
     return data;
   } catch (err) {
     console.err(err);
@@ -57,10 +56,7 @@ export const todoSlice = createSlice({
     builder.addCase(addNewTodo.fulfilled, (state, action) => {
       state.push(action.payload);
     });
-    builder.addCase(toggleCompleted.fulfilled, (state, action) => {
-      return action.payload;
-    })
-
+   
   },
 });
 export const selectTodo = (state) => state.todos;
