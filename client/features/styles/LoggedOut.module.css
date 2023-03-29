@@ -11,23 +11,28 @@
     text-align: center;
     display: inline-flex;
     padding-top: 1rem;
+    break-inside: avoid;
 }
 
 .productivity span {
     display: inline-block;
+    padding-top: 1rem;
 }
 
 .productivity {
     text-align: center;
     padding-top: .4rem;
+    break-inside: avoid;
 }
-.image img {
-    display: inline-block; 
+
+.image span {
+    display: inline-block;  
+    padding-top: 1rem;
 }
 
 .image {
-    padding-top: 1rem;
-    display: flex;
+    display: center;
+    padding-top: .4rem;
     justify-content: center;
     text-align: center;
 }

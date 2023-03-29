@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import {addNewTodo} from "./todoSlice";
-// import { fetchSelectPetAsync } from "../pet/selectPetSlice";
 
 import styles from  "../styles/NewTodo.module.css"
 
 
 const NewTodo = () => {
   const userId = useSelector((state) => state.auth.me.id);
- 
   const [dueDate, setDueDate] = useState("");
   const [todoName, setTodoName] = useState("");
   const [pointType, setPointType] = useState("average");

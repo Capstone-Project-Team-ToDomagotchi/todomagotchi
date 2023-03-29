@@ -1,6 +1,8 @@
+//API routes for pets - mounted on /api/pets
 const router = require("express").Router();
-const { User, Todo, Pet, SelectPet } = require("../db");
+const { User, Pet, SelectPet } = require("../db");
 
+//get all pets
 router.get("/", async (req, res, next) => {
   try {
     const pets = await Pet.findAll();
@@ -28,16 +30,17 @@ router.get("/", async (req, res, next) => {
     });
     res.json(pets);
   } catch (err) {
-    next(err);
+  next(err);
   }
-});
+  });
 
+  //get a pet by id
 router.get("/:id", async (req, res, next) => {
   try {
     const petById = await SelectPet.findOne({
       where: { id: req.params.id },
       include: {
-        all: true,
+        all: true, 
       },
     });
     res.json(petById);
@@ -46,6 +49,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+//route for an individual user to see all their pets
 router.get("/:userId/viewpets", async (req, res, next) => {
   try {
     const petById = await User.findAll({
@@ -61,22 +65,63 @@ router.get("/:userId/viewpets", async (req, res, next) => {
   }
 });
 
-//vvv will be the finalized api vvv
+//vvv finalized api hidden here vvv
+// router.put("/expUp/:selectPetId", async (req, res, next) => {
+//   try {
+//     const petById = await SelectPet.findOne({
+//       where: { id: req.params.selectPetId },
+//       include: {all: true, nested: true}
+//     });
+//     console.log("initial pet:", petById);
+//     const todos = await Todo.findAll({
+//       where: {userId: req.params.userId}
+//     });
+//     const petId = petById.id;
+//     // const exp = req.body.exp + 20;
+//     const checkImg = (exp) => {
+//       if (exp >= 90) {
+//         return 2;
+//       } else if (exp >= 60) {
+//         return 1;
+//       } else {return 0}
+//     };
+//     //Goal is that checking off a Todo will increase the number of EXP
+//     //Amount of EXP gained will depend on the type of Todo completed
+//     if (todos.pointType === "important" && todos.isCompleted) {
+//       const updatedPet = await SelectPet.update({
+//         id: req.body.id,
+//         exp: req.body.exp + 20,
+//         selectImg: checkImg(exp)
+//       });
+//       res.send(updatedPet);
+//     }
+//     if (todos.pointType === "average" && todos.isCompleted) {
+//       const updatedPet = await Pet.update({
+//         id: req.body.id,
+//         exp: req.body.exp + 20,
+//         selectImg: checkImg(exp)
+//       });
+//       res.send(updatedPet);
+//     }
+//     const newImg = checkImg(exp);
+//     const updatedPet = await petById.update({
+//       exp: exp,
+//       selectImg: newImg,
+//     });
+//     console.log("updated pet", updatedPet)
+//     res.send(updatedPet);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
+
+//vvv temporary test expUp vvv
 router.put("/expUp/:selectPetId", async (req, res, next) => {
   try {
-    // const petById = await Pet.findOne({
-    //   where: { id: req.params.id },
-    //   include: SelectPet,
-    // });
     const petById = await SelectPet.findOne({
       where: { id: req.params.selectPetId },
       include: {all: true,}
     });
-    console.log("initial pet:", petById);
-    // const todos = await Todo.findAll({
-    //   where: {id: req.params.selectPetId}
-    // });
-    const petId = petById.id;
     const exp = req.body.exp + 20;
     const checkImg = (exp) => {
       if (exp >= 90) {
@@ -85,29 +130,11 @@ router.put("/expUp/:selectPetId", async (req, res, next) => {
         return 1;
       } else {return 0}
     };
-    // //Goal is that checking off a Todo will increase the number of EXP
-    // //Amount of EXP gained will depend on the type of Todo completed
-    // // if (petById.Todo.pointType === "important" && petById.Todo.isCompleted) {
-    // //   const updatedPet = await SelectPet.update({
-    // //     id: req.body.id,
-    // //     exp: exp + 20,
-    // //     selectImg: checkImg(exp)
-    // //   });
-    // //   res.send(updatedPet);
-    // // }
-    // // if (petById.ToDo.pointType === "average" && petById.Todo.isCompleted) {
-    // //   const updatedPet = await Pet.update({
-    // //     id: req.body.id,
-    // //     experience: experience + 10,
-    // //   });
-    // //   res.send(updatedPet);
-    // // }
     const newImg = checkImg(exp);
     const updatedPet = await petById.update({
       exp: exp,
       selectImg: newImg,
     });
-    console.log("updated pet", updatedPet)
     res.send(updatedPet);
   } catch (err) {
     console.log(err);

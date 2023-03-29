@@ -25,12 +25,6 @@ const PetProfile = () => {
   };
 
   const { id, name, age, exp, user, selectImg } = singlePet;
-  console.log(singlePet.pet?.species);
-  // const { species, image } = singlePet.pet;
-
-  console.log(petId.id);
-
-  // console.log("current img:", image);
 
   return (
     <div className={styles.PetProfile}>

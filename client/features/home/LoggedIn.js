@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchTodosAsync } from "../todo/todoSlice";
 import { fetchSingleUser } from "../user/singleUserSlice";
 import TodosSnapshot from "../user/TodosSnapshot";
@@ -28,14 +29,13 @@ const LoggedIn = () => {
 
   console.log("data", pets)
   return (
-    <main className={styles.loggedIn}>
-          <div>
-            <h1>Welcome, {username}!</h1>
-            <hr />
+    <main className={styles.container}>
+      <h3 className={styles.welcome}>Welcome, {username}!</h3>
+        <section className={styles.loggedIn}>
             <section>
               <OpenAI/>
             </section>
-            <section className={styles.quotes}>
+            <section className={styles.quotesContainer}>
 
             <ApiGet />
           </section>
@@ -45,8 +45,12 @@ const LoggedIn = () => {
             <section className={styles.todosContainer}>
               <TodosSnapshot todos={todos}/>
                   </section>
-            </div>
-      <hr />
+                  <br />
+                  <br />
+                  <section className={styles.allTodos}>
+                <Link to={`/todos`}>See All Todos</Link>    
+                </section> 
+          </section>
     </main>
   );
 };
