@@ -18,5 +18,12 @@
     padding: 1.5rem;
 }
 
+.navbar h1 img {
+    display: inline;
+    height: 70px;
+    width: 60px;
+    margin-left: 0.4rem;
+}
+
 
 

@@ -40,7 +40,9 @@ const Navbar = () => {
       <Link to="/home" className={styles.link}>
         Home
       </Link>
-      <h1>TodoMagotchi</h1>
+      <h1>TodoMagotchi
+        <img src="LogoCreature.png"></img>
+      </h1>
       <hr />
     </nav>
   );
