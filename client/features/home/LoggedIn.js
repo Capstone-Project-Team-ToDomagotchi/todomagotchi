@@ -5,6 +5,7 @@ import { fetchSingleUser } from "../user/singleUserSlice";
 import TodosSnapshot from "../user/TodosSnapshot";
 import PetSnapshot from "../user/PetSnapshot";
 import ApiGet from "../ApiGet";
+import OpenAI from "../Open/OpenAICom";
 
 import styles from "../styles/LoggedIn.module.css";
 /** */
@@ -31,7 +32,11 @@ const LoggedIn = () => {
           <div>
             <h1>Welcome, {username}!</h1>
             <hr />
+            <section>
+              <OpenAI/>
+            </section>
             <section className={styles.quotes}>
+
             <ApiGet />
           </section>
             <section className={styles.petContainer}>

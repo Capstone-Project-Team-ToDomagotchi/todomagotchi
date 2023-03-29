@@ -22,15 +22,16 @@ app.use('/auth', require('./auth'))
 app.use('/api', require('./api'))
 
 app.post("/ask", async (req, res) => {
-  const topic = 'capypara'
-  const prompt = `write a paragraph about${topic}`;
+ 
+
   try {
+    const { prompt } = req.body;
     if (prompt == null) {
       throw new Error("Uh oh, no prompt was provided");
     }
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt,
+      prompt: prompt,
       temperature: 0,
       max_tokens: 100,
     });
