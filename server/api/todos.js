@@ -42,7 +42,7 @@ router.post("/addNewTodo", async (req, res) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const todo = await Todo.findByPk(req.params.id, {
-      include: [{ model: SelectPet }, { model: User }],
+      include: [{ model: User }],
     });
     res.json(todo);
   } catch (err) {
@@ -81,6 +81,17 @@ router.put("/:id/toggle", async (req, res, next) => {
     const updatedTodo = await todo.update({
       isCompleted: req.body.isCompleted,
     });
+    //fetched the correct todo
+    //need to fetch the user who owns the todo
+    //when user is selected, get the user's select pet
+    //then use the selectPet's instance method to update its exp
+    //instance method to the selectPet model
+    //it is when the todo is toggled that the pet gains EXP
+    //will not need the checkImg function once model is updated to reflect
+    //will not need selectpet.update method because the instance method will handle that
+    const users = updatedTodo.getUser;
+    const selectedPets = users.pet;
+    //selectedPet.increaseExp(20) = should be all you need
     res.json(updatedTodo);
   } catch (err) {
     next(err);

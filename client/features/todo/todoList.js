@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css"
-import { addExpToPet, fetchSelectPetAsync, selectSelectedPet } from "../pet/selectPetSlice";
+// import { addExpToPet, fetchSelectPetAsync, selectSelectedPet } from "../pet/selectPetSlice";
+import { fetchSingleUser, addExpToPet, selectSingleUser } from "../user/singleUserSlice";
 
 const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
-  const user = useSelector((state) => state.auth.me);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const todos = useSelector(selectTodo);
   const todosArray = Object.values(todos);
-  const pets = useSelector(selectSelectedPet)
+  const user = useSelector(selectSingleUser)
+  // const pet = useSelector(selectSelectedPet)
 
-  console.log("current user:", user)
   const handleToggle = (id, isCompleted) => {
     dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
   };
@@ -32,13 +32,11 @@ const Todos = () => {
     }
   }, [dispatch, userId]);
 
-  console.log("data:", todos.petId)
-
   useEffect(() => {
-    dispatch(fetchSelectPetAsync(todos.petId));
+    dispatch(fetchSingleUser(userId));
   }, [dispatch]);
 
-  console.log("pets", pets);
+  console.log("user", user.selectPets?.[0].exp);
 
   const addExp = async (id, exp) => {
     await dispatch(addExpToPet({ id, exp }));
@@ -59,7 +57,7 @@ const Todos = () => {
             <input
               type="checkbox"
               checked={todo.isCompleted}
-              onChange={() => handleToggle(todo.id, todo.isCompleted) + addExp(todo.id, )}
+              onChange={() => handleToggle(todo.id, todo.isCompleted) + addExp(user.selectPets?.[0].id, user.selectPets?.[0].exp)}
             />
             <label>Incomplete</label>
           </div>

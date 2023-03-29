@@ -65,7 +65,7 @@ router.get("/:userId/viewpets", async (req, res, next) => {
 router.put("/expUp/:selectPetId", async (req, res, next) => {
   try {
     const petById = await SelectPet.findOne({
-      where: { id: req.params.selectPetId, userId: req.params.userId },
+      where: { id: req.params.selectPetId},
       include: {all: true, nested: true}
     });
     console.log("initial pet:", petById);
@@ -111,29 +111,29 @@ router.put("/expUp/:selectPetId", async (req, res, next) => {
 });
 
 //vvv temporary test expUp vvv
-// router.put("/expUp/:selectPetId", async (req, res, next) => {
-//   try {
-//     const petById = await SelectPet.findOne({
-//       where: { id: req.params.selectPetId },
-//       include: {all: true,}
-//     });
-//     const exp = req.body.exp + 20;
-//     const checkImg = (exp) => {
-//       if (exp >= 90) {
-//         return 2;
-//       } else if (exp >= 60) {
-//         return 1;
-//       } else {return 0}
-//     };
-//     const newImg = checkImg(exp);
-//     const updatedPet = await petById.update({
-//       exp: exp,
-//       selectImg: newImg,
-//     });
-//     res.send(updatedPet);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
+router.put("/expUp/:selectPetId", async (req, res, next) => {
+  try {
+    const petById = await SelectPet.findOne({
+      where: { id: req.params.selectPetId },
+      include: {all: true,}
+    });
+    const exp = req.body.exp + 20;
+    const checkImg = (exp) => {
+      if (exp >= 90) {
+        return 2;
+      } else if (exp >= 60) {
+        return 1;
+      } else {return 0}
+    };
+    const newImg = checkImg(exp);
+    const updatedPet = await petById.update({
+      exp: exp,
+      selectImg: newImg,
+    });
+    res.send(updatedPet);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 module.exports = router;
