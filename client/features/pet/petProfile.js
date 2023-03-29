@@ -39,7 +39,7 @@ const PetProfile = () => {
           <h3>Owner:</h3>
           <h4>{user?.username}</h4>
           <p>EXP: {exp}</p>
-          <button onClick={() => addExp(id, exp)}>Add EXP</button>
+          <button onClick={() => addExp(id, exp)}><b>Add EXP</b></button>
           {/* ^^Need to implement a bar that shows how close to the next level^^*/}
         </div>
       </section>

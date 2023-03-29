@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { editSingleUser } from "./singleUserSlice";
 
 import styles from  "../styles/EditUser.module.css"
@@ -90,8 +89,8 @@ const EditUser = () => {
         </label>
         <br></br>
 
-        <button type="submit">Submit Changes</button>
-        <Link to="/users/:id">Cancel</Link>
+        <button type="submit"><b>Submit Changes</b></button>
+        <button onClick={() => navigate("/users/:id")}><b>Cancel</b></button>
       </form>
     </div>
   );

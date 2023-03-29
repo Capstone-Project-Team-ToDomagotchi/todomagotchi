@@ -1,0 +1,19 @@
+.userProfile {
+    display: inline-flexbox;
+    text-align: center;
+}
+
+.userProfile button {
+    background-color: green;
+    color: white;
+    padding: 15px 26px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Poppins;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.userProfile button:hover {
+    background-color: rgb(19, 171, 171);
+}
