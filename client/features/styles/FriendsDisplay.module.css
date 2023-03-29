@@ -1,0 +1,16 @@
+.friendsDisplay {
+    display: flex;
+    text-align: center;
+}
+.friendsDisplay ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.friendsDisplay li {
+    display: inline-block;
+    margin: 2rem;
+    text-align: center;
+    
+}

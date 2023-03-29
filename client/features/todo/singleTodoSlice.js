@@ -67,7 +67,7 @@ export const deleteSingleTodo = createAsyncThunk(
 
 //set state
 const initialState = {
-  todo: {},
+  todo: [],
   status: "idle",
   error: null,
 };

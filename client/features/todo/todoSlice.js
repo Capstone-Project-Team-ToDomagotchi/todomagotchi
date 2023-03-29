@@ -13,10 +13,11 @@ export const fetchTodosAsync = createAsyncThunk("todos", async (userId, thunkAPI
 //add a single todo
 export const addNewTodo = createAsyncThunk(
   "addNewTodo",
-  async ({ userId, dueDate, todoName, pointType, description, isCompleted }) => {
+  async ({ userId, petId, dueDate, todoName, pointType, description, isCompleted }) => {
     try {
       const { data } = await axios.post(`/api/todos/addNewTodo`, {
         userId,
+        petId,
         dueDate,
         todoName,
         description,
@@ -44,6 +45,7 @@ export const toggleCompleted = createAsyncThunk(
   }
 );
 const initialState = [];
+
 export const todoSlice = createSlice({
   name: "todos",
   initialState,
