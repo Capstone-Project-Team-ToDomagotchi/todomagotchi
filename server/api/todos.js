@@ -8,6 +8,7 @@ router.get("/", async (req, res, next) => {
   try {
     const todos = await Todo.findAll({
       order: [["updatedAt", "DESC"]],
+      include: {all: true}
     });
     res.json(todos);
   } catch (err) {
@@ -73,14 +74,26 @@ router.delete("/:id", async (req, res, next) => {
 
 router.put("/:id/toggle", async (req, res, next) => {
   try {
-    const todo = await Todo.findByPk(req.params.id);
+    const todo = await Todo.findByPk(req.params.id, {include: {all: true, nested: true}});
     console.log(todo);
     if (!todo) {
       return res.status(404).send("Todo not found");
     }
+    const users = await todo.getUser({include: {all: true, nested: true}});
+    const selectedPet = users.selectPets?.[0];
+    console.log("exp", selectedPet.exp)
+    // if (todo.pointType === "important" && todo.isCompleted){
+    //   selectedPet.setExp(exp + 20);
+    // }
+    // if (todo.pointType === "average" && todo.isCompleted){
+    //   selectedPet.setExp(exp + 10);
+    // }
     const updatedTodo = await todo.update({
       isCompleted: req.body.isCompleted,
     });
+    // const updatedPet = await selectedPet.update({
+    //   exp: selectedPet.setExp(exp + 10),
+    // }); 
     //fetched the correct todo
     //need to fetch the user who owns the todo
     //when user is selected, get the user's select pet
@@ -89,8 +102,6 @@ router.put("/:id/toggle", async (req, res, next) => {
     //it is when the todo is toggled that the pet gains EXP
     //will not need the checkImg function once model is updated to reflect
     //will not need selectpet.update method because the instance method will handle that
-    const users = updatedTodo.getUser;
-    const selectedPets = users.pet;
     //selectedPet.increaseExp(20) = should be all you need
     res.json(updatedTodo);
   } catch (err) {

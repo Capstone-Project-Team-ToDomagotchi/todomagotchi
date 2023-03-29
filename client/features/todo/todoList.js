@@ -23,7 +23,6 @@ const Todos = () => {
   useEffect(() => {
     if (userId) {
       dispatch(fetchTodosAsync(userId));
-      console.log(userId);
     }
   }, [dispatch, userId]);
 
