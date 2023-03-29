@@ -12,22 +12,13 @@ const Todos = () => {
   const todos = useSelector(selectTodo);
   const todosArray = Object.values(todos);
 
-  console.log(todos);
-
   const handleToggle = (id, isCompleted) => {
     dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
   };
-  // const completedTodos = todosArray.filter(
-  //   (todo) => todo.userId === userId && todo.isCompleted
-  // );
-
-  // const incompleteTodos =
-  //   todosArray.filter((todo) => todo.userId === userId && !todo.isCompleted);
 
   useEffect(() => {
     if (userId) {
       dispatch(fetchTodosAsync(userId));
-      console.log(userId);
     }
   }, [dispatch, userId]);
 
