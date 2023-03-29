@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css";
-import styles from "../styles/Todos.module.css";
 
 const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
@@ -16,12 +15,6 @@ const Todos = () => {
   const handleToggle = (id, isCompleted) => {
     dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
   };
-  // const completedTodos = todosArray.filter(
-  //   (todo) => todo.userId === userId && todo.isCompleted
-  // );
-
-  // const incompleteTodos =
-  //   todosArray.filter((todo) => todo.userId === userId && !todo.isCompleted);
 
   useEffect(() => {
     if (userId) {

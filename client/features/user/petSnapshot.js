@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./singleUserSlice";
 
+import styles from "../styles/PetSnapshot.module.css";
+
 const PetSnapshot = () => {
   const dispatch = useDispatch();
   const { id } = useParams();

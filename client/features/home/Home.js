@@ -21,7 +21,6 @@ const Home = () => {
             </div>
           )}
       </nav>
-      <hr />
     </div>
   );
 };
