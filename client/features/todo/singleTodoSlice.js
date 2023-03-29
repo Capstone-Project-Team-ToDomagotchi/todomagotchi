@@ -5,7 +5,6 @@ import axios from "axios";
 export const fetchSingleTodo = createAsyncThunk("singleTodo", async (id) => {
   try {
     const { data } = await axios.get(`/api/todos/${id}`);
-    console.log("data---->", data);
     return data;
   } catch (err) {
     console.error(err);
