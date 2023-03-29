@@ -1,7 +1,7 @@
+//API routes for todos - mounted on /api/todos
 const express = require("express");
 const router = express.Router();
 const { Todo, User, SelectPet } = require("../db");
-const verifyToken = require("../middleware/verifyToken");
 
 //get all todos
 router.get("/", async (req, res, next) => {
@@ -72,6 +72,7 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
+//update a todo when toggled as "completed"
 router.put("/:id/toggle", async (req, res, next) => {
   try {
     const todo = await Todo.findByPk(req.params.id);
