@@ -3,17 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css"
-import { addExpToPet } from "../pet/selectPetSlice";
+import { addExpToPet, fetchSelectPetAsync, selectSelectedPet } from "../pet/selectPetSlice";
 
 const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
+  const user = useSelector((state) => state.auth.me);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const todos = useSelector(selectTodo);
   const todosArray = Object.values(todos);
+  const pets = useSelector(selectSelectedPet)
 
-  console.log(todos);
-
+  console.log("current user:", user)
   const handleToggle = (id, isCompleted) => {
     dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
   };
@@ -31,6 +32,18 @@ const Todos = () => {
     }
   }, [dispatch, userId]);
 
+  console.log("data:", todos.petId)
+
+  useEffect(() => {
+    dispatch(fetchSelectPetAsync(todos.petId));
+  }, [dispatch]);
+
+  console.log("pets", pets);
+
+  const addExp = async (id, exp) => {
+    await dispatch(addExpToPet({ id, exp }));
+  };
+
   return (
     <div className={styles.todoContainer}>
       <Link to="/addNewTodo">Add a new task</Link>
@@ -46,7 +59,7 @@ const Todos = () => {
             <input
               type="checkbox"
               checked={todo.isCompleted}
-              onChange={() => handleToggle(todo.id, todo.isCompleted)}
+              onChange={() => handleToggle(todo.id, todo.isCompleted) + addExp(todo.id, )}
             />
             <label>Incomplete</label>
           </div>

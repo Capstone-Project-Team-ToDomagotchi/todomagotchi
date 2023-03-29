@@ -17,11 +17,10 @@ router.get("/", async (req, res, next) => {
 
 //add a new todo
 router.post("/addNewTodo", async (req, res) => {
-  const { userId, petId, dueDate, todoName, description, pointType } = req.body;
+  const { userId, dueDate, todoName, description, pointType } = req.body;
 
   try {
     const newTodo = new Todo({
-      petId,
       userId,
       dueDate,
       todoName,

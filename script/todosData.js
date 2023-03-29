@@ -15,7 +15,6 @@ function createTodo() {
   const pointType = faker.helpers.arrayElement(["important", "average"], 1);
   const description = faker.lorem.text();
   const isCompleted = faker.datatype.boolean();
-  const petId = faker.datatype.number({ min: 1, max: 5 });
   const userId = faker.datatype.number({ min: 1, max: 5 });
 
   return {
@@ -24,7 +23,6 @@ function createTodo() {
     pointType,
     description,
     isCompleted,
-    petId,
     userId,
   };
 }
