@@ -17,12 +17,6 @@ const Todos = () => {
   const handleToggle = (id, isCompleted) => {
     dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
   };
-  // const completedTodos = todosArray.filter(
-  //   (todo) => todo.userId === userId && todo.isCompleted
-  // );
-
-  // const incompleteTodos =
-  //   todosArray.filter((todo) => todo.userId === userId && !todo.isCompleted);
 
   useEffect(() => {
     if (userId) {
