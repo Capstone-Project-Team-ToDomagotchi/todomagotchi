@@ -4,7 +4,6 @@ import axios from "axios";
 export const fetchTodosAsync = createAsyncThunk("todos", async (userId, thunkAPI) => {
   try {
     const { data } = await axios.get(`/api/todos?userId=${userId}`);
-    console.log(data)
     return data;
   } catch (err) {
     console.err(err);

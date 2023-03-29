@@ -1,3 +1,11 @@
 .loggedIn {
     columns: 3;
 }
+
+.petContainer {
+    break-inside: avoid;
+}
+
+.todosContainer {
+    break-inside: avoid;
+}

@@ -5,7 +5,6 @@ import axios from "axios";
 export const fetchSingleTodo = createAsyncThunk("singleTodo", async (id) => {
   try {
     const { data } = await axios.get(`/api/todos/${id}`);
-    console.log("data---->", data);
     return data;
   } catch (err) {
     console.error(err);
@@ -16,24 +15,6 @@ export const fetchSingleTodo = createAsyncThunk("singleTodo", async (id) => {
  * @returns todo information it received from the AJAX request
  * @catches error if database request goes wrong
  */
-// export const editSingleTodo = createAsyncThunk(
-//   "editSingleTodo",
-//   async ({ id, dueDate, toDoName, pointType, description, isCompleted }) => {
-//     try {
-//       const { data } = await axios.put(`/api/todos/${id}`, {
-//         dueDate,
-//         todoName,
-//         description,
-//         pointType,
-//         isCompleted,
-//       });
-//       return data;
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   }
-// );
-
 //edit a single todo
 export const editSingleTodo = createAsyncThunk(
   "editSingleTodo",
@@ -43,7 +24,6 @@ export const editSingleTodo = createAsyncThunk(
         `/api/todos/${todoData.id}`,
         todoData.formValues
       );
-      console.log("data---->", data);
       return data;
     } catch (error) {
       console.error(error);
@@ -84,30 +64,6 @@ export const singleTodoSlice = createSlice({
     builder.addCase(editSingleTodo.fulfilled, (state, action) => {
       return action.payload;
     });
-    // builder.addCase(fetchSingleTodo.pending, (state) => {
-    //   state.status = "loading";
-    // });
-    // builder.addCase(fetchSingleTodo.fulfilled, (state, action) => {
-    //   state.status = "succeeded";
-    //   state.todo = { ...state.todo, ...action.payload };
-    // });
-    // builder.addCase(fetchSingleTodo.rejected, (state, action) => {
-    //   state.status = "failed";
-    //   state.error = action.error.message;
-    // });
-
-    // builder.addCase(editSingleTodo.pending, (state) => {
-    //   state.status = "loading";
-    // });
-    // builder.addCase(editSingleTodo.fulfilled, (state, action) => {
-    //   state.status = "succeeded";
-    //   state.todo = { ...state.todo, ...action.payload };
-    // });
-    // builder.addCase(editSingleTodo.rejected, (state, action) => {
-    //   state.status = "failed";
-    //   state.error = action.error.message;
-    // });
-
     builder.addCase(deleteSingleTodo.fulfilled, (state, action) => {
       const newState = state.filter((todos) => todos.id !== action.payload.id);
       return newState;

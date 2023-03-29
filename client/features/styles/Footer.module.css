@@ -1,6 +1,6 @@
 .footer {
     height: 2.5rem;
-    position: fixed;
+    position: relative;
 }
 
 .footer p {
