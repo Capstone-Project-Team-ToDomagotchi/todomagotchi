@@ -13,6 +13,7 @@ const EditTodo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
+  
   const [dueDate, setDueDate] = useState("");
   const [todoName, setTodoName] = useState("");
   const [pointType, setPointType] = useState("average");
@@ -40,10 +41,8 @@ const EditTodo = () => {
         <input
           name="todoName"
           id="todoName"
-          defaultValue={singleTodo?.todoName}
-          onChange={(e) =>
-            setFormValues({ ...formValues, todoName: e.target.value })
-          }
+          value={todoName}
+          onChange={(e) => setTodoName(e.target.value)}
         />
 
         <label htmlFor="dueDate">Due Date:</label>
@@ -51,10 +50,8 @@ const EditTodo = () => {
           type="date"
           name="dueDate"
           id="dueDate"
-          defaultValue={singleTodo?.dueDate}
-          onChange={(e) =>
-            setFormValues({ ...formValues, dueDate: e.target.value })
-          }
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
         />
 
         <label htmlFor="pointType">Priority</label>
@@ -74,10 +71,8 @@ const EditTodo = () => {
           type="text"
           name="description"
           id="description"
-          defaultValue={singleTodo?.description}
-          onChange={(e) =>
-            setFormValues({ ...formValues, description: e.target.value })
-          }
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <br></br>
         <button type="submit" name="submit" id="submit">
