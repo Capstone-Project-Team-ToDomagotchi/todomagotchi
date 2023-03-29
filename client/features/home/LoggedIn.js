@@ -38,7 +38,11 @@ const LoggedIn = () => {
                 </section>
             <section className={styles.todosContainer}>
               <TodosSnapshot todos={todos}/>
-                  </section>         
+                  </section>
+                  <br/><br/>
+                  <section className={styles.allTodos}>
+                    <Link to={`/todos`}>Go to Todos Page</Link>    
+                  </section>    
             </div>
       <hr />
     </main>

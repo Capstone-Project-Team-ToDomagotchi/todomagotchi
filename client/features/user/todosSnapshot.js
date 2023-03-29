@@ -36,9 +36,6 @@ const TodosSnapshot = () => {
         </p>
       )
      }
-      <section className={styles.allTodos}>
-        <Link to={`/todos`}>See All Todos</Link>    
-      </section> 
     </div>
   );
 };
