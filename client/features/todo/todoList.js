@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css"
 
 const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const todos = useSelector(selectTodo);
 
   useEffect(() => {
@@ -36,6 +37,8 @@ const Todos = () => {
           <label>Completed</label>
         </div>
       ))}
+      <br />
+      <button onClick={() => navigate(-1)}>Go back</button>
     </div>
   );
 }
