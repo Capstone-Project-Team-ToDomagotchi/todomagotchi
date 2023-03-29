@@ -18,21 +18,19 @@ const TodosSnapshot = () => {
   }, [dispatch, id]);
 
   return (
-    <div className={styles.todoContainer}>
+    <main className={styles.todoContainer}>
     <h2>Current Todos</h2>
     {todos && todos.length ? (
       todos.map((todo) => (
-        <div className={styles.todoList} key={todo.id}>
+        <section className={styles.todoList} key={todo.id}>
           <Link to={`/todos/${todo.id}`}>Name: {todo.todoName}</Link>
           {todos.description}
-        </div>
+        </section>
       ))
     ) : (
-      <p>
-        <i>No todos exist for this user</i>
-      </p>
+      <p>No todos exist for this user</p>
     )}
-    </div>
+    </main>
   );
 };
 

@@ -28,9 +28,10 @@ const LoggedIn = () => {
 
   console.log("data", pets)
   return (
-    <main className={styles.loggedIn}>
-          <div>
-            <section className={styles.quotes}>
+    <main className={styles.container}>
+      <h3 className={styles.welcome}>Welcome, {username}!</h3>
+        <section className={styles.loggedIn}>
+            <section className={styles.quotesContainer}>
             <ApiGet />
           </section>
             <section className={styles.petContainer}>
@@ -39,8 +40,12 @@ const LoggedIn = () => {
             <section className={styles.todosContainer}>
               <TodosSnapshot todos={todos}/>
                   </section>
-                <Link to={`/todos`}>See All Todos</Link>     
-            </div>
+                  <br />
+                  <br />
+                  <section className={styles.allTodos}>
+                <Link to={`/todos`}>See All Todos</Link>    
+                </section> 
+          </section>
     </main>
   );
 };
