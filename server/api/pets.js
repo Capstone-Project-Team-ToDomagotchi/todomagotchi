@@ -1,6 +1,8 @@
+//API routes for pets - mounted on /api/pets
 const router = require("express").Router();
-const { User, Todo, Pet, SelectPet } = require("../db");
+const { User, Pet, SelectPet } = require("../db");
 
+//get all pets
 router.get("/", async (req, res, next) => {
   try {
     const pets = await Pet.findAll();
@@ -32,6 +34,7 @@ router.get("/", async (req, res, next) => {
   }
   });
 
+  //get a pet by id
 router.get("/:id", async (req, res, next) => {
   try {
     const petById = await SelectPet.findOne({
@@ -46,6 +49,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+//route for an individual user to see all their pets
 router.get("/:userId/viewpets", async (req, res, next) => {
   try {
     const petById = await User.findAll({
