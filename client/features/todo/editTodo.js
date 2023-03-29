@@ -17,20 +17,6 @@ const EditTodo = () => {
   const [todoName, setTodoName] = useState("");
   const [pointType, setPointType] = useState("average");
   const [description, setDescription] = useState("");
-  // const [formValues, setFormValues] = useState({
-  //   dueDate: "",
-  //   todoName: "",
-  //   pointType: "average",
-  //   description: "",
-  // });
-
-  console.log("singleTodo--->", singleTodo);
-
-  // useEffect(() => {
-  //   if (status === "idle") {
-  //     dispatch(fetchSingleTodo(id));
-  //   }
-  // }, [dispatch, id]);
 
   let singleTodo = useSelector(selectSingleTodo);
   useEffect(() => {

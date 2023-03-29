@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchTodosAsync } from "../todo/todoSlice";
 import { fetchSingleUser } from "../user/singleUserSlice";
 import TodosSnapshot from "../user/TodosSnapshot";
@@ -38,6 +39,7 @@ const LoggedIn = () => {
             <section className={styles.todosContainer}>
               <TodosSnapshot todos={todos}/>
                   </section>
+                <Link to={`/todos`}>See All Todos</Link>     
             </div>
     </main>
   );

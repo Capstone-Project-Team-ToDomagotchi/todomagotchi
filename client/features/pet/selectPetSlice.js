@@ -15,7 +15,7 @@ export const fetchSelectPetAsync = createAsyncThunk(
 );
 
 export const fetchPetGalleryAsync = createAsyncThunk(
-    "selectPet",
+    "selectPetGallery",
     async ({ userId, petId, name }) => {
       try {
         const { data } = await axios.post(`/api/users/${userId}/selectpet`, {
@@ -70,13 +70,13 @@ export const addExpToPet = createAsyncThunk(
         // update state with the fetched data
         return action.payload;
       });
+        builder.addCase(fetchPetGalleryAsync.fulfilled, (state, action) => {
+        return action.payload;
+      });
       builder.addCase(selectedPetAsync.fulfilled, (state, action) => {
         // update state with the fetched data
         state.selectPet = action.payload;
       });
-      // builder.addCase(fetchPetGalleryAsync.fulfilled, (state, action) => {
-      //   return action.payload;
-      // });
       builder.addCase(addExpToPet.fulfilled, (state, action) => {
         return action.payload;
       });
