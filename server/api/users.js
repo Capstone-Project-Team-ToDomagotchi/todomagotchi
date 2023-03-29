@@ -1,3 +1,5 @@
+//API routes for users - mounts all routes to /api/users/
+
 const router = require("express").Router();
 const { User, Pet, Todo, SelectPet } = require("../db");
 const verifyToken = require("../middleware/verifyToken");
@@ -112,6 +114,7 @@ router.post("/:id/selectpet", async (req, res) => {
   }
 });
 
+//gets a specific user's selected pet
 router.get("/:userId/selectedpet", async (req, res) => {
   try {
     const user = await User.findByPk(req.params.userId);

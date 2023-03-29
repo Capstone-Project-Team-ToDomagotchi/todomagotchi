@@ -1,3 +1,5 @@
+//main entry point for server/api
+//mounts all routes on /api + path
 const router = require("express").Router();
 
 router.use('/users', require('./users'))
