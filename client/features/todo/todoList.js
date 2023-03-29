@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css";
 
@@ -13,8 +13,9 @@ const Todos = () => {
 
   console.log(todos);
 
-  const handleToggle = (id, isCompleted) => {
-    dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
+  const handleToggle = async (id, isCompleted) => {
+    await dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
+    await dispatch(fetchTodosAsync(userId))
   };
   // const completedTodos = todosArray.filter(
   //   (todo) => todo.userId === userId && todo.isCompleted
