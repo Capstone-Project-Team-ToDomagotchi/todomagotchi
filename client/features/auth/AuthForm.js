@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authenticate } from "../../app/store";
 
+import styles from "../styles/AuthForm.module.css";
+
 /**
   The AuthForm component can be used for Login or Sign Up.
   Props for Login: name="login", displayName="Login"
@@ -51,7 +53,7 @@ const AuthForm = ({ name, authMethod }) => {
 
   if (authMethod === "Login") {
     return (
-      <div className="login">
+      <main className={styles.loggedIn}>
         <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="username">
@@ -70,14 +72,14 @@ const AuthForm = ({ name, authMethod }) => {
           </div>
         {error && <div> {error} </div>}
       </form>
-    </div>
+    </main>
     )
   }
 
   if (authMethod === "Sign Up") {
     return (
-      <main id="signup" className="container">
-        <form className="form" onSubmit={handleSubmit} name={name}>
+      <main className={styles.signUp}>
+        <form className={styles.signUpForm} onSubmit={handleSubmit} name={name}>
           <div className="form-group">
             <label htmlFor="displayName" className="form-label">
               Display Name

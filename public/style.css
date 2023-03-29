@@ -21,3 +21,10 @@ hr {
   height: 2px;
   
 }
+
+button {
+  color: white;
+  background-color: green;
+  border-radius: 20%;
+  height: 1.5rem;
+}
