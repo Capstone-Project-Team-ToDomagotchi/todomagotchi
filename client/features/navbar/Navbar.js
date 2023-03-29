@@ -41,7 +41,7 @@ const Navbar = () => {
         Home
       </Link>
       <h1>TodoMagotchi
-        <img src="LogoCreature.png"></img>
+        <img src="/LogoCreature.png"></img>
       </h1>
       <hr />
     </nav>
