@@ -21,9 +21,10 @@ const PetSnapshot = () => {
       <section>
         <h2>Pets</h2>
         {selectPets && selectPets.length ? (
-        selectPets.map((pet) => (
-        <div className="petList" key={pet.id}>
-              <img src={pet.pet.image}/>
+          selectPets.map((pet) => (
+            <div className="petList" key={pet.id}>
+              {/* vvv image needs to be fixed, temporarily set to 0 by default vvv */}
+              <img src={pet.pet.image?.[0]}/>
               <Link to={`/pets/${pet.id}`}>
                 <h3>Name: {pet.name}</h3>
               </Link>

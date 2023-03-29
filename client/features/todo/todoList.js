@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
-import styles from "../styles/Todos.module.css";
-
+import styles from "../styles/Todos.module.css"
+import { addExpToPet } from "../pet/selectPetSlice";
 
 const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
