@@ -13,8 +13,9 @@ const Todos = () => {
 
   console.log(todos);
 
-  const handleToggle = (id, isCompleted) => {
-    dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
+  const handleToggle = async (id, isCompleted) => {
+    await dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
+    await dispatch(fetchTodosAsync(userId));
   };
   // const completedTodos = todosArray.filter(
   //   (todo) => todo.userId === userId && todo.isCompleted
