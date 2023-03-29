@@ -28,12 +28,15 @@ const PetSnapshot = () => {
               <Link to={`/pets/${pet.id}`}>
                 <h3>Name: {pet.name}</h3>
               </Link>
-              <p>Age: {pet.age}</p>
+              <p>Birthdate: {selectPets.createdAt}</p>
             </div>
           ))
         ) : (
           <p>
             <i>No pets exist for this user</i>
+            <br/>
+            <br/>
+            <Link to={`/pets`}>Add a Pet</Link>
           </p>
         )}
         <hr />
