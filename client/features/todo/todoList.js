@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css"
-// import { addExpToPet, fetchSelectPetAsync, selectSelectedPet } from "../pet/selectPetSlice";
-import { fetchSingleUser, addExpToPet, selectSingleUser } from "../user/singleUserSlice";
 
 const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
@@ -12,8 +10,6 @@ const Todos = () => {
   const navigate = useNavigate();
   const todos = useSelector(selectTodo);
   const todosArray = Object.values(todos);
-  const user = useSelector(selectSingleUser)
-  // const pet = useSelector(selectSelectedPet)
 
   const handleToggle = async (id, isCompleted) => {
     await dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
@@ -25,16 +21,6 @@ const Todos = () => {
       dispatch(fetchTodosAsync(userId));
     }
   }, [dispatch, userId]);
-
-  useEffect(() => {
-    dispatch(fetchSingleUser(userId));
-  }, [dispatch]);
-
-  console.log("user", user.selectPets?.[0].exp);
-
-  // const addExp = async (id, exp) => {
-  //   await dispatch(addExpToPet({ id, exp }));
-  // };
 
   return (
     <div className={styles.todoContainer}>
