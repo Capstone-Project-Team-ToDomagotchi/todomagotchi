@@ -21,7 +21,7 @@ function OpenAI() {
     <div>
       <form onSubmit={handleSubmit}>
         <label>
-          Ask me anything: 
+          Talk to me: 
           <input
             type="text"
             value={prompt}
