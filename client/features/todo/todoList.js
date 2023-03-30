@@ -32,9 +32,9 @@ const Todos = () => {
 
   console.log("user", user.selectPets?.[0].exp);
 
-  const addExp = async (id, exp) => {
-    await dispatch(addExpToPet({ id, exp }));
-  };
+  // const addExp = async (id, exp) => {
+  //   await dispatch(addExpToPet({ id, exp }));
+  // };
 
   return (
     <div className={styles.todoContainer}>
@@ -51,7 +51,7 @@ const Todos = () => {
             <input
               type="checkbox"
               checked={todo.isCompleted}
-              onChange={() => handleToggle(todo.id, todo.isCompleted) + addExp(user.selectPets?.[0].id, user.selectPets?.[0].exp)}
+              onChange={() => handleToggle(todo.id, todo.isCompleted)}
             />
             <label>Incomplete</label>
           </div>
