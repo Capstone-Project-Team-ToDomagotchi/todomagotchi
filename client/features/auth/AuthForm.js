@@ -2,6 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authenticate } from "../../app/store";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faUser, faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { faDisplay, faLock } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../styles/AuthForm.module.css";
 
@@ -63,7 +66,7 @@ const AuthForm = ({ name, authMethod }) => {
         </div>
         <div>
           <label htmlFor="password">
-            <small>Password</small>
+            <small>password</small>
           </label>
           <input name="password" type="password" />
         </div>
@@ -78,44 +81,34 @@ const AuthForm = ({ name, authMethod }) => {
 
   if (authMethod === "Sign Up") {
     return (
-      <main className={styles.signUp}>
+      <main className={styles.container}>
         <form className={styles.signUpForm} onSubmit={handleSubmit} name={name}>
-          <div className="form-group">
-            <label htmlFor="displayName" className="form-label">
-              Display Name
-            </label>
-            <input name="displayName" type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="pronouns" className="form-label">
-              pronouns
-            </label>
-            <input name="pronouns" type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input name="email" type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="username" className="form-label">
-              Username
-            </label>
-            <input name="username" type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-            <input name="password" type="password" className="form-control" />
-          </div>
-          <div>
+          <section className={styles.displayName}>
+          <FontAwesomeIcon icon={faDisplay} />
+            <input name="displayName" type="text" placeholder="Display Name"/>
+          </section>
+          <section className={styles.pronouns}>
+          <FontAwesomeIcon icon={faCircleUser} />
+            <input name="pronouns" type="text" placeholder="Pronouns"/>
+          </section>
+          <section className={styles.email}>
+          <FontAwesomeIcon icon={faEnvelope}/>
+            <input name="email" type="text" placeholder="Email"/>
+          </section>
+          <section className={styles.userName}>
+            <FontAwesomeIcon icon={faUser} />
+            <input name="username" type="text" placeholder="Username"/>
+          </section>
+          <section className={styles.password}>
+          <FontAwesomeIcon icon={faLock} />
+            <input name="password" type="password" placeholder="Password"/>
+          </section>
+          <section className={styles.profilePicUrl}>
           <label htmlFor="profilePic" className="form-label">
-            <small>Profile Picture</small>
+            <p>Profile Picture</p>
           </label>
           <input name="profilePic" type="file" accept="image/*" />
-          </div>
+          </section>
           <button className="btn primary-btn" type="submit">
             {authMethod}
           </button>
