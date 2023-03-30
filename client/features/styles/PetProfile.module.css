@@ -1,0 +1,44 @@
+.PetProfile {
+    display: flex;
+    justify-content: center;
+    columns: 2;
+    text-align: center;
+}
+
+.profilePetImg {
+    height: 30rem;
+    width: auto;
+}
+
+.leftProfile {
+    width: auto;
+    height: 50%;
+    float: left;
+    margin-right: 10px;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.petName {
+    background-color: blue;
+    padding: 2rem;
+    color: white;
+    border-radius: 25px;
+    border: solid 1px black;
+}
+
+.profileHeader{
+    background-color: pink;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.rightProfile {
+    background-color: orange;
+    float: right;
+    width: 30rem;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+
