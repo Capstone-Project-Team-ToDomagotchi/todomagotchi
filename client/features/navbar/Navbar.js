@@ -31,10 +31,13 @@ const Navbar = () => {
       )}
       {isLoggedIn && (
         <div className="login-logout">
-          <Link to={`/users/${userId}`}><b>Account</b></Link>
-          <Link to="/todos" className={styles.Link}><b>
-            Todos
-          </b></Link>
+          <Link to={`/users/${userId}`}>
+            <b>Account</b>
+          </Link>
+          <Link to="/todos" className={styles.Link}>
+            <b>Todos</b>
+          </Link>
+          
         </div>
       )}
       <Link to="/home" className={styles.link}><b>
