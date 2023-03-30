@@ -1,13 +1,14 @@
+//API routes for todos - mounted on /api/todos
 const express = require("express");
 const router = express.Router();
 const { Todo, User, SelectPet } = require("../db");
-const verifyToken = require("../middleware/verifyToken");
 
 //get all todos
 router.get("/", async (req, res, next) => {
   try {
     const todos = await Todo.findAll({
       order: [["updatedAt", "DESC"]],
+      include: { all: true },
     });
     res.json(todos);
   } catch (err) {
@@ -17,18 +18,17 @@ router.get("/", async (req, res, next) => {
 
 //add a new todo
 router.post("/addNewTodo", async (req, res) => {
-  const { userId, petId, dueDate, todoName, description, pointType } = req.body;
+  const { userId, dueDate, todoName, description, pointType } = req.body;
 
   try {
     const newTodo = new Todo({
-      petId,
       userId,
       dueDate,
       todoName,
       description,
       pointType,
       isCompleted: false,
-      include: [{ model: SelectPet }, { model: User }]
+      include: [{ model: SelectPet }, { model: User }],
     });
 
     await newTodo.save();
@@ -43,7 +43,7 @@ router.post("/addNewTodo", async (req, res) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const todo = await Todo.findByPk(req.params.id, {
-      include: [{ model: SelectPet }, { model: User }],
+      include: [{ model: User }],
     });
     res.json(todo);
   } catch (err) {
@@ -72,17 +72,38 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
+//update a todo when toggled as "completed"
 router.put("/:id/toggle", async (req, res, next) => {
   try {
-    const todo = await Todo.findByPk(req.params.id);
+    const todo = await Todo.findByPk(req.params.id, {
+      include: { all: true, nested: true },
+    });
     console.log(todo);
     if (!todo) {
       return res.status(404).send("Todo not found");
     }
+    const users = await todo.getUser({ include: { all: true, nested: true } });
+    const selectedPet = users.selectPets?.[0];
+    console.log("exp", selectedPet.exp);
+    selectedPet.exp = selectedPet.exp + 10;
     const updatedTodo = await todo.update({
       isCompleted: req.body.isCompleted,
     });
-    res.json(updatedTodo);
+    const checkTodo = async (todo) => {
+      if (todo.pointType === "important" && todo.isCompleted) {
+        await selectedPet.increment({ exp: 20 }); 
+        await selectedPet.setImg();
+      }
+      if (todo.pointType === "average" && todo.isCompleted) {
+        await selectedPet.increment({ exp: 10 });
+        await selectedPet.setImg();
+      } else {
+        await selectedPet;
+        await selectedPet.setImg();
+      }
+      return selectedPet;
+    };
+    res.json(checkTodo(updatedTodo));
   } catch (err) {
     next(err);
   }

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./singleUserSlice";
 
+import styles from "../styles/PetSnapshot.module.css";
+
 const PetSnapshot = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -18,13 +20,13 @@ const PetSnapshot = () => {
 
   return (
     <main className="pet-details">
-      <section>
+      <section className={styles.petContainer}>
         <h2>Pets</h2>
         {selectPets && selectPets.length ? (
           selectPets.map((pet) => (
-            <div className="petList" key={pet.id}>
+            <div className={styles.petList} key={pet.id}>
               {/* vvv image needs to be fixed, temporarily set to 0 by default vvv */}
-              <img src={pet.pet.image?.[0]}/>
+              <img src={pet.pet.image?.[pet.selectImg]}/>
                 <h3>Name: {pet.name}</h3>
               <p>Birthdate: {pet.createdAt}</p> 
               <Link to={`/pets/${pet.id}`}>See Pet Profile</Link>
@@ -38,7 +40,6 @@ const PetSnapshot = () => {
             <Link to={`/pets`}>Add a Pet</Link>
           </p>
         )}
-        <hr />
       </section>
     </main>
   );

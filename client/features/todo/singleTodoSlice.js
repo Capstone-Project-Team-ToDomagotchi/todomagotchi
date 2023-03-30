@@ -16,17 +16,16 @@ export const fetchSingleTodo = createAsyncThunk("singleTodo", async (id) => {
  * @returns todo information it received from the AJAX request
  * @catches error if database request goes wrong
  */
+//edit a single todo
 export const editSingleTodo = createAsyncThunk(
   "editSingleTodo",
   async ({ id, dueDate, todoName, pointType, description, isCompleted }) => {
     try {
-      const { data } = await axios.put(`/api/todos/${id}`, {
-        dueDate,
-        todoName,
-        description,
-        pointType,
-        isCompleted,
-      });
+      const { data } = await axios.put(
+        `/api/todos/${todoData.id}`,
+        todoData.formValues
+      );
+      console.log("data---->", data);
       return data;
     } catch (err) {
       console.error(err);

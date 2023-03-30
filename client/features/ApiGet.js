@@ -20,7 +20,6 @@ const ApiGet = () => {
       <h2>Quote of the Day</h2>
       <p>{data.text}</p>
       <small>- {data.author}</small>
-      <hr />
     </section>
   );
 };

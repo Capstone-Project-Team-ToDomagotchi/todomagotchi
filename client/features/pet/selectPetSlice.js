@@ -45,15 +45,15 @@ export const fetchPetGalleryAsync = createAsyncThunk(
   );
 
   //Create thunk to add experience points to a pet
-export const addExpToPet = createAsyncThunk(
-  "pets/expUp",
-  async ({ id, exp }) => {
-    const { data } = await axios.put(`/api/pets/expUp/${id}`, {
-      exp: exp,
-    });
-    return data;
-  }
-);
+// export const addExpToPet = createAsyncThunk(
+//   "pets/expUp",
+//   async ({ id, exp }) => {
+//     const { data } = await axios.put(`/api/pets/expUp/${id}`, {
+//       exp: exp,
+//     });
+//     return data;
+//   }
+// );
 
   const initialState = {
  
@@ -77,9 +77,9 @@ export const addExpToPet = createAsyncThunk(
         // update state with the fetched data
         state.selectPet = action.payload;
       });
-      builder.addCase(addExpToPet.fulfilled, (state, action) => {
-        return action.payload;
-      });
+      // builder.addCase(addExpToPet.fulfilled, (state, action) => {
+      //   return action.payload;
+      // });
     },
   });
   
