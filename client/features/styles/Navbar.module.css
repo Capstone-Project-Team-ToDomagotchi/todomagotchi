@@ -4,6 +4,7 @@
     padding-top: 2rem;
     width: 100%;
     justify-content: space-between;
+    background-color: rgb(249, 240, 210);
 }
 
 .navbar h1{
@@ -20,9 +21,9 @@
 
 .navbar h1 img {
     display: inline;
-    height: 70px;
-    width: 60px;
-    margin-left: 0.4rem;
+    height: 75px;
+    width: 50px;
+    margin-left: 0.5rem;
 }
 
 
