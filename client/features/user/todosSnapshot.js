@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./singleUserSlice";
-
 import styles from "../styles/TodoSnapshot.module.css"
 
 const TodosSnapshot = () => {

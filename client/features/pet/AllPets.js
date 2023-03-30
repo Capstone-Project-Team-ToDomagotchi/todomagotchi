@@ -44,7 +44,7 @@ const AllPets = () => {
                   <p>{pet.name}</p>{" "}
                 </Link>
                 <div className="pet-row">
-                  <img src={`${pet.image}`} />
+                  <img src={`${pet.image?.[0]}`} />
                   <div className="select-button">
                     <button onClick={select} value={pet.id}>
                       Select

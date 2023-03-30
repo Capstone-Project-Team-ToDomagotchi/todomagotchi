@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css"
-import { addExpToPet } from "../pet/selectPetSlice";
 
 const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
@@ -12,8 +11,6 @@ const Todos = () => {
   const navigate = useNavigate();
   const todos = useSelector(selectTodo);
   const todosArray = Object.values(todos);
-
-  console.log(todos);
 
   const handleToggle = async (id, isCompleted) => {
     await dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
@@ -23,7 +20,6 @@ const Todos = () => {
   useEffect(() => {
     if (userId) {
       dispatch(fetchTodosAsync(userId));
-      console.log(userId);
     }
   }, [dispatch, userId]);
 

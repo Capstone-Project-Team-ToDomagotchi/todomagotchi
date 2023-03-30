@@ -5,7 +5,6 @@ async function selectPetSeed() {
     SelectPet.create({
       exp: 69,
       userId: 1,
-      todoId: 3,
       petId: 2,
       name: "Meow Meow",
       age: 3,
@@ -14,7 +13,6 @@ async function selectPetSeed() {
     SelectPet.create({
       exp: 30,
       userId: 2,
-      todoId: 5,
       petId: 5,
       name: "Planty",
       age: 1,
@@ -23,7 +21,6 @@ async function selectPetSeed() {
     SelectPet.create({
       exp: 96,
       userId: 3,
-      todoId: 2,
       petId: 1,
       name: "Little Foot",
       age: 2,
@@ -32,7 +29,6 @@ async function selectPetSeed() {
     SelectPet.create({
       exp: 92,
       userId: 4,
-      todoId: 4,
       petId: 4,
       name: "Clover",
       age: 4,
@@ -41,7 +37,6 @@ async function selectPetSeed() {
     SelectPet.create({
       exp: 0,
       userId: 5,
-      todoId: 1,
       petId: 3,
       name: "The Legs",
       age: 10,
