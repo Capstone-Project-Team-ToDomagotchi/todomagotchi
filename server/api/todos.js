@@ -85,12 +85,6 @@ router.put("/:id/toggle", async (req, res, next) => {
     const users = await todo.getUser({ include: { all: true, nested: true } });
     const selectedPet = users.selectPets?.[0];
     console.log("exp", selectedPet.exp);
-    // if (todo.pointType === "important" && todo.isCompleted){
-    //   selectedPet.setExp(exp + 20);
-    // }
-    // if (todo.pointType === "average" && todo.isCompleted){
-    //   selectedPet.setExp(exp + 10);
-    // }
     selectedPet.exp = selectedPet.exp + 10;
     const updatedTodo = await todo.update({
       isCompleted: req.body.isCompleted,
@@ -105,15 +99,10 @@ router.put("/:id/toggle", async (req, res, next) => {
         return selectedPet;
       }
     };
-    //fetched the correct todo
-    //need to fetch the user who owns the todo
-    //when user is selected, get the user's select pet
     //then use the selectPet's instance method to update its exp
     //instance method to the selectPet model
     //it is when the todo is toggled that the pet gains EXP
     //will not need the checkImg function once model is updated to reflect
-    //will not need selectpet.update method because the instance method will handle that
-    //selectedPet.increaseExp(20) = should be all you need
     res.json(checkTodo(updatedTodo));
   } catch (err) {
     next(err);

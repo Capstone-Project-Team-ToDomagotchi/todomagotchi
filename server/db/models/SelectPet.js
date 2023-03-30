@@ -19,6 +19,15 @@ const SelectPet = db.define("selectPet", {
     defaultValue: 0,
     //instance methods
   },
+  // setImg() {
+  //   if (exp >= 90) {
+  //     return selectImg = 2;
+  //   } else if (exp >= 60) {
+  //     return selectImg = 1;
+  //   } else {
+  //     return selectImg = 0;
+  //   }
+  // },
 });
 
 module.exports = SelectPet;
