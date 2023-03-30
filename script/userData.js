@@ -8,7 +8,7 @@ async function userSeed() {
       email: "betsy@todomagotchi.com",
       pronouns: "She/Her",
       displayName: "Betsy Carter",
-      profilePic: "https://cdn2.stylecraze.com/wp-content/uploads/2013/07/25-Most-Beautiful-Blue-Flowers.jpg"
+      profilePic: "https://i.ebayimg.com/images/g/~s8AAOSwpdpVV7kR/s-l500.jpg"
     }),
     User.create({
       username: "Sarah",

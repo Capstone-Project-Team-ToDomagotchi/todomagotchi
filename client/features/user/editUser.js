@@ -83,13 +83,14 @@ const EditUser = () => {
         </label>
         <br/>
 
-        <label>
+        {/* <label>
           Change Profile Picture
           <input name="profilePic" type="file" accept="image/*" />
-        </label>
+        </label> */}
+       
         <br></br>
         <br/>
-        <button type="submit"><b>Submit Changes</b></button>
+        <button type="submit"><b>Submit Changes</b></button> 
         <button onClick={() => navigate("/users/:id")}><b>Cancel</b></button>
       </form>
     </div>

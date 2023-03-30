@@ -8,18 +8,3 @@
     margin-right: 30rem;
     background-color: rgb(248, 225, 197);
 }
-
-.editUser button {
-    background-color: green;
-    color: white;
-    padding: 12px 12px;
-    text-decoration: none;
-    display: inline-block;
-    font-family: Poppins;
-    font-size: 16px;
-    border-radius: 12px;
-}
-
-.editUser button:hover {
-    background-color: rgb(245, 174, 152);
-}

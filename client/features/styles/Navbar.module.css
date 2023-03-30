@@ -18,10 +18,6 @@
     padding: 1.5rem;
 }
 
-.navbar a:hover {
-    color: rgb(245, 174, 152);
-}
-
 .navbar h1 img {
     display: inline;
     height: 75px;
