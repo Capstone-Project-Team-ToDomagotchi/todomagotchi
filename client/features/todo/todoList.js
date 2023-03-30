@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css"
-import { addExpToPet } from "../pet/selectPetSlice";
 
 const Todos = () => {
   const userId = useSelector((state) => state.auth.me.id);
@@ -12,17 +12,14 @@ const Todos = () => {
   const todos = useSelector(selectTodo);
   const todosArray = Object.values(todos);
 
-  console.log(todos);
-
   const handleToggle = async (id, isCompleted) => {
     await dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
-    await dispatch(fetchTodosAsync(userId));
+    await dispatch(fetchTodosAsync(userId))
   };
 
   useEffect(() => {
     if (userId) {
       dispatch(fetchTodosAsync(userId));
-      console.log(userId);
     }
   }, [dispatch, userId]);
 

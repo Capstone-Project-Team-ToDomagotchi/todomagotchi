@@ -29,6 +29,16 @@ export const editSingleUser = createAsyncThunk(
   }
 );
 
+export const addExpToPet = createAsyncThunk(
+  "pets/expUp",
+  async ({ id, exp }) => {
+    const { data } = await axios.put(`/api/pets/expUp/${id}`, {
+      exp: exp,
+    });
+    return data;
+  }
+);
+
 //Set initial state for single user
 const initialState = {};
 
@@ -44,7 +54,9 @@ const singleUserSlice = createSlice({
     builder.addCase(editSingleUser.fulfilled, (state, action) => {
       return action.payload;
     });
-  
+    builder.addCase(addExpToPet.fulfilled, (state, action) => {
+      return action.payload;
+    });
   },
 });
 

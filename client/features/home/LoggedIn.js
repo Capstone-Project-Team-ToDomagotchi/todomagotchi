@@ -6,6 +6,7 @@ import { fetchSingleUser } from "../user/singleUserSlice";
 import TodosSnapshot from "../user/TodosSnapshot";
 import PetSnapshot from "../user/PetSnapshot";
 import ApiGet from "../ApiGet";
+import OpenAI from "../Open/OpenAICom";
 
 import styles from "../styles/LoggedIn.module.css";
 /** */
@@ -15,7 +16,7 @@ const LoggedIn = () => {
   const dispatch = useDispatch();
 
   const todos = useSelector((state) => state.todos);
-  const pets = useSelector((state) => state.pet)
+  const pets = useSelector((state) => state.pet);
 
   useEffect(() => {
     dispatch(fetchSingleUser(user));
@@ -25,27 +26,30 @@ const LoggedIn = () => {
     dispatch(fetchTodosAsync());
   }, [dispatch]);
 
-
-  console.log("data", pets)
+  console.log("data", pets);
   return (
     <main className={styles.container}>
       <h3 className={styles.welcome}>Welcome, {username}!</h3>
-        <section className={styles.loggedIn}>
-            <section className={styles.quotesContainer}>
-            <ApiGet />
+      <section className={styles.loggedIn}>
+        <section className={styles.quotesContainer}>
+          <ApiGet />
+        </section>
+        <section className={styles.petContainer}>
+          <PetSnapshot pets={pets} />
+          <section>
+            <OpenAI />
           </section>
-            <section className={styles.petContainer}>
-              <PetSnapshot pets={pets}/>
-                </section>
-            <section className={styles.todosContainer}>
-              <TodosSnapshot todos={todos}/>
-                  </section>
-                  <br />
-                  <br />
-                  <section className={styles.allTodos}>
-                <Link to={`/todos`}>See All Todos</Link>    
-                </section> 
-          </section>
+        </section>
+
+        <section className={styles.todosContainer}>
+          <TodosSnapshot todos={todos} />
+        </section>
+        <br />
+        <br />
+        <section className={styles.allTodos}>
+          <Link to={`/todos`}>See All Todos</Link>
+        </section>
+      </section>
     </main>
   );
 };
