@@ -25,11 +25,9 @@ const PetSnapshot = () => {
             <div className="petList" key={pet.id}>
               {/* vvv image needs to be fixed, temporarily set to 0 by default vvv */}
               <img src={pet.pet.image?.[0]}/>
-              <Link to={`/pets/${pet.id}`}>
                 <h3>Name: {pet.name}</h3>
-              </Link>
-              <p>Birthdate: {pet.createdAt}</p>
-              <p>Age: {pet.age}</p>
+              <p>Birthdate: {pet.createdAt}</p> 
+              <Link to={`/pets/${pet.id}`}>See Pet Profile</Link>
             </div>
           ))
         ) : (
