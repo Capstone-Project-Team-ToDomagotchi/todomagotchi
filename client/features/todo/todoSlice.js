@@ -56,7 +56,7 @@ export const todoSlice = createSlice({
     builder.addCase(addNewTodo.fulfilled, (state, action) => {
       state.push(action.payload);
     });
-   
+  
   },
 });
 export const selectTodo = (state) => state.todos;
