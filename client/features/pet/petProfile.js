@@ -24,7 +24,7 @@ const PetProfile = () => {
     await dispatch(addExpToPet({ id, exp }));
   };
 
-  const { id, name, age, exp, user, selectImg } = singlePet;
+  const { id, name, createdAt, exp, user, selectImg } = singlePet;
 
   return (
     <div className={styles.PetProfile}>
@@ -32,8 +32,8 @@ const PetProfile = () => {
         <div key={id}>
           <img className="profilePet" src={singlePet.pet?.image?.[selectImg]} />
           <h2 className="petName">{name}</h2>
-          <h3>Age:</h3>
-          <h4>{age}</h4>
+          <h3>Birthdate:</h3>
+          <h4>{createdAt}</h4>
           <h3>Species:</h3>
           <h4>{singlePet.pet?.species}</h4>
           <h3>Owner:</h3>
