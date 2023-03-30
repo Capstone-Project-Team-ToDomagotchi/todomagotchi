@@ -21,11 +21,13 @@ export const editSingleTodo = createAsyncThunk(
   "editSingleTodo",
   async ({ id, dueDate, todoName, pointType, description, isCompleted }) => {
     try {
-      const { data } = await axios.put(
-        `/api/todos/${todoData.id}`,
-        todoData.formValues
-      );
-      console.log("data---->", data);
+      const { data } = await axios.put(`/api/todos/${id}`, {
+        dueDate,
+        todoName,
+        description,
+        pointType,
+        isCompleted,
+      });
       return data;
     } catch (err) {
       console.error(err);
