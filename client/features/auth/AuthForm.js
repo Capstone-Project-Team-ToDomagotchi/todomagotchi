@@ -14,8 +14,8 @@ const AuthForm = ({ name, authMethod }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const redirect = () => {
-    navigate('/home')
-  }
+    navigate("/home");
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -27,25 +27,45 @@ const AuthForm = ({ name, authMethod }) => {
       const displayName = evt.target.displayName.value;
       const pronouns = evt.target.pronouns.value;
       const profilePic = evt.target.profilePic.files[0];
-      const profilePicUrl = profilePic ? URL.createObjectURL(profilePic) : 'pfp.png'; // create URL for the image file
-      dispatch(
-        authenticate({
-          username,
-          password,
-          email,
-          displayName,
-          pronouns,
-          method: formName,
-          profilePic: profilePicUrl, // pass the URL to the authenticate action
-        })
-      );
-      navigate("/pets");
-  
-    } if (authMethod === "Login") {
+      const profilePicUrl = profilePic
+        ? URL.createObjectURL(profilePic)
+        : "pfp.png"; // create URL for the image file
+      const reader = new FileReader();
+      reader.onload = () => {
+        dispatch(
+          authenticate({
+            username,
+            password,
+            email,
+            displayName,
+            pronouns,
+            method: formName,
+            profilePic: reader.result, // pass the base64-encoded string to the authenticate action
+          })
+        );
+        navigate("/pets");
+      };
+      if (profilePic) {
+        reader.readAsDataURL(profilePic); // read the file contents as a data URL
+      } else {
+        dispatch(
+          authenticate({
+            username,
+            password,
+            email,
+            displayName,
+            pronouns,
+            method: formName,
+          })
+        );
+        navigate("/pets");
+      }
+    }
+    if (authMethod === "Login") {
       const formName = evt.target.name;
       const username = evt.target.username.value;
       const password = evt.target.password.value;
-      dispatch(authenticate({ username, password, method: formName }))
+      dispatch(authenticate({ username, password, method: formName }));
     }
   };
 
@@ -53,25 +73,27 @@ const AuthForm = ({ name, authMethod }) => {
     return (
       <div className="login">
         <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit" onSubmit={redirect}>{authMethod}</button>
+          <div>
+            <label htmlFor="username">
+              <small>Username</small>
+            </label>
+            <input name="username" type="text" />
           </div>
-        {error && <div> {error} </div>}
-      </form>
-    </div>
-    )
+          <div>
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" />
+          </div>
+          <div>
+            <button type="submit" onSubmit={redirect}>
+              {authMethod}
+            </button>
+          </div>
+          {error && <div> {error} </div>}
+        </form>
+      </div>
+    );
   }
 
   if (authMethod === "Sign Up") {
@@ -109,17 +131,19 @@ const AuthForm = ({ name, authMethod }) => {
             <input name="password" type="password" className="form-control" />
           </div>
           <div>
-          <label htmlFor="profilePic" className="form-label">
-            <small>Profile Picture</small>
-          </label>
-          <input name="profilePic" type="file" accept="image/*" />
+            <label htmlFor="profilePic" className="form-label">
+              <small>Profile Picture</small>
+            </label>
+            <input name="profilePic" type="file" accept="image/*" />
           </div>
           <button className="btn primary-btn" type="submit">
             {authMethod}
           </button>
 
           {error && <div className="error"> {error} </div>}
+      
         </form>
+        
       </main>
     );
   }

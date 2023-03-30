@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { editSingleUser } from "./singleUserSlice";
 
-import styles from  "../styles/EditUser.module.css"
+import styles from "../styles/EditUser.module.css";
 
 //Component to edit User's profile
 const EditUser = () => {
@@ -15,22 +15,35 @@ const EditUser = () => {
   const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
   //Will need to figure out how to make editing profilePic work, may not need line below
-  // const [profilePic, setProfilePic] = useState("");
+  const [profilePic, setProfilePic] = useState(null);
   const [pronouns, setPronouns] = useState("");
   const [aboutMe, setAboutMe] = useState("");
 
+  const handleProfilePicChange = (evt) => {
+  const file = evt.target.files[0];
+  if (file && file.type.startsWith("image/")) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setProfilePic(reader.result);
+    };
+  } else {
+    setProfilePic(null);
+  }
+};
   const handleSubmit = async (event) => {
     event.preventDefault();
     await dispatch(
-      editSingleUser(
-        { id: me.id, 
-          displayName, 
-          username, 
-          pronouns, 
-          aboutMe }
-        )
+      editSingleUser({
+        id: me.id,
+        displayName,
+        username,
+        pronouns,
+        profilePic,
+        aboutMe,
+      })
     );
-
+    setProfilePic(null);
     setDisplayName("");
     setUsername("");
     setPronouns("");
@@ -51,7 +64,7 @@ const EditUser = () => {
             onChange={(event) => setDisplayName(event.target.value)}
           />
         </label>
-        <br/>
+        <br />
 
         <label>
           New Username:
@@ -61,7 +74,7 @@ const EditUser = () => {
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
-        <br/>
+        <br />
 
         <label>
           Update Pronouns:
@@ -71,7 +84,7 @@ const EditUser = () => {
             onChange={(event) => setPronouns(event.target.value)}
           />
         </label>
-        <br/>
+        <br />
 
         <label>
           Update About Me:
@@ -81,13 +94,18 @@ const EditUser = () => {
             onChange={(event) => setAboutMe(event.target.value)}
           />
         </label>
-        <br/>
+        <br />
 
-        {/* <label>
+        <label>
           Change Profile Picture
-          <input name="profilePic" type="file" accept="image/*" />
-        </label> */}
-       
+      
+          <input
+            name="profilePic"
+            type="file"
+            accept="image/*"
+            onChange={handleProfilePicChange}
+          />
+        </label>
         <br></br>
         <br/>
         <button type="submit"><b>Submit Changes</b></button> 
