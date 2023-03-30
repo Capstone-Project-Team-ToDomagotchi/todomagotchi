@@ -4,7 +4,7 @@ import styles from "../styles/Footer.module.css";
 const Footer = () => {
     return (
         <footer className={styles.footer}>
-            <p>© 2023 TodoMagotchi</p>
+            <p>© 2023 TodoMagotchi | Artwork by Elizabeth "Betsy" Carter</p>
             </footer>
     )
 };
