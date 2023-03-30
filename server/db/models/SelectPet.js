@@ -11,8 +11,8 @@ const SelectPet = db.define("selectPet", {
     allowNull: false,
     defaultValue: "Pet",
   },
-  age: {
-    type: Sequelize.INTEGER,
+  createdAt: {
+    type: Sequelize.DATEONLY,
   },
   selectImg: {
     type: Sequelize.INTEGER,
