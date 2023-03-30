@@ -16,6 +16,7 @@
 .navbar a{
     float: right;
     padding: 1.5rem;
+    font-weight: bold;
 }
 
 .navbar h1 img {
