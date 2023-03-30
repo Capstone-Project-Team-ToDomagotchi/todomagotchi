@@ -15,31 +15,31 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      {isLoggedIn && (
-        <div className="login-logout">
-          <Link to={`/users/${userId}`}>Account</Link>
-          <Link to="/todos" className={styles.Link}>
-            Todos
-          </Link>
-        </div>
-      )}
       {isLoggedIn ? (
-        <Link to="/" onClick={logoutAndRedirectHome}>
+        <Link to="/" onClick={logoutAndRedirectHome}><b>
           Logout
-        </Link>
+        </b></Link>
       ) : (
         <div className="login-logout">
-          <Link to="/login" className={styles.Link}>
+          <Link to="/login" className={styles.Link}><b>
             Log In
-          </Link>
-          <Link to="/signup" className={styles.Link}>
+          </b></Link>
+          <Link to="/signup" className={styles.Link}><b>
             Sign Up
-          </Link>
+          </b></Link>
         </div>
       )}
-      <Link to="/home" className={styles.link}>
+      {isLoggedIn && (
+        <div className="login-logout">
+          <Link to={`/users/${userId}`}><b>Account</b></Link>
+          <Link to="/todos" className={styles.Link}><b>
+            Todos
+          </b></Link>
+        </div>
+      )}
+      <Link to="/home" className={styles.link}><b>
         Home
-      </Link>
+      </b></Link>
       
       <h1>TodoMagotchi<img src="/LogoCreatureMelonWhite.png"></img></h1>
       <hr />
