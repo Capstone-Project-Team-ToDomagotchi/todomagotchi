@@ -19,13 +19,7 @@ const PetProfile = () => {
   useEffect(() => {
     dispatch(fetchSelectPetAsync(petId));
   }, [dispatch]);
-
-  // console.log("img", singlePet.setImg())
-
-  // const addExp = async (id, exp) => {
-  //   await dispatch(addExpToPet({ id, exp }));
-  // };
-
+  
   const { id, name, age, exp, user, selectImg } = singlePet;
 
   return (
@@ -41,7 +35,6 @@ const PetProfile = () => {
           <h3>Owner:</h3>
           <h4>{user?.username}</h4>
           <p>EXP: {exp}</p>
-          <button onClick={() => addExp(id, exp)}>Add EXP</button>
           {/* ^^Need to implement a bar that shows how close to the next level^^*/}
         </div>
       </section>

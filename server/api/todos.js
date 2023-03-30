@@ -89,20 +89,20 @@ router.put("/:id/toggle", async (req, res, next) => {
     const updatedTodo = await todo.update({
       isCompleted: req.body.isCompleted,
     });
-    const checkTodo = (todo) => {
+    const checkTodo = async (todo) => {
       if (todo.pointType === "important" && todo.isCompleted) {
-        return selectedPet.increment({ exp: 20 });
+        await selectedPet.increment({ exp: 20 }); 
+        await selectedPet.setImg();
       }
       if (todo.pointType === "average" && todo.isCompleted) {
-        return selectedPet.increment({ exp: 10 });
+        await selectedPet.increment({ exp: 10 });
+        await selectedPet.setImg();
       } else {
-        return selectedPet;
+        await selectedPet;
+        await selectedPet.setImg();
       }
+      return selectedPet;
     };
-    //then use the selectPet's instance method to update its exp
-    //instance method to the selectPet model
-    //it is when the todo is toggled that the pet gains EXP
-    //will not need the checkImg function once model is updated to reflect
     res.json(checkTodo(updatedTodo));
   } catch (err) {
     next(err);

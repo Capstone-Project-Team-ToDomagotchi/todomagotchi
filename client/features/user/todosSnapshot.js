@@ -4,8 +4,6 @@ import { useParams, Link } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./singleUserSlice";
 import styles from "../styles/TodoSnapshot.module.css"
 
-import styles from "../styles/TodoSnapshot.module.css"
-
 const TodosSnapshot = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
