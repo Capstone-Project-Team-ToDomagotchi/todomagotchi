@@ -87,10 +87,10 @@ router.get("/profile/me", verifyToken, async (req, res, next) => {
 //Put route to edit user information
 router.put("/:id", async (req, res, next) => {
   try {
-    const { username, displayName, pronouns, aboutMe } = req.body;
+    const { username, displayName, pronouns, aboutMe, profilePic } = req.body;
     const editUser = await User.findByPk(req.params.id);
     res.send(
-      await editUser.update({ username, displayName, pronouns, aboutMe })
+      await editUser.update({ username, displayName, pronouns, aboutMe, profilePic })
     );
   } catch (err) {
     next(err);
