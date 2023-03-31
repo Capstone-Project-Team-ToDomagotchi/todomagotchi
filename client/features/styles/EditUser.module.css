@@ -1,24 +1,3 @@
-/* .editUser {
-    display: flex;
-    text-align: center;
-    background-color: rgb(249, 232, 210);
-    border-style: solid double;
-    border-width: medium;
-    font-weight: bold;
-    padding: 1rem;
-    margin-left: 30rem;
-    margin-right: 30rem;
-}
-
-.editUser form input {
-    padding:10px;
-    border-radius:10px;
-}
-
-.editUser form input::-webkit-file-upload-button {
-    
-} */
-
 .editUser {
     display: flex;
     text-align: center;
@@ -30,9 +9,9 @@
 
 .editUser form {
     background-color: rgb(249, 232, 210);
-    width: 80%;
+    width: 70%;
     height: 100vh;
-    margin-left: 8rem; 
+    margin-left: 13rem; 
     display: inline-block;
     align-items: center;
     border: thick double #1b4965;
@@ -47,19 +26,18 @@
 .editUser form input {
     display: block;
     display: inline-block;
+    background-color: seashell;
     height: 3vh;
-    padding: .5rem .8rem .5rem .8rem;
+    padding: 0.5rem;
     margin: .9vw 0;
     border-radius: 20px;
 }
 
 .editUser form input::-webkit-file-upload-button {
     background-color: rgb(62, 138, 78);
-    /* display: inline-block;
-    justify-content: center; */
     color: white;
     font-family: Poppins;
-    padding: 4px 4px;
+    padding: 2px 2px;
     font-weight: bold;
     font-size: 14px;
     border-radius: 12px;

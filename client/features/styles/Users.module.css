@@ -15,8 +15,8 @@
 
 /* This controls image size for user's profile picture */
 .userProfile header img {
-    height: 18rem;
-    width: 23rem;
+    height: 13rem;
+    width: 17rem;
 }
 
 /* This controls image size for friends list on user's profile page */
