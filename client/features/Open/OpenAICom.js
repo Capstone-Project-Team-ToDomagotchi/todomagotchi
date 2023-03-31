@@ -10,8 +10,9 @@ function OpenAI() {
     event.preventDefault();
 
     try {
-      const { data } = await axios.post('/ask', { prompt }, );
+      const { data } = await axios.post('/ask', { prompt, timeout:5000 }, );
       setResponse(data.message);
+      setPrompt('');
     } catch (error) {
       console.error(error);
     }
