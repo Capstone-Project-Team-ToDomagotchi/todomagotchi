@@ -23,3 +23,5 @@ const Todo = db.define("todo", {
 });
 
 module.exports = Todo;
+
+// casing error
