@@ -49,7 +49,6 @@ const PetProfile = () => {
   
   const formatDate = convertDate(createdAt);
 
-
   return (
     <div className={styles.PetProfile}>
       <section id="petProfile">

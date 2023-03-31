@@ -18,13 +18,17 @@ const TodosSnapshot = () => {
     }
   }, [dispatch, id]);
 
+  const dateNow = new Date();
+  console.log("current date", dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDay())
+  console.log("due date", todos?.[0].dueDate)
+
   return (
     <main className={styles.todoContainer}>
-    <h2>Current Todos</h2>
+    <h2 className={styles.homeHeader}>Current Todos</h2>
     {todos && todos.length ? (
       todos.map((todo) => (
         <section className={styles.todoList} key={todo.id}>
-          <Link to={`/todos/${todo.id}`}>Name: {todo.todoName}</Link>
+          <Link to={`/todos/${todo.id}`}>Name: {todo.todoName} </Link> |
           Deadline: {todo.dueDate}
         </section>
       ))

@@ -26,7 +26,6 @@ const LoggedIn = () => {
     dispatch(fetchTodosAsync());
   }, [dispatch]);
 
-  console.log("data", pets);
   return (
     <main className={styles.container}>
       <h3 className={styles.welcome}>Welcome, {username}!</h3>

@@ -5,3 +5,19 @@
 .petList {
     display: inline;
 }
+
+.homePetPic {
+    height: 22em;
+    width: auto;
+}
+
+.homeHeader {
+    background-color: #F5AE98;
+    padding: 1rem;
+    color: white;
+    border-radius: 25px;
+    border: solid 1px white;
+    width: 10em;
+    margin: auto;
+    margin-bottom: 4px;
+}
