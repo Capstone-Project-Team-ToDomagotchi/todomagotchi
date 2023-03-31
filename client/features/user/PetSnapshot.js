@@ -21,16 +21,14 @@ const PetSnapshot = () => {
   return (
     <main className="pet-details">
       <section className={styles.petContainer}>
-        <h2>Pets</h2>
+        <h2 className={styles.homeHeader}>Pets</h2>
         {selectPets && selectPets.length ? (
           selectPets.map((pet) => (
             <div className={styles.petList} key={pet.id}>
-              {/* vvv image needs to be fixed, temporarily set to 0 by default vvv */}
-              <img src={pet.pet.image?.[pet.selectImg]}/>
+              <img className={styles.homePetPic} src={pet.pet.image?.[pet.selectImg]}/>
               <Link to={`/pets/${pet.id}`}>
                 <h3>Name: {pet.name}</h3>
               </Link>
-              <p>Birthdate: {pet.createdAt}</p> 
             </div>
           ))
         ) : (

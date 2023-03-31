@@ -13,3 +13,11 @@
 .todosContainer {
     break-inside: avoid;
 }
+
+@media screen and (max-width: 1151px){
+    .loggedIn {
+        display: flex;
+        flex-flow: column wrap;
+        gap: 2em;
+    }
+}
