@@ -79,22 +79,6 @@ const AuthForm = ({ name, authMethod }) => {
       <main className={styles.loggedIn}>
         <form onSubmit={handleSubmit} name={name}>
           <div>
-            <label htmlFor="username">
-              <small>Username</small>
-            </label>
-            <input name="username" type="text" />
-          </div>
-          <div>
-            <label htmlFor="password">
-              <small>Password</small>
-            </label>
-            <input name="password" type="password" />
-          </div>
-          <div>
-            <button type="submit" onSubmit={redirect}>
-              {authMethod}
-            </button>
-        <div>
           <label htmlFor="username">
             <small>Username</small>
           </label>
@@ -106,8 +90,9 @@ const AuthForm = ({ name, authMethod }) => {
           </label>
           <input name="password" type="password" />
         </div>
+        <br />
         <div>
-          <button type="submit" onSubmit={redirect}>{authMethod}</button>
+          <button className="login"type="submit" onSubmit={redirect}>{authMethod}</button>
           </div>
         {error && <div> {error} </div>}
       </form>
@@ -155,13 +140,14 @@ const AuthForm = ({ name, authMethod }) => {
             <span className="icon">
             <FontAwesomeIcon icon={faCamera} />
           <label htmlFor="profilePic">Profile Picture</label>
-          <input name="profilePic" id="fakeButton" type="file" accept="image/*"/></span>
+          <input name="profilePic" type="file" accept="image/*"/></span>
           </section>
-          <button className="btn primary-btn" type="submit">
+          <br />
+          <br />
+          <button className="submit" type="submit">
             {authMethod}
           </button>
           {error && <div className="error"> {error} </div>}
-      
         </form>
         
       </main>
