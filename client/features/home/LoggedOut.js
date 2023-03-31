@@ -26,7 +26,7 @@ const LoggedOut = () => {
       <section className={styles.productivity}>
         <h3>Make your pet grow with productivity</h3>
         <p>
-          For each task you complete, your pet will gain experience points and grow to new stages and forms. But be careful! If you neglect to finish a task before the deadline you set, your pet loses experience points. Be sure to log on every day to ensure your pet stays healthy, or if you need a break, turn on Vacation Mode!
+          For each task you complete, your pet will gain experience points and grow to new stages and forms. But be careful! If you neglect to finish a task before the deadline you set, your pet loses experience points. Be sure to log on every day to ensure your pet stays healthy!
         </p>
         <div>
           <span>

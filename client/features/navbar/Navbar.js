@@ -15,14 +15,6 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      {isLoggedIn && (
-        <div className="login-logout">
-          <Link to={`/users/${userId}`}>Account</Link>
-          <Link to="/todos" className={styles.Link}>
-            Todos
-          </Link>
-        </div>
-      )}
       {isLoggedIn ? (
         <Link to="/" onClick={logoutAndRedirectHome}>
           Logout
@@ -37,10 +29,22 @@ const Navbar = () => {
           </Link>
         </div>
       )}
+      {isLoggedIn && (
+        <div className="login-logout">
+          <Link to={`/users/${userId}`}>
+            Account
+          </Link>
+          <Link to="/todos" className={styles.Link}>
+            Todos
+          </Link>
+          
+        </div>
+      )}
       <Link to="/home" className={styles.link}>
         Home
       </Link>
-      <h1>TodoMagotchi</h1>
+      
+      <h1>TodoMagotchi<img src="/LogoCreatureMelonWhite.png"></img></h1>
       <hr />
     </nav>
   );

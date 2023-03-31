@@ -21,7 +21,8 @@ const PetProfile = () => {
     dispatch(fetchSelectPetAsync(petId));
   }, [dispatch]);
 
-  const { id, name, age, exp, user, selectImg } = singlePet;
+  
+  const { id, name, createdAt, age, exp, user, selectImg } = singlePet;
 
   return (
     <div className={styles.PetProfile}>

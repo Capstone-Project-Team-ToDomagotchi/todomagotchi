@@ -10,6 +10,7 @@ export const fetchSingleTodo = createAsyncThunk("singleTodo", async (id) => {
     console.error(err);
   }
 });
+
 /**
  * edit a single todo
  * @returns todo information it received from the AJAX request
@@ -20,14 +21,16 @@ export const editSingleTodo = createAsyncThunk(
   "editSingleTodo",
   async ({ id, dueDate, todoName, pointType, description, isCompleted }) => {
     try {
-      const { data } = await axios.put(
-        `/api/todos/${todoData.id}`,
-        todoData.formValues
-      );
+      const { data } = await axios.put(`/api/todos/${id}`, {
+        dueDate,
+        todoName,
+        description,
+        pointType,
+        isCompleted,
+      });
       return data;
-    } catch (error) {
-      console.error(error);
-      throw error;
+    } catch (err) {
+      console.error(err);
     }
   }
 );
@@ -46,11 +49,7 @@ export const deleteSingleTodo = createAsyncThunk(
 );
 
 //set state
-const initialState = {
-  todo: [],
-  status: "idle",
-  error: null,
-};
+const initialState = {};
 
 //slices
 export const singleTodoSlice = createSlice({
