@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { selectSingleUser, fetchSingleUser } from "./singleUserSlice";
 import FriendsSnapshot from "./FriendsSnapshot";
 
@@ -9,6 +9,7 @@ import styles from  "../styles/Users.module.css"
 //Component to view User's profile
 const User = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const singleUser = useSelector(selectSingleUser);
@@ -35,7 +36,7 @@ const User = () => {
               {aboutMe && <p>About Me: {aboutMe} </p>}
               <br />
               {(currentUser.id === singleUser.id) &&
-              <Link to={`/users/${id}/edit`}>Edit Profile</Link>}
+              <button onClick={() => navigate(`/users/${id}/edit`)}><b>Edit Profile</b></button>}
             </div>
           </header>
           <hr />

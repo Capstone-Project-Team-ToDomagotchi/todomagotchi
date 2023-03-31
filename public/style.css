@@ -11,6 +11,10 @@ a:visited {
   color: darkolivegreen;
 }
 
+a:hover {
+  color: rgb(245, 174, 152);
+}
+
 img {
   width: 100px;
   height: 100px;
@@ -23,8 +27,16 @@ hr {
 }
 
 button {
-  color: white;
   background-color: green;
-  border-radius: 20%;
-  height: 1.5rem;
+  color: white;
+  padding: 12px 20px;
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 12px;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: rgb(245, 174, 152);
 }

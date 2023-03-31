@@ -1,0 +1,10 @@
+.editUser {
+    display: inline-flexbox;
+    text-align: center;
+    border-style: solid double;
+    border-width: medium;
+    padding: 5px;
+    margin-left: 30rem;
+    margin-right: 30rem;
+    background-color: rgb(248, 225, 197);
+}
