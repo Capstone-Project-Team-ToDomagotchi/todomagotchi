@@ -78,14 +78,11 @@ router.put("/:id/toggle", async (req, res, next) => {
     const todo = await Todo.findByPk(req.params.id, {
       include: { all: true, nested: true },
     });
-    console.log(todo);
     if (!todo) {
       return res.status(404).send("Todo not found");
     }
     const users = await todo.getUser({ include: { all: true, nested: true } });
     const selectedPet = users.selectPets?.[0];
-    console.log("exp", selectedPet.exp);
-    selectedPet.exp = selectedPet.exp + 10;
     const updatedTodo = await todo.update({
       isCompleted: req.body.isCompleted,
     });
@@ -108,5 +105,34 @@ router.put("/:id/toggle", async (req, res, next) => {
     next(err);
   }
 });
+
+router.put("/:id/deadline", async (req, res, next) => {
+  try {const todo = await Todo.findByPk(req.params.id, {
+    include: { all: true, nested: true },
+  });
+  if (!todo) {
+    return res.status(404).send("Todo not found");
+  }
+  const users = await todo.getUser({ include: { all: true, nested: true } });
+  const selectedPet = users.selectPets?.[0];
+  const dateNow = new Date();
+  console.log(dateNow)
+  // const checkDeadline = async (todo) => {
+  //   if (dateNow > req.body.dueDate && !todo.isCompleted){
+  //     req.body.todoName = req.body.todoName + "***Overdue!***"
+  //   }
+  // }
+  // const updatedTodo = await todo.update({
+  //   todoName: checkDeadline(req.body.todoName),
+  // });
+  const checkTodo = async (todo) => {
+    if (dateNow > req.body.dueDate && !todo.isCompleted && exp > 5) {
+      await selectedPet.decrement({ exp: 5 });
+      await selectedPet.setImg();
+    }
+    return selectedPet;
+  };
+  res.json(checkTodo(updatedTodo));}
+  catch (err) {next(err)}})
 
 module.exports = router;

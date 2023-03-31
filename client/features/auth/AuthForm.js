@@ -32,9 +32,9 @@ const AuthForm = ({ name, authMethod }) => {
       const displayName = evt.target.displayName.value;
       const pronouns = evt.target.pronouns.value;
       const profilePic = evt.target.profilePic.files[0];
-      const profilePicUrl = profilePic
-        ? URL.createObjectURL(profilePic)
-        : "pfp.png"; // create URL for the image file
+      // const profilePicUrl = profilePic
+      //   ? URL.createObjectURL(profilePic)
+      //   : "pfp.png"; // create URL for the image file
       const reader = new FileReader();
       reader.onload = () => {
         dispatch(
@@ -76,22 +76,27 @@ const AuthForm = ({ name, authMethod }) => {
 
   if (authMethod === "Login") {
     return (
-      <main className={styles.loggedIn}>
-        <form onSubmit={handleSubmit} name={name}>
-        <div>
+      <main className={styles.container}>
+        <form className={styles.loggedInForm} onSubmit={handleSubmit} name={name}>
+        <h1>Log In</h1>
+          <hr />
+          <span>
+          <FontAwesomeIcon icon={faUser} />
           <label htmlFor="username">
             <small>Username</small>
           </label>
           <input name="username" type="text" />
-        </div>
-        <div>
+        </span>
+        <span>
+        <FontAwesomeIcon icon={faLock} />
           <label htmlFor="password">
-            <small>password</small>
+            <small>Password</small>
           </label>
           <input name="password" type="password" />
-        </div>
+        </span>
+        <br />
         <div>
-          <button type="submit" onSubmit={redirect}>{authMethod}</button>
+          <button className="login"type="submit" onSubmit={redirect}>{authMethod}</button>
           </div>
         {error && <div> {error} </div>}
       </form>
@@ -139,13 +144,14 @@ const AuthForm = ({ name, authMethod }) => {
             <span className="icon">
             <FontAwesomeIcon icon={faCamera} />
           <label htmlFor="profilePic">Profile Picture</label>
-          <input name="profilePic" id="fakeButton" type="file" accept="image/*"/></span>
+          <input name="profilePic" type="file" accept="image/*"/></span>
           </section>
-          <button className="btn primary-btn" type="submit">
+          <br />
+          <br />
+          <button className="submit" type="submit">
             {authMethod}
           </button>
           {error && <div className="error"> {error} </div>}
-      
         </form>
         
       </main>

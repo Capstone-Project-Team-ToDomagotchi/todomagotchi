@@ -16,7 +16,7 @@ router.get("/", async (req, res, next) => {
   }
   });
 
-  //get a pet by id
+//get a pet by id
 router.get("/:id", async (req, res, next) => {
   try {
     const petById = await SelectPet.findOne({

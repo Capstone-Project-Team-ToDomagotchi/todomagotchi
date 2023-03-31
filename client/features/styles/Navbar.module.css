@@ -1,7 +1,7 @@
 .navbar {
     box-sizing: border-box;
     position: sticky;
-    padding-top: 2rem;
+    padding-top: 1rem;
     width: 100%;
     justify-content: space-between;
 }
@@ -10,8 +10,8 @@
     text-align: center;
     margin-top: 5rem;
     font-family: 'Rubik Moonrocks', cursive;
-    font-size: 3.2rem;
-    color: green;
+    font-size: 3rem;
+    color: #3E8A4E;
 }
 
 .navbar a{

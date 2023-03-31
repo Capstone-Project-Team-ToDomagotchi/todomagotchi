@@ -26,10 +26,9 @@ const User = () => {
   const currentUser = useSelector((state) => state.auth.me);
 
   return (
-      <div className={styles.userProfile}>
+      <main className={styles.userProfile}>
           <header id="user-header">
-            <img id="userImg" src={profilePic}></img>
-            <div>
+            <img id="user-img" src={profilePic}></img>
               {displayName && <h2>Name: {displayName}</h2>}
               {username && <h3>Username: {username} </h3>}
               {pronouns && <p>Pronouns: {pronouns}</p>}
@@ -38,11 +37,11 @@ const User = () => {
               {/* This conditional allows Edit Profile button to be seen only by logged-in user for their own profile */}
               {(currentUser.id === singleUser.id) &&
               <button onClick={() => navigate(`/users/${id}/edit`)}>Edit Profile</button>}
-            </div>
           </header>
-          <hr />
-            <FriendsSnapshot />
-      </div>
+          <section className="friendsDisplay">
+          <FriendsSnapshot />
+          </section>
+      </main>
   );
 };
 

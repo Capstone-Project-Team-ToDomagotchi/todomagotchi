@@ -20,7 +20,7 @@
 }
 
 .petName {
-    background-color: blue;
+    background-color: #3E8A4E;
     padding: 2rem;
     color: white;
     border-radius: 25px;
@@ -28,13 +28,12 @@
 }
 
 .profileHeader{
-    background-color: pink;
+    background-color: #F5AE98;
     padding: 1rem;
     border-radius: 15px;
 }
 
 .rightProfile {
-    background-color: orange;
     float: right;
     width: 30rem;
     border-radius: 15px;

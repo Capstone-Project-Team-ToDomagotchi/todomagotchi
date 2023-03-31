@@ -1,26 +1,32 @@
 .userProfile {
-    display: inline-flexbox;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
     text-align: center;
+    align-content: space-around;
+    align-items: center
 }
 
 .userProfile header {
-    background-color: rgb(249, 232, 210);
+    width:40%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vh;
+    padding: 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex: column;
+    flex-flow: column;
     border: thick double #1b4965;
     border-radius: 20px;
-    border-width: medium;
-    padding: 5px;
-    margin-left: 20rem;
-    margin-right: 20rem;
+    background-color: rgb(248, 225, 197);
 }
 
-/* This controls image size for user's profile picture */
-.userProfile header img {
-    height: 13rem;
-    width: 17rem;
-}
-
-/* This controls image size for friends list on user's profile page */
-.userProfile img {
-    height: 7rem;
-    width: 7rem;
+.userProfile section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0vw;
 }

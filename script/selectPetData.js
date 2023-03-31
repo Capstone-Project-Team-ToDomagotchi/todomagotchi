@@ -3,7 +3,7 @@ const { SelectPet } = require("../server/db");
 async function selectPetSeed() {
   const selectPets = await Promise.all([
     SelectPet.create({
-      exp: 69,
+      exp: 50,
       userId: 1,
       petId: 2,
       name: "Meow Meow",
@@ -19,7 +19,7 @@ async function selectPetSeed() {
       selectImg: 0,
     }),
     SelectPet.create({
-      exp: 96,
+      exp: 90,
       userId: 3,
       petId: 1,
       name: "Little Foot",
@@ -27,7 +27,7 @@ async function selectPetSeed() {
       selectImg: 2,
     }),
     SelectPet.create({
-      exp: 92,
+      exp: 50,
       userId: 4,
       petId: 4,
       name: "Clover",

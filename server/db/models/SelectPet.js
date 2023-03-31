@@ -21,7 +21,7 @@ const SelectPet = db.define("selectPet", {
 });
 
 SelectPet.prototype.setImg = function () {
-  if (this.exp >= 90) {
+  if (this.exp >= 100) {
     this.selectImg = 2;
   }
   else if (this.exp >= 60) {
