@@ -20,7 +20,7 @@
 }
 
 .petName {
-    background-color: blue;
+    background-color: green;
     padding: 2rem;
     color: white;
     border-radius: 25px;
@@ -34,7 +34,7 @@
 }
 
 .rightProfile {
-    background-color: orange;
+    background-color: wheat;
     float: right;
     width: 30rem;
     border-radius: 15px;

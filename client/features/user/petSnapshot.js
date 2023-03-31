@@ -30,7 +30,6 @@ const PetSnapshot = () => {
               <Link to={`/pets/${pet.id}`}>
                 <h3>Name: {pet.name}</h3>
               </Link>
-              <p>Birthdate: {pet.createdAt}</p> 
             </div>
           ))
         ) : (

@@ -25,7 +25,7 @@ const TodosSnapshot = () => {
       todos.map((todo) => (
         <section className={styles.todoList} key={todo.id}>
           <Link to={`/todos/${todo.id}`}>Name: {todo.todoName}</Link>
-          {todos.description}
+          Deadline: {todo.dueDate}
         </section>
       ))
     ) : (

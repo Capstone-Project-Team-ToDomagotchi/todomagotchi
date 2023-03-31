@@ -21,8 +21,34 @@ const PetProfile = () => {
     dispatch(fetchSelectPetAsync(petId));
   }, [dispatch]);
 
+  const { id, name, createdAt, exp, user, selectImg } = singlePet;
+  const convertDate = function (date) {
+    const months = [
+      "Null",
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const stringify = String(date);
+    const yearStr = stringify.slice(0, 4);
+    const monthStr = stringify.slice(5, 7);
+    const dayStr = stringify.slice(8, 10);
+    const monthNum = Number(monthStr);
+    const selectMonth = months[monthNum];
+    return `${selectMonth} ${dayStr}, ${yearStr}`;
+  };
   
-  const { id, name, createdAt, age, exp, user, selectImg } = singlePet;
+  const formatDate = convertDate(createdAt);
+
 
   return (
     <div className={styles.PetProfile}>
@@ -37,8 +63,8 @@ const PetProfile = () => {
           </section>
           <section className={styles.rightProfile}>
             <h2 className={styles.petName}>{name}</h2>
-            <h3 className={styles.profileHeader}>Age:</h3>
-            <h4>{age}</h4>
+            <h3 className={styles.profileHeader}>Birthdate:</h3>
+            <h4>{formatDate}</h4>
             <h3 className={styles.profileHeader}>Species:</h3>
             <h4>{singlePet.pet?.species}</h4>
             <h3 className={styles.profileHeader}>Owner:</h3>
