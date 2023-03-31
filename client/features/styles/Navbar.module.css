@@ -16,6 +16,14 @@
 .navbar a{
     float: right;
     padding: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar h1 img {
+    display: inline;
+    height: 75px;
+    width: 50px;
+    margin-left: 0.5rem;
 }
 
 

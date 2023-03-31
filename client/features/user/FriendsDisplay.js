@@ -21,7 +21,7 @@ const FriendsDisplay = ({ users }) => {
                     return (
                     <li key={user.id}>
                         <Link to={`/user/${user.id}`}>
-                            <img src={user.profilePic} />
+                            <img src="https://cdn.pixabay.com/photo/2021/02/13/19/00/happy-6012501_1280.png" />
                             <p>{user.username}</p>
                             </Link>
                         </li>
