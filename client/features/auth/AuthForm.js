@@ -114,7 +114,7 @@ const AuthForm = ({ name, authMethod }) => {
           <section className={styles.pronouns}>
             <span className="icon">
               <FontAwesomeIcon icon={faCircleUser} />
-              <label htmlFor="pronounce">Pronouns</label>
+              <label htmlFor="pronouns">Pronouns</label>
               <input name="pronouns" type="text" placeholder="Pronouns"/></span>
           </section>
           <section className={styles.email}>
