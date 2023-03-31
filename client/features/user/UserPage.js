@@ -26,10 +26,9 @@ const User = () => {
   const currentUser = useSelector((state) => state.auth.me);
 
   return (
-      <div className={styles.userProfile}>
+      <main className={styles.userProfile}>
           <header id="user-header">
             <img id="user-img" src={profilePic}></img>
-            <div>
               {displayName && <h2>Name: {displayName}</h2>}
               {username && <h3>Username: {username} </h3>}
               {pronouns && <p>Pronouns: {pronouns}</p>}
@@ -37,11 +36,11 @@ const User = () => {
               <br />
               {(currentUser.id === singleUser.id) &&
               <button onClick={() => navigate(`/users/${id}/edit`)}>Edit Profile</button>}
-            </div>
           </header>
-          <hr />
+          <section className="friendsDisplay">
           <FriendsSnapshot />
-      </div>
+          </section>
+      </main>
   );
 };
 
