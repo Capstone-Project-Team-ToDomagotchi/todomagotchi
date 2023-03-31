@@ -76,20 +76,24 @@ const AuthForm = ({ name, authMethod }) => {
 
   if (authMethod === "Login") {
     return (
-      <main className={styles.loggedIn}>
-        <form onSubmit={handleSubmit} name={name}>
-          <div>
+      <main className={styles.container}>
+        <form className={styles.loggedInForm} onSubmit={handleSubmit} name={name}>
+        <h1>Log In</h1>
+          <hr />
+          <span>
+          <FontAwesomeIcon icon={faUser} />
           <label htmlFor="username">
             <small>Username</small>
           </label>
           <input name="username" type="text" />
-        </div>
-        <div>
+        </span>
+        <span>
+        <FontAwesomeIcon icon={faLock} />
           <label htmlFor="password">
-            <small>password</small>
+            <small>Password</small>
           </label>
           <input name="password" type="password" />
-        </div>
+        </span>
         <br />
         <div>
           <button className="login"type="submit" onSubmit={redirect}>{authMethod}</button>
