@@ -2,6 +2,11 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authenticate } from "../../app/store";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faUser, faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { faDisplay, faLock, faCamera } from "@fortawesome/free-solid-svg-icons";
+
+import styles from "../styles/AuthForm.module.css";
 
 /**
   The AuthForm component can be used for Login or Sign Up.
@@ -71,75 +76,74 @@ const AuthForm = ({ name, authMethod }) => {
 
   if (authMethod === "Login") {
     return (
-      <div className="login">
+      <main className={styles.loggedIn}>
         <form onSubmit={handleSubmit} name={name}>
-          <div>
-            <label htmlFor="username">
-              <small>Username</small>
-            </label>
-            <input name="username" type="text" />
+        <div>
+          <label htmlFor="username">
+            <small>Username</small>
+          </label>
+          <input name="username" type="text" />
+        </div>
+        <div>
+          <label htmlFor="password">
+            <small>password</small>
+          </label>
+          <input name="password" type="password" />
+        </div>
+        <div>
+          <button type="submit" onSubmit={redirect}>{authMethod}</button>
           </div>
-          <div>
-            <label htmlFor="password">
-              <small>Password</small>
-            </label>
-            <input name="password" type="password" />
-          </div>
-          <div>
-            <button type="submit" onSubmit={redirect}>
-              {authMethod}
-            </button>
-          </div>
-          {error && <div> {error} </div>}
-        </form>
-      </div>
-    );
+        {error && <div> {error} </div>}
+      </form>
+    </main>
+    )
   }
 
   if (authMethod === "Sign Up") {
     return (
-      <main id="signup" className="container">
-        <form className="form" onSubmit={handleSubmit} name={name}>
-          <div className="form-group">
-            <label htmlFor="displayName" className="form-label">
-              Display Name
-            </label>
-            <input name="displayName" type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="pronouns" className="form-label">
-              pronouns
-            </label>
-            <input name="pronouns" type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input name="email" type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="username" className="form-label">
-              Username
-            </label>
-            <input name="username" type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-            <input name="password" type="password" className="form-control" />
-          </div>
-          <div>
-            <label htmlFor="profilePic" className="form-label">
-              <small>Profile Picture</small>
-            </label>
-            <input name="profilePic" type="file" accept="image/*" />
-          </div>
+      <main className={styles.container}>
+        <form className={styles.signUpForm} onSubmit={handleSubmit} name={name}>
+          <h1>Sign Up</h1>
+          <hr />
+          <section className={styles.displayName}>
+            <span className="icon"> 
+              <FontAwesomeIcon icon={faDisplay} />
+              <label htmlFor="displayName">Display Name</label>
+              <input name="displayName" type="text" placeholder="Display name"/></span>
+          </section>
+          <section className={styles.pronouns}>
+            <span className="icon">
+              <FontAwesomeIcon icon={faCircleUser} />
+              <label htmlFor="pronounce">Pronouns</label>
+              <input name="pronouns" type="text" placeholder="Pronouns"/></span>
+          </section>
+          <section className={styles.email}>
+            <span className="icon">
+              <FontAwesomeIcon icon={faEnvelope} />
+              <label htmlFor="email">Email</label>
+              <input name="email" type="text" placeholder="Email"/></span>
+          </section>
+          <section className={styles.userName}>
+            <span className="icon">
+              <FontAwesomeIcon icon={faUser} />
+              <label htmlFor="userName">Username</label>
+              <input name="username" type="text" placeholder="Username"/></span>
+          </section>
+          <section className={styles.password}>
+            <span className="icon">
+          <FontAwesomeIcon icon={faLock} />
+          <label htmlFor="password">Password</label>
+            <input name="password" type="password" placeholder="Password"/></span>
+          </section>
+          <section className={styles.profilePicUrl}>
+            <span className="icon">
+            <FontAwesomeIcon icon={faCamera} />
+          <label htmlFor="profilePic">Profile Picture</label>
+          <input name="profilePic" id="fakeButton" type="file" accept="image/*"/></span>
+          </section>
           <button className="btn primary-btn" type="submit">
             {authMethod}
           </button>
-
           {error && <div className="error"> {error} </div>}
       
         </form>
