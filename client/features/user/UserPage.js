@@ -28,19 +28,20 @@ const User = () => {
   return (
       <div className={styles.userProfile}>
           <header id="user-header">
-            <img id="user-img" src={profilePic}></img>
+            <img id="userImg" src={profilePic}></img>
             <div>
               {displayName && <h2>Name: {displayName}</h2>}
               {username && <h3>Username: {username} </h3>}
               {pronouns && <p>Pronouns: {pronouns}</p>}
               {aboutMe && <p>About Me: {aboutMe} </p>}
               <br />
+              {/* This conditional allows Edit Profile button to be seen only by logged-in user for their own profile */}
               {(currentUser.id === singleUser.id) &&
               <button onClick={() => navigate(`/users/${id}/edit`)}>Edit Profile</button>}
             </div>
           </header>
           <hr />
-          <FriendsSnapshot />
+            <FriendsSnapshot />
       </div>
   );
 };

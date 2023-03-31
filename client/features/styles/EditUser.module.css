@@ -1,9 +1,74 @@
-.editUser {
+/* .editUser {
     display: flex;
     text-align: center;
+    background-color: rgb(249, 232, 210);
     border-style: solid double;
     border-width: medium;
+    font-weight: bold;
     padding: 1rem;
     margin-left: 30rem;
     margin-right: 30rem;
 }
+
+.editUser form input {
+    padding:10px;
+    border-radius:10px;
+}
+
+.editUser form input::-webkit-file-upload-button {
+    
+} */
+
+.editUser {
+    display: flex;
+    text-align: center;
+}
+
+.editUser h3 {
+    font-size: 1.5rem;
+}
+
+.editUser form {
+    background-color: rgb(249, 232, 210);
+    width: 80%;
+    height: 100vh;
+    margin-left: 8rem; 
+    display: inline-block;
+    align-items: center;
+    border: thick double #1b4965;
+    border-radius: 20px;
+}
+
+.editUser form label {
+    /* padding: 1rem; */
+    font-weight: bold;
+}
+
+.editUser form input {
+    display: block;
+    display: inline-block;
+    height: 3vh;
+    padding: .5rem .8rem .5rem .8rem;
+    margin: .9vw 0;
+    border-radius: 20px;
+}
+
+.editUser form input::-webkit-file-upload-button {
+    background-color: rgb(62, 138, 78);
+    /* display: inline-block;
+    justify-content: center; */
+    color: white;
+    font-family: Poppins;
+    padding: 4px 4px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 12px;
+}
+
+.editUser form input::-webkit-file-upload-button:hover {
+    background-color: rgb(245, 174, 152);
+}
+
+.editUser form span{
+   display: inline-block;
+} 

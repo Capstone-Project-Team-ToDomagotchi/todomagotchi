@@ -4,10 +4,23 @@
 }
 
 .userProfile header {
-    border-style: solid double;
+    background-color: rgb(249, 232, 210);
+    border: thick double #1b4965;
+    border-radius: 20px;
     border-width: medium;
     padding: 5px;
-    margin-left: 30rem;
-    margin-right: 30rem;
-    background-color: rgb(248, 225, 197);
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
+
+/* This controls image size for user's profile picture */
+.userProfile header img {
+    height: 18rem;
+    width: 23rem;
+}
+
+/* This controls image size for friends list on user's profile page */
+.userProfile img {
+    height: 7rem;
+    width: 7rem;
 }
