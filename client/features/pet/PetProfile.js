@@ -22,6 +22,18 @@ const PetProfile = () => {
   }, [dispatch]);
 
   const { id, name, createdAt, exp, user, selectImg } = singlePet;
+  const expTilLevel = function () {
+    if (selectImg === 0){
+      return 60;
+    }
+    if (selectImg === 1){
+      return 100; 
+    }
+    if (selectImg === 2){
+      return "Max Level!";
+    }
+  }
+
   const convertDate = function (date) {
     const months = [
       "Null",
@@ -58,7 +70,7 @@ const PetProfile = () => {
               className={styles.profilePetImg}
               src={singlePet.pet?.image?.[selectImg]}
             />
-            <h3 className={styles.profileHeader}>EXP: {exp}</h3>
+            <h3 className={styles.profileHeader}>EXP: {exp} / {expTilLevel(selectImg)}</h3>
           </section>
           <section className={styles.rightProfile}>
             <h2 className={styles.petName}>{name}</h2>

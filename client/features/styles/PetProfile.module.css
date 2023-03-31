@@ -28,13 +28,12 @@
 }
 
 .profileHeader{
-    background-color: pink;
+    background-color: #F5AE98;
     padding: 1rem;
     border-radius: 15px;
 }
 
 .rightProfile {
-    background-color: seashell;
     float: right;
     width: 30rem;
     border-radius: 15px;

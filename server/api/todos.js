@@ -130,10 +130,6 @@ router.put("/:id/deadline", async (req, res, next) => {
       await selectedPet.decrement({ exp: 5 });
       await selectedPet.setImg();
     }
-   else {
-      await selectedPet;
-      await selectedPet.setImg();
-    }
     return selectedPet;
   };
   res.json(checkTodo(updatedTodo));}

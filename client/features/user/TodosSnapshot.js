@@ -18,10 +18,6 @@ const TodosSnapshot = () => {
     }
   }, [dispatch, id]);
 
-  const dateNow = new Date();
-  console.log("current date", dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDay())
-  console.log("due date", todos?.[0].dueDate)
-
   return (
     <main className={styles.todoContainer}>
     <h2 className={styles.homeHeader}>Current Todos</h2>
