@@ -6,6 +6,12 @@ module.exports = {
   },
   context: __dirname,
   devtool: "source-map",
+  mode: 'development',
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   module: {
     rules: [
       {
