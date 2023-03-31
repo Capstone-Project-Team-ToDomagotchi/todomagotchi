@@ -1,0 +1,72 @@
+@media (min-width: 375px) and (max-width: 1440px) {
+}
+.editTodo {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.editTodo h3 {
+  color: #6b8e23;
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.editTodo label {
+  color: #556b2f;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.editTodo input,
+.editTodo select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #556b2f;
+  background-color: #f0f8ff;
+}
+
+.editTodo input:focus,
+.editTodo select:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+}
+
+.editTodo button[type="submit"] {
+  background-color: #3e8a4e;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.editTodo button[type="submit"]:hover {
+  background-color: #556b2f;
+}
+
+.editTodo a {
+  color: #6b8e23;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.editTodo a:hover {
+  color: #556b2f;
+}
