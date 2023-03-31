@@ -8,7 +8,7 @@
 }
 
 .userProfile header {
-    width:40%;
+    width: 40%;
     justify-content: center;
     align-items: center;
     margin-bottom: 2vh;
@@ -19,7 +19,12 @@
     flex-flow: column;
     border: thick double #1b4965;
     border-radius: 20px;
-    background-color: rgb(248, 225, 197);
+    background-color: rgb(249, 232, 210);
+}
+
+.userProfile header img {
+    height: 13rem;
+    width: 17rem;
 }
 
 .userProfile section {
@@ -29,4 +34,6 @@
     align-items: center;
     width: 100%;
     margin: 0vw;
-}
+} 
+
+

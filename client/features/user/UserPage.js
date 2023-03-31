@@ -31,8 +31,8 @@ const User = () => {
             <img id="user-img" src={profilePic}></img>
               {displayName && <h2>Name: {displayName}</h2>}
               {username && <h3>Username: {username} </h3>}
-              {pronouns && <p>Pronouns: {pronouns}</p>}
-              {aboutMe && <p>About Me: {aboutMe} </p>}
+              {pronouns && <p><strong>Pronouns:</strong> {pronouns}</p>}
+              {aboutMe && <p><strong>About Me:</strong> {aboutMe} </p>}
               <br />
               {/* This conditional allows Edit Profile button to be seen only by logged-in user for their own profile */}
               {(currentUser.id === singleUser.id) &&
