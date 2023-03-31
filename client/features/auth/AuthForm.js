@@ -83,30 +83,40 @@ const AuthForm = ({ name, authMethod }) => {
     return (
       <main className={styles.container}>
         <form className={styles.signUpForm} onSubmit={handleSubmit} name={name}>
+          <h1>Sign Up</h1>
+          <hr />
           <section className={styles.displayName}>
-          <FontAwesomeIcon icon={faDisplay} />
-            <input name="displayName" type="text" placeholder="Display Name"/>
+            <span className="icon"> 
+              <FontAwesomeIcon icon={faDisplay} />
+              <label htmlFor="displayName">Display Name</label>
+              <input name="displayName" type="text" placeholder="Display name"/></span>
           </section>
           <section className={styles.pronouns}>
-          <FontAwesomeIcon icon={faCircleUser} />
-            <input name="pronouns" type="text" placeholder="Pronouns"/>
+            <span className="icon">
+              <FontAwesomeIcon icon={faCircleUser} />
+              <label htmlFor="pronounce">Pronouns</label>
+              <input name="pronouns" type="text" placeholder="Pronouns"/></span>
           </section>
           <section className={styles.email}>
-          <FontAwesomeIcon icon={faEnvelope}/>
-            <input name="email" type="text" placeholder="Email"/>
+            <span className="icon">
+              <FontAwesomeIcon icon={faEnvelope} />
+              <label htmlFor="email">Email</label>
+              <input name="email" type="text" placeholder="Email"/></span>
           </section>
           <section className={styles.userName}>
-            <FontAwesomeIcon icon={faUser} />
-            <input name="username" type="text" placeholder="Username"/>
+            <span className="icon">
+              <FontAwesomeIcon icon={faUser} />
+              <label htmlFor="userName">Username</label>
+              <input name="username" type="text" placeholder="Username"/></span>
           </section>
           <section className={styles.password}>
+            <span className="icon">
           <FontAwesomeIcon icon={faLock} />
-            <input name="password" type="password" placeholder="Password"/>
+          <label htmlFor="password">Password</label>
+            <input name="password" type="password" placeholder="Password"/></span>
           </section>
           <section className={styles.profilePicUrl}>
-          <label htmlFor="profilePic" className="form-label">
-            <p>Profile Picture</p>
-          </label>
+          <label htmlFor="profilePic">Profile Picture</label>
           <input name="profilePic" type="file" accept="image/*" />
           </section>
           <button className="btn primary-btn" type="submit">

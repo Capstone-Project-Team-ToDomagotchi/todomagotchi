@@ -1,4 +1,7 @@
+/* styling for sign up form */
+
 .container{
+    display: flex;
     margin: 10vh;
     padding: auto;
     text-align: center;
@@ -10,7 +13,11 @@
     margin: 0vw;
     padding: 5vw;
     display: inline-block;
-   
+    border: 1px dotted black;
+}
+
+.signUpForm label {
+    padding: 1rem;
 }
 
 .signUpForm input {
@@ -20,6 +27,15 @@
     margin: .9vw 0;
     border-radius: 20px;
 }
+
+
+.signUpForm span{
+   display: inline-block;
+} 
+
+
+
+/* styling for login form */
 
 .loggedInForm {
     width: 80%;
