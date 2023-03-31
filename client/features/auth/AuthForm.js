@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { authenticate } from "../../app/store";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faUser, faCircleUser } from '@fortawesome/free-regular-svg-icons';
-import { faDisplay, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faDisplay, faLock, faCamera } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../styles/AuthForm.module.css";
 
@@ -116,8 +116,10 @@ const AuthForm = ({ name, authMethod }) => {
             <input name="password" type="password" placeholder="Password"/></span>
           </section>
           <section className={styles.profilePicUrl}>
+            <span className="icon">
+            <FontAwesomeIcon icon={faCamera} />
           <label htmlFor="profilePic">Profile Picture</label>
-          <input name="profilePic" type="file" accept="image/*" />
+          <input name="profilePic" id="fakeButton" type="file" accept="image/*"/></span>
           </section>
           <button className="btn primary-btn" type="submit">
             {authMethod}
