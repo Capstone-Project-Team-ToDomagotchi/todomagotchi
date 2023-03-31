@@ -36,7 +36,7 @@ const User = () => {
               {aboutMe && <p>About Me: {aboutMe} </p>}
               <br />
               {(currentUser.id === singleUser.id) &&
-              <button onClick={() => navigate(`/users/${id}/edit`)}><b>Edit Profile</b></button>}
+              <button onClick={() => navigate(`/users/${id}/edit`)}>Edit Profile</button>}
             </div>
           </header>
           <hr />

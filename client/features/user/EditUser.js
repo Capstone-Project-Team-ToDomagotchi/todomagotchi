@@ -108,8 +108,8 @@ const EditUser = () => {
         </label>
         <br></br>
         <br/>
-        <button type="submit"><b>Submit Changes</b></button> 
-        <button onClick={() => navigate("/users/:id")}><b>Cancel</b></button>
+        <button type="submit">Submit Changes</button> 
+        <button onClick={() => navigate("/users/:id")}>Cancel</button>
       </form>
     </div>
   );
