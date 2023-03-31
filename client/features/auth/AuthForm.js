@@ -27,9 +27,9 @@ const AuthForm = ({ name, authMethod }) => {
       const displayName = evt.target.displayName.value;
       const pronouns = evt.target.pronouns.value;
       const profilePic = evt.target.profilePic.files[0];
-      const profilePicUrl = profilePic
-        ? URL.createObjectURL(profilePic)
-        : "pfp.png"; // create URL for the image file
+      // const profilePicUrl = profilePic
+      //   ? URL.createObjectURL(profilePic)
+      //   : "pfp.png"; // create URL for the image file
       const reader = new FileReader();
       reader.onload = () => {
         dispatch(
