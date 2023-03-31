@@ -160,7 +160,6 @@ const AuthForm = ({ name, authMethod }) => {
           <button className="btn primary-btn" type="submit">
             {authMethod}
           </button>
-
           {error && <div className="error"> {error} </div>}
       
         </form>
