@@ -58,7 +58,7 @@
 
 .loggedInForm {
     width: 80%;
-    height: 80vh;
+    height: 8%;
     margin: 0vw;
     padding: 5vw;
     display: inline-block;
@@ -81,4 +81,5 @@
 
 .loggedInForm span{
    display: inline-block;
+   padding: 1rem;
 } 
