@@ -50,9 +50,9 @@ const Todos = () => {
 
   return (
     <div className={styles.todoContainer}>
-      <div>
+      
         <PetSnapshot pets={pets} />
-      </div>
+      
       <Link to="/addNewTodo">Add a new task</Link>
       <section className={styles.list}>
         <div className={styles.complete}>
