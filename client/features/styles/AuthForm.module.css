@@ -7,6 +7,17 @@
     text-align: center;
 }
 
+.container h1 {
+    background-color: #F5AE98;
+    padding: 1rem;
+    color: white;
+    border-radius: 25px;
+    width: 14em;
+    margin: auto;
+    margin-bottom: 4px;
+
+}
+
 .signUpForm {
     width: 80%;
     height: 80%;

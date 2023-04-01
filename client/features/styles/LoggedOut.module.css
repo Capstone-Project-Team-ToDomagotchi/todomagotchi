@@ -12,6 +12,23 @@
     border-radius: 10px;
 }
 
+.petChoice span p {
+    color: green;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.petChoice h3 {
+    background-color: #F5AE98;
+    padding: 1rem;
+    color: white;
+    border-radius: 25px;
+    width: 14em;
+    margin: auto;
+    margin-bottom: 4px;
+}
+
 .petChoice {
     text-align: center;
     display: inline-flex;
@@ -28,6 +45,20 @@
     flex-direction: column;
     break-inside: avoid;
     padding:15px;
+}
+
+.productivity h3 {
+    background-color: #F5AE98;
+    padding: 1rem;
+    color: white;
+    border-radius: 25px;
+    margin: auto;
+    margin-bottom: 4px;
+    width: 14em;
+}
+
+.productivity p {
+    margin-bottom: 3rem;
 }
 
 .signUp {

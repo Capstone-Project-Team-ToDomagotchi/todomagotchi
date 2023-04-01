@@ -83,16 +83,15 @@ const AuthForm = ({ name, authMethod }) => {
           <label htmlFor="username">
             <small>Username</small>
           </label>
-          <input name="username" type="text" />
+          <input name="username" type="text" placeholder="Username"/>
         </span>
         <span>
         <FontAwesomeIcon icon={faLock} />
           <label htmlFor="password">
             <small>Password</small>
           </label>
-          <input name="password" type="password" />
+          <input name="password" type="password" placeholder="Password"/>
         </span>
-        <br />
         <div>
           <button className="login"type="submit" onSubmit={redirect}>{authMethod}</button>
           </div>
