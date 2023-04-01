@@ -9,7 +9,7 @@
 
 .signUpForm {
     width: 80%;
-    height: 100vh;
+    height: 80%;
     margin: 0vw;
     padding: 5vw;
     display: inline-block;
@@ -30,27 +30,35 @@
     border-radius: 20px;
 }
 
-.signUpForm input::file-selector-button {
+.signUpForm span{
+    display: inline-block;
+    padding-bottom: 1rem;
+ } 
+
+ .profilePicUrl {
+    padding-bottom: 3vh;
+    justify-items: center;
+    margin-bottom: 3px;
+    height: 100px;
+}
+
+.profilePicUrl input::file-selector-button {
     font-family: Poppins;
-    padding: .5rem .8rem .5rem .8rem;
-    margin: .9vw 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
     border: thin solid black;
     border-radius: 20px;
-    display: inline-block;
     height: 3vh;
     background-color: white;
     text-align: center;
+    justify-items: center;
 }
-
-.signUpForm span{
-   display: inline-block;
-} 
 
 /* styling for login form */
 
 .loggedInForm {
     width: 80%;
-    height: 100vh;
+    height: 80vh;
     margin: 0vw;
     padding: 5vw;
     display: inline-block;
