@@ -14,7 +14,6 @@ const EditUser = () => {
 
   const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
-  //Will need to figure out how to make editing profilePic work, may not need line below
   const [profilePic, setProfilePic] = useState(null);
   const [pronouns, setPronouns] = useState("");
   const [aboutMe, setAboutMe] = useState("");
@@ -57,7 +56,8 @@ const EditUser = () => {
         <h3>Edit Information</h3>
 
         <label>
-          New Name:
+          New Name: 
+          <br/>
           <input
             type="text"
             name="displayName"
@@ -67,7 +67,8 @@ const EditUser = () => {
         <br />
 
         <label>
-          New Username:
+          New Username: 
+          <br/>
           <input
             type="text"
             name="username"
@@ -77,7 +78,8 @@ const EditUser = () => {
         <br />
 
         <label>
-          Update Pronouns:
+          Update Pronouns: 
+          <br/>
           <input
             type="text"
             name="pronouns"
@@ -87,7 +89,8 @@ const EditUser = () => {
         <br />
 
         <label>
-          Update About Me:
+          Update About Me: 
+          <br/>
           <input
             type="text"
             name="aboutMe"
@@ -97,9 +100,10 @@ const EditUser = () => {
         <br />
 
         <label>
-          Change Profile Picture
-      
+          Change Profile Picture: 
+          <br/>
           <input
+            id="fileUpload"
             name="profilePic"
             type="file"
             accept="image/*"

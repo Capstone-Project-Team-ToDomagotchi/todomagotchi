@@ -1,10 +1,51 @@
 .editUser {
     display: flex;
     text-align: center;
-    border-style: solid double;
-    border-width: medium;
-    padding: 1rem;
-    margin-left: 30rem;
-    margin-right: 30rem;
-    background-color: rgb(248, 225, 197);
 }
+
+.editUser h3 {
+    font-size: 1.5rem;
+}
+
+.editUser form {
+    background-color: rgb(249, 232, 210);
+    width: 70%;
+    height: 100vh;
+    margin-left: 13rem; 
+    display: inline-block;
+    align-items: center;
+    border: thick double #1b4965;
+    border-radius: 20px;
+}
+
+.editUser form label {
+    font-weight: bold;
+}
+
+.editUser form input {
+    display: block;
+    display: inline-block;
+    background-color: seashell;
+    height: 3vh;
+    padding: 0.5rem;
+    margin: .9vw 0;
+    border-radius: 20px;
+}
+
+.editUser form input::-webkit-file-upload-button {
+    background-color: rgb(62, 138, 78);
+    color: white;
+    font-family: Poppins;
+    padding: 2px 2px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 12px;
+}
+
+.editUser form input::-webkit-file-upload-button:hover {
+    background-color: rgb(245, 174, 152);
+}
+
+.editUser form span{
+   display: inline-block;
+} 
