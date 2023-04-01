@@ -5,34 +5,37 @@
 .petChoice span {
     display: inline-block;
     font-weight: bold;
+    margin: 1rem;  
+}
+
+.petChoice img {
+    border-radius: 10px;
 }
 
 .petChoice {
     text-align: center;
     display: inline-flex;
-    padding-top: 1rem;
+    flex-direction: column;
+    align-items: center;
     break-inside: avoid;
-}
-
-.productivity span {
-    display: inline-block;
-    padding-top: 1rem;
+    padding:15px;
+    margin: 0 auto;
 }
 
 .productivity {
     text-align: center;
-    padding-top: .4rem;
+    display: flex;
+    flex-direction: column;
     break-inside: avoid;
+    padding:15px;
 }
 
-.image span {
-    display: inline-block;  
-    padding-top: 1rem;
-}
-
-.image {
-    display: center;
-    padding-top: .4rem;
-    justify-content: center;
-    text-align: center;
+.signUp {
+    display: flex;
+    break-inside: avoid;
+    background-image: url("../../../public/homepagefigure.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 100%;
+    padding-top: 15%;
 }
