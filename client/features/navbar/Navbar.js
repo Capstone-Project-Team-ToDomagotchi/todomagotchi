@@ -44,7 +44,7 @@ const Navbar = () => {
         Home
       </Link>
       
-      <h1>TodoMagotchi<img src="/LogoCreatureMelonWhite.png"></img></h1>
+      <h1>TodoMagotchi<img src="/LogoCreatureSeashell.png"></img></h1>
       <hr />
     </nav>
   );
