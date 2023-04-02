@@ -71,6 +71,7 @@ const EditUser = () => {
           <input
             type="text"
             name="displayName"
+            placeholder="Display name"
             onChange={(event) => setDisplayName(event.target.value)}
           />
         </label>
@@ -83,6 +84,7 @@ const EditUser = () => {
           <input
             type="text"
             name="username"
+            placeholder="Username"
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
@@ -95,6 +97,7 @@ const EditUser = () => {
           <input
             type="text"
             name="pronouns"
+            placeholder="Pronouns"
             onChange={(event) => setPronouns(event.target.value)}
           />
         </label>
@@ -107,6 +110,7 @@ const EditUser = () => {
           <input
             type="text"
             name="aboutMe"
+            placeholder="About me"
             onChange={(event) => setAboutMe(event.target.value)}
           />
         </label>
