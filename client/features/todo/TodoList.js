@@ -72,9 +72,9 @@ const Todos = () => {
               </div>
             ))}
         </div>
-        <Link to="/addNewTodo" className={styles.addTodo}>Add a new task</Link>
       </section>
       <br />
+      <Link to="/addNewTodo" className={styles.addTodo}>Add a new task</Link>
       <button onClick={() => navigate(-1)}>Go back</button>
     </main>
   );
