@@ -116,38 +116,62 @@ const AuthForm = ({ name, authMethod }) => {
             <span className="icon"> 
               <FontAwesomeIcon icon={faDisplay} />
               <label htmlFor="displayName">Display Name</label>
-              <input name="displayName" type="text" placeholder="Display name"/></span>
+              <input 
+              name="displayName" 
+              type="text" 
+              placeholder="Display name"/></span>
           </section>
+
           <section className={styles.pronouns}>
             <span className="icon">
               <FontAwesomeIcon icon={faCircleUser} />
               <label htmlFor="pronouns">Pronouns</label>
-              <input name="pronouns" type="text" placeholder="Pronouns"/></span>
+              <input 
+              name="pronouns" 
+              type="text" 
+              placeholder="Pronouns"/></span>
           </section>
+
           <section className={styles.email}>
             <span className="icon">
               <FontAwesomeIcon icon={faEnvelope} />
               <label htmlFor="email">Email</label>
-              <input name="email" type="text" placeholder="Email"/></span>
+              <input 
+              name="email" 
+              type="text" 
+              placeholder="Email"/></span>
           </section>
+
           <section className={styles.userName}>
             <span className="icon">
               <FontAwesomeIcon icon={faUser} />
               <label htmlFor="userName">Username</label>
-              <input name="username" type="text" placeholder="Username"/></span>
+              <input 
+              name="username" 
+              type="text" 
+              placeholder="Username"/></span>
           </section>
+
           <section className={styles.password}>
             <span className="icon">
           <FontAwesomeIcon icon={faLock} />
           <label htmlFor="password">Password</label>
-            <input name="password" type="password" placeholder="Password"/></span>
+            <input 
+            name="password" 
+            type="password" 
+            placeholder="Password"/></span>
           </section>
+
           <section className={styles.profilePicUrl}>
             <span className="icon">
             <FontAwesomeIcon icon={faCamera} />
           <label htmlFor="profilePic">Profile Picture</label>
-          <input name="profilePic" type="file" accept="image/*"/></span>
+          <input 
+          name="profilePic" 
+          type="file" 
+          accept="image/*"/></span>
           </section>
+          
           <br />
           <br />
           <button className="submit" type="submit">
