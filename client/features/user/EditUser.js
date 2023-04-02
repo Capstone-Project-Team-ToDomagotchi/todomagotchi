@@ -53,8 +53,8 @@ const EditUser = () => {
   return (
     <div className={styles.editUser}>
       <form onSubmit={handleSubmit}>
-        <h3>Edit Information</h3>
-
+        <h1>Edit Information</h1>
+        <hr />
         <label>
           New Name: 
           <br/>

@@ -54,13 +54,9 @@
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   margin: 10px;
-  /* width: 100%;
-  max-width: 500px; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  /* align-content: stretch;
-  justify-content: space-evenly; */
 }
 
 .complete h2 {
@@ -74,10 +70,10 @@
 }
 
 .petContainer h2 {
-    color: #ffffff;
-    padding: 10px;
-    margin: 0;
-    font-size: 24px;
+  color: #ffffff;
+  padding: 10px;
+  margin: 0;
+  font-size: 24px;
 }
 
 .complete div {

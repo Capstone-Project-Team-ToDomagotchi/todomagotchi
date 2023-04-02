@@ -26,6 +26,7 @@
     display: inline-block;
     border: thick double #1b4965;
     border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     
 }
 
@@ -54,15 +55,13 @@
 }
 
 .profilePicUrl input::file-selector-button {
+    background-color: rgb(62, 138, 78);
+    color: white;
     font-family: Poppins;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border: thin solid black;
-    border-radius: 20px;
-    height: 3vh;
-    background-color: white;
-    text-align: center;
-    justify-items: center;
+    padding: 2px 2px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 12px;
 }
 
 /* styling for login form */
