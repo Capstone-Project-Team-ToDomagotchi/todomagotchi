@@ -28,33 +28,12 @@ const Todos = () => {
     }
   }, [dispatch, userId]);
 
-  // const dateNow = new Date();
-  // const dayNum = dateNow.getDate();
-  // const monthNum = dateNow.getMonth();
-  // const yearNum = dateNow.getFullYear();
-  // const fullDate = `${yearNum}0${monthNum+1}${dayNum}`
-  // const numDate = Number(fullDate)
-
-  // const convertDate = function (date) {
-    
-  // }
-  // const dueNum = todos?.[0]?.dueDate;
-  // const select = dueNum?.[0];
-  // const yearStr = dueNum?.slice(0, 4);
-  // const monthStr = dueNum?.slice(5, 7);
-  // const dayStr = dueNum?.slice(8, 10);
-  // const newNum = `${yearStr}${monthStr}${dayStr}`;
-  // const dueNumInteger = Number(newNum);
-  // console.log(numDate)
-  // console.log(dueNumInteger)
-
   return (
-    <div className={styles.todoContainer}>
-      
-        <PetSnapshot pets={pets} />
-      
-      <Link to="/addNewTodo">Add a new task</Link>
-      <section className={styles.list}>
+    <main className={styles.todoContainer}>
+    <section className={styles.list}>
+      <div className={styles.petContainer}>
+      <PetSnapshot pets={pets} />
+      </div>
         <div className={styles.complete}>
           <h2>Incomplete Todos:</h2>
           {todosArray
@@ -93,10 +72,11 @@ const Todos = () => {
               </div>
             ))}
         </div>
+        <Link to="/addNewTodo" className={styles.addTodo}>Add a new task</Link>
       </section>
       <br />
       <button onClick={() => navigate(-1)}>Go back</button>
-    </div>
+    </main>
   );
 };
 
