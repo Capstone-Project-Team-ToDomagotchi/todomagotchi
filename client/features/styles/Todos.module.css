@@ -2,33 +2,67 @@
 }
 
 .todoContainer {
-  background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0px 0px 10px 5px #6b8e23;
+  columns: 3;
 }
 
-.todoContainer a {
+.list {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+/* links */
+.complete a {
   color: #3e8a4e;
   font-weight: bold;
   text-decoration: none;
   margin-bottom: 20px;
   font-size: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.todoContainer .complete {
+/* add a todo */
+.addTodo {
+  font-weight: bold;
+  font-size: 20px;
+  color: green;
+  background: white;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.petContainer {
+  break-inside: avoid;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+}
+
+.complete {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 500px;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-.todoContainer h2 {
+.complete h2 {
   background-color: #6b8e23;
   color: #ffffff;
   padding: 10px;
@@ -38,31 +72,43 @@
   border-top-right-radius: 10px;
 }
 
-.todoContainer .complete div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.petContainer h2 {
+  color: #ffffff;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  margin: 0;
+  font-size: 24px;
 }
 
-.todoContainer .complete div:last-child {
+.complete div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  /* border-bottom: 1px solid #ccc; */
+  margin: 2px;
+}
+
+.complete div:last-child {
   border-bottom: none;
 }
 
-.todoContainer .complete h3 {
+.complete h3 {
   color: #556b2f;
-  margin: 0;
+  margin: 2px;
   font-size: 20px;
+  display: inline-block;
+  padding: 2px;
 }
 
-.todoContainer .complete h4 {
+.complete h4 {
   color: #556b2f;
   margin: 0;
   font-size: 16px;
 }
 
-.todoContainer .complete input[type="checkbox"] {
+.complete input[type="checkbox"] {
   margin-right: 10px;
   appearance: none;
   width: 20px;
@@ -77,28 +123,12 @@
   border-color: #6b8e23;
 }
 
-.todoContainer .complete input[type="checkbox"]:checked + label {
+.complete input[type="checkbox"]:checked + label {
   color: #6b8e23;
 }
 
-.todoContainer .complete label {
+.complete label {
   font-size: 16px;
   color: #556b2f;
   cursor: pointer;
 }
-
-.todoContainer button {
-  background-color: #556b2f;
-  color: #ffffff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 18px;
-  margin-top: 20px;
-}
-
-.todoContainer button:hover {
-  background-color: #3e8a4e;
-}
-

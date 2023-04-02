@@ -3,12 +3,17 @@
     text-align: center;
 }
 
-.editUser h3 {
-    font-size: 1.5rem;
+.editUser h1 {
+    background-color: #F5AE98;
+    padding: 1rem;
+    color: white;
+    border-radius: 25px;
+    width: 14em;
+    margin: auto;
+    margin-bottom: 4px;
 }
 
 .editUser form {
-    background-color: rgb(249, 232, 210);
     width: 70%;
     height: 100vh;
     margin-left: 13rem; 
@@ -16,6 +21,8 @@
     align-items: center;
     border: thick double #1b4965;
     border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .editUser form label {
@@ -23,11 +30,9 @@
 }
 
 .editUser form input {
-    display: block;
     display: inline-block;
-    background-color: seashell;
     height: 3vh;
-    padding: 0.5rem;
+    padding: .5rem .8rem .5rem .8rem;
     margin: .9vw 0;
     border-radius: 20px;
 }
