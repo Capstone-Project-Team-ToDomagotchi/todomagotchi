@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { editSingleUser } from "./singleUserSlice";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSmile, faUser, faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { faDisplay, faCamera } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../styles/EditUser.module.css";
 
@@ -60,8 +63,10 @@ const EditUser = () => {
       <form onSubmit={handleSubmit}>
         <h1>Edit Information</h1>
         <hr />
+
+        <FontAwesomeIcon icon={faDisplay} />
         <label>
-          New Name: 
+          New Display Name: 
           <br/>
           <input
             type="text"
@@ -71,6 +76,7 @@ const EditUser = () => {
         </label>
         <br />
 
+        <FontAwesomeIcon icon={faUser} />
         <label>
           New Username: 
           <br/>
@@ -82,6 +88,7 @@ const EditUser = () => {
         </label>
         <br />
 
+        <FontAwesomeIcon icon={faCircleUser} />
         <label>
           Update Pronouns: 
           <br/>
@@ -93,6 +100,7 @@ const EditUser = () => {
         </label>
         <br />
 
+        <FontAwesomeIcon icon={faSmile} />
         <label>
           Update About Me: 
           <br/>
@@ -104,6 +112,7 @@ const EditUser = () => {
         </label>
         <br />
 
+        <FontAwesomeIcon icon={faCamera} />
         <label>
           Change Profile Picture: 
           <br/>
