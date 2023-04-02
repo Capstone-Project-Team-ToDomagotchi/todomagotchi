@@ -50,6 +50,11 @@ const AuthForm = ({ name, authMethod }) => {
       };
       if (profilePic) {
         reader.readAsDataURL(profilePic); // read the file contents as a data URL
+        
+        //Max image file size for upload is 50 KB, so window alert added
+        if (profilePic.size > 50000){
+          window.alert("Sorry! Profile picture file size is too large. Please try signing up again with a file smaller than 50 KB.");
+          }
       } else {
         dispatch(
           authenticate({

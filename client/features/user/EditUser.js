@@ -25,6 +25,11 @@ const EditUser = () => {
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setProfilePic(reader.result);
+
+    //Max image file size for upload is 50 KB, so window alert added
+      if (file.size > 50000){
+        window.alert("Sorry! Profile picture file size is too large. Please upload a file smaller than 50 KB.");
+        }
     };
   } else {
     setProfilePic(null);
