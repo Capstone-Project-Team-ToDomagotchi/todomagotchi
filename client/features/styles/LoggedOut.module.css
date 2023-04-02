@@ -1,6 +1,14 @@
+@media (min-width: 375px) and (max-width: 1440px) {
+}
+
 .loggedOut {
     column-count: 3;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+  }
 
 .petChoice span {
     display: inline-block;
@@ -36,3 +44,14 @@
     justify-content: center;
     text-align: center;
 }
+
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+  img:hover {
+      transform: scale(1.1);
+    }
