@@ -10,7 +10,7 @@
     text-align: center;
     margin-top: 5rem;
     font-family: 'Rubik Moonrocks', cursive;
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #3E8A4E;
 }
 
@@ -18,14 +18,23 @@
     float: right;
     padding: 1.5rem;
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .navbar h1 img {
     display: inline;
-    height: 5.2rem;
-    width: 3.5rem;
+    height: 9rem;
+    width: 10rem;
     margin-left: 0.6rem;
-}
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+
+.navbar img:hover {
+    transform: scale(1.1);
+  }
+
 
 
 
