@@ -23,15 +23,13 @@ const SelectPet = db.define("selectPet", {
 SelectPet.prototype.setImg = function () {
   if (this.exp >= 100) {
     this.selectImg = 2;
-  }
-  else if (this.exp >= 60) {
+  } else if (this.exp >= 60) {
     this.selectImg = 1;
-  } 
-  else {
+  } else {
     this.selectImg = 0;
   }
   console.log("EXP updated!");
   this.save();
 };
 
-  module.exports = SelectPet;
+module.exports = SelectPet;

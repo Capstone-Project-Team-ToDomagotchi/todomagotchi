@@ -29,6 +29,7 @@ const Todos = () => {
   useEffect(() => {
     dispatch(fetchSingleUser(userId));
   }, [dispatch, userId]);
+  
   useEffect(() => {
     if (userId) {
       dispatch(fetchTodosAsync(userId));
