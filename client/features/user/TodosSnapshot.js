@@ -21,16 +21,20 @@ const TodosSnapshot = () => {
   return (
     <main className={styles.todoContainer}>
     <h2 className={styles.homeHeader}>Current Todos</h2>
+    <br/>
     {todos && todos.length ? (
       todos.map((todo) => (
         <section className={styles.todoList} key={todo.id}>
           <Link to={`/todos/${todo.id}`}>Name: {todo.todoName} </Link> |
           Deadline: {todo.dueDate}
         </section>
-      ))
+       
+      )) 
     ) : (
       <p>No todos exist for this user</p>
     )}
+    <br/><br/>
+     <Link to={`/todos`}>See All Todos</Link>
     </main>
   );
 };
