@@ -8,7 +8,7 @@ import { faDisplay, faCamera } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../styles/EditUser.module.css";
 
-//Component to edit User's profile
+//Component to edit user's profile
 const EditUser = () => {
   const { me } = useSelector((state) => state.auth);
   const { id } = useParams();
