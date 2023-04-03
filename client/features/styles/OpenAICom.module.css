@@ -21,6 +21,5 @@
 
 .openAI button {
     display: block;
-    margin: auto;
-    margin-top: 3px;
+    margin: 0 auto;
 }

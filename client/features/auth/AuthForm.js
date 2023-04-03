@@ -2,8 +2,12 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authenticate } from "../../app/store";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faUser, faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faUser,
+  faCircleUser,
+} from "@fortawesome/free-regular-svg-icons";
 import { faDisplay, faLock, faCamera } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../styles/AuthForm.module.css";
@@ -50,11 +54,13 @@ const AuthForm = ({ name, authMethod }) => {
       };
       if (profilePic) {
         reader.readAsDataURL(profilePic); // read the file contents as a data URL
-        
+
         //Max image file size for upload is 50 KB, so window alert added
-        if (profilePic.size > 50000){
-          window.alert("Sorry! Profile picture file size is too large. Please try signing up again with a file smaller than 50 KB.");
-          }
+        if (profilePic.size > 50000) {
+          window.alert(
+            "Sorry! Profile picture file size is too large. Please try signing up again with a file smaller than 50 KB."
+          );
+        }
       } else {
         dispatch(
           authenticate({
@@ -80,30 +86,36 @@ const AuthForm = ({ name, authMethod }) => {
   if (authMethod === "Login") {
     return (
       <main className={styles.container}>
-        <form className={styles.loggedInForm} onSubmit={handleSubmit} name={name}>
-        <h1>Log In</h1>
+        <form
+          className={styles.loggedInForm}
+          onSubmit={handleSubmit}
+          name={name}
+        >
+          <h1>Log In</h1>
           <hr />
           <span>
-          <FontAwesomeIcon icon={faUser} />
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" placeholder="Username"/>
-        </span>
-        <span>
-        <FontAwesomeIcon icon={faLock} />
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" placeholder="Password"/>
-        </span>
-        <div>
-          <button className="login"type="submit" onSubmit={redirect}>{authMethod}</button>
+            <FontAwesomeIcon icon={faUser} />
+            <label htmlFor="username">
+              <small>Username</small>
+            </label>
+            <input name="username" type="text" placeholder="Username" />
+          </span>
+          <span>
+            <FontAwesomeIcon icon={faLock} />
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" placeholder="Password" />
+          </span>
+          <div>
+            <button className="login" type="submit" onSubmit={redirect}>
+              {authMethod}
+            </button>
           </div>
-        {error && <div> {error} </div>}
-      </form>
-    </main>
-    )
+          {error && <div> {error} </div>}
+        </form>
+      </main>
+    );
   }
 
   if (authMethod === "Sign Up") {
@@ -113,65 +125,57 @@ const AuthForm = ({ name, authMethod }) => {
           <h1>Sign Up</h1>
           <hr />
           <section className={styles.displayName}>
-            <span className="icon"> 
+            <span className="icon">
               <FontAwesomeIcon icon={faDisplay} />
               <label htmlFor="displayName">Display Name</label>
-              <input 
-              name="displayName" 
-              type="text" 
-              placeholder="Display name"/></span>
+              <input
+                name="displayName"
+                type="text"
+                placeholder="Display name"
+              />
+            </span>
           </section>
 
           <section className={styles.pronouns}>
             <span className="icon">
               <FontAwesomeIcon icon={faCircleUser} />
               <label htmlFor="pronouns">Pronouns</label>
-              <input 
-              name="pronouns" 
-              type="text" 
-              placeholder="Pronouns"/></span>
+              <input name="pronouns" type="text" placeholder="Pronouns" />
+            </span>
           </section>
 
           <section className={styles.email}>
             <span className="icon">
               <FontAwesomeIcon icon={faEnvelope} />
               <label htmlFor="email">Email</label>
-              <input 
-              name="email" 
-              type="text" 
-              placeholder="Email"/></span>
+              <input name="email" type="text" placeholder="Email" />
+            </span>
           </section>
 
           <section className={styles.userName}>
             <span className="icon">
               <FontAwesomeIcon icon={faUser} />
               <label htmlFor="userName">Username</label>
-              <input 
-              name="username" 
-              type="text" 
-              placeholder="Username"/></span>
+              <input name="username" type="text" placeholder="Username" />
+            </span>
           </section>
 
           <section className={styles.password}>
             <span className="icon">
-          <FontAwesomeIcon icon={faLock} />
-          <label htmlFor="password">Password</label>
-            <input 
-            name="password" 
-            type="password" 
-            placeholder="Password"/></span>
+              <FontAwesomeIcon icon={faLock} />
+              <label htmlFor="password">Password</label>
+              <input name="password" type="password" placeholder="Password" />
+            </span>
           </section>
 
           <section className={styles.profilePicUrl}>
             <span className="icon">
-            <FontAwesomeIcon icon={faCamera} />
-          <label htmlFor="profilePic">Profile Picture</label>
-          <input 
-          name="profilePic" 
-          type="file" 
-          accept="image/*"/></span>
+              <FontAwesomeIcon icon={faCamera} />
+              <label htmlFor="profilePic">Profile Picture</label>
+              <input name="profilePic" type="file" accept="image/*" />
+            </span>
           </section>
-          
+
           <br />
           <br />
           <button className="submit" type="submit">
@@ -179,7 +183,6 @@ const AuthForm = ({ name, authMethod }) => {
           </button>
           {error && <div className="error"> {error} </div>}
         </form>
-        
       </main>
     );
   }

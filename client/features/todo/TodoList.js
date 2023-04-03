@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchSingleUser } from "../user/singleUserSlice";
-
+import { deleteSingleTodo } from "./singleTodoSlice";
 import { selectTodo, fetchTodosAsync, toggleCompleted } from "./todoSlice";
 import styles from "../styles/Todos.module.css";
 import PetSnapshot from "../user/PetSnapshot";
@@ -19,6 +19,13 @@ const Todos = () => {
     await dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
     await dispatch(fetchTodosAsync(userId));
   };
+
+  const handleDelete = async (id, event) => {
+    event.preventDefault();
+    await dispatch(deleteSingleTodo(id));
+    await dispatch(fetchTodosAsync(userId));
+    navigate("/todos");
+  };
   useEffect(() => {
     dispatch(fetchSingleUser(userId));
   }, [dispatch, userId]);
@@ -31,10 +38,10 @@ const Todos = () => {
 
   return (
     <main className={styles.todoContainer}>
-    <section className={styles.list}>
-      <div className={styles.petContainer}>
-      <PetSnapshot pets={pets} />
-      </div>
+      <section className={styles.list}>
+        <div className={styles.petContainer}>
+          <PetSnapshot pets={pets} />
+        </div>
         <div className={styles.complete}>
           <h2>Incomplete Todos:</h2>
           {todosArray
@@ -70,12 +77,17 @@ const Todos = () => {
                   onChange={() => handleToggle(todo.id, todo.isCompleted)}
                 />
                 <label>Completed</label>
+                <button className="delete" onClick={(event) => handleDelete(todo.id, event)}>
+                  Delete
+                </button>
               </div>
             ))}
         </div>
       </section>
       <br />
-      <Link to="/addNewTodo" className={styles.addTodo}>Add a new task</Link>
+      <Link to="/addNewTodo" className={styles.addTodo}>
+        Add a new task
+      </Link>
       <button onClick={() => navigate(-1)}>Go back</button>
     </main>
   );
