@@ -10,5 +10,9 @@
     border: solid 1px white;
     width: 10em;
     margin: auto;
-    margin-bottom: 4px;
+}
+
+.todoList {
+    margin-top: 4px;
+    padding-top: 10px;
 }

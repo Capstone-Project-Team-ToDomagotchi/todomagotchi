@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import styles from "../styles/OpenAICom.module.css"
 
 function OpenAI() {
   const [prompt, setPrompt] = useState('');
@@ -19,20 +20,20 @@ function OpenAI() {
   };
 
   return (
-    <div>
+    <section className={styles.openAI}>
       <form onSubmit={handleSubmit}>
         <label>
           Talk to me: 
+          </label>
           <input
             type="text"
             value={prompt}
             onChange={(event) => setPrompt(event.target.value)}
           />
-        </label>
         <button type="submit">Submit</button>
       </form>
       {response && <p>{response}</p>}
-    </div>
+    </section>
   );
 }
 

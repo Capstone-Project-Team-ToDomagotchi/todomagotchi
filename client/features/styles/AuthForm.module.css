@@ -7,14 +7,26 @@
     text-align: center;
 }
 
+.container h1 {
+    background-color: #F5AE98;
+    padding: 1rem;
+    color: white;
+    border-radius: 25px;
+    width: 14em;
+    margin: auto;
+    margin-bottom: 4px;
+
+}
+
 .signUpForm {
     width: 80%;
-    height: 100vh;
+    height: 80%;
     margin: 0vw;
     padding: 5vw;
     display: inline-block;
     border: thick double #1b4965;
     border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     
 }
 
@@ -30,27 +42,33 @@
     border-radius: 20px;
 }
 
-.signUpForm input::file-selector-button {
-    font-family: Poppins;
-    padding: .5rem .8rem .5rem .8rem;
-    margin: .9vw 0;
-    border: thin solid black;
-    border-radius: 20px;
+.signUpForm span{
     display: inline-block;
-    height: 3vh;
-    background-color: white;
-    text-align: center;
+    padding-bottom: 1rem;
+ } 
+
+ .profilePicUrl {
+    padding-bottom: 3vh;
+    justify-items: center;
+    margin-bottom: 3px;
+    height: 100px;
 }
 
-.signUpForm span{
-   display: inline-block;
-} 
+.profilePicUrl input::file-selector-button {
+    background-color: rgb(62, 138, 78);
+    color: white;
+    font-family: Poppins;
+    padding: 2px 2px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 12px;
+}
 
 /* styling for login form */
 
 .loggedInForm {
     width: 80%;
-    height: 100vh;
+    height: 8%;
     margin: 0vw;
     padding: 5vw;
     display: inline-block;
@@ -73,4 +91,5 @@
 
 .loggedInForm span{
    display: inline-block;
+   padding: 1rem;
 } 

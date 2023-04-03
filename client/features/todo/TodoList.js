@@ -29,12 +29,11 @@ const Todos = () => {
   }, [dispatch, userId]);
 
   return (
-    <div className={styles.todoContainer}>
-      <div>
-        <PetSnapshot pets={pets} />
+    <main className={styles.todoContainer}>
+    <section className={styles.list}>
+      <div className={styles.petContainer}>
+      <PetSnapshot pets={pets} />
       </div>
-      <Link to="/addNewTodo">Add a new task</Link>
-      <section className={styles.list}>
         <div className={styles.complete}>
           <h2>Incomplete Todos:</h2>
           {todosArray
@@ -75,8 +74,9 @@ const Todos = () => {
         </div>
       </section>
       <br />
+      <Link to="/addNewTodo" className={styles.addTodo}>Add a new task</Link>
       <button onClick={() => navigate(-1)}>Go back</button>
-    </div>
+    </main>
   );
 };
 

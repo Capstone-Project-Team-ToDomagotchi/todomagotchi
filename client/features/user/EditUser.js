@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { editSingleUser } from "./singleUserSlice";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSmile, faUser, faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { faDisplay, faCamera } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../styles/EditUser.module.css";
 
@@ -14,7 +17,6 @@ const EditUser = () => {
 
   const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
-  //Will need to figure out how to make editing profilePic work, may not need line below
   const [profilePic, setProfilePic] = useState(null);
   const [pronouns, setPronouns] = useState("");
   const [aboutMe, setAboutMe] = useState("");
@@ -26,6 +28,11 @@ const EditUser = () => {
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setProfilePic(reader.result);
+
+    //Max image file size for upload is 50 KB, so window alert added
+      if (file.size > 50000){
+        window.alert("Sorry! Profile picture file size is too large. Please upload a file smaller than 50 KB.");
+        }
     };
   } else {
     setProfilePic(null);
@@ -54,52 +61,67 @@ const EditUser = () => {
   return (
     <div className={styles.editUser}>
       <form onSubmit={handleSubmit}>
-        <h3>Edit Information</h3>
+        <h1>Edit Information</h1>
+        <hr />
 
+        <FontAwesomeIcon icon={faDisplay} />
         <label>
-          New Name:
+          New Display Name: 
+          <br/>
           <input
             type="text"
             name="displayName"
+            placeholder="Display name"
             onChange={(event) => setDisplayName(event.target.value)}
           />
         </label>
         <br />
 
+        <FontAwesomeIcon icon={faUser} />
         <label>
-          New Username:
+          New Username: 
+          <br/>
           <input
             type="text"
             name="username"
+            placeholder="Username"
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
         <br />
 
+        <FontAwesomeIcon icon={faCircleUser} />
         <label>
-          Update Pronouns:
+          Update Pronouns: 
+          <br/>
           <input
             type="text"
             name="pronouns"
+            placeholder="Pronouns"
             onChange={(event) => setPronouns(event.target.value)}
           />
         </label>
         <br />
 
+        <FontAwesomeIcon icon={faSmile} />
         <label>
-          Update About Me:
+          Update About Me: 
+          <br/>
           <input
             type="text"
             name="aboutMe"
+            placeholder="About me"
             onChange={(event) => setAboutMe(event.target.value)}
           />
         </label>
         <br />
 
+        <FontAwesomeIcon icon={faCamera} />
         <label>
-          Change Profile Picture
-      
+          Change Profile Picture: 
+          <br/>
           <input
+            id="fileUpload"
             name="profilePic"
             type="file"
             accept="image/*"
