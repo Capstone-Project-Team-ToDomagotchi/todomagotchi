@@ -26,8 +26,8 @@ const TodosSnapshot = () => {
       .filter((todo) => !todo.isCompleted)
       .map((todo) => (
         <section className={styles.todoList} key={todo.id}>
-          <Link to={`/todos/${todo.id}`}>Name: {todo.todoName} </Link> |
-          Deadline: {todo.dueDate}
+          <Link to={`/todos/${todo.id}`}>Name: {todo.todoName} </Link> 
+          <p className="due">Deadline: {todo.dueDate}</p>
         </section>
       ))
     ) : (

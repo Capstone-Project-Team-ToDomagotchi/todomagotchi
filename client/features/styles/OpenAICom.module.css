@@ -24,3 +24,15 @@
     display: block;
     margin: 0 auto;
 }
+
+@media (max-width: 450px){
+    .openAI textarea {
+        width: auto;
+        height: 5vh;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+    }
+   
+}

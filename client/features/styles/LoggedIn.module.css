@@ -14,10 +14,17 @@
     break-inside: avoid;
 }
 
-@media screen and (max-width: 1151px){
+
+@media (max-width: 450px){
     .loggedIn {
         display: flex;
-        flex-flow: column wrap;
-        gap: 2em;
+        flex-flow: wrap;
+        justify-content: center;
+        gap: 3em;
+        width: 100%;
+    }
+    h3 {
+        display: flex;
+        justify-content: center;
     }
 }

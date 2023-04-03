@@ -10,13 +10,13 @@
     text-align: center;
     margin-top: 5rem;
     font-family: 'Rubik Moonrocks', cursive;
-    font-size: 5rem;
+    font-size: 5vw;
     color: #3E8A4E;
 }
 
 .navbar a{
     float: right;
-    padding: 1.5rem;
+    padding: 1.5vw;
     font-weight: bold;
 }
 
@@ -27,8 +27,17 @@
     margin-left: 0.6rem;
 }
 
+
 .logo {
     box-shadow: none;
 }
+
+@media (max-width: 450px) {
+  .navbar h1 {
+    font-size: 2.75rem;
+  }
+
+}
+
 
 
