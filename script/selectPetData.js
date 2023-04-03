@@ -1,3 +1,4 @@
+//demo data to seed the database, assigning the demo user's selected pet with specific values set for their attributes
 const { SelectPet } = require("../server/db");
 
 async function selectPetSeed() {

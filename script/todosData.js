@@ -1,6 +1,6 @@
+//demo data to seed database, utilizing Faker api to randomly generate most attributes for each task
 const { faker } = require("@faker-js/faker");
 const { Todo } = require("../server/db");
-
 
 async function todoSeed() {
   const todos = await Promise.all([
@@ -181,7 +181,8 @@ async function todoSeed() {
     }),
     Todo.create({
       dueDate: faker.date.soon(14),
-      todoName: "Contribute code or a monetary donation to an open-source software project",
+      todoName:
+        "Contribute code or a monetary donation to an open-source software project",
       pointType: faker.helpers.arrayElement(["important", "average"], 1),
       description: faker.lorem.text(),
       isCompleted: faker.datatype.boolean(),
@@ -381,7 +382,8 @@ async function todoSeed() {
     }),
     Todo.create({
       dueDate: faker.date.soon(14),
-      todoName: "Contribute code or a monetary donation to an open-source software project",
+      todoName:
+        "Contribute code or a monetary donation to an open-source software project",
       pointType: faker.helpers.arrayElement(["important", "average"], 1),
       description: faker.lorem.text(),
       isCompleted: faker.datatype.boolean(),
