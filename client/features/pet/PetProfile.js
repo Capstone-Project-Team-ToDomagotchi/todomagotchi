@@ -2,9 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-// import { fetchSinglePetAsync, selectSinglePet } from "./petSlice";
 import {
-  addExpToPet,
   fetchSelectPetAsync,
   selectSelectedPet,
 } from "./selectPetSlice";
@@ -83,7 +81,6 @@ const PetProfile = () => {
               <h4>{user?.username}</h4>
             </Link>
           </section>
-          {/* ^^Need to implement a bar that shows how close to the next level^^*/}
         </div>
       </section>
     </div>

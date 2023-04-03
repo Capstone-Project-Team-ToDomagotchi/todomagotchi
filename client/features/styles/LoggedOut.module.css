@@ -2,64 +2,13 @@
 }
 
 .loggedOut {
-  column-count: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  padding: 2rem;
-}
-
-.speechBubble {
-  display: flex;
-  margin-left: 17rem;
-  position: relative;
-  width: 60%;
-  background: rgb(245, 174, 152);
-  border-radius: 0.5em;
-}
-
-.speechBubble:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border: 25px solid transparent;
-  border-top-color: rgb(245, 174, 152);
-  border-bottom: 0;
-  border-left: 0;
-  margin-left: -12.5px;
-  margin-bottom: -25px;
-}
-
-.speechBubble p {
-  font-size: 2.5rem;
-  color: white;
-  margin-left: 20%;
-  font-family: Shantell Sans;
-  font-weight: bold;
-  animation: fadeIn 5s;
-  -webkit-animation: fadeIn 5s;
-  -moz-animation: fadeIn 5s;
-  -o-animation: fadeIn 5s;
-  -ms-animation: fadeIn 5s;
-}
-
-.speechBubbleImg {
-  height: 30%;
-  width: 40%;
-  margin-left: 20rem;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    column-count: 3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+    
 }
 
 .petChoice span {
@@ -73,14 +22,10 @@
 }
 
 .petChoice span p {
-  color: green;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-}
-
-.petChoice p {
-  font-size: 1.5rem;
+    color: green;
+    background: white;
+    border-radius: 20px;
+    
 }
 
 .petChoice h3 {
@@ -132,25 +77,28 @@
   font-size: 1.5rem;
 }
 
-.signUp {
-  display: flex;
-  break-inside: avoid;
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding-bottom: 100%;
-  padding-top: 15%;
-  border: thick double #1b4965;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+.productivity .signUp:hover {
+    background-color: olivedrab;
 }
 
-.petChoice img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s;
+.signUp {
+    display: flex;
+    break-inside: avoid;
+    background-image: url("../../../public/homepagefigure.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 100%;
+    padding-top: 15%;
+    background-position: center;
 }
-.petChoice img:hover {
-  transform: scale(1.1);
-}
+
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 15%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+  img:hover {
+      transform: scale(1.1);
+    }

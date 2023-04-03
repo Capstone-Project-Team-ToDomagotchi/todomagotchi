@@ -25,7 +25,7 @@ function OpenAI() {
         <label>
           Talk to me: 
           </label>
-          <input
+          <textarea
             type="text"
             value={prompt}
             onChange={(event) => setPrompt(event.target.value)}
