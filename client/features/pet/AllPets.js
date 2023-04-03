@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectAllPets, fetchAllPetsAsync } from "../pet/allPetsSlice";
-import { useNavigate, useParams } from "react-router-dom";
+import { fetchAllPetsAsync } from "../pet/allPetsSlice";
+import { useNavigate} from "react-router-dom";
 import { fetchPetGalleryAsync } from "./selectPetSlice";
 
 import styles from "../styles/AllPets.module.css";
@@ -10,16 +10,12 @@ import styles from "../styles/AllPets.module.css";
 const AllPets = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { id } = useParams();
   const user = useSelector((state) => state.auth);
   const allPets = useSelector((state) => state.pets);
-  const selectPet = useSelector((state) => state.selectPet);
 
-  // const allPets = useSelector(selectAllPets);
   useEffect(() => {
     dispatch(fetchAllPetsAsync());
   }, [dispatch]);
-  console.log("data", allPets);
 
   const select = (event) => {
     const petId = event.target.value;
