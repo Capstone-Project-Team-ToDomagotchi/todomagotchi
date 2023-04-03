@@ -11,6 +11,7 @@ export const fetchSingleTodo = createAsyncThunk("singleTodo", async (id) => {
   }
 });
 
+
 /**
  * edit a single todo
  * @returns todo information it received from the AJAX request
@@ -64,8 +65,7 @@ export const singleTodoSlice = createSlice({
       return action.payload;
     });
     builder.addCase(deleteSingleTodo.fulfilled, (state, action) => {
-      const newState = state.filter((todos) => todos.id !== action.payload.id);
-      return newState;
+      return {};
     });
   },
 });
