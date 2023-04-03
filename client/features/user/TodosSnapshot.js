@@ -22,7 +22,9 @@ const TodosSnapshot = () => {
     <main className={styles.todoContainer}>
     <h2 className={styles.homeHeader}>Current Todos</h2>
     {todos && todos.length ? (
-      todos.map((todo) => (
+      todos
+      .filter((todo) => !todo.isCompleted)
+      .map((todo) => (
         <section className={styles.todoList} key={todo.id}>
           <Link to={`/todos/${todo.id}`}>Name: {todo.todoName} </Link> |
           Deadline: {todo.dueDate}
