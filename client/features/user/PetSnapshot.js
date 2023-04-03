@@ -5,6 +5,7 @@ import { selectSingleUser, fetchSingleUser } from "./singleUserSlice";
 
 import styles from "../styles/PetSnapshot.module.css";
 
+//Component to display a few details about a user's pet(s)
 const PetSnapshot = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -14,9 +15,10 @@ const PetSnapshot = () => {
   const { selectPets } = singleUser;
 
   useEffect(() => {
-    if (id){
-    dispatch(fetchSingleUser(id));
-  }}, [dispatch, id]);
+    if (id) {
+      dispatch(fetchSingleUser(id));
+    }
+  }, [dispatch, id]);
 
   return (
     <main className="pet-details">
@@ -25,7 +27,10 @@ const PetSnapshot = () => {
         {selectPets && selectPets.length ? (
           selectPets.map((pet) => (
             <div className={styles.petList} key={pet.id}>
-              <img className={styles.homePetPic} src={pet.pet.image?.[pet.selectImg]}/>
+              <img
+                className={styles.homePetPic}
+                src={pet.pet.image?.[pet.selectImg]}
+              />
               <Link to={`/pets/${pet.id}`}>
                 <h3>Name: {pet.name}</h3>
               </Link>
@@ -34,8 +39,8 @@ const PetSnapshot = () => {
         ) : (
           <p>
             <i>No pets exist for this user</i>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <Link to={`/pets`}>Add a Pet</Link>
           </p>
         )}
