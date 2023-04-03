@@ -2,90 +2,155 @@
 }
 
 .loggedOut {
-    column-count: 3;
+  column-count: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+}
+
+.speechBubble {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    padding: 2rem;
+    margin-left: 17rem;
+	position: relative;
+	background: rgb(245, 174, 152);
+	border-radius: .4em;
+    width: 50rem;
+}
+
+.speechBubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 25px solid transparent;
+	border-top-color: rgb(245, 174, 152);
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -12.5px;
+	margin-bottom: -25px;
+}
+
+.speechBubble p {
+    font-size: 2.5rem;
+    color: white;
+    margin-left: 9rem;
+    font-family: Shantell Sans;
+    font-weight: bold;
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
   }
+  
+.speechBubbleImg {
+   height: 50rem;
+   width: 35rem;
+   margin-left: 20rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .petChoice span {
-    display: inline-block;
-    font-weight: bold;
-    margin: 1rem;  
+  display: inline-block;
+  font-weight: bold;
+  margin: 1rem;
 }
 
 .petChoice img {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .petChoice span p {
-    color: green;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  color: green;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.petChoice p {
+  font-size: 1.5rem;
 }
 
 .petChoice h3 {
-    background-color: #F5AE98;
-    padding: 1rem;
-    color: white;
-    border-radius: 25px;
-    width: 14em;
-    margin: auto;
-    margin-bottom: 4px;
+  background-color: #f5ae98;
+  padding: 1rem;
+  color: white;
+  border-radius: 25px;
+  width: 14em;
+  margin: auto;
+  margin-bottom: 4px;
 }
 
 .petChoice {
-    text-align: center;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    break-inside: avoid;
-    padding:15px;
-    margin: 0 auto;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  break-inside: avoid;
+  padding: 15px;
+  margin: 0 auto;
+  border: thick double #1b4965;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .productivity {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    break-inside: avoid;
-    padding:15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid;
+  padding: 15px;
+  border: thick double #1b4965;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .productivity h3 {
-    background-color: #F5AE98;
-    padding: 1rem;
-    color: white;
-    border-radius: 25px;
-    margin: auto;
-    margin-bottom: 4px;
-    width: 14em;
+  background-color: #f5ae98;
+  padding: 1rem;
+  color: white;
+  border-radius: 25px;
+  margin: auto;
+  margin-bottom: 4px;
+  width: 14em;
 }
 
 .productivity p {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
 }
 
 .signUp {
-    display: flex;
-    break-inside: avoid;
-    background-image: url("../../../public/homepagefigure.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-bottom: 100%;
-    padding-top: 15%;
+  display: flex;
+  break-inside: avoid;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-bottom: 100%;
+  padding-top: 15%;
+  border: thick double #1b4965;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
-  }
-  img:hover {
-      transform: scale(1.1);
-    }
+.petChoice img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+.petChoice img:hover {
+  transform: scale(1.1);
+}
