@@ -18,6 +18,7 @@ const Todos = () => {
   const handleToggle = async (id, isCompleted) => {
     await dispatch(toggleCompleted({ id, isCompleted: !isCompleted }));
     await dispatch(fetchTodosAsync(userId));
+    await dispatch(fetchSingleUser(userId));
   };
 
   const handleDelete = async (id, event) => {
@@ -26,10 +27,11 @@ const Todos = () => {
     await dispatch(fetchTodosAsync(userId));
     navigate("/todos");
   };
+
   useEffect(() => {
     dispatch(fetchSingleUser(userId));
   }, [dispatch, userId]);
-  
+
   useEffect(() => {
     if (userId) {
       dispatch(fetchTodosAsync(userId));
@@ -77,7 +79,10 @@ const Todos = () => {
                   onChange={() => handleToggle(todo.id, todo.isCompleted)}
                 />
                 <label>Completed</label>
-                <button className="delete" onClick={(event) => handleDelete(todo.id, event)}>
+                <button
+                  className="delete"
+                  onClick={(event) => handleDelete(todo.id, event)}
+                >
                   Delete
                 </button>
               </div>

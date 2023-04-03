@@ -2,11 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import {
-  fetchSelectPetAsync,
-  selectSelectedPet,
-} from "./selectPetSlice";
-
+import { fetchSelectPetAsync, selectSelectedPet } from "./selectPetSlice";
 import styles from "../styles/PetProfile.module.css";
 
 const PetProfile = () => {
@@ -20,22 +16,24 @@ const PetProfile = () => {
   }, [dispatch]);
 
   const { id, name, createdAt, exp, user, selectImg } = singlePet;
+  //this function changes the display of exp necessary to reach the next level
   const expTilLevel = function () {
-    if (selectImg === 0){
+    if (selectImg === 0) {
       return 60;
     }
-    if (selectImg === 1){
-      return 100; 
+    if (selectImg === 1) {
+      return 100;
     }
-    if (selectImg === 2){
+    if (selectImg === 2) {
       return "Max Level!";
     }
-  }
+  };
 
+  //this function converts the createdAt data, which was originally only numbers, to display the corresponding month
   const convertDate = function (date) {
     const months = [
-      "Null",
-      "January",
+      "Null", // set the [0] index as null to avoid system displaying months improperly
+      "January", // therefore the month at [1] = January, [2] = February, etc
       "February",
       "March",
       "April",
@@ -56,7 +54,7 @@ const PetProfile = () => {
     const selectMonth = months[monthNum];
     return `${selectMonth} ${dayStr}, ${yearStr}`;
   };
-  
+
   const formatDate = convertDate(createdAt);
 
   return (
@@ -68,7 +66,9 @@ const PetProfile = () => {
               className={styles.profilePetImg}
               src={singlePet.pet?.image?.[selectImg]}
             />
-            <h3 className={styles.profileHeader}>EXP: {exp} / {expTilLevel(selectImg)}</h3>
+            <h3 className={styles.profileHeader}>
+              EXP: {exp} / {expTilLevel(selectImg)}
+            </h3>
           </section>
           <section className={styles.rightProfile}>
             <h2 className={styles.petName}>{name}</h2>
