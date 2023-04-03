@@ -1,26 +1,26 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUsersAsync } from "./userSlice";
-import FriendsDisplay from "./FriendsDisplay"
+import FriendsDisplay from "./FriendsDisplay";
 
 import styles from "../styles/FriendsSnapshot.module.css";
 
 //Component to display friends list on user profile page
 const FriendsSnapshot = () => {
-    const dispatch = useDispatch();
-    const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.users);
 
-    useEffect(() => {
-        dispatch(fetchUsersAsync())
-    }, [dispatch])
+  useEffect(() => {
+    dispatch(fetchUsersAsync());
+  }, [dispatch]);
 
-    return (
-        <div className={styles.friendsContainer}> 
-        <h1>Friends</h1>
-        <section className={styles.friendsList}>
+  return (
+    <div className={styles.friendsContainer}>
+      <h1>Friends</h1>
+      <section className={styles.friendsList}>
         <FriendsDisplay users={users} />
-        </section>
-        </div>
-    )
+      </section>
+    </div>
+  );
 };
 export default FriendsSnapshot;
