@@ -76,8 +76,8 @@ const Todos = () => {
                   onChange={() => handleToggle(todo.id, todo.isCompleted)}
                 />
                 <label>Completed</label>
-                <button onClick={(event) => handleDelete(todo.id, event)}>
-                  X
+                <button className="delete" onClick={(event) => handleDelete(todo.id, event)}>
+                  Delete
                 </button>
               </div>
             ))}

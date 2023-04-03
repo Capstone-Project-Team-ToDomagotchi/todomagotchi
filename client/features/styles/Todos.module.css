@@ -132,3 +132,8 @@
   color: #556b2f;
   cursor: pointer;
 }
+
+.delete button {
+  color: #6b8e23;
+  padding: 0px;
+}
