@@ -28,26 +28,6 @@ const Todos = () => {
     }
   }, [dispatch, userId]);
 
-  // const dateNow = new Date();
-  // const dayNum = dateNow.getDate();
-  // const monthNum = dateNow.getMonth();
-  // const yearNum = dateNow.getFullYear();
-  // const fullDate = `${yearNum}0${monthNum+1}${dayNum}`
-  // const numDate = Number(fullDate)
-
-  // const convertDate = function (date) {
-    
-  // }
-  // const dueNum = todos?.[0]?.dueDate;
-  // const select = dueNum?.[0];
-  // const yearStr = dueNum?.slice(0, 4);
-  // const monthStr = dueNum?.slice(5, 7);
-  // const dayStr = dueNum?.slice(8, 10);
-  // const newNum = `${yearStr}${monthStr}${dayStr}`;
-  // const dueNumInteger = Number(newNum);
-  // console.log(numDate)
-  // console.log(dueNumInteger)
-
   return (
     <div className={styles.todoContainer}>
       <div>
