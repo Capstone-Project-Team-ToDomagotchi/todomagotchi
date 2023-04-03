@@ -28,7 +28,7 @@ app.post("/ask", async (req, res) => {
       throw new Error("Uh oh, no prompt was provided");
     }
     const response = await openai.createCompletion({
-      model: "text-davinci-003",
+      model: "text-davinci-002",
       prompt: prompt,
       temperature: 0.4,
       max_tokens: 100,
