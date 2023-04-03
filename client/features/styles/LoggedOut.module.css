@@ -8,7 +8,6 @@
     margin: 5px;
     padding: 5px;
     display: inline-block;
-    
 }
 
 .petChoice span {
@@ -46,9 +45,6 @@
   break-inside: avoid;
   padding: 15px;
   margin: 0 auto;
-  border: thick double #1b4965;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .productivity {
@@ -57,9 +53,6 @@
   flex-direction: column;
   break-inside: avoid;
   padding: 15px;
-  border: thick double #1b4965;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .productivity h3 {
@@ -74,7 +67,6 @@
 
 .productivity p {
   margin-bottom: 3rem;
-  font-size: 1.5rem;
 }
 
 .productivity .signUp:hover {
