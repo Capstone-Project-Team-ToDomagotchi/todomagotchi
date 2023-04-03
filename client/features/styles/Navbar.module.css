@@ -23,8 +23,10 @@
 
 .navbar h1 img {
     display: inline;
-    height: 9rem;
-    width: 10rem;
+    height: 6rem;
+    width: 3.8rem;
+    /* height: 9rem;
+    width: 10rem; */
     margin-left: 0.6rem;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
