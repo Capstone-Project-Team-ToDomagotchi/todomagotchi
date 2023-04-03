@@ -2,12 +2,12 @@
 }
 
 .loggedOut {
-    column-count: 3;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 20px;
-    margin: 5px;
-    padding: 5px;
-    display: inline-block;
+  column-count: 3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+  display: inline-block;
 }
 
 .petChoice span {
@@ -21,10 +21,9 @@
 }
 
 .petChoice span p {
-    color: green;
-    background: white;
-    border-radius: 20px;
-    
+  color: green;
+  background: white;
+  border-radius: 20px;
 }
 
 .petChoice h3 {
@@ -70,27 +69,27 @@
 }
 
 .productivity .signUp:hover {
-    background-color: olivedrab;
+  background-color: olivedrab;
 }
 
 .signUp {
-    display: flex;
-    break-inside: avoid;
-    background-image: url("../../../public/homepagefigure.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-bottom: 100%;
-    padding-top: 15%;
-    background-position: center;
+  display: flex;
+  break-inside: avoid;
+  background-image: url("../../../public/homepagefigure.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-bottom: 100%;
+  padding-top: 15%;
+  background-position: center;
 }
 
 img {
-    width: 150px;
-    height: 150px;
-    border-radius: 15%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
-  }
-  img:hover {
-      transform: scale(1.1);
-    }
+  width: 150px;
+  height: 150px;
+  border-radius: 15%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+img:hover {
+  transform: scale(1.1);
+}

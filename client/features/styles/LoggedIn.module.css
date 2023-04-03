@@ -1,7 +1,7 @@
 .loggedIn {
-    columns: 3;
-    text-align: center;
-    /* background: seashell;
+  columns: 3;
+  text-align: center;
+  /* background: seashell;
     border-radius: 20px;
     padding: 1rem;
     margin-bottom: 4rem;
@@ -9,44 +9,44 @@
 }
 
 .welcome {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .quotesContainer {
-    break-inside: avoid;
-    color: black;
-    background: seashell;
-    border-radius: 20px;
-    padding: 1rem;
-    margin-bottom: 4rem;
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  break-inside: avoid;
+  color: black;
+  background: seashell;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 4rem;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
 }
 
 .petContainer {
-    break-inside: avoid;
-    color: black;
-    background: seashell;
-    border-radius: 20px;
-    padding: 1rem;
-    margin-bottom: 4rem;
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  break-inside: avoid;
+  color: black;
+  background: seashell;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 4rem;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
 }
 
 .todosContainer {
-    break-inside: avoid;
-    color: black;
-    background: seashell;
-    border-radius: 20px;
-    padding: 1rem;
-    margin-bottom: 4rem;
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
-    height: 100%;
+  break-inside: avoid;
+  color: black;
+  background: seashell;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 4rem;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  height: 100%;
 }
 
-@media screen and (max-width: 1151px){
-    .loggedIn {
-        display: flex;
-        flex-flow: column wrap;
-        gap: 2em;
-    }
+@media screen and (max-width: 1151px) {
+  .loggedIn {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 2em;
+  }
 }
