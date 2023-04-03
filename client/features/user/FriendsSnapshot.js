@@ -5,6 +5,7 @@ import FriendsDisplay from "./FriendsDisplay"
 
 import styles from "../styles/FriendsSnapshot.module.css";
 
+//Component to display friends list on user profile page
 const FriendsSnapshot = () => {
     const dispatch = useDispatch();
     const users = useSelector((state) => state.users);

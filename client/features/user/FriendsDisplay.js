@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import styles from "../styles/FriendsDisplay.module.css";
 
-//Component to display friends list on user's profile page
+//Component to display friends' info on friend list
 const FriendsDisplay = ({ users }) => {
         if (!users) {
             return <div>No friends yet</div>
