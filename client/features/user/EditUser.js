@@ -21,6 +21,7 @@ const EditUser = () => {
   const [pronouns, setPronouns] = useState("");
   const [aboutMe, setAboutMe] = useState("");
 
+  // Event handler to edit profile pic
   const handleProfilePicChange = (evt) => {
   const file = evt.target.files[0];
   if (file && file.type.startsWith("image/")) {
@@ -38,6 +39,8 @@ const EditUser = () => {
     setProfilePic(null);
   }
 };
+
+//Event handler to edit user profile info
   const handleSubmit = async (event) => {
     event.preventDefault();
     await dispatch(
@@ -59,6 +62,7 @@ const EditUser = () => {
   };
 
   return (
+    //Edit user form begins here
     <div className={styles.editUser}>
       <form onSubmit={handleSubmit}>
         <h1>Edit Information</h1>
