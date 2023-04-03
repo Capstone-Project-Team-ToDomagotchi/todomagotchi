@@ -5,6 +5,7 @@
     margin: 10vh;
     padding: auto;
     text-align: center;
+    justify-content: center;
 }
 
 .container h1 {
