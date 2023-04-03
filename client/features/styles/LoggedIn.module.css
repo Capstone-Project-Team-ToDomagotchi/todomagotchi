@@ -1,15 +1,17 @@
 .loggedIn {
   columns: 3;
   text-align: center;
-  /* background: seashell;
-    border-radius: 20px;
-    padding: 1rem;
-    margin-bottom: 4rem;
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15); */
 }
 
 .welcome {
   font-size: 1.5rem;
+  text-align: center;
+  background: seashell;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 4rem;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.15);
+  width: 20%;
 }
 
 .quotesContainer {
@@ -17,9 +19,10 @@
   color: black;
   background: seashell;
   border-radius: 20px;
-  padding: 1rem;
+  padding: 0.5rem;
   margin-bottom: 4rem;
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 10px 2px #3e8a4e;
+  height: 10%;
 }
 
 .petContainer {
@@ -27,9 +30,9 @@
   color: black;
   background: seashell;
   border-radius: 20px;
-  padding: 1rem;
+  padding: 0.5rem;
   margin-bottom: 4rem;
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 10px 2px #3e8a4e;
 }
 
 .todosContainer {
@@ -37,9 +40,9 @@
   color: black;
   background: seashell;
   border-radius: 20px;
-  padding: 1rem;
+  padding: 0.5rem;
   margin-bottom: 4rem;
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 10px 2px #3e8a4e;
   height: 100%;
 }
 
