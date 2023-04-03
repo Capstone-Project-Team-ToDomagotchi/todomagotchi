@@ -10,13 +10,13 @@
     display: block;
 }
 
-.openAI input {
+.openAI textarea {
     width: 15vw;
-    height: 10vh;
+    height: 5vh;
     justify-items: center;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .openAI button {

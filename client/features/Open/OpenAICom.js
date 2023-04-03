@@ -11,7 +11,7 @@ function OpenAI() {
     event.preventDefault();
 
     try {
-      const { data } = await axios.post('/ask', { prompt, timeout:5000 }, );
+      const { data } = await axios.post('/ask', { prompt, timeout:8000 }, );
       setResponse(data.message);
       setPrompt('');
     } catch (error) {
@@ -25,7 +25,7 @@ function OpenAI() {
         <label>
           Talk to me: 
           </label>
-          <textarea
+          <textarea className='chat'
             type="text"
             value={prompt}
             onChange={(event) => setPrompt(event.target.value)}
