@@ -6,6 +6,13 @@ const LoggedOut = () => {
   return (
     <main className={styles.loggedOut}>
       {/* Choose a pet section */}
+      <div className={styles.speechBubble}>
+        <p>Welcome to ToDoMagotchi!</p>
+      </div>
+      <br/>
+      <div>
+        <img className={styles.speechBubbleImg} src="homepagefigure.png"></img>
+      </div>
       <section className={styles.petChoice}>
         <div>
           <h3>Choose a pet</h3>
@@ -22,7 +29,8 @@ const LoggedOut = () => {
           </span>
         </div>
       </section>
-      {/* Make your pet grow with productivity section */}
+      {/* Make your pet grow with productivity section */}     
+      <br/>
       <section className={styles.productivity}>
         <h3>Make your pet grow with productivity</h3>
         <p>
@@ -33,12 +41,11 @@ const LoggedOut = () => {
           Make checking off todos more fun by caring for your very own ToDomagotchi pets!
         </p>
       </section> 
-      {/* Home pic of lady with the pets on home page section. It's meant to be a larger picture that will take up the right panel (so there won't be as much white space as there is now) */}
-      <section className={styles.signUp}>
+      {/* <section className={styles.signUp}>
         <div>
         </div>
             
-      </section>
+      </section> */}
     </main>
   );
 };
