@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import styles from "../styles/LoggedOut.module.css";
 
 const LoggedOut = () => {
@@ -28,7 +28,9 @@ const LoggedOut = () => {
         <p>
           For each task you complete, your pet will gain experience points and grow to new stages and forms. But be careful! If you neglect to finish a task before the deadline you set, your pet loses experience points. Be sure to log on every day to ensure your pet stays healthy!
         </p>
+        <Link to="/signup" className="signUp">
         <h3>Sign up today!</h3>
+        </Link>
         <p>
           Make checking off todos more fun by caring for your very own ToDomagotchi pets!
         </p>
