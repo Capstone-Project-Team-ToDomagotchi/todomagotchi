@@ -1,8 +1,5 @@
-/* *{
-  background-color: seashell;
-} */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: seashell;
 }
 
@@ -27,7 +24,6 @@ img {
 hr {
   background-color: #1b4965;
   height: 2px;
-  
 }
 
 button {

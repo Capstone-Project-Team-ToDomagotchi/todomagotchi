@@ -17,7 +17,6 @@
   flex-wrap: wrap;
   flex: column;
   flex-flow: column;
-  /* border: thick double #1b4965; */
   border-radius: 20px;
   background-color: #f5c4b5;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
