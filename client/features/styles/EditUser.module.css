@@ -26,7 +26,7 @@
 }
 
 .editUser form label {
-    font-weight: bold;
+    padding: .4rem;
 }
 
 .editUser form input {
