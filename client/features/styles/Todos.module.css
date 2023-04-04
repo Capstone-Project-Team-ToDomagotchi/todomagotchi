@@ -16,7 +16,6 @@
   /* align-items: center; */
   flex-direction: row;
   flex-wrap: nowrap;
- 
 }
 
 /* links */
@@ -136,4 +135,13 @@
 .delete button {
   color: #6b8e23;
   padding: 0px;
+}
+@media (max-width: 450px) {
+  .list {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
