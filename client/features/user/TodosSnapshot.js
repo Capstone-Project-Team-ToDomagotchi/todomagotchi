@@ -21,7 +21,6 @@ const TodosSnapshot = () => {
 
   return (
     <main className={styles.todoContainer}>
-<<<<<<< HEAD
     <h2 className={styles.homeHeader}>Current Todos</h2>
     {todos && todos.length ? (
       todos
@@ -30,28 +29,12 @@ const TodosSnapshot = () => {
         <section className={styles.todoList} key={todo.id}>
           <Link to={`/todos/${todo.id}`}>Name: {todo.todoName} </Link> 
           <p className="due">Deadline: {todo.dueDate}</p>
+          <a href="/todos">See All Todos</a>
         </section>
       ))
     ) : (
       <p>No todos exist for this user</p>
     )}
-=======
-      <h2 className={styles.homeHeader}>Current Todos</h2>
-      <br />
-      {todos && todos.length ? (
-        todos.map((todo) => (
-          <section className={styles.todoList} key={todo.id}>
-            <Link to={`/todos/${todo.id}`}>Name: {todo.todoName} </Link> |
-            Deadline: {todo.dueDate}
-          </section>
-        ))
-      ) : (
-        <p>No todos exist for this user</p>
-      )}
-      <br />
-      <br />
-      <Link to={`/todos`}>See All Todos</Link>
->>>>>>> a2acc5e9ec3d9025e2c2cfc4c0d4f10dc8f58a02
     </main>
   );
 };
