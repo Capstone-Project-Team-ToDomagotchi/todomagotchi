@@ -1,95 +1,120 @@
 /* styling for sign up form */
 
-.container{
-    display: flex;
-    margin: 10vh;
-    padding: auto;
-    text-align: center;
+.container {
+  display: flex;
+  /* margin: 10vh; */
+  /* padding: auto; */
+  text-align: center;
+  justify-content: center;
 }
 
 .container h1 {
-    background-color: #F5AE98;
-    padding: 1rem;
-    color: white;
-    border-radius: 25px;
-    width: 14em;
-    margin: auto;
-    margin-bottom: 4px;
-
+  background-color: #f5ae98;
+  padding: 1rem;
+  color: white;
+  border-radius: 25px;
+  width: 14em;
+  margin: auto;
+  margin-bottom: 4px;
 }
 
 .signUpForm {
-    width: 80%;
-    height: 80%;
-    margin: 0vw;
-    padding: 5vw;
-    display: inline-block;
-    border: thick double #1b4965;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-    
+  width: 80%;
+  height: 80%;
+  margin: 0vw;
+  padding: 5vw;
+  display: inline-block;
+  border: thick double #1b4965;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .signUpForm label {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .signUpForm input {
-    display: block;
-    height: 3vh;
-    padding: .5rem .8rem .5rem .8rem;
-    margin: .9vw 0;
-    border-radius: 20px;
+  display: block;
+  height: 3vh;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border-radius: 20px;
 }
 
-.signUpForm span{
-    display: inline-block;
-    padding-bottom: 1rem;
- } 
+.signUpForm span {
+  display: inline-block;
+  padding-bottom: 1rem;
+}
 
- .profilePicUrl {
-    padding-bottom: 3vh;
-    justify-items: center;
-    margin-bottom: 3px;
-    height: 100px;
+.profilePicUrl {
+  padding-bottom: 3vh;
+  justify-items: center;
+  margin-bottom: 3px;
+  height: 100px;
 }
 
 .profilePicUrl input::file-selector-button {
-    background-color: rgb(62, 138, 78);
-    color: white;
-    font-family: Poppins;
-    padding: 2px 2px;
-    font-weight: bold;
-    font-size: 14px;
-    border-radius: 12px;
+  background-color: rgb(62, 138, 78);
+  color: white;
+  font-family: Poppins;
+  padding: 2px 2px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 12px;
 }
 
 /* styling for login form */
 
 .loggedInForm {
-    width: 80%;
-    height: 8%;
-    margin: 0vw;
-    padding: 5vw;
-    display: inline-block;
-     border: thick double #1b4965;
-    border-radius: 20px;
-   
+  /* width: 80%; */
+  height: 8%;
+  /* margin: 0vw; */
+  padding: 5vw;
+  /* display: inline-block; */
+  border: thick double #1b4965;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .loggedInForm label {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .loggedInForm input {
-    display: inline-block;
-    height: 3vh;
-    padding: .5rem .8rem .5rem .8rem;
-    margin: .9vw 0;
-    border-radius: 20px;
+  display: inline-block;
+  height: 3vh;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border-radius: 20px;
 }
 
-.loggedInForm span{
-   display: inline-block;
-   padding: 1rem;
-} 
+.loggedInForm span {
+  display: inline-block;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    margin: 20px;
+  }
+  .container h1 {
+    width: 7em;
+  }
+  .loggedInForm {
+    width: 100vw;
+  }
+  .loggedInForm span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.1rem;
+  }
+  .loggedInForm span .inputlabel {
+    display: flex;
+    flex-direction: row;
+  }
+  input {
+    width: 75%;
+  }
+}
