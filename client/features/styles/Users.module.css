@@ -29,10 +29,27 @@
 }
 
 .userProfile section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 0vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0vw;
+} 
+
+@media (max-width: 450px){
+    .userProfile {
+        display: flex;
+        flex-direction: column;
+      
+  
+        text-align: center;
+        align-content: space-around;
+        align-items: center
+    }
+    .userProfile header img {
+        height: 10rem;
+        width: 8rem;
+        border-radius: 20px;
+    }
 }

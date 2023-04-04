@@ -48,12 +48,14 @@ function OpenAI() {
       </form>
       {/* {response && <p>AI: {response}</p>} */}
       <div className={styles.chatHistory}>
+
         {history.map((chat, index) => (
           <div key={index}>
+            <p>You: {chat.prompt}</p>
             <p>{selectPets && selectPets.length && selectPets.map((pet) => {
               return `${pet.name}`;
             })}: {chat.response}</p>
-            <p>You: {chat.prompt}</p>
+            
           </div>
         ))}
       </div>

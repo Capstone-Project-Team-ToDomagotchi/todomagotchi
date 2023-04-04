@@ -8,6 +8,12 @@
   margin: 5px;
   padding: 5px;
   display: inline-block;
+  column-count: 3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+  display: inline-block;
 }
 
 .petChoice span {
@@ -92,4 +98,15 @@ img {
 }
 img:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 450px) {
+  .loggedOut {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-flow: wrap;
+  }
 }
