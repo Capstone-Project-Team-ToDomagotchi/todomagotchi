@@ -28,7 +28,7 @@ const NewTodo = () => {
     setPointType("");
     setDescription("");
     setIsCompleted(false);
-    navigate(`/home`);
+    navigate(`/todos`);
   };
 
  
