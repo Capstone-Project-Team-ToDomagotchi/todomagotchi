@@ -2,9 +2,10 @@
 
 .container {
   display: flex;
-  margin: 10vh;
-  padding: auto;
+  /* margin: 10vh; */
+  /* padding: auto; */
   text-align: center;
+  justify-content: center;
 }
 
 .container h1 {
@@ -65,13 +66,15 @@
 /* styling for login form */
 
 .loggedInForm {
-  width: 80%;
+  /* width: 80%; */
   height: 8%;
-  margin: 0vw;
+  /* margin: 0vw; */
   padding: 5vw;
-  display: inline-block;
+  /* display: inline-block; */
   border: thick double #1b4965;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .loggedInForm label {
@@ -89,4 +92,29 @@
 .loggedInForm span {
   display: inline-block;
   padding: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    margin: 20px;
+  }
+  .container h1 {
+    width: 7em;
+  }
+  .loggedInForm {
+    width: 100vw;
+  }
+  .loggedInForm span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.1rem;
+  }
+  .loggedInForm span .inputlabel {
+    display: flex;
+    flex-direction: row;
+  }
+  input {
+    width: 75%;
+  }
 }
