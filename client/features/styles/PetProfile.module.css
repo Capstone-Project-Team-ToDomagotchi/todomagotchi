@@ -1,43 +1,41 @@
 .PetProfile {
-    display: flex;
-    justify-content: center;
-    columns: 2;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  columns: 2;
+  text-align: center;
 }
 
 .profilePetImg {
-    height: 30rem;
-    width: auto;
+  height: 30rem;
+  width: auto;
 }
 
 .leftProfile {
-    width: auto;
-    height: 50%;
-    float: left;
-    margin-right: 10px;
-    display: flex;
-    flex-flow: column wrap;
+  width: auto;
+  height: 50%;
+  float: left;
+  margin-right: 10px;
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .petName {
-    background-color: #3E8A4E;
-    padding: 2rem;
-    color: white;
-    border-radius: 25px;
-    border: solid 1px black;
+  background-color: #3e8a4e;
+  padding: 2rem;
+  color: white;
+  border-radius: 25px;
+  border: solid 1px black;
 }
 
-.profileHeader{
-    background-color: #F5AE98;
-    padding: 1rem;
-    border-radius: 15px;
+.profileHeader {
+  background-color: #f5ae98;
+  padding: 1rem;
+  border-radius: 15px;
 }
 
 .rightProfile {
-    float: right;
-    width: 30rem;
-    border-radius: 15px;
-    padding: 1rem;
+  float: right;
+  width: 30rem;
+  border-radius: 15px;
+  padding: 1rem;
 }
-
-

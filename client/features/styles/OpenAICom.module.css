@@ -1,17 +1,16 @@
 .openAI {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .openAI label {
-    display: block;
+  display: block;
 }
 
 .openAI textarea {
-
     width: 15vw;
     height: 5vh;
     justify-items: center;
@@ -21,8 +20,8 @@
 }
 
 .openAI button {
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 }
 
 @media (max-width: 450px){

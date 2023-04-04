@@ -17,9 +17,12 @@ const ApiGet = () => {
 
   return (
     <section className={styles.quotes}>
-      <h2 className={styles.homeHeader}>Quote of the Day</h2>
+      <h2 className={styles.homeHeader}>Quote of the Day</h2><br/>
       <p>{data.text}</p>
+      <br/>
       <small>- {data.author}</small>
+      <br/>
+      <br/>
     </section>
   );
 };

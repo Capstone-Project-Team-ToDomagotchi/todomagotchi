@@ -1,9 +1,9 @@
 .navbar {
-    box-sizing: border-box;
-    position: sticky;
-    padding-top: 1rem;
-    width: 100%;
-    justify-content: space-between;
+  box-sizing: border-box;
+  position: sticky;
+  padding-top: 1rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .navbar h1{
@@ -21,15 +21,18 @@
 }
 
 .navbar h1 img {
-    display: inline;
-    height: 5.2rem;
-    width: 3.5rem;
-    margin-left: 0.6rem;
+  display: inline;
+  height: 5.2rem;
+  width: 3.5rem;
+  margin-left: 0.6rem;
 }
 
+.navbar img:hover {
+  transform: scale(1.1);
+}
 
 .logo {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 @media (max-width: 450px) {

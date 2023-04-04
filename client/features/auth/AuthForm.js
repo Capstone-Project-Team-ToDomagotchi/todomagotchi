@@ -94,17 +94,29 @@ const AuthForm = ({ name, authMethod }) => {
           <h1>Log In</h1>
           <hr />
           <span>
-            <FontAwesomeIcon icon={faUser} />
+            {/* <FontAwesomeIcon icon={faUser} />
             <label htmlFor="username">
               <small>Username</small>
-            </label>
+            </label> */}
+            <span className={styles.inputlabel}>
+              <FontAwesomeIcon icon={faUser} />
+              <label htmlFor="username">
+                <small>Username</small>
+              </label>
+            </span>
             <input name="username" type="text" placeholder="Username" />
           </span>
           <span>
-            <FontAwesomeIcon icon={faLock} />
+            {/* <FontAwesomeIcon icon={faLock} />
             <label htmlFor="password">
               <small>Password</small>
-            </label>
+            </label> */}
+            <span className={styles.inputlabel}>
+              <FontAwesomeIcon icon={faLock} />
+              <label htmlFor="password">
+                <small>Password</small>
+              </label>
+            </span>
             <input name="password" type="password" placeholder="Password" />
           </span>
           <div>

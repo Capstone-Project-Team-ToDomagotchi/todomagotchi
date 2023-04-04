@@ -4,13 +4,12 @@ import axios from "axios";
 //Create a thunk to fetch all users
 export const fetchUsersAsync = createAsyncThunk("users", async () => {
   try {
-    const { data } = await axios.get('/api/users');
+    const { data } = await axios.get("/api/users");
     return data;
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 });
-
 
 //Set initial state for users
 const initialState = [];
@@ -23,7 +22,7 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchUsersAsync.fulfilled, (state, action) => {
       return action.payload;
-    })
+    });
   },
 });
 
@@ -32,4 +31,3 @@ export const selectUsers = (state) => {
   return state.users;
 };
 export default userSlice.reducer;
-

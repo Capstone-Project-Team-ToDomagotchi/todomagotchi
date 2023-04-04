@@ -1,18 +1,18 @@
 .todoContainer {
-    text-align: center;
+  text-align: center;
 }
 
 .homeHeader {
-    background-color: #F5AE98;
-    padding: 1rem;
-    color: white;
-    border-radius: 25px;
-    border: solid 1px white;
-    width: 10em;
-    margin: auto;
+  background-color: #f5ae98;
+  padding: 1rem;
+  color: white;
+  border-radius: 25px;
+  border: solid 1px white;
+  width: 10em;
+  margin: auto;
 }
 
 .todoList {
-    margin-top: 4px;
-    padding-top: 10px;
+  margin-top: 4px;
+  padding-top: 10px;
 }
