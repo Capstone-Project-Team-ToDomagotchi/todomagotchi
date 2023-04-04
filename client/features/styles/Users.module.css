@@ -1,41 +1,38 @@
 .userProfile {
-    display: flex;
-    flex-direction: column;
-    margin: 2vh;
-    text-align: center;
-    align-content: space-around;
-    align-items: center
+  display: flex;
+  flex-direction: column;
+  margin: 2vh;
+  text-align: center;
+  align-content: space-around;
+  align-items: center;
 }
 
 .userProfile header {
-    width: 40%;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2vh;
-    padding: 5vw;
-    display: flex;
-    flex-wrap: wrap;
-    flex: column;
-    flex-flow: column;
-    /* border: thick double #1b4965; */
-    border-radius: 20px;
-    background-color: #f5c4b5;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vh;
+  padding: 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex: column;
+  flex-flow: column;
+  border-radius: 20px;
+  background-color: #f5c4b5;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
 }
 
 .userProfile header img {
-    height: 13rem;
-    width: 17rem;
-    border-radius: 20px;
+  height: 13rem;
+  width: 17rem;
+  border-radius: 20px;
 }
 
 .userProfile section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0vw;
-} 
-
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0vw;
+}

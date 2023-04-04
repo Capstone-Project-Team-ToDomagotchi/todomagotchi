@@ -1,25 +1,25 @@
 .petContainer {
-    text-align: center;
+  text-align: center;
 }
 
 .petList {
-    display: inline;
+  display: inline;
 }
 
 .homePetPic {
-    height: 22em;
-    width: auto;
-    border-radius: 20px;
-    margin-top: 2rem;
+  height: 22em;
+  width: auto;
+  border-radius: 20px;
+  margin-top: 2rem;
 }
 
 .homeHeader {
-    background-color: #F5AE98;
-    padding: 1rem;
-    color: white;
-    border-radius: 25px;
-    border: solid 1px white;
-    width: 10em;
-    margin: auto;
-    margin-bottom: 4px;
+  background-color: #f5ae98;
+  padding: 1rem;
+  color: white;
+  border-radius: 25px;
+  border: solid 1px white;
+  width: 10em;
+  margin: auto;
+  margin-bottom: 4px;
 }

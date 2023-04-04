@@ -30,9 +30,7 @@ const LoggedOut = () => {
         <h3>Make your pet grow with productivity</h3>
         <p>
           For each task you complete, your pet will gain experience points and
-          grow to new stages and forms. But be careful! If you neglect to finish
-          a task before the deadline you set, your pet loses experience points.
-          Be sure to log on every day to ensure your pet stays healthy!
+          grow to new stages and forms.
         </p>
         <Link to="/signup" className="signUp">
         <h3>Sign up today!</h3>
@@ -42,7 +40,6 @@ const LoggedOut = () => {
           ToDomagotchi pets!
         </p>
       </section>
-      {/* Home pic of lady with the pets on home page section. It's meant to be a larger picture that will take up the right panel (so there won't be as much white space as there is now) */}
       <section className={styles.signUp}>
         <div></div>
       </section>

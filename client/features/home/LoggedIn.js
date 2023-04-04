@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { fetchTodosAsync } from "../todo/todoSlice";
 import { fetchSingleUser } from "../user/singleUserSlice";
 import TodosSnapshot from "../user/TodosSnapshot";
@@ -9,7 +8,7 @@ import ApiGet from "../ApiGet";
 import OpenAI from "../Open/OpenAICom";
 
 import styles from "../styles/LoggedIn.module.css";
-/** */
+
 const LoggedIn = () => {
   const user = useSelector((state) => state.auth.me.id);
   const username = useSelector((state) => state.auth.me.username);
@@ -39,14 +38,8 @@ const LoggedIn = () => {
             <OpenAI />
           </section>
         </section>
-
         <section className={styles.todosContainer}>
           <TodosSnapshot todos={todos} />
-        </section>
-        <br />
-        <br />
-        <section className={styles.allTodos}>
-          <Link to={`/todos`}>See All Todos</Link>
         </section>
       </section>
     </main>

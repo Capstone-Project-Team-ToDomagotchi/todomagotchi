@@ -1,34 +1,36 @@
 .navbar {
-    box-sizing: border-box;
-    position: sticky;
-    padding-top: 1rem;
-    width: 100%;
-    justify-content: space-between;
+  box-sizing: border-box;
+  position: sticky;
+  padding-top: 1rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
-.navbar h1{
-    text-align: center;
-    margin-top: 5rem;
-    font-family: 'Rubik Moonrocks', cursive;
-    font-size: 3rem;
-    color: #3E8A4E;
+.navbar h1 {
+  text-align: center;
+  margin-top: 5rem;
+  font-family: "Rubik Moonrocks", cursive;
+  font-size: 3rem;
+  color: #3e8a4e;
 }
 
-.navbar a{
-    float: right;
-    padding: 1.5rem;
-    font-weight: bold;
+.navbar a {
+  float: right;
+  padding: 1.5rem;
+  font-weight: bold;
 }
 
 .navbar h1 img {
-    display: inline;
-    height: 5.2rem;
-    width: 3.5rem;
-    margin-left: 0.6rem;
+  display: inline;
+  height: 5.2rem;
+  width: 3.5rem;
+  margin-left: 0.6rem;
+}
+
+.navbar img:hover {
+  transform: scale(1.1);
 }
 
 .logo {
-    box-shadow: none;
+  box-shadow: none;
 }
-
-

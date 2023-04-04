@@ -1,23 +1,55 @@
 .loggedIn {
-    columns: 3;
-    text-align: center;
+  columns: 3;
+  text-align: center;
+}
+
+.welcome {
+  font-size: 1.5rem;
+  text-align: center;
+  background: seashell;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 4rem;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  width: 20%;
 }
 
 .quotesContainer {
-    break-inside: avoid;
+  break-inside: avoid;
+  color: black;
+  background: seashell;
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin-bottom: 4rem;
+  box-shadow: 0px 0px 10px #3e8a4e;
+  height: 10%;
 }
+
 .petContainer {
-    break-inside: avoid;
+  break-inside: avoid;
+  color: black;
+  background: seashell;
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin-bottom: 4rem;
+  box-shadow: 0px 0px 10px #3e8a4e;
 }
 
 .todosContainer {
-    break-inside: avoid;
+  break-inside: avoid;
+  color: black;
+  background: seashell;
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin-bottom: 4rem;
+  box-shadow: 0px 0px 10px #3e8a4e;
+  height: 100%;
 }
 
-@media screen and (max-width: 1151px){
-    .loggedIn {
-        display: flex;
-        flex-flow: column wrap;
-        gap: 2em;
-    }
+@media screen and (max-width: 1151px) {
+  .loggedIn {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 2em;
+  }
 }

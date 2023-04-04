@@ -1,56 +1,56 @@
 .editUser {
-    display: flex;
-    text-align: center;
+  display: flex;
+  text-align: center;
 }
 
 .editUser h1 {
-    background-color: #F5AE98;
-    padding: 1rem;
-    color: white;
-    border-radius: 25px;
-    width: 14em;
-    margin: auto;
-    margin-bottom: 4px;
+  background-color: #f5ae98;
+  padding: 1rem;
+  color: white;
+  border-radius: 25px;
+  width: 14em;
+  margin: auto;
+  margin-bottom: 4px;
 }
 
 .editUser form {
-    width: 70%;
-    height: 100vh;
-    margin-left: 13rem; 
-    display: inline-block;
-    align-items: center;
-    border: thick double #1b4965;
-    border-radius: 20px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  width: 70%;
+  height: 100vh;
+  margin-left: 13rem;
+  display: inline-block;
+  align-items: center;
+  border: thick double #1b4965;
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .editUser form label {
-    padding: .4rem;
+  padding: 0.4rem;
 }
 
 .editUser form input {
-    display: inline-block;
-    height: 3vh;
-    padding: .5rem .8rem .5rem .8rem;
-    margin: .9vw 0;
-    border-radius: 20px;
+  display: inline-block;
+  height: 3vh;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border-radius: 20px;
 }
 
 .editUser form input::-webkit-file-upload-button {
-    background-color: rgb(62, 138, 78);
-    color: white;
-    font-family: Poppins;
-    padding: 2px 2px;
-    font-weight: bold;
-    font-size: 14px;
-    border-radius: 12px;
+  background-color: rgb(62, 138, 78);
+  color: white;
+  font-family: Poppins;
+  padding: 2px 2px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 12px;
 }
 
 .editUser form input::-webkit-file-upload-button:hover {
-    background-color: rgb(245, 174, 152);
+  background-color: rgb(245, 174, 152);
 }
 
-.editUser form span{
-   display: inline-block;
-} 
+.editUser form span {
+  display: inline-block;
+}
